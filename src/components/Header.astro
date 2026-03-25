@@ -1,12 +1,24 @@
+// ---
+// const navItems = [
+  // { href: '/', label: 'Home' },
+  // { href: '/portraits/', label: 'Portrait Sessions' },
+  // { href: '/portfolio/collaborative/', label: 'Collaborative Portraits' },
+  // { href: '/portfolio/landscape/', label: 'Landscape & Abstract' },
+  // { href: '/about/', label: 'About' },
+  // { href: '/contact/', label: 'Contact' }
+// ];
+
 ---
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/portraits/', label: 'Portrait Sessions' },
-  { href: '/portfolio/collaborative/', label: 'Collaborative Portraits' },
-  { href: '/portfolio/landscape/', label: 'Landscape & Abstract' },
-  { href: '/about/', label: 'About' },
-  { href: '/contact/', label: 'Contact' }
+  { href: `${import.meta.env.BASE_URL}`, label: 'Home' },
+  { href: `${import.meta.env.BASE_URL}portraits/`, label: 'Portrait Sessions' },
+  { href: `${import.meta.env.BASE_URL}portfolio/collaborative/`, label: 'Collaborative Portraits' },
+  { href: `${import.meta.env.BASE_URL}portfolio/landscape/`, label: 'Landscape & Abstract' },
+  { href: `${import.meta.env.BASE_URL}about/`, label: 'About' },
+  { href: `${import.meta.env.BASE_URL}contact/`, label: 'Contact' }
 ];
+---
+
 ---
 
 <header class="site-header">
