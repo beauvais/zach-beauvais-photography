@@ -1,0 +1,24 @@
+---
+interface Props {
+  name: string;
+  price: string;
+  description: string;
+  items: string[];
+}
+
+const { name, price, description, items } = Astro.props;
+---
+
+<article class="package-card">
+  <div class="stack">
+    <p class="eyebrow">{name}</p>
+    <p class="price">{price}</p>
+    <p>{description}</p>
+  </div>
+
+  <ul class="package-list">
+    {items.map((item) => <li>{item}</li>)}
+  </ul>
+
+  <a class="button button-secondary" href="/contact/">Book this session</a>
+</article>

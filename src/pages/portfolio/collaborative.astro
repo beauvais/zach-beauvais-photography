@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import PortfolioCard from '../../components/PortfolioCard.astro';
+---
+
+<BaseLayout
+  title="Collaborative Portrait Portfolio | Zach Beauvais Photographer"
+  description="Collaborative and expressive portrait photography by Zach Beauvais."
+  path="/portfolio/collaborative/"
+>
+  <section class="section page-hero">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Portfolio"
+        title="Collaborative / expressive portraits"
+        intro="The site includes placeholder panels so the framework is complete now. Replace these with your real images in public/images/portfolio/collaborative/ when you are ready."
+      />
+
+      <div class="portfolio-highlight-grid">
+        <PortfolioCard
+          className="portrait-a"
+          title="Portrait study I"
+          body="Use this slot for a concise note about the mood, collaboration, or setting behind the work."
+          href="/contact/"
+          cta="Book a portrait session"
+        />
+        <PortfolioCard
+          className="portrait-b"
+          title="Portrait study II"
+          body="This framework keeps descriptions optional, so the images can stay primary when you add the real work."
+          href="/contact/"
+          cta="Start an inquiry"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PackageCard from '../components/PackageCard.astro';
+---
+
+<BaseLayout
+  title="Portrait Sessions | Zach Beauvais Photographer"
+  description="Portrait session packages for collaborative artistic photography in Lafayette, Indiana."
+  path="/portraits/"
+>
+  <section class="section page-hero">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Portrait sessions"
+        title="Portraits for social presence, personal expression, and creative collaboration."
+        intro="These sessions are designed to be flexible enough for professional needs and open enough for work that is more exploratory or art-led."
+      />
+
+      <div class="about-grid">
+        <div class="stack">
+          <p>
+            Some sessions begin with a clear practical goal: updated social media portraits, imagery for a small business,
+            or photographs that feel more personal and considered than standard headshots. Others begin with a mood, a
+            location, or a conversation about identity, expression, and atmosphere.
+          </p>
+          <p>
+            In both cases, the process is collaborative. We decide together how polished, quiet, direct, playful, or
+            experimental the pictures should feel. You do not need to arrive with a perfectly defined idea.
+          </p>
+        </div>
+
+        <div class="note-card stack">
+          <h3>Best for</h3>
+          <ul class="location-list">
+            <li>Social media and editorial-feeling portraits</li>
+            <li>Professional, brand, or creator imagery</li>
+            <li>Self-exploration and expressive portraiture</li>
+            <li>Collaborative visual concepts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface-band">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Packages"
+        title="Straightforward pricing."
+        intro="Everything below includes professional editing. Travel to Indianapolis, Urbana-Champaign, or Chicago is an additional $150."
+      />
+
+      <div class="package-grid">
+        <PackageCard
+          name="Single-location session"
+          price="$350"
+          description="A concise session built around one location and a focused visual outcome."
+          items={['1 hour', '1 location', '5 edited photos', 'Professional-level editing included']}
+        />
+        <PackageCard
+          name="Extended portrait session"
+          price="$750"
+          description="A longer session for more variety, deeper collaboration, and a broader final set."
+          items={['3 hours', '25 edited photos', 'Professional-level editing included', 'More room for wardrobe, movement, and concept changes']}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="What to expect"
+        title="A session that feels intentional without becoming stiff."
+        intro="The site framework keeps this language practical, but your voice still comes through: warm, thoughtful, and art-led."
+      />
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h3>Before the session</h3>
+          <p>
+            We can discuss location, visual references, timing, clothing, tone, and what you want the images to communicate.
+          </p>
+        </div>
+        <div class="feature-item">
+          <h3>During the session</h3>
+          <p>
+            I guide as needed, but leave room for spontaneity. The goal is not forced perfection. It is presence, shape, and atmosphere.
+          </p>
+        </div>
+        <div class="feature-item">
+          <h3>Afterward</h3>
+          <p>
+            Final selected images are edited to a professional standard with attention to tone, consistency, and the emotional feel of the set.
+          </p>
+        </div>
+        <div class="feature-item">
+          <h3>Travel</h3>
+          <p>
+            Lafayette is the home base. Indianapolis, Urbana-Champaign, and Chicago can be added for a flat travel fee.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

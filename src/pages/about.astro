@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<BaseLayout
+  title="About | Zach Beauvais Photographer"
+  description="About Zach Beauvais Photographer in Lafayette, Indiana."
+  path="/about/"
+>
+  <section class="section page-hero">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="About"
+        title="An artistic portrait practice shaped by landscape photography and mixed-media art."
+        intro="This page gives you a clear placeholder biography you can refine later, without locking you into final wording right now."
+      />
+
+      <div class="about-grid">
+        <div class="stack">
+          <p>
+            I’m Zach Beauvais, a photographer based in Lafayette, Indiana. My portrait work is collaborative at its core:
+            I’m interested in making images with people that feel attentive, expressive, and grounded in who they are.
+          </p>
+          <p>
+            My visual approach is shaped by a background in international landscape photography and mixed-media art. That
+            means I often think about portraits not only in terms of faces and poses, but in terms of space, texture,
+            atmosphere, structure, and the emotional charge of a setting.
+          </p>
+          <p>
+            Some clients come for practical reasons and some come for more personal or exploratory ones. I value both. A
+            portrait can be useful, beautiful, revealing, or all three at once.
+          </p>
+        </div>
+
+        <div class="note-card stack">
+          <h3>Based in</h3>
+          <p>Lafayette, Indiana</p>
+          <div class="divider"></div>
+          <h3>Also available in</h3>
+          <ul class="location-list">
+            <li>Indianapolis</li>
+            <li>Urbana-Champaign</li>
+            <li>Chicago</li>
+          </ul>
+          <div class="divider"></div>
+          <h3>Instagram</h3>
+          <p><a href="https://instagram.com/zach_of_the" target="_blank" rel="noopener noreferrer">@zach_of_the</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

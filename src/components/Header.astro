@@ -1,0 +1,30 @@
+---
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/portraits/', label: 'Portrait Sessions' },
+  { href: '/portfolio/collaborative/', label: 'Collaborative Portraits' },
+  { href: '/portfolio/landscape/', label: 'Landscape & Abstract' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' }
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brandmark" href="/">
+      <span class="brandmark-monogram" aria-hidden="true">ZB</span>
+      <span class="brandmark-text">
+        <span class="brandmark-name">Zach Beauvais</span>
+        <span class="brandmark-tag">Photographer</span>
+      </span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        {navItems.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

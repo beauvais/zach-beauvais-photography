@@ -1,0 +1,23 @@
+---
+interface Item {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="faq-card">
+  <ul class="faq-list">
+    {items.map((item) => (
+      <li>
+        <strong>{item.question}</strong><br />
+        {item.answer}
+      </li>
+    ))}
+  </ul>
+</div>

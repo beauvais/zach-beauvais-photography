@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PackageCard from '../components/PackageCard.astro';
+---
+
+<BaseLayout
+  title="Pricing | Zach Beauvais Photographer"
+  description="Portrait session pricing for Zach Beauvais Photographer."
+  path="/pricing/"
+>
+  <section class="section page-hero">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Pricing"
+        title="Portrait packages built around clarity, not clutter."
+        intro="The structure is intentionally simple. People can understand the offer quickly and then reach out to talk through the specifics."
+      />
+
+      <div class="package-grid">
+        <PackageCard
+          name="Single-location session"
+          price="$350"
+          description="A focused 1-hour portrait session with 5 edited final images."
+          items={['1 hour', '1 location', '5 edited photographs', 'Professional-level editing included']}
+        />
+        <PackageCard
+          name="Extended portrait session"
+          price="$750"
+          description="A longer 3-hour portrait session with 25 edited final images."
+          items={['3 hours', '25 edited photographs', 'Professional-level editing included', 'Built for more visual range and collaboration']}
+        />
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card stack">
+          <h3>Travel fee</h3>
+          <p>
+            Sessions in Indianapolis, Urbana-Champaign, or Chicago are available for an additional <strong>$150</strong>.
+          </p>
+        </article>
+        <article class="contact-card stack">
+          <h3>Includes</h3>
+          <p>
+            Editing is already included in both packages, so there is no need for a separate retouching line item on the public pricing page.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

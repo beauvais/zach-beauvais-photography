@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import PortfolioCard from '../../components/PortfolioCard.astro';
+---
+
+<BaseLayout
+  title="Landscape and Abstract Portfolio | Zach Beauvais Photographer"
+  description="Landscape and abstract photography by Zach Beauvais."
+  path="/portfolio/landscape/"
+>
+  <section class="section page-hero">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Portfolio"
+        title="Landscape / abstract"
+        intro="This side of the site supports the portrait work by showing the wider visual practice that informs it."
+      />
+
+      <div class="portfolio-highlight-grid">
+        <PortfolioCard
+          className="landscape-a"
+          title="Landscape study I"
+          body="Replace with a finished landscape photograph or abstract work drawn from your archive."
+          href="/about/"
+          cta="Read more about the practice"
+        />
+        <PortfolioCard
+          className="landscape-b"
+          title="Abstract study II"
+          body="The current placeholder art keeps the site visually coherent before you add final image assets."
+          href="/contact/"
+          cta="Discuss a project"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

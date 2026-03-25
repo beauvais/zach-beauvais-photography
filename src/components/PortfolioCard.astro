@@ -1,0 +1,20 @@
+---
+interface Props {
+  className: string;
+  title: string;
+  body: string;
+  href: string;
+  cta: string;
+}
+
+const { className, title, body, href, cta } = Astro.props;
+---
+
+<article class="portfolio-card">
+  <div class={`portfolio-image ${className}`}></div>
+  <div class="stack">
+    <h3>{title}</h3>
+    <p>{body}</p>
+    <a class="button button-link" href={href}>{cta}</a>
+  </div>
+</article>

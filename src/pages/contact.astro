@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<BaseLayout
+  title="Contact | Zach Beauvais Photographer"
+  description="Contact Zach Beauvais Photographer to book a portrait session."
+  path="/contact/"
+>
+  <section class="section page-hero">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Contact / booking"
+        title="Tell me what you want the images to do."
+        intro="This version keeps the booking flow lightweight for GitHub Pages. When you move to Netlify later, you can swap this for a form handler."
+      />
+
+      <div class="contact-grid">
+        <article class="contact-card stack">
+          <h3>Book by email</h3>
+          <p>
+            For now, the simplest GitHub Pages-friendly booking flow is a direct email link. Replace the address below with
+            your preferred inbox before publishing.
+          </p>
+          <p>
+            <a href="mailto:hello@example.com?subject=Portrait%20session%20inquiry">hello@example.com</a>
+          </p>
+          <p class="muted small">Suggested replacement: your real booking email address.</p>
+          <div class="button-row">
+            <a class="button button-primary" href="mailto:hello@example.com?subject=Portrait%20session%20inquiry">Email Zach</a>
+            <a class="button button-secondary" href="https://instagram.com/zach_of_the" target="_blank" rel="noopener noreferrer">Message on Instagram</a>
+          </div>
+        </article>
+
+        <article class="note-card stack">
+          <h3>Helpful details to include</h3>
+          <ul class="location-list">
+            <li>Which package you want</li>
+            <li>Preferred location and city</li>
+            <li>Approximate timing</li>
+            <li>Whether the session is personal, professional, or art-led</li>
+            <li>Any visual references or ideas</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
