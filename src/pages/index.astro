@@ -1,18 +1,43 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PackageCard from '../components/PackageCard.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import FAQList from '../components/FAQList.astro';
 import { getCollection } from 'astro:content';
+
+const faqItems = [
+  {
+    question: 'What kinds of portrait sessions do you photograph?',
+    answer:
+      'Portrait sessions can be shaped for social media, creative self-expression, personal branding, editorial-feeling portraits, or collaborative art-making.'
+  },
+  {
+    question: 'How is editing handled?',
+    answer:
+      'Every session includes professional-level editing. The final images are intended to feel polished, intentional, and aligned with the mood we set together.'
+  },
+  {
+    question: 'Where do you work?',
+    answer:
+      'Zach is based in Lafayette, Indiana. Sessions in Indianapolis, Urbana-Champaign, and Chicago are available for an additional $150 travel fee.'
+  }
+];
+
+const base = import.meta.env.BASE_URL;
+const root = base.endsWith('/') ? base : `${base}/`;
 
 const allItems = await getCollection('portfolio');
 
 const featuredPortraits = allItems
   .filter((item) => item.data.category === 'collaborative' && item.data.featured)
   .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 3);
+  .slice(0, 1);
 
 const featuredLandscapes = allItems
   .filter((item) => item.data.category === 'landscape' && item.data.featured)
   .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 3);
+  .slice(0, 1);
 
 const portraitImageModules = import.meta.glob('../assets/portfolio/collaborative/*.{jpg,jpeg,png,webp}', {
   eager: true,
@@ -22,7 +47,7 @@ const landscapeImageModules = import.meta.glob('../assets/portfolio/landscape/*.
   eager: true,
 });
 
-const portraitCards = featuredPortraits
+const portraitFeature = featuredPortraits
   .map((item) => {
     const key = `../assets/portfolio/collaborative/${item.data.coverImage}`;
     const mod = portraitImageModules[key] as { default?: { src?: string } };
@@ -34,12 +59,12 @@ const portraitCards = featuredPortraits
       alt: item.data.coverAlt,
       src: mod.default.src,
       text: item.body,
-      href: `${import.meta.env.BASE_URL}portfolio/collaborative/`,
+      href: `${root}portfolio/collaborative/`,
     };
   })
-  .filter(Boolean);
+  .filter(Boolean)[0];
 
-const landscapeCards = featuredLandscapes
+const landscapeFeature = featuredLandscapes
   .map((item) => {
     const key = `../assets/portfolio/landscape/${item.data.coverImage}`;
     const mod = landscapeImageModules[key] as { default?: { src?: string } };
@@ -51,168 +76,227 @@ const landscapeCards = featuredLandscapes
       alt: item.data.coverAlt,
       src: mod.default.src,
       text: item.body,
-      href: `${import.meta.env.BASE_URL}portfolio/landscape/`,
+      href: `${root}portfolio/landscape/`,
     };
   })
-  .filter(Boolean);
-
-const featuredWork = [...portraitCards, ...landscapeCards].slice(0, 6);
-
-const base = import.meta.env.BASE_URL;
-const root = base.endsWith('/') ? base : `${base}/`;
+  .filter(Boolean)[0];
 ---
 
 <BaseLayout
-  title="Zach Beauvais Photographer"
-  description="Collaborative portrait photography in Lafayette, Indiana, with sessions also available in Indianapolis, Urbana-Champaign, and Chicago."
+  title="Zach Beauvais Photographer | Artistic Portrait Photography in Lafayette, Indiana"
+  description="Collaborative portrait photography shaped by landscape photography and mixed-media art. Based in Lafayette, Indiana."
+  path="/"
 >
-  <section class="home-hero container">
-    <div class="home-hero__copy">
-      <p class="eyebrow">Zach Beauvais Photographer</p>
-      <h1>Collaborative portrait photography with an artistic, contemporary approach.</h1>
-      <p class="lede">
-        Portrait sessions that blend artistic portraiture with the visual language of landscape and
-        contemporary art.
-      </p>
-      <p>
-        Based in Lafayette, Indiana. Available for portrait sessions in Lafayette, Indianapolis,
-        Urbana-Champaign, and Chicago.
-      </p>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Lafayette, Indiana photographer</p>
+        <h1 class="h1">Collaborative portrait photography shaped by landscape and contemporary art.</h1>
+        <p class="lead measure">
+          I make portraits with people, not just of them. My work blends artistic portraiture with the visual language
+          of landscape photography and mixed-media art to create images that feel expressive, intentional, and personal.
+        </p>
+        <ul class="meta-list" aria-label="Key details">
+          <li>Portraits for self-expression</li>
+          <li>Brand and professional imagery</li>
+          <li>Edited delivery included</li>
+        </ul>
+        <div class="button-row">
+          <a class="button button-primary" href={`${root}contact/`}>Book a session</a>
+          <a class="button button-secondary" href={`${root}portfolio/collaborative/`}>View portrait portfolio</a>
+        </div>
+      </div>
 
-      <div class="home-hero__actions">
-        <a class="button-primary" href={`${root}contact/`}>Book a Session</a>
-        <a class="button-secondary" href={`${root}portfolio/collaborative/`}>View Portrait Portfolio</a>
+      <div class="hero-image-panel">
+        {portraitFeature ? (
+          <img src={portraitFeature.src} alt={portraitFeature.alt} />
+        ) : (
+          <div class="hero-image-panel__placeholder" role="img" aria-label="Featured portrait placeholder"></div>
+        )}
       </div>
     </div>
+  </section>
 
-    <div class="home-hero__details">
-      <div class="home-detail-card">
-        <h2>Portrait sessions</h2>
-        <ul class="home-detail-list">
-          <li>Social media portraits</li>
-          <li>Brand and professional portraits</li>
-          <li>Self-expression and personal exploration</li>
-        </ul>
+  <section class="section surface-band">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Approach"
+        title="Portrait sessions that leave room for collaboration, mood, and presence."
+        intro="Whether the goal is a social profile, a brand refresh, or something more inward and exploratory, the process starts with conversation and ends with images that feel lived in rather than generic."
+      />
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h3>Artistic collaboration</h3>
+          <p>
+            Sessions are guided, but not rigid. We can build around gesture, atmosphere, movement, styling, location,
+            and the kind of story you want the images to hold.
+          </p>
+        </div>
+        <div class="feature-item">
+          <h3>Landscape-informed eye</h3>
+          <p>
+            My landscape background shapes how I work with light, weather, negative space, and environment. Even close
+            portraits are built with a sense of place.
+          </p>
+        </div>
+        <div class="feature-item">
+          <h3>Mixed-media sensibility</h3>
+          <p>
+            I’m interested in texture, rhythm, contrast, and abstraction. That influence shows up in the way I frame,
+            edit, and build a visual mood.
+          </p>
+        </div>
+        <div class="feature-item">
+          <h3>Professional editing included</h3>
+          <p>
+            Every package includes carefully edited final photographs so the work feels finished, cohesive, and ready to
+            use or share.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sessions">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Portrait sessions"
+        title="Simple packages, thoughtfully edited."
+        intro="Two portrait packages cover most needs, with extra travel available for Indianapolis, Urbana-Champaign, and Chicago."
+      />
+
+      <div class="package-grid">
+        <PackageCard
+          name="Single-location session"
+          price="$350"
+          description="A focused session for concise portraits, refreshed social imagery, or a collaborative short concept."
+          items={[
+            '1 hour',
+            '1 location',
+            '5 professionally edited photos',
+            'Great for social, professional, or personal use'
+          ]}
+        />
+        <PackageCard
+          name="Extended portrait session"
+          price="$750"
+          description="More time, more variation, and more room to explore a fuller visual idea across location, styling, and mood."
+          items={[
+            '3 hours',
+            '25 professionally edited photos',
+            'Ideal for brands, expressive portraits, or a deeper collaborative concept',
+            'Professional editing included'
+          ]}
+        />
       </div>
 
-      <div class="home-detail-card">
-        <h2>Pricing</h2>
-        <ul class="home-detail-list">
-          <li>1 hour / 1 location / 5 edited photos — $350</li>
-          <li>3 hours / 25 edited photos — $750</li>
-          <li>Indianapolis, Urbana-Champaign, or Chicago — +$150</li>
+      <div class="note-card">
+        <h3>Travel</h3>
+        <p class="measure">
+          Sessions in Indianapolis, Urbana-Champaign, and Chicago are available for an additional <strong>$150</strong>.
+        </p>
+        <ul class="location-list" aria-label="Travel locations">
+          <li>Indianapolis</li>
+          <li>Urbana-Champaign</li>
+          <li>Chicago</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="home-section container">
-    <div class="home-section__intro">
-      <p class="eyebrow">Approach</p>
-      <h2>Portraits made collaboratively, not just captured.</h2>
-    </div>
+  <section class="section surface-band">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Portfolio"
+        title="Two bodies of work, one visual language."
+        intro="The site is set up around your portrait practice and your landscape and abstract work, keeping the relationship between them visible without collapsing them together."
+      />
 
-    <div class="home-two-column">
-      <p>
-        My portrait work is shaped by a background in international landscape photography and
-        mixed-media art. That influence carries into the way I work with people: attentive to mood,
-        place, gesture, texture, and the feeling an image leaves behind.
-      </p>
-      <p>
-        Whether you need portraits for your creative practice, your professional identity, your
-        brand, or your own self-exploration, the aim is to make images that feel thoughtful,
-        distinctive, and genuinely like you.
-      </p>
-    </div>
-  </section>
-
-  <section class="home-section container">
-    <div class="home-section__intro">
-      <p class="eyebrow">Featured Work</p>
-      <h2>Selected images from portrait and landscape work.</h2>
-    </div>
-
-    <div class="home-featured-grid">
-      {featuredWork.map((item) => (
-        <a class="home-featured-card" href={item.href}>
-          <img src={item.src} alt={item.alt} loading="lazy" />
-          <div class="home-featured-card__body">
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
+      <div class="portfolio-highlight-grid portfolio-highlight-grid--images">
+        <a class="portfolio-feature-card" href={`${root}portfolio/collaborative/`}>
+          {portraitFeature ? (
+            <img class="portfolio-feature-card__image" src={portraitFeature.src} alt={portraitFeature.alt} loading="lazy" />
+          ) : (
+            <div class="portfolio-feature-card__placeholder" aria-hidden="true"></div>
+          )}
+          <div class="portfolio-feature-card__body">
+            <h3>Collaborative / expressive portraits</h3>
+            <p>
+              {portraitFeature?.text ??
+                'Portrait work centred on mood, collaboration, and the expressive possibilities of light, gesture, and place.'}
+            </p>
+            <span class="portfolio-feature-card__cta">See portrait portfolio</span>
           </div>
         </a>
-      ))}
+
+        <a class="portfolio-feature-card" href={`${root}portfolio/landscape/`}>
+          {landscapeFeature ? (
+            <img class="portfolio-feature-card__image" src={landscapeFeature.src} alt={landscapeFeature.alt} loading="lazy" />
+          ) : (
+            <div class="portfolio-feature-card__placeholder" aria-hidden="true"></div>
+          )}
+          <div class="portfolio-feature-card__body">
+            <h3>Landscape / abstract</h3>
+            <p>
+              {landscapeFeature?.text ??
+                'Landscape and abstract work that feeds the sensibility behind the portrait practice: atmosphere, structure, and visual tension.'}
+            </p>
+            <span class="portfolio-feature-card__cta">See landscape &amp; abstract</span>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="home-section container">
-    <div class="home-section__intro">
-      <p class="eyebrow">Sessions</p>
-      <h2>Simple, transparent session options.</h2>
-    </div>
-
-    <div class="home-pricing-grid">
-      <article class="home-pricing-card">
-        <h3>Short Session</h3>
-        <p class="home-price">$350</p>
-        <ul class="home-detail-list">
-          <li>1 hour</li>
-          <li>1 location</li>
-          <li>5 professionally edited photographs</li>
-        </ul>
+  <section class="section-tight">
+    <div class="container stats-grid">
+      <article class="stat-card">
+        <p class="stat-value">2</p>
+        <p class="stat-label">Portrait packages</p>
+        <p>Clear session options without an overloaded pricing menu.</p>
       </article>
-
-      <article class="home-pricing-card">
-        <h3>Extended Session</h3>
-        <p class="home-price">$750</p>
-        <ul class="home-detail-list">
-          <li>3 hours</li>
-          <li>25 professionally edited photographs</li>
-          <li>Professional-level editing included</li>
-        </ul>
+      <article class="stat-card">
+        <p class="stat-value">3</p>
+        <p class="stat-label">Travel cities</p>
+        <p>Indianapolis, Urbana-Champaign, and Chicago are built into the offer.</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-value">5–25</p>
+        <p class="stat-label">Edited images</p>
+        <p>Enough range for either a concise session or a more expansive story.</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-value">1–3 hrs</p>
+        <p class="stat-label">Session length</p>
+        <p>Flexible enough for either focused portraits or deeper collaborative work.</p>
       </article>
     </div>
-
-    <p class="home-note">
-      Travel to Indianapolis, Urbana-Champaign, or Chicago is available for an additional $150.
-    </p>
   </section>
 
-  <section class="home-section container">
-    <div class="home-section__intro">
-      <p class="eyebrow">Portfolio</p>
-      <h2>Two strands of work, one visual approach.</h2>
-    </div>
-
-    <div class="home-links-grid">
-      <a class="home-link-card" href={`${root}portfolio/collaborative/`}>
-        <h3>Collaborative Portraits</h3>
-        <p>Expressive portrait work shaped by collaboration, atmosphere, and visual storytelling.</p>
-      </a>
-
-      <a class="home-link-card" href={`${root}portfolio/landscape/`}>
-        <h3>Landscape &amp; Abstract</h3>
-        <p>Landscape and abstract work rooted in observation, structure, texture, and place.</p>
-      </a>
+  <section class="section">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="FAQ"
+        title="A few practical details."
+        intro="This keeps the site useful for people who are deciding whether to reach out now or come back later."
+      />
+      <FAQList items={faqItems} />
     </div>
   </section>
 
-  <section class="home-cta container">
-    <div>
-      <p class="eyebrow">Book</p>
+  <section class="section-tight">
+    <div class="container cta-panel stack">
+      <p class="eyebrow" style="color: rgba(253,252,251,0.72)">Get in touch</p>
       <h2>Interested in making something together?</h2>
-      <p>
-        I’m based in Lafayette and available for sessions locally or in nearby cities. You can also
-        find more work on Instagram at
-        <a href="https://instagram.com/zach_of_the" target="_blank" rel="noreferrer noopener">@zach_of_the</a>.
+      <p class="measure">
+        Tell me what you want the images to do: update your presence, support your work, or explore something more
+        personal. I’m also on Instagram at <a href="https://instagram.com/zach_of_the" target="_blank" rel="noopener noreferrer">@zach_of_the</a>.
       </p>
-    </div>
-
-    <div class="home-cta__actions">
-      <a class="button-primary" href={`${root}contact/`}>Get in Touch</a>
-      <a class="button-secondary" href="https://instagram.com/zach_of_the" target="_blank" rel="noreferrer noopener">
-        Follow on Instagram
-      </a>
+      <div class="button-row">
+        <a class="button button-secondary" href={`${root}contact/`}>Start a booking inquiry</a>
+        <a class="button button-secondary" href="https://instagram.com/zach_of_the" target="_blank" rel="noopener noreferrer">Visit Instagram</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
