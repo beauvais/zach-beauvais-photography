@@ -1,17 +1,20 @@
 ---
+const base = import.meta.env.BASE_URL;
+const root = base.endsWith('/') ? base : `${base}/`;
+
 const navItems = [
-  { href: `${import.meta.env.BASE_URL}`, label: 'Home' },
-  { href: `${import.meta.env.BASE_URL}portraits/`, label: 'Portrait Sessions' },
-  { href: `${import.meta.env.BASE_URL}portfolio/collaborative/`, label: 'Collaborative Portraits' },
-  { href: `${import.meta.env.BASE_URL}portfolio/landscape/`, label: 'Landscape & Abstract' },
-  { href: `${import.meta.env.BASE_URL}about/`, label: 'About' },
-  { href: `${import.meta.env.BASE_URL}contact/`, label: 'Contact' }
+  { href: root, label: 'Home' },
+  { href: `${root}portraits/`, label: 'Portrait Sessions' },
+  { href: `${root}portfolio/collaborative/`, label: 'Collaborative Portraits' },
+  { href: `${root}portfolio/landscape/`, label: 'Landscape & Abstract' },
+  { href: `${root}about/`, label: 'About' },
+  { href: `${root}contact/`, label: 'Contact' }
 ];
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brandmark" href={import.meta.env.BASE_URL}>
+    <a class="brandmark" href={root}>
       <span class="brandmark-monogram" aria-hidden="true">ZB</span>
       <span class="brandmark-text">
         <span class="brandmark-name">Zach Beauvais</span>
