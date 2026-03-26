@@ -1,13 +1,18 @@
 ---
-interface Item {
+interface GalleryItem {
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
 }
 
-const { items } = Astro.props as { items: Item[] };
+const { items, galleryId = 'gallery-1' } = Astro.props as {
+  items: GalleryItem[];
+  galleryId?: string;
+};
 ---
 
-<section class="lightbox-gallery">
+<section class="lightbox-gallery" data-gallery={galleryId}>
   <div class="portfolio-grid">
     {items.map((item, index) => (
       <button
@@ -19,7 +24,13 @@ const { items } = Astro.props as { items: Item[] };
         data-alt={item.alt}
         aria-label={`Open image ${index + 1}`}
       >
-        <img src={item.src} alt={item.alt} loading="lazy" />
+        <img
+          src={item.src}
+          alt={item.alt}
+          loading="lazy"
+          width={item.width}
+          height={item.height}
+        />
       </button>
     ))}
   </div>
@@ -43,52 +54,76 @@ const { items } = Astro.props as { items: Item[] };
   </dialog>
 </section>
 
-<script define:vars={{ items }}>
-  const dialog = document.querySelector('[data-lightbox-dialog]');
-  const image = document.querySelector('[data-lightbox-image]');
-  const openButtons = document.querySelectorAll('[data-lightbox-open]');
-  const closeButton = document.querySelector('[data-lightbox-close]');
-  const prevButton = document.querySelector('[data-lightbox-prev]');
-  const nextButton = document.querySelector('[data-lightbox-next]');
+<script>
+  const galleries = document.querySelectorAll('[data-gallery]');
 
-  let currentIndex = 0;
+  galleries.forEach((gallery) => {
+    const dialog = gallery.querySelector('[data-lightbox-dialog]');
+    const image = gallery.querySelector('[data-lightbox-image]');
+    const openButtons = gallery.querySelectorAll('[data-lightbox-open]');
+    const closeButton = gallery.querySelector('[data-lightbox-close]');
+    const prevButton = gallery.querySelector('[data-lightbox-prev]');
+    const nextButton = gallery.querySelector('[data-lightbox-next]');
 
-  const showImage = (index) => {
-    currentIndex = index;
-    const item = items[currentIndex];
-    if (!item || !image) return;
-    image.src = item.src;
-    image.alt = item.alt;
-  };
+    if (!dialog || !image || openButtons.length === 0) return;
 
-  openButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const index = Number(button.getAttribute('data-index') || 0);
-      showImage(index);
-      dialog?.showModal();
+    const items = Array.from(openButtons).map((button) => ({
+      src: button.getAttribute('data-src') || '',
+      alt: button.getAttribute('data-alt') || '',
+    }));
+
+    let currentIndex = 0;
+
+    const showImage = (index) => {
+      currentIndex = index;
+      const item = items[currentIndex];
+      if (!item) return;
+      image.setAttribute('src', item.src);
+      image.setAttribute('alt', item.alt);
+    };
+
+    openButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const index = Number(button.getAttribute('data-index') || 0);
+        showImage(index);
+        dialog.showModal();
+      });
     });
-  });
 
-  closeButton?.addEventListener('click', () => dialog?.close());
+    closeButton?.addEventListener('click', () => dialog.close());
 
-  prevButton?.addEventListener('click', () => {
-    const nextIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
-    showImage(nextIndex);
-  });
+    prevButton?.addEventListener('click', () => {
+      const nextIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
+      showImage(nextIndex);
+    });
 
-  nextButton?.addEventListener('click', () => {
-    const nextIndex = currentIndex === items.length - 1 ? 0 : currentIndex + 1;
-    showImage(nextIndex);
-  });
+    nextButton?.addEventListener('click', () => {
+      const nextIndex = currentIndex === items.length - 1 ? 0 : currentIndex + 1;
+      showImage(nextIndex);
+    });
 
-  dialog?.addEventListener('click', (event) => {
-    const rect = dialog.getBoundingClientRect();
-    const isInside =
-      rect.top <= event.clientY &&
-      event.clientY <= rect.top + rect.height &&
-      rect.left <= event.clientX &&
-      event.clientX <= rect.left + rect.width;
+    dialog.addEventListener('click', (event) => {
+      const rect = dialog.getBoundingClientRect();
+      const isInside =
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width;
 
-    if (!isInside) dialog.close();
+      if (!isInside) dialog.close();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!dialog.open) return;
+      if (event.key === 'Escape') dialog.close();
+      if (event.key === 'ArrowLeft') {
+        const nextIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
+        showImage(nextIndex);
+      }
+      if (event.key === 'ArrowRight') {
+        const nextIndex = currentIndex === items.length - 1 ? 0 : currentIndex + 1;
+        showImage(nextIndex);
+      }
+    });
   });
 </script>

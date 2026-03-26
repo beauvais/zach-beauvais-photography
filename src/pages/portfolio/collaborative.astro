@@ -1,38 +1,61 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
-import PortfolioCard from '../../components/PortfolioCard.astro';
+import LightboxGallery from '../../components/LightboxGallery.astro';
+import { getCollection } from 'astro:content';
+
+const allItems = await getCollection('portfolio');
+const items = allItems
+  .filter((item) => item.data.category === 'collaborative')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const imageModules = import.meta.glob('../../assets/portfolio/collaborative/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+});
+
+const galleryItems = items
+  .map((item) => {
+    const key = `../../assets/portfolio/collaborative/${item.data.coverImage}`;
+    const mod = imageModules[key] as { default?: { src?: string; width?: number; height?: number } };
+
+    if (!mod?.default?.src) return null;
+
+    return {
+      src: mod.default.src,
+      alt: item.data.coverAlt,
+      width: mod.default.width,
+      height: mod.default.height,
+    };
+  })
+  .filter(Boolean);
 ---
 
 <BaseLayout
-  title="Collaborative Portrait Portfolio | Zach Beauvais Photographer"
-  description="Collaborative and expressive portrait photography by Zach Beauvais."
-  path="/portfolio/collaborative/"
+  title="Collaborative Portraits"
+  description="Collaborative portrait photography shaped by expression, atmosphere, and visual storytelling."
 >
-  <section class="section page-hero">
-    <div class="container stack">
-      <SectionHeading
-        eyebrow="Portfolio"
-        title="Collaborative / expressive portraits"
-        intro="The site includes placeholder panels so the framework is complete now. Replace these with your real images in public/images/portfolio/collaborative/ when you are ready."
-      />
+  <section class="page-intro container">
+    <p class="eyebrow">Portfolio</p>
+    <h1>Collaborative Portraits</h1>
+    <p class="lede">
+      Portraits shaped through collaboration, feeling, gesture, and visual storytelling.
+    </p>
+  </section>
 
-      <div class="portfolio-highlight-grid">
-        <PortfolioCard
-          className="portrait-a"
-          title="Portrait study I"
-          body="Use this slot for a concise note about the mood, collaboration, or setting behind the work."
-          href="/contact/"
-          cta="Book a portrait session"
-        />
-        <PortfolioCard
-          className="portrait-b"
-          title="Portrait study II"
-          body="This framework keeps descriptions optional, so the images can stay primary when you add the real work."
-          href="/contact/"
-          cta="Start an inquiry"
-        />
-      </div>
+  <section class="container portfolio-copy-grid">
+    <div>
+      <p>
+        These portraits are made with people, not of them. The aim is not simply to document,
+        but to create space for expression, presence, and a sense of shared authorship.
+      </p>
     </div>
+    <div>
+      <p>
+        Click any image to view it larger.
+      </p>
+    </div>
+  </section>
+
+  <section class="container">
+    <LightboxGallery items={galleryItems} galleryId="collaborative-gallery" />
   </section>
 </BaseLayout>

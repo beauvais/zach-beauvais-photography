@@ -1,38 +1,61 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
-import PortfolioCard from '../../components/PortfolioCard.astro';
+import LightboxGallery from '../../components/LightboxGallery.astro';
+import { getCollection } from 'astro:content';
+
+const allItems = await getCollection('portfolio');
+const items = allItems
+  .filter((item) => item.data.category === 'landscape')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const imageModules = import.meta.glob('../../assets/portfolio/landscape/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+});
+
+const galleryItems = items
+  .map((item) => {
+    const key = `../../assets/portfolio/landscape/${item.data.coverImage}`;
+    const mod = imageModules[key] as { default?: { src?: string; width?: number; height?: number } };
+
+    if (!mod?.default?.src) return null;
+
+    return {
+      src: mod.default.src,
+      alt: item.data.coverAlt,
+      width: mod.default.width,
+      height: mod.default.height,
+    };
+  })
+  .filter(Boolean);
 ---
 
 <BaseLayout
-  title="Landscape and Abstract Portfolio | Zach Beauvais Photographer"
-  description="Landscape and abstract photography by Zach Beauvais."
-  path="/portfolio/landscape/"
+  title="Landscape & Abstract"
+  description="Landscape and abstract photography rooted in texture, atmosphere, and observation."
 >
-  <section class="section page-hero">
-    <div class="container stack">
-      <SectionHeading
-        eyebrow="Portfolio"
-        title="Landscape / abstract"
-        intro="This side of the site supports the portrait work by showing the wider visual practice that informs it."
-      />
+  <section class="page-intro container">
+    <p class="eyebrow">Portfolio</p>
+    <h1>Landscape &amp; Abstract</h1>
+    <p class="lede">
+      Landscape and abstract work rooted in observation, structure, texture, and atmosphere.
+    </p>
+  </section>
 
-      <div class="portfolio-highlight-grid">
-        <PortfolioCard
-          className="landscape-a"
-          title="Landscape study I"
-          body="Replace with a finished landscape photograph or abstract work drawn from your archive."
-          href="/about/"
-          cta="Read more about the practice"
-        />
-        <PortfolioCard
-          className="landscape-b"
-          title="Abstract study II"
-          body="The current placeholder art keeps the site visually coherent before you add final image assets."
-          href="/contact/"
-          cta="Discuss a project"
-        />
-      </div>
+  <section class="container portfolio-copy-grid">
+    <div>
+      <p>
+        This work grows out of attention to weather, surface, distance, and the way a place can
+        become image, pattern, or abstraction.
+      </p>
     </div>
+    <div>
+      <p>
+        Click any image to view it larger.
+      </p>
+    </div>
+  </section>
+
+  <section class="container">
+    <LightboxGallery items={galleryItems} galleryId="landscape-gallery" />
   </section>
 </BaseLayout>
