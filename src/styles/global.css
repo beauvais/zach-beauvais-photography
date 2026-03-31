@@ -1,6 +1,6 @@
 :root {
-  --font-sans: "Avenir Next", Avenir, Montserrat, "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-  --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --font-sans: 'Raleway', 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  --font-serif: 'Lora', 'Iowan Old Style', Georgia, serif;
 
   --text-xs: 0.75rem;
   --text-sm: 0.9375rem;

@@ -10,17 +10,17 @@ const faqItems = [
   {
     question: 'What kinds of portrait sessions do you photograph?',
     answer:
-      'Portrait sessions can be shaped for social media, creative self-expression, personal branding, editorial-feeling portraits, or collaborative art-making.'
+      'Portrait sessions can be shaped for social media, creative self-expression, personal branding, editorial-feeling portraits, or collaborative art-making. I work with both individuals and businesses.'
   },
   {
     question: 'How is editing handled?',
     answer:
-      'Every session includes professional-level editing. The final images are intended to feel polished, intentional, and aligned with the mood we set together.'
+      'Every session includes professional-level editing — it\'s built into both packages, not a separate line item. The final images are polished, intentional, and ready to use.'
   },
   {
     question: 'Where do you work?',
     answer:
-      'Zach is based in Lafayette, Indiana. Sessions in Indianapolis, Urbana-Champaign, and Chicago are available for an additional $150 travel fee.'
+      'Zach is based in Lafayette, Indiana. Base pricing covers the Lafayette area and within 30 miles of Urbana-Champaign, Illinois. Indianapolis sessions add $100, Chicago sessions add $200.'
   }
 ];
 
@@ -162,8 +162,8 @@ const landscapeFeature = featuredLandscapes
     <div class="container stack">
       <SectionHeading
         eyebrow="Portrait sessions"
-        title="Simple packages, thoughtfully edited."
-        intro="Two portrait packages cover most needs, with extra travel available for Indianapolis, Urbana-Champaign, and Chicago."
+        title="Simple packages. Everything edited and included."
+        intro="Two portrait packages cover most needs. Base pricing covers the Lafayette, Indiana area and within 30 miles of Urbana-Champaign, Illinois."
       />
 
       <div class="package-grid">
@@ -174,19 +174,19 @@ const landscapeFeature = featuredLandscapes
           items={[
             '1 hour',
             '1 location',
-            '5 professionally edited photos',
-            'Great for social, professional, or personal use'
+            '5 professionally edited portraits',
+            'All editing included'
           ]}
         />
         <PackageCard
           name="Extended portrait session"
           price="$750"
-          description="More time, more variation, and more room to explore a fuller visual idea across location, styling, and mood."
+          description="More time, more variation, and more room to explore a fuller visual idea across lighting, styling, and mood."
           items={[
             '3 hours',
-            '25 professionally edited photos',
-            'Ideal for brands, expressive portraits, or a deeper collaborative concept',
-            'Professional editing included'
+            '1 location',
+            '20 professionally edited photos',
+            'All editing included'
           ]}
         />
       </div>
@@ -194,12 +194,12 @@ const landscapeFeature = featuredLandscapes
       <div class="note-card">
         <h3>Travel</h3>
         <p class="measure">
-          Sessions in Indianapolis, Urbana-Champaign, and Chicago are available for an additional <strong>$150</strong>.
+          Base pricing covers Lafayette, Indiana and the Urbana-Champaign, Illinois area.
+          Indianapolis and Chicago available for an additional fee.
         </p>
-        <ul class="location-list" aria-label="Travel locations">
-          <li>Indianapolis</li>
-          <li>Urbana-Champaign</li>
-          <li>Chicago</li>
+        <ul class="location-list" aria-label="Travel fees">
+          <li>Indianapolis — add $100 per session</li>
+          <li>Chicago — add $200 per session</li>
         </ul>
       </div>
     </div>
@@ -210,7 +210,7 @@ const landscapeFeature = featuredLandscapes
       <SectionHeading
         eyebrow="Portfolio"
         title="Two bodies of work, one visual language."
-        intro="The site is set up around your portrait practice and your landscape and abstract work, keeping the relationship between them visible without collapsing them together."
+        intro="Collaborative portrait work alongside landscape and abstract photography — both feed the same eye for light, atmosphere, and presence."
       />
 
       <div class="portfolio-highlight-grid portfolio-highlight-grid--images">
@@ -257,14 +257,14 @@ const landscapeFeature = featuredLandscapes
         <p>Clear session options without an overloaded pricing menu.</p>
       </article>
       <article class="stat-card">
-        <p class="stat-value">3</p>
+        <p class="stat-value">2</p>
         <p class="stat-label">Travel cities</p>
-        <p>Indianapolis, Urbana-Champaign, and Chicago are built into the offer.</p>
+        <p>Indianapolis and Chicago available beyond the Lafayette and Urbana-Champaign base area.</p>
       </article>
       <article class="stat-card">
-        <p class="stat-value">5–25</p>
+        <p class="stat-value">5–20</p>
         <p class="stat-label">Edited images</p>
-        <p>Enough range for either a concise session or a more expansive story.</p>
+        <p>Enough range for either a focused session or a more expansive story.</p>
       </article>
       <article class="stat-card">
         <p class="stat-value">1–3 hrs</p>
@@ -279,7 +279,6 @@ const landscapeFeature = featuredLandscapes
       <SectionHeading
         eyebrow="FAQ"
         title="A few practical details."
-        intro="This keeps the site useful for people who are deciding whether to reach out now or come back later."
       />
       <FAQList items={faqItems} />
     </div>

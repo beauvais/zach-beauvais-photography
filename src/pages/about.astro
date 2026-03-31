@@ -1,52 +1,129 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+
+const base = import.meta.env.BASE_URL;
+const root = base.endsWith('/') ? base : `${base}/`;
 ---
 
 <BaseLayout
   title="About | Zach Beauvais Photographer"
-  description="About Zach Beauvais Photographer in Lafayette, Indiana."
+  description="About Zach Beauvais — collaborative portrait photographer in Lafayette, Indiana, with a background in storytelling and nature photography."
   path="/about/"
 >
   <section class="section page-hero">
     <div class="container stack">
       <SectionHeading
         eyebrow="About"
-        title="An artistic portrait practice shaped by landscape photography and mixed-media art."
-        intro="This page gives you a clear placeholder biography you can refine later, without locking you into final wording right now."
+        title="Photography rooted in storytelling, shaped by the natural world."
       />
 
       <div class="about-grid">
         <div class="stack">
           <p>
-            I’m Zach Beauvais, a photographer based in Lafayette, Indiana. My portrait work is collaborative at its core:
-            I’m interested in making images with people that feel attentive, expressive, and grounded in who they are.
+            I'm Zach Beauvais, a photographer based in Lafayette, Indiana. My portrait work is collaborative
+            at its core — I'm interested in making images <em>with</em> people, not just of them.
           </p>
           <p>
-            My visual approach is shaped by a background in international landscape photography and mixed-media art. That
-            means I often think about portraits not only in terms of faces and poses, but in terms of space, texture,
-            atmosphere, structure, and the emotional charge of a setting.
+            My background is in storytelling and nature photography. I spent years looking at landscapes:
+            learning how light behaves, how atmosphere changes the mood of a scene, how much can be said
+            by what surrounds a subject. That sensibility carries directly into portrait work. I think about
+            space, texture, and environment as much as I think about the person in the frame.
           </p>
           <p>
-            Some clients come for practical reasons and some come for more personal or exploratory ones. I value both. A
-            portrait can be useful, beautiful, revealing, or all three at once.
+            The result is portraits that feel grounded in place and moment — not extracted from context.
+            Whether the goal is personal, professional, or art-led, I bring the same attention to light,
+            composition, and feeling.
+          </p>
+          <p>
+            I work with individuals who want imagery that genuinely reflects who they are — for social media,
+            personal brands, events, or simply as a way of marking a moment. I also work with small and
+            medium-sized businesses to create visually strong photographs that help communicate what makes
+            them worth paying attention to.
+          </p>
+          <p>
+            Sessions are conversations. You bring what you want the images to do; I bring the visual
+            language to get there. We work together from the first message to the final edit.
           </p>
         </div>
 
         <div class="note-card stack">
           <h3>Based in</h3>
           <p>Lafayette, Indiana</p>
+
           <div class="divider"></div>
+
+          <h3>Coverage area</h3>
+          <p>Lafayette, Indiana and within 30 miles of Urbana-Champaign, Illinois — included in base pricing.</p>
+
+          <div class="divider"></div>
+
           <h3>Also available in</h3>
           <ul class="location-list">
-            <li>Indianapolis</li>
-            <li>Urbana-Champaign</li>
-            <li>Chicago</li>
+            <li>Indianapolis (+$100)</li>
+            <li>Chicago (+$200)</li>
           </ul>
+
           <div class="divider"></div>
+
           <h3>Instagram</h3>
-          <p><a href="https://instagram.com/zach_of_the" target="_blank" rel="noopener noreferrer">@zach_of_the</a></p>
+          <p>
+            <a href="https://instagram.com/zach_of_the" target="_blank" rel="noopener noreferrer">@zach_of_the</a>
+          </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface-band">
+    <div class="container stack">
+      <SectionHeading
+        eyebrow="Working together"
+        title="What the process looks like."
+      />
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h3>Start with a conversation</h3>
+          <p>
+            Every session begins with a message about what you want and what the images are for.
+            You don't need a fully formed idea — that's part of what we figure out together.
+          </p>
+        </div>
+        <div class="feature-item">
+          <h3>Plan the session</h3>
+          <p>
+            We'll talk through location, timing, mood, and visual references. I'll bring ideas; so can you.
+          </p>
+        </div>
+        <div class="feature-item">
+          <h3>Shoot with intention</h3>
+          <p>
+            Sessions are guided without being rigid. I work with light, space, and atmosphere to build
+            images that feel present — not posed.
+          </p>
+        </div>
+        <div class="feature-item">
+          <h3>Receive finished photographs</h3>
+          <p>
+            Editing is included. You receive professionally finished images, selected and processed
+            to feel cohesive and ready to use.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container cta-panel stack">
+      <p class="eyebrow" style="color: rgba(253,252,251,0.72)">Ready to start?</p>
+      <h2>Let's make something together.</h2>
+      <p class="measure">
+        Tell me a little about what you're after and we'll go from there.
+      </p>
+      <div class="button-row">
+        <a class="button button-secondary" href={`${root}contact/`}>Get in touch</a>
+        <a class="button button-secondary" href={`${root}portraits/`}>See session options</a>
       </div>
     </div>
   </section>

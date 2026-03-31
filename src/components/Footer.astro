@@ -1,5 +1,7 @@
 ---
 const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+const root = base.endsWith('/') ? base : `${base}/`;
 ---
 
 <footer class="site-footer">
@@ -8,25 +10,26 @@ const year = new Date().getFullYear();
       <div>
         <p class="kicker">Zach Beauvais Photographer</p>
         <p class="measure footer-note">
-          Artistic and collaborative portrait photography in Lafayette, Indiana, with availability in Indianapolis,
-          Urbana-Champaign, and Chicago.
+          Collaborative portrait photography rooted in storytelling and art, based in Lafayette, Indiana.
+          Available in Indianapolis and Chicago.
         </p>
       </div>
-      <p class="footer-note">© {year} Zach Beauvais. Built in Astro for GitHub Pages.</p>
+      <p class="footer-note">© {year} Zach Beauvais.</p>
     </div>
 
     <div class="stack">
       <nav class="footer-nav" aria-label="Footer">
         <ul>
-          <li><a href="/portraits/">Sessions</a></li>
-          <li><a href="/pricing/">Pricing</a></li>
-          <li><a href="/portfolio/collaborative/">Portrait Portfolio</a></li>
-          <li><a href="/portfolio/landscape/">Landscape & Abstract</a></li>
-          <li><a href="/contact/">Contact</a></li>
+          <li><a href={`${root}portraits/`}>Sessions</a></li>
+          <li><a href={`${root}pricing/`}>Pricing</a></li>
+          <li><a href={`${root}portfolio/collaborative/`}>Portrait Portfolio</a></li>
+          <li><a href={`${root}portfolio/landscape/`}>Landscape &amp; Abstract</a></li>
+          <li><a href={`${root}about/`}>About</a></li>
+          <li><a href={`${root}contact/`}>Contact</a></li>
           <li><a href="https://instagram.com/zach_of_the" rel="me noopener noreferrer" target="_blank">Instagram</a></li>
         </ul>
       </nav>
-      <p class="footer-note">Instagram: @zach_of_the</p>
+      <p class="footer-note">@zach_of_the on Instagram</p>
     </div>
   </div>
 </footer>

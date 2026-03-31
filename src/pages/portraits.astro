@@ -2,11 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import PackageCard from '../components/PackageCard.astro';
+
+const base = import.meta.env.BASE_URL;
+const root = base.endsWith('/') ? base : `${base}/`;
 ---
 
 <BaseLayout
   title="Portrait Sessions | Zach Beauvais Photographer"
-  description="Portrait session packages for collaborative artistic photography in Lafayette, Indiana."
+  description="Collaborative portrait photography sessions for individuals and businesses in Lafayette, Indiana, Indianapolis, and Chicago."
   path="/portraits/"
 >
   <section class="section page-hero">
@@ -14,29 +17,35 @@ import PackageCard from '../components/PackageCard.astro';
       <SectionHeading
         eyebrow="Portrait sessions"
         title="Portraits for social presence, personal expression, and creative collaboration."
-        intro="These sessions are designed to be flexible enough for professional needs and open enough for work that is more exploratory or art-led."
+        intro="Whether the goal is a professional refresh, a brand shoot, or something more exploratory and personal — the process is collaborative from start to finish."
       />
 
       <div class="about-grid">
         <div class="stack">
           <p>
-            Some sessions begin with a clear practical goal: updated social media portraits, imagery for a small business,
-            or photographs that feel more personal and considered than standard headshots. Others begin with a mood, a
-            location, or a conversation about identity, expression, and atmosphere.
+            Some sessions begin with a clear, practical goal: updated social profiles, imagery for a small business,
+            or portraits that feel more considered than standard headshots. Others begin with a mood, a location, or a
+            conversation about identity, expression, and atmosphere.
           </p>
           <p>
-            In both cases, the process is collaborative. We decide together how polished, quiet, direct, playful, or
-            experimental the pictures should feel. You do not need to arrive with a perfectly defined idea.
+            In both cases, the process is collaborative. My background is in storytelling and nature photography — I bring
+            that perspective to portrait work, thinking about light, space, and atmosphere as much as the person in front
+            of the camera. You don't need to arrive with a perfectly defined idea. We build it together.
+          </p>
+          <p>
+            I work with individuals, creators, and small businesses. I can help you find imagery that feels genuinely yours,
+            not borrowed from a generic stock aesthetic.
           </p>
         </div>
 
         <div class="note-card stack">
-          <h3>Best for</h3>
+          <h3>Well suited for</h3>
           <ul class="location-list">
-            <li>Social media and editorial-feeling portraits</li>
-            <li>Professional, brand, or creator imagery</li>
-            <li>Self-exploration and expressive portraiture</li>
-            <li>Collaborative visual concepts</li>
+            <li>Social media and personal brand portraits</li>
+            <li>Professional and editorial imagery</li>
+            <li>Small business and brand photography</li>
+            <li>Creative and expressive self-portraits</li>
+            <li>Collaborative art-led concepts</li>
           </ul>
         </div>
       </div>
@@ -47,23 +56,32 @@ import PackageCard from '../components/PackageCard.astro';
     <div class="container stack">
       <SectionHeading
         eyebrow="Packages"
-        title="Straightforward pricing."
-        intro="Everything below includes professional editing. Travel to Indianapolis, Urbana-Champaign, or Chicago is an additional $150."
+        title="Straightforward pricing. Everything edited and included."
+        intro="Base pricing covers Lafayette, Indiana and within 30 miles of Urbana-Champaign, Illinois. Indianapolis and Chicago available for an additional fee."
       />
 
       <div class="package-grid">
         <PackageCard
           name="Single-location session"
           price="$350"
-          description="A concise session built around one location and a focused visual outcome."
-          items={['1 hour', '1 location', '5 edited photos', 'Professional-level editing included']}
+          description="A focused hour at one location. Good for social profiles, personal branding, or a first creative session."
+          items={['1 hour', '1 location', '5 professionally edited portraits', 'All editing included']}
         />
         <PackageCard
           name="Extended portrait session"
           price="$750"
-          description="A longer session for more variety, deeper collaboration, and a broader final set."
-          items={['3 hours', '25 edited photos', 'Professional-level editing included', 'More room for wardrobe, movement, and concept changes']}
+          description="Three hours to explore more looks, lighting, and ideas. Better for brands, deeper concepts, or anyone who wants real variety."
+          items={['3 hours', '1 location', '20 professionally edited photos', 'All editing included', 'More room for wardrobe, movement, and concept changes']}
         />
+      </div>
+
+      <div class="note-card stack">
+        <h3>Travel</h3>
+        <p>Base rates cover the Lafayette, Indiana area and within 30 miles of Urbana-Champaign, Illinois.</p>
+        <ul class="location-list" aria-label="Travel fees">
+          <li>Indianapolis — add $100 per session</li>
+          <li>Chicago — add $200 per session</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -73,32 +91,35 @@ import PackageCard from '../components/PackageCard.astro';
       <SectionHeading
         eyebrow="What to expect"
         title="A session that feels intentional without becoming stiff."
-        intro="The site framework keeps this language practical, but your voice still comes through: warm, thoughtful, and art-led."
       />
 
       <div class="feature-grid">
         <div class="feature-item">
           <h3>Before the session</h3>
           <p>
-            We can discuss location, visual references, timing, clothing, tone, and what you want the images to communicate.
+            We talk through location, references, tone, timing, and what you want the images to do. You can come with
+            a fully formed concept or just a feeling — either works.
           </p>
         </div>
         <div class="feature-item">
           <h3>During the session</h3>
           <p>
-            I guide as needed, but leave room for spontaneity. The goal is not forced perfection. It is presence, shape, and atmosphere.
+            I guide as needed but leave room for things to develop naturally. The goal is presence and atmosphere,
+            not forced perfection.
           </p>
         </div>
         <div class="feature-item">
-          <h3>Afterward</h3>
+          <h3>After the session</h3>
           <p>
-            Final selected images are edited to a professional standard with attention to tone, consistency, and the emotional feel of the set.
+            Final images are selected and edited with attention to tone, consistency, and the feel of the set.
+            You receive finished, ready-to-use photographs.
           </p>
         </div>
         <div class="feature-item">
-          <h3>Travel</h3>
+          <h3>Ready to book?</h3>
           <p>
-            Lafayette is the home base. Indianapolis, Urbana-Champaign, and Chicago can be added for a flat travel fee.
+            <a href={`${root}contact/`}>Get in touch</a> and tell me a little about what you're after.
+            I'll respond quickly and we can take it from there.
           </p>
         </div>
       </div>
