@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const images = [
+  { src: '/portrait-01.jpg', alt: 'Collaborative portrait — character and light' },
+  { src: '/portrait-02.jpg', alt: 'Portrait — natural light study' },
+  { src: '/portrait-3.jpg',  alt: 'Portrait session' },
+  { src: '/portrait-4.jpg',  alt: 'Portrait — mood and atmosphere' },
+  { src: '/portrait-5.jpg',  alt: 'Portrait session' },
+  { src: '/portrait-6.jpg',  alt: 'Portrait — expression and gesture' },
+  { src: '/portrait-7.jpg',  alt: 'Portrait session' },
+  { src: '/portrait-8.jpg',  alt: 'Portrait — light and form' },
+  { src: '/portrait-9.jpg',  alt: 'Portrait session' },
+  { src: '/baby.jpg',        alt: 'Family portrait' },
+  { src: '/couple.jpg',      alt: 'Couple portrait' },
+];
+---
+
+<BaseLayout
+  title="Portraits"
+  description="Collaborative portrait photography by Zach Beauvais — natural, authentic, and deeply personal. Lafayette, Indiana."
+>
+  <!-- ─── Page Header ───────────────────────────────────────────────── -->
+  <section class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/portfolio/">Portfolio</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Portraits</span>
+      </nav>
+      <h1>Portraits</h1>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        Collaborative, creative portrait work. Each image shaped by a conversation,
+        a location, and a genuine moment.
+      </p>
+
+      <div class="portfolio-nav" style="margin-top: var(--space-6);">
+        <a href="/portfolio/" class="btn btn-outline btn-sm">All work</a>
+        <a href="/portfolio/portraits/" class="btn btn-primary btn-sm">Portraits</a>
+        <a href="/portfolio/landscape/" class="btn btn-outline btn-sm">Landscape &amp; Art</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Hero portraits ───────────────────────────────────────────── -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="portrait-hero-grid">
+        <div class="portrait-hero-main">
+          <img src="/portrait-01.jpg" alt="Collaborative portrait — character and light" loading="lazy" />
+        </div>
+        <div class="portrait-hero-aside">
+          <img src="/portrait-02.jpg" alt="Portrait — natural light study" loading="lazy" />
+          <img src="/portrait-3.jpg" alt="Portrait session" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Intro text ───────────────────────────────────────────────── -->
+  <section class="section-sm bg-soft">
+    <div class="container-narrow">
+      <h2 style="margin-bottom: var(--space-4);">How I approach portrait work</h2>
+      <p>
+        A portrait session with me starts with a conversation — about what you're looking for,
+        what setting feels right, what story we're telling. I don't direct sessions so much as
+        I facilitate them: creating the conditions for something authentic to emerge, then being
+        ready when it does.
+      </p>
+      <p>
+        My background in nature and abstract photography means I'm attentive to light and
+        atmosphere in a way that shapes how I work with people. I'm not looking to impose an
+        idea on you — I'm looking for the version of you that already exists.
+      </p>
+      <div class="btn-row" style="margin-top: var(--space-6);">
+        <a href="/sessions/" class="btn btn-outline">Sessions from $350</a>
+        <a href="/contact/" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Full Gallery ──────────────────────────────────────────────── -->
+  <section class="section-md">
+    <div class="gallery-container">
+      <div class="gallery-grid" id="gallery">
+        {images.map((img, i) => (
+          <button
+            class="gallery-item"
+            data-index={i}
+            data-src={img.src}
+            data-alt={img.alt}
+            aria-label={`View larger: ${img.alt}`}
+          >
+            <img src={img.src} alt={img.alt} loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-label">{img.alt}</span>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Lightbox ─────────────────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous">‹</button>
+    <div class="lightbox-inner">
+      <img class="lightbox-img" id="lb-img" src="" alt="" />
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next">›</button>
+    <div class="lightbox-counter" id="lb-counter"></div>
+  </div>
+
+  <!-- ─── CTA ──────────────────────────────────────────────────────── -->
+  <section class="cta-band">
+    <div class="container-narrow">
+      <span class="eyebrow">Book a portrait session</span>
+      <h2>Your portrait, your story</h2>
+      <p>Sessions from $350 in Lafayette and the surrounding area.</p>
+      <div class="btn-row" style="justify-content: center;">
+        <a href="/contact/" class="btn btn-accent btn-lg">Get in touch</a>
+        <a href="/sessions/" class="btn btn-ghost btn-lg" style="color: rgba(253,252,251,0.7);">See all sessions</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .gallery-container { padding-inline: 2px; }
+  .portfolio-nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+  .portrait-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-3);
+    align-items: start;
+  }
+
+  .portrait-hero-main {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+
+  .portrait-hero-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .portrait-hero-aside {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .portrait-hero-aside img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  @media (max-width: 768px) {
+    .portrait-hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .portrait-hero-aside {
+      grid-template-rows: auto;
+      grid-template-columns: 1fr 1fr;
+    }
+    .portrait-hero-aside img {
+      aspect-ratio: 1;
+    }
+  }
+</style>
+
+<script>
+  const items = document.querySelectorAll<HTMLButtonElement>('.gallery-item');
+  const lightbox = document.getElementById('lightbox')!;
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const lbClose = document.getElementById('lb-close')!;
+  const lbPrev = document.getElementById('lb-prev')!;
+  const lbNext = document.getElementById('lb-next')!;
+  const lbCounter = document.getElementById('lb-counter')!;
+
+  let current = 0;
+  const images = Array.from(items).map(el => ({ src: el.dataset.src!, alt: el.dataset.alt! }));
+
+  function open(i: number) { current = i; show(); lightbox.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+  function close() { lightbox.classList.remove('is-open'); document.body.style.overflow = ''; }
+  function show() { lbImg.src = images[current].src; lbImg.alt = images[current].alt; lbCounter.textContent = `${current + 1} / ${images.length}`; }
+  function prev() { current = (current - 1 + images.length) % images.length; show(); }
+  function next() { current = (current + 1) % images.length; show(); }
+
+  items.forEach((btn, i) => btn.addEventListener('click', () => open(i)));
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', prev);
+  lbNext.addEventListener('click', next);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+</script>

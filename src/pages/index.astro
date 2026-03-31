@@ -1,0 +1,299 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Home"
+  description="Collaborative portrait photography rooted in storytelling and art. Based in Lafayette, Indiana. Sessions from $350."
+>
+  <!-- ─── Hero ──────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">Lafayette, Indiana</span>
+      <h1 class="hero-title">
+        Portraits that<br />
+        <em>tell your story</em>
+      </h1>
+      <p class="hero-lead">
+        Collaborative, creative portrait photography for people, brands, and moments
+        worth remembering. Rooted in storytelling, shaped by art.
+      </p>
+      <div class="btn-row">
+        <a href="/sessions/" class="btn btn-primary btn-lg">View sessions</a>
+        <a href="/portfolio/" class="btn btn-outline btn-lg">See the work</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img
+        src="/portrait-01.jpg"
+        alt="Collaborative portrait — a study in light and character"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </section>
+
+  <!-- ─── Approach ─────────────────────────────────────────────────── -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-header" style="max-width: 50rem;">
+        <span class="eyebrow">The approach</span>
+        <h2>Photography as collaboration</h2>
+        <p class="lead" style="margin-top: 1rem;">
+          Every portrait session begins with a conversation. I bring a storyteller's eye and
+          an artist's sensibility — you bring yourself. Together we make something that's
+          genuinely yours.
+        </p>
+      </div>
+
+      <div class="grid-4" style="margin-top: var(--space-8);">
+        <div>
+          <span class="feature-number eyebrow" style="margin-bottom: var(--space-3);">01</span>
+          <h5>We talk first</h5>
+          <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
+            Before any camera comes out, we discuss what you're looking for, what feels right,
+            and what makes you you.
+          </p>
+        </div>
+        <div>
+          <span class="feature-number eyebrow" style="margin-bottom: var(--space-3);">02</span>
+          <h5>Location matters</h5>
+          <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
+            We choose a location that reflects your personality — a studio, your home,
+            a favourite spot outdoors. Setting is part of the story.
+          </p>
+        </div>
+        <div>
+          <span class="feature-number eyebrow" style="margin-bottom: var(--space-3);">03</span>
+          <h5>Natural, unhurried</h5>
+          <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
+            Sessions are relaxed and flexible. I work to put you at ease so the images
+            feel authentic, not staged.
+          </p>
+        </div>
+        <div>
+          <span class="feature-number eyebrow" style="margin-bottom: var(--space-3);">04</span>
+          <h5>Professional editing</h5>
+          <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
+            Every delivered image is professionally edited. The final photos are ready
+            to use — no further work required.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Portfolio Preview ─────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Selected work</span>
+        <h2>Recent portraits</h2>
+      </div>
+
+      <div class="home-gallery">
+        <div class="home-gallery-main">
+          <img src="/portrait-02.jpg" alt="Portrait session" loading="lazy" />
+        </div>
+        <div class="home-gallery-grid">
+          <img src="/portrait-3.jpg" alt="Portrait session" loading="lazy" />
+          <img src="/portrait-4.jpg" alt="Portrait session" loading="lazy" />
+          <img src="/portrait-5.jpg" alt="Portrait session" loading="lazy" />
+          <img src="/portrait-6.jpg" alt="Portrait session" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top: var(--space-6);">
+        <a href="/portfolio/portraits/" class="btn btn-outline">All portraits</a>
+        <a href="/portfolio/landscape/" class="btn btn-ghost">Landscape &amp; art</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Sessions ─────────────────────────────────────────────────── -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Sessions &amp; pricing</span>
+        <h2>Simple, transparent pricing</h2>
+        <p class="lead" style="margin-top: 1rem;">
+          Two session formats, both all-inclusive — editing, delivery, no hidden fees.
+        </p>
+      </div>
+
+      <div class="grid-2" style="margin-top: var(--space-7);">
+        <div class="pricing-card">
+          <div>
+            <h6>Essential Session</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-3);">
+              <span>$</span>350
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li>One hour at a single location</li>
+            <li>5 professionally edited portraits</li>
+            <li>Within 30 miles of Lafayette or Urbana-Champaign</li>
+            <li>All editing included</li>
+          </ul>
+          <div class="pricing-footer">
+            <a href="/contact/" class="btn btn-outline">Book this session</a>
+          </div>
+        </div>
+
+        <div class="pricing-card featured">
+          <div>
+            <h6>Extended Session</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-3);">
+              <span>$</span>750
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li>Three hours at a single location</li>
+            <li>20 professionally edited portraits</li>
+            <li>Within 30 miles of Lafayette or Urbana-Champaign</li>
+            <li>All editing included</li>
+          </ul>
+          <div class="pricing-footer">
+            <a href="/contact/" class="btn btn-primary">Book this session</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-6);">
+        Available in Indianapolis (+$100 per session) and Chicago (+$200 per session).
+        <a href="/sessions/" style="color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px;">Full details →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── About Snippet ─────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split-image">
+          <img src="/couple.jpg" alt="Collaborative portrait work" loading="lazy" />
+        </div>
+        <div class="stack">
+          <span class="eyebrow">About Zach</span>
+          <h2>A storyteller with a camera</h2>
+          <p>
+            My background is in storytelling and nature photography — I came to portraits with
+            a documentary eye and an artist's instinct for atmosphere. I'm interested in what
+            makes you <em>you</em>: the way light catches your expression, the story that lives
+            in a glance.
+          </p>
+          <p>
+            Every portrait session is a collaboration. I work with you, not just at you.
+          </p>
+          <a href="/about/" class="btn btn-outline">More about me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Landscape teaser ──────────────────────────────────────────── -->
+  <section class="section bg-strong">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Beyond portraits</span>
+        <h2>Landscape &amp; abstract work</h2>
+        <p class="lead" style="margin-top: 1rem;">
+          The same eye I bring to portraiture — attention to light, texture, and mood —
+          applied to the natural and abstract world.
+        </p>
+      </div>
+      <div class="landscape-preview">
+        <img src="/abstract-angles.jpg" alt="Abstract architectural study" loading="lazy" />
+        <img src="/abstract_snow.jpg" alt="Landscape in snow" loading="lazy" />
+        <img src="/art1.jpg" alt="Abstract study" loading="lazy" />
+      </div>
+      <div style="margin-top: var(--space-6);">
+        <a href="/portfolio/landscape/" class="btn btn-outline">Explore landscape &amp; art</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ──────────────────────────────────────────────────────── -->
+  <section class="cta-band">
+    <div class="container-narrow">
+      <span class="eyebrow">Ready when you are</span>
+      <h2>Let's make something together</h2>
+      <p>
+        Whether it's for a special event, your personal brand, or just because you deserve
+        a great portrait — reach out and let's talk about what you have in mind.
+      </p>
+      <div class="btn-row" style="justify-content: center;">
+        <a href="/contact/" class="btn btn-accent btn-lg">Get in touch</a>
+        <a href="/sessions/" class="btn btn-ghost btn-lg" style="color: rgba(253,252,251,0.7);">See pricing</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Home gallery layout */
+  .home-gallery {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-3);
+    align-items: start;
+  }
+
+  .home-gallery-main {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+
+  .home-gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .home-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .home-gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+
+  /* Landscape preview */
+  .landscape-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    margin-top: var(--space-7);
+  }
+
+  .landscape-preview img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  @media (max-width: 768px) {
+    .home-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .home-gallery-main {
+      aspect-ratio: 16 / 9;
+    }
+
+    .landscape-preview {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .landscape-preview img:last-child {
+      display: none;
+    }
+  }
+</style>

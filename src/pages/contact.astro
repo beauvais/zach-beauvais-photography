@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const session = Astro.url.searchParams.get('session') || '';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Book a portrait session with Zach Beauvais. Get in touch to discuss your project, ask questions, or reserve your date."
+>
+  <!-- ─── Page Header ───────────────────────────────────────────────── -->
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>Let's talk</h1>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 48ch;">
+        Tell me what you have in mind and I'll get back to you within a day or two.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── Contact Content ──────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Form -->
+        <div>
+          <h3 style="margin-bottom: var(--space-6);">Send a message</h3>
+
+          <form
+            class="contact-form stack"
+            action="mailto:zach@zachbeauvais.com"
+            method="dialog"
+            id="contact-form"
+          >
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="name">Name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="session-type">Session</label>
+              <select class="form-select" id="session-type" name="session">
+                <option value="">What are you thinking?</option>
+                <option value="essential" selected={session === 'essential'}>Essential Session ($350 — 1 hr, 5 portraits)</option>
+                <option value="extended" selected={session === 'extended'}>Extended Session ($750 — 3 hrs, 20 portraits)</option>
+                <option value="business">Business / Brand Photography</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="location">Location</label>
+              <select class="form-select" id="location" name="location">
+                <option value="">Where are you?</option>
+                <option value="lafayette">Lafayette / West Lafayette, IN</option>
+                <option value="urbana">Urbana-Champaign, IL</option>
+                <option value="indianapolis">Indianapolis, IN (+$100)</option>
+                <option value="chicago">Chicago, IL (+$200)</option>
+                <option value="other">Other — let's discuss</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Tell me about your project</label>
+              <textarea
+                class="form-textarea"
+                id="message"
+                name="message"
+                placeholder="What are you looking for? Any specific ideas, occasions, or things you'd like me to know?"
+              ></textarea>
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-primary btn-lg">Send message</button>
+            </div>
+          </form>
+
+          <p class="muted" style="font-size: var(--text-xs); margin-top: var(--space-4);">
+            Note: This form opens your email client. If you prefer, email directly at
+            <a href="mailto:zach@zachbeauvais.com" style="color: var(--color-accent);">zach@zachbeauvais.com</a>
+          </p>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="contact-sidebar stack-lg">
+          <div>
+            <h5 style="margin-bottom: var(--space-4);">Direct contact</h5>
+            <div class="stack-sm">
+              <a href="mailto:zach@zachbeauvais.com" class="contact-link">
+                <span class="contact-link-icon">✉</span>
+                <span>zach@zachbeauvais.com</span>
+              </a>
+              <a
+                href="https://instagram.com/zach_of_the"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link"
+              >
+                <span class="contact-link-icon">◎</span>
+                <span>@zach_of_the</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div>
+            <h5 style="margin-bottom: var(--space-4);">Based in</h5>
+            <p class="muted" style="font-size: var(--text-sm);">
+              Lafayette, Indiana
+            </p>
+            <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
+              Available within 30 miles of Lafayette and Urbana-Champaign at standard rates.
+              Indianapolis sessions add $100 · Chicago sessions add $200.
+            </p>
+          </div>
+
+          <div class="divider"></div>
+
+          <div>
+            <h5 style="margin-bottom: var(--space-4);">Good to know</h5>
+            <ul class="checklist">
+              <li>I reply within 1–2 business days</li>
+              <li>Availability varies — book ahead when possible</li>
+              <li>I'm happy to answer questions before you commit</li>
+              <li>Rescheduling is always possible</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Portrait teaser ───────────────────────────────────────────── -->
+  <section class="section-sm bg-strong">
+    <div class="container">
+      <div class="contact-gallery">
+        <img src="/portrait-8.jpg" alt="Portrait session" loading="lazy" />
+        <img src="/portrait-9.jpg" alt="Portrait session" loading="lazy" />
+        <img src="/baby.jpg" alt="Portrait session" loading="lazy" />
+        <img src="/portrait-5.jpg" alt="Portrait session" loading="lazy" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--space-10);
+    align-items: start;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  .contact-sidebar {
+    position: sticky;
+    top: 6rem;
+    background: var(--color-surface-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-7);
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--color-fg);
+    padding: var(--space-3);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: background var(--transition);
+  }
+
+  .contact-link:hover {
+    background: var(--color-surface-strong);
+  }
+
+  .contact-link-icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface-strong);
+    border-radius: var(--radius);
+    font-size: var(--text-base);
+    flex-shrink: 0;
+  }
+
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+
+  .checklist li::before {
+    content: "–";
+    color: var(--color-accent);
+    flex-shrink: 0;
+    font-family: var(--font-sans);
+  }
+
+  .contact-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+  }
+
+  .contact-gallery img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  @media (max-width: 900px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-sidebar {
+      position: static;
+    }
+
+    .contact-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-gallery img:nth-child(n+3) {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = data.get('name') as string;
+    const email = data.get('email') as string;
+    const sessionType = data.get('session') as string;
+    const location = data.get('location') as string;
+    const message = data.get('message') as string;
+
+    const subject = encodeURIComponent(`Portrait session enquiry${sessionType ? ` — ${sessionType}` : ''}`);
+    const body = encodeURIComponent(
+      `Hi Zach,\n\n${message || 'I\'d like to discuss a portrait session.'}\n\nSession type: ${sessionType || '–'}\nLocation: ${location || '–'}\n\n– ${name}\n${email}`
+    );
+
+    window.location.href = `mailto:zach@zachbeauvais.com?subject=${subject}&body=${body}`;
+  });
+</script>

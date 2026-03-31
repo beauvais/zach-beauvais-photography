@@ -1,0 +1,175 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner container">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo" aria-label="Zach Beauvais Photography">
+        <span class="footer-monogram">ZB</span>
+      </a>
+      <p class="footer-tagline">
+        Collaborative portrait photography<br />
+        rooted in storytelling and art.
+      </p>
+      <p class="footer-location muted">Lafayette, Indiana</p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <h6>Work</h6>
+        <nav>
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/portfolio/portraits/">Portraits</a>
+          <a href="/portfolio/landscape/">Landscape &amp; Art</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h6>Info</h6>
+        <nav>
+          <a href="/sessions/">Sessions &amp; Pricing</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h6>Connect</h6>
+        <nav>
+          <a href="https://instagram.com/zach_of_the" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="mailto:zach@zachbeauvais.com">Email</a>
+        </nav>
+        <p class="footer-coverage">
+          Available in Lafayette &amp; Urbana-Champaign.<br />
+          Indianapolis (+$100) · Chicago (+$200)
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom container">
+    <p class="muted">&copy; {year} Zach Beauvais. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-6);
+    margin-top: auto;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    text-decoration: none;
+  }
+
+  .footer-monogram {
+    width: 3rem;
+    height: 3rem;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-sm);
+  }
+
+  .footer-tagline {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--color-fg);
+    max-width: none;
+  }
+
+  .footer-location {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+    max-width: none;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .footer-col h6 {
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-col nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-col nav a {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .footer-col nav a:hover {
+    color: var(--color-fg);
+  }
+
+  .footer-coverage {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin-top: var(--space-5);
+    max-width: none;
+  }
+
+  .footer-bottom {
+    padding-top: var(--space-5);
+  }
+
+  .footer-bottom p {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    max-width: none;
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-links {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
