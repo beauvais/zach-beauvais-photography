@@ -1,0 +1,55 @@
+---
+// ─── CTA Band ──────────────────────────────────────────────────────────────
+// Full-width dark call-to-action section. Used at the bottom of most pages.
+//
+// Usage:
+//   <CTABand
+//     eyebrow="Optional small label"
+//     heading="Main heading"
+//     body="Optional body text."
+//     primaryHref={route('contact/')}
+//     primaryLabel="Get in touch"
+//     secondaryHref={route('sessions/')}   ← optional
+//     secondaryLabel="See pricing"         ← optional
+//   />
+
+interface Props {
+  eyebrow?:       string;
+  heading:        string;
+  body?:          string;
+  primaryHref:    string;
+  primaryLabel:   string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  eyebrow,
+  heading,
+  body,
+  primaryHref,
+  primaryLabel,
+  secondaryHref,
+  secondaryLabel,
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="container-narrow">
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h2>{heading}</h2>
+    {body && <p>{body}</p>}
+    <div class="btn-row" style="justify-content: center;">
+      <a href={primaryHref} class="btn btn-accent btn-lg">{primaryLabel}</a>
+      {secondaryHref && secondaryLabel && (
+        <a
+          href={secondaryHref}
+          class="btn btn-ghost btn-lg"
+          style="color: rgba(253,252,251,0.7);"
+        >
+          {secondaryLabel}
+        </a>
+      )}
+    </div>
+  </div>
+</section>

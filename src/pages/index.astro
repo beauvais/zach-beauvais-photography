@@ -1,40 +1,52 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/sections/CTABand.astro';
 import { asset, route } from '../lib/paths';
+import { portraitImages, landscapeImages, pricing } from '../content/data';
+
+// Images shown in the homepage portfolio preview (first 4 portraits after the hero)
+const previewPortraits = portraitImages.slice(1, 5);
+// Images shown in the landscape teaser (first 3 landscape images)
+const landscapePreview = landscapeImages.slice(0, 3);
 ---
 
-<BaseLayout
-  title="Home"
-  description="Collaborative portrait photography rooted in storytelling and art. Based in Lafayette, Indiana. Sessions from $350."
->
-  <!-- ─── Hero ──────────────────────────────────────────────────────── -->
+<BaseLayout title="Home">
+
+  {/* ══ HERO ══════════════════════════════════════════════════════════
+      Edit: headline, subheading, hero image, button labels and links.
+      Hero image is the first portrait in portraitImages (data.ts).
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="hero">
     <div class="hero-content">
-      <span class="eyebrow">Lafayette, Indiana</span>
+      <span class="eyebrow">Lafayette, Indiana | Urbana-Champaign, Illinois</span>
       <h1 class="hero-title">
-        Portraits that<br />
-        <em>tell your story</em>
+        Portraits to<br />
+        <em>find your story</em>
       </h1>
       <p class="hero-lead">
         Collaborative, creative portrait photography for people, brands, and moments
-        worth remembering. Rooted in storytelling, shaped by art.
+        worth retelling. Rooted in storytelling, shaped by art.
       </p>
       <div class="btn-row">
-        <a href={route('sessions/')} class="btn btn-primary btn-lg">View sessions</a>
-        <a href={route('portfolio/')} class="btn btn-outline btn-lg">See the work</a>
+        <a href={route('sessions/')} class="btn btn-primary btn-lg">Sessions</a>
+        <a href={route('portfolio/')} class="btn btn-outline btn-lg">Work</a>
       </div>
     </div>
     <div class="hero-image">
       <img
-        src={asset('portrait-01.jpg')}
-        alt="Collaborative portrait — a study in light and character"
+        src={asset(portraitImages[0].src)}
+        alt={portraitImages[0].alt}
         loading="eager"
         fetchpriority="high"
       />
     </div>
   </section>
 
-  <!-- ─── Approach ─────────────────────────────────────────────────── -->
+
+  {/* ══ APPROACH ══════════════════════════════════════════════════════
+      Edit: section heading, intro text, and the four feature items.
+      To hide this section, wrap it in a comment: {/* <section>...</section> *\/}
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section bg-soft">
     <div class="container">
       <div class="section-header" style="max-width: 50rem;">
@@ -46,14 +58,12 @@ import { asset, route } from '../lib/paths';
           genuinely yours.
         </p>
       </div>
-
       <div class="grid-4" style="margin-top: var(--space-8);">
         <div>
           <span class="feature-number eyebrow" style="margin-bottom: var(--space-3);">01</span>
-          <h5>We talk first</h5>
+          <h5>Tell me about you</h5>
           <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
-            Before any camera comes out, we discuss what you're looking for, what feels right,
-            and what makes you you.
+            Before any camera comes out, we discuss what you want to accomplish. We'll talk goals, inspiration, and direction; but mostly, we'll talk about you.
           </p>
         </div>
         <div>
@@ -84,26 +94,27 @@ import { asset, route } from '../lib/paths';
     </div>
   </section>
 
-  <!-- ─── Portfolio Preview ─────────────────────────────────────────── -->
+
+  {/* ══ PORTFOLIO PREVIEW ═════════════════════════════════════════════
+      Shows 1 large portrait + 4 thumbnail grid.
+      Images come from portraitImages in data.ts (indices 1–4).
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Selected work</span>
         <h2>Recent portraits</h2>
       </div>
-
       <div class="home-gallery">
         <div class="home-gallery-main">
-          <img src={asset('portrait-02.jpg')} alt="Portrait session" loading="lazy" />
+          <img src={asset(previewPortraits[0].src)} alt={previewPortraits[0].alt} loading="lazy" />
         </div>
         <div class="home-gallery-grid">
-          <img src={asset('portrait-3.jpg')}  alt="Portrait session" loading="lazy" />
-          <img src={asset('portrait-4.jpg')}  alt="Portrait session" loading="lazy" />
-          <img src={asset('portrait-5.jpg')}  alt="Portrait session" loading="lazy" />
-          <img src={asset('portrait-6.jpg')}  alt="Portrait session" loading="lazy" />
+          {previewPortraits.slice(1).map(img => (
+            <img src={asset(img.src)} alt={img.alt} loading="lazy" />
+          ))}
         </div>
       </div>
-
       <div class="btn-row" style="margin-top: var(--space-6);">
         <a href={route('portfolio/portraits/')} class="btn btn-outline">All portraits</a>
         <a href={route('portfolio/landscape/')} class="btn btn-ghost">Landscape &amp; art</a>
@@ -111,7 +122,10 @@ import { asset, route } from '../lib/paths';
     </div>
   </section>
 
-  <!-- ─── Sessions ─────────────────────────────────────────────────── -->
+
+  {/* ══ PRICING ═══════════════════════════════════════════════════════
+      Prices come from pricing in data.ts — edit there, not here.
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section bg-soft">
     <div class="container">
       <div class="section-header">
@@ -121,53 +135,48 @@ import { asset, route } from '../lib/paths';
           Two session formats, both all-inclusive — editing, delivery, no hidden fees.
         </p>
       </div>
-
       <div class="grid-2" style="margin-top: var(--space-7);">
         <div class="pricing-card">
           <div>
-            <h6>Essential Session</h6>
+            <h6>{pricing.essential.name}</h6>
             <div class="pricing-amount" style="margin-top: var(--space-3);">
-              <span>$</span>350
+              <span>$</span>{pricing.essential.price}
             </div>
           </div>
           <ul class="pricing-features">
-            <li>One hour at a single location</li>
-            <li>5 professionally edited portraits</li>
-            <li>Within 30 miles of Lafayette or Urbana-Champaign</li>
-            <li>All editing included</li>
+            {pricing.essential.features.map(f => <li>{f}</li>)}
           </ul>
           <div class="pricing-footer">
             <a href={route('contact/')} class="btn btn-outline">Book this session</a>
           </div>
         </div>
-
         <div class="pricing-card featured">
           <div>
-            <h6>Extended Session</h6>
+            <h6>{pricing.extended.name}</h6>
             <div class="pricing-amount" style="margin-top: var(--space-3);">
-              <span>$</span>750
+              <span>$</span>{pricing.extended.price}
             </div>
           </div>
           <ul class="pricing-features">
-            <li>Three hours at a single location</li>
-            <li>20 professionally edited portraits</li>
-            <li>Within 30 miles of Lafayette or Urbana-Champaign</li>
-            <li>All editing included</li>
+            {pricing.extended.features.map(f => <li>{f}</li>)}
           </ul>
           <div class="pricing-footer">
             <a href={route('contact/')} class="btn btn-primary">Book this session</a>
           </div>
         </div>
       </div>
-
       <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-6);">
-        Available in Indianapolis (+$100 per session) and Chicago (+$200 per session).
+        Available in {pricing.travel.indianapolis.label} (+${pricing.travel.indianapolis.fee}) and {pricing.travel.chicago.label} (+${pricing.travel.chicago.fee}).
         <a href={route('sessions/')} style="color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px;">Full details →</a>
       </p>
     </div>
   </section>
 
-  <!-- ─── About Snippet ─────────────────────────────────────────────── -->
+
+  {/* ══ ABOUT SNIPPET ════════════════════════════════════════════════
+      Image on left, bio text on right. Edit text inline below.
+      Image: couple.jpg from portfolio/
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section">
     <div class="container">
       <div class="split">
@@ -192,7 +201,11 @@ import { asset, route } from '../lib/paths';
     </div>
   </section>
 
-  <!-- ─── Landscape teaser ──────────────────────────────────────────── -->
+
+  {/* ══ LANDSCAPE TEASER ══════════════════════════════════════════════
+      3-image preview of landscape/abstract work.
+      Images come from landscapeImages in data.ts (first 3).
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section bg-strong">
     <div class="container">
       <div class="section-header">
@@ -204,9 +217,9 @@ import { asset, route } from '../lib/paths';
         </p>
       </div>
       <div class="landscape-preview">
-        <img src={asset('abstract-angles.jpg')} alt="Abstract architectural study" loading="lazy" />
-        <img src={asset('abstract_snow.jpg')}   alt="Landscape in snow"            loading="lazy" />
-        <img src={asset('art1.jpg')}            alt="Abstract study"               loading="lazy" />
+        {landscapePreview.map(img => (
+          <img src={asset(img.src)} alt={img.alt} loading="lazy" />
+        ))}
       </div>
       <div style="margin-top: var(--space-6);">
         <a href={route('portfolio/landscape/')} class="btn btn-outline">Explore landscape &amp; art</a>
@@ -214,21 +227,20 @@ import { asset, route } from '../lib/paths';
     </div>
   </section>
 
-  <!-- ─── CTA ──────────────────────────────────────────────────────── -->
-  <section class="cta-band">
-    <div class="container-narrow">
-      <span class="eyebrow">Ready when you are</span>
-      <h2>Let's make something together</h2>
-      <p>
-        Whether it's for a special event, your personal brand, or just because you deserve
-        a great portrait — reach out and let's talk about what you have in mind.
-      </p>
-      <div class="btn-row" style="justify-content: center;">
-        <a href={route('contact/')} class="btn btn-accent btn-lg">Get in touch</a>
-        <a href={route('sessions/')} class="btn btn-ghost btn-lg" style="color: rgba(253,252,251,0.7);">See pricing</a>
-      </div>
-    </div>
-  </section>
+
+  {/* ══ CTA ═══════════════════════════════════════════════════════════
+      Edit text via props below. Href values use route() for base-path safety.
+  ══════════════════════════════════════════════════════════════════ */}
+  <CTABand
+    eyebrow="Ready when you are"
+    heading="Let's make something together"
+    body="Whether it's for a special event, your personal brand, or just because you deserve a great portrait — reach out and let's talk about what you have in mind."
+    primaryHref={route('contact/')}
+    primaryLabel="Get in touch"
+    secondaryHref={route('sessions/')}
+    secondaryLabel="See pricing"
+  />
+
 </BaseLayout>
 
 <style>
@@ -238,45 +250,13 @@ import { asset, route } from '../lib/paths';
     gap: var(--space-3);
     align-items: start;
   }
+  .home-gallery-main { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 4; }
+  .home-gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+  .home-gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+  .home-gallery-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
 
-  .home-gallery-main {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    aspect-ratio: 3 / 4;
-  }
-
-  .home-gallery-main img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .home-gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3);
-  }
-
-  .home-gallery-grid img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    border-radius: var(--radius);
-  }
-
-  .landscape-preview {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-3);
-    margin-top: var(--space-7);
-  }
-
-  .landscape-preview img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-  }
+  .landscape-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); margin-top: var(--space-7); }
+  .landscape-preview img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius-lg); }
 
   @media (max-width: 768px) {
     .home-gallery { grid-template-columns: 1fr; }

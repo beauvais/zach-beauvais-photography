@@ -1,16 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/sections/CTABand.astro';
 import { asset, route } from '../../lib/paths';
+import { landscapeImages, portraitImages } from '../../content/data';
 
-const images = [
-  { src: 'art1.jpg',              alt: 'Abstract study — form and tone' },
-  { src: 'art2.jpg',              alt: 'Abstract — colour and structure' },
-  { src: 'abstract-angles.jpg',   alt: 'Architectural abstraction — angles and light' },
-  { src: 'abstract_close.jpg',    alt: 'Texture study — close abstraction' },
-  { src: 'abstract_portrait.jpg', alt: 'Abstract portrait — environment and figure' },
-  { src: 'abstract_snow.jpg',     alt: 'Landscape — winter light' },
-  { src: 'flower.jpg',            alt: 'Botanical — nature study' },
-];
+// To add a landscape/art image: add it to landscapeImages in src/content/data.ts
 ---
 
 <BaseLayout
@@ -18,6 +12,8 @@ const images = [
   description="Landscape and abstract photography by Zach Beauvais — the observational eye that informs the portrait work. Lafayette, Indiana."
   ogImage="/art1.jpg"
 >
+
+  {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
   <section class="page-header">
     <div class="container">
       <nav class="breadcrumb">
@@ -38,20 +34,27 @@ const images = [
     </div>
   </section>
 
+
+  {/* ══ HERO IMAGE GRID ═══════════════════════════════════════════════
+      First 3 landscape images in a feature layout.
+      Edit landscapeImages order in data.ts to change which appear here.
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section-sm">
     <div class="container">
       <div class="landscape-hero">
         <div class="landscape-hero-wide">
-          <img src={asset('art1.jpg')} alt="Abstract study — form and tone" loading="lazy" />
+          <img src={asset(landscapeImages[0].src)} alt={landscapeImages[0].alt} loading="lazy" />
         </div>
         <div class="landscape-hero-pair">
-          <img src={asset('abstract-angles.jpg')} alt="Architectural abstraction" loading="lazy" />
-          <img src={asset('abstract_snow.jpg')}   alt="Landscape in winter light" loading="lazy" />
+          <img src={asset(landscapeImages[2].src)} alt={landscapeImages[2].alt} loading="lazy" />
+          <img src={asset(landscapeImages[5].src)} alt={landscapeImages[5].alt} loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
+
+  {/* ══ INTRO TEXT ════════════════════════════════════════════════════ */}
   <section class="section-sm bg-soft">
     <div class="container-narrow">
       <h2 style="margin-bottom: var(--space-4);">Photography as attention</h2>
@@ -69,10 +72,14 @@ const images = [
     </div>
   </section>
 
+
+  {/* ══ GALLERY ═══════════════════════════════════════════════════════
+      All images from landscapeImages (data.ts). Click to open lightbox.
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section-md">
     <div class="gallery-container">
       <div class="gallery-grid" id="gallery">
-        {images.map((img, i) => (
+        {landscapeImages.map((img, i) => (
           <button
             class="gallery-item"
             data-index={i}
@@ -90,6 +97,8 @@ const images = [
     </div>
   </section>
 
+
+  {/* ══ LIGHTBOX (no edits needed) ════════════════════════════════════ */}
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
     <button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
     <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous">‹</button>
@@ -100,6 +109,11 @@ const images = [
     <div class="lightbox-counter" id="lb-counter"></div>
   </div>
 
+
+  {/* ══ PORTRAIT CROSSLINK ════════════════════════════════════════════
+      Links back to portrait work. Uses second portrait image.
+      To hide: wrap the <section> in {/* ... *\/}
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section bg-strong">
     <div class="container">
       <div class="split">
@@ -117,17 +131,17 @@ const images = [
           </div>
         </div>
         <div class="split-image">
-          <img src={asset('portrait-02.jpg')} alt="Portrait session" loading="lazy" />
+          <img src={asset(portraitImages[1].src)} alt={portraitImages[1].alt} loading="lazy" />
         </div>
       </div>
     </div>
   </section>
+
 </BaseLayout>
 
 <style>
   .gallery-container { padding-inline: 2px; }
   .portfolio-nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-
   .landscape-hero { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-items: stretch; }
   .landscape-hero-wide { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 4; }
   .landscape-hero-wide img { width: 100%; height: 100%; object-fit: cover; }

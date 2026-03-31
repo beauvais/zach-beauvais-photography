@@ -1,0 +1,93 @@
+---
+// ═════════════════════════════════════════════════════════════════════
+// NEW PAGE TEMPLATE
+//
+// HOW TO USE:
+//   1. Copy this file to src/pages/your-page-name.astro
+//      The filename becomes the URL: about.astro → /about/
+//   2. Update the title and description in <BaseLayout>
+//   3. Replace the placeholder sections below with your content
+//   4. Add the page to the nav in src/components/Header.astro
+//
+// COMMENTING OUT A SECTION:
+//   Wrap any section in {/* ... */} to hide it from the built site:
+//
+//   {/*
+//   <section class="section">
+//     ...
+//   </section>
+//   */}
+//
+// MOVING SECTIONS:
+//   Each section is self-contained. Cut and paste the whole block
+//   (from one {/* ══ SECTION NAME */} comment to the next) to reorder.
+// ═════════════════════════════════════════════════════════════════════
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { asset, route } from '../lib/paths';
+// import { site, pricing } from '../content/data';  ← uncomment if needed
+---
+
+<BaseLayout
+  title="Page Title"
+  description="One sentence describing this page for search engines and social sharing. Keep under 160 characters."
+>
+
+  {/* ══ PAGE HEADER ══════════════════════════════════════════════════
+      The standard top-of-page block: eyebrow label, h1, intro line.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Category Label</span>
+      <h1>Page Heading</h1>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        One or two sentences introducing this page.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ MAIN CONTENT ══════════════════════════════════════════════════
+      Replace this with your actual content.
+      Common layouts to paste in:
+        - Two columns: <div class="grid-2">
+        - Three columns: <div class="grid-3">
+        - Narrow readable text: <div class="container-narrow">
+        - Image left + text right: <div class="split">
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section">
+    <div class="container">
+      <p>Your content here.</p>
+    </div>
+  </section>
+
+
+  {/* ══ OPTIONAL: SECOND SECTION ══════════════════════════════════════
+      Alternate background: add class="section bg-soft" or "bg-strong"
+      to visually separate sections without extra design work.
+  ══════════════════════════════════════════════════════════════════ */}
+  {/*
+  <section class="section bg-soft">
+    <div class="container">
+      <p>Optional second section.</p>
+    </div>
+  </section>
+  */}
+
+
+  {/* ══ CTA ═══════════════════════════════════════════════════════════
+      Remove secondaryHref/secondaryLabel if you only want one button.
+      To hide the CTA entirely, wrap in {/* ... *\/}
+  ══════════════════════════════════════════════════════════════════ */}
+  <CTABand
+    eyebrow="Optional eyebrow label"
+    heading="Your call-to-action heading"
+    body="A sentence or two explaining what you want the visitor to do."
+    primaryHref={route('contact/')}
+    primaryLabel="Get in touch"
+    secondaryHref={route('sessions/')}
+    secondaryLabel="See pricing"
+  />
+
+</BaseLayout>

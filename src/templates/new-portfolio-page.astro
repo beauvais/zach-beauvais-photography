@@ -1,41 +1,88 @@
 ---
+// ═════════════════════════════════════════════════════════════════════
+// NEW PORTFOLIO PAGE TEMPLATE
+//
+// HOW TO USE:
+//   1. Copy this file to src/pages/portfolio/your-category.astro
+//   2. Add your images to src/content/data.ts (new export or reuse existing)
+//   3. Import that export below and replace `myImages`
+//   4. Update title, description, heading, and intro text
+//   5. Add a nav link in src/components/Header.astro if needed
+//
+// ADDING IMAGES:
+//   In src/content/data.ts, add a new export:
+//
+//   export const eventImages = [
+//     { src: 'event-01.jpg', alt: 'Description' },
+//     { src: 'event-02.jpg', alt: 'Description' },
+//   ];
+//
+//   Then import it here: import { eventImages } from '../../content/data';
+//   And replace `myImages` with `eventImages`.
+// ═════════════════════════════════════════════════════════════════════
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import { asset, route } from '../../lib/paths';
-import { allImages } from '../../content/data';
 
-// allImages is portraits + landscape combined, defined in data.ts
+// Replace with your actual image import from data.ts
+// import { eventImages as myImages } from '../../content/data';
+
+// Placeholder — remove this when you add your real import above
+const myImages = [
+  { src: 'portrait-01.jpg', alt: 'Placeholder — replace with your images' },
+];
 ---
 
 <BaseLayout
-  title="Portfolio"
-  description="The complete portfolio of Zach Beauvais — collaborative portraits, landscape, and abstract photography from Lafayette, Indiana."
+  title="Portfolio — Category Name"
+  description="Description of this portfolio category."
 >
 
   {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
   <section class="page-header">
     <div class="container">
-      <span class="eyebrow">Portfolio</span>
-      <h1>All work</h1>
-      <p class="lead" style="margin-top: var(--space-4); max-width: 48ch;">
-        Portraits, landscape, and abstract — everything in one place.
+      <nav class="breadcrumb">
+        <a href={route('portfolio/')}>Portfolio</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Category Name</span>
+      </nav>
+      <h1>Category Heading</h1>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        One or two sentences describing this body of work.
       </p>
+      {/* Portfolio sub-navigation — update active button to match this page */}
       <div class="portfolio-nav" style="margin-top: var(--space-6);">
-        <a href={route('portfolio/')}           class="btn btn-primary btn-sm">All</a>
+        <a href={route('portfolio/')}           class="btn btn-outline btn-sm">All work</a>
         <a href={route('portfolio/portraits/')} class="btn btn-outline btn-sm">Portraits</a>
         <a href={route('portfolio/landscape/')} class="btn btn-outline btn-sm">Landscape &amp; Art</a>
+        <a href="#"                             class="btn btn-primary btn-sm">This Category</a>
       </div>
     </div>
   </section>
 
 
+  {/* ══ OPTIONAL INTRO TEXT ═══════════════════════════════════════════
+      Remove or comment out if you don't want text before the gallery.
+  ══════════════════════════════════════════════════════════════════ */}
+  {/*
+  <section class="section-sm bg-soft">
+    <div class="container-narrow">
+      <h2 style="margin-bottom: var(--space-4);">About this work</h2>
+      <p>Describe the work in this category.</p>
+    </div>
+  </section>
+  */}
+
+
   {/* ══ GALLERY ═══════════════════════════════════════════════════════
-      All images from allImages (data.ts). Click to open lightbox.
+      Renders all images from myImages. Click opens the lightbox.
+      No changes needed here — add/remove images via data.ts.
   ══════════════════════════════════════════════════════════════════ */}
   <section class="section-md">
     <div class="gallery-container">
       <div class="gallery-grid" id="gallery">
-        {allImages.map((img, i) => (
+        {myImages.map((img, i) => (
           <button
             class="gallery-item"
             data-index={i}
@@ -54,25 +101,25 @@ import { allImages } from '../../content/data';
   </section>
 
 
-  {/* ══ LIGHTBOX (no edits needed) ════════════════════════════════════ */}
+  {/* ══ LIGHTBOX — do not edit ════════════════════════════════════════ */}
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-    <button class="lightbox-close" id="lb-close" aria-label="Close photo viewer">✕</button>
-    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous photo">‹</button>
+    <button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous">‹</button>
     <div class="lightbox-inner">
       <img class="lightbox-img" id="lb-img" src="" alt="" />
     </div>
-    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next photo">›</button>
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next">›</button>
     <div class="lightbox-counter" id="lb-counter"></div>
   </div>
 
 
   {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
   <CTABand
-    eyebrow="Work together"
+    eyebrow="Book a session"
     heading="Like what you see?"
     body="Sessions from $350. Let's discuss your portrait."
     primaryHref={route('contact/')}
-    primaryLabel="Book a session"
+    primaryLabel="Get in touch"
     secondaryHref={route('sessions/')}
     secondaryLabel="See pricing"
   />
@@ -96,7 +143,7 @@ import { allImages } from '../../content/data';
   let current = 0;
   const images = Array.from(items).map(el => ({ src: el.dataset.src!, alt: el.dataset.alt! }));
 
-  function open(i: number) { current = i; show(); lightbox.classList.add('is-open'); document.body.style.overflow = 'hidden'; lbClose.focus(); }
+  function open(i: number) { current = i; show(); lightbox.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
   function close() { lightbox.classList.remove('is-open'); document.body.style.overflow = ''; }
   function show() { lbImg.src = images[current].src; lbImg.alt = images[current].alt; lbCounter.textContent = `${current + 1} / ${images.length}`; }
   function prev() { current = (current - 1 + images.length) % images.length; show(); }

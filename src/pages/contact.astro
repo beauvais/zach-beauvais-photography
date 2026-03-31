@@ -1,14 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { asset, route } from '../lib/paths';
+import { site, pricing } from '../content/data';
 
 const session = Astro.url.searchParams.get('session') || '';
 ---
 
 <BaseLayout
   title="Contact"
-  description="Book a portrait session with Zach Beauvais. Get in touch to discuss your project, ask questions, or reserve your date."
+  description={`Book a portrait session with ${site.name}. Get in touch to discuss your project, ask questions, or reserve your date.`}
 >
+
+  {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
   <section class="page-header">
     <div class="container">
       <span class="eyebrow">Contact</span>
@@ -19,12 +22,17 @@ const session = Astro.url.searchParams.get('session') || '';
     </div>
   </section>
 
+
+  {/* ══ CONTACT FORM + SIDEBAR ════════════════════════════════════════
+      The form composes a mailto: and opens the user's email client.
+      To change the recipient email, update site.email in data.ts.
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section">
     <div class="container">
       <div class="contact-layout">
+
         <div>
           <h3 style="margin-bottom: var(--space-6);">Send a message</h3>
-
           <form class="contact-form stack" id="contact-form">
             <div class="form-grid">
               <div class="form-group">
@@ -36,30 +44,27 @@ const session = Astro.url.searchParams.get('session') || '';
                 <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
               </div>
             </div>
-
             <div class="form-group">
               <label class="form-label" for="session-type">Session</label>
               <select class="form-select" id="session-type" name="session">
                 <option value="">What are you thinking?</option>
-                <option value="essential" selected={session === 'essential'}>Essential Session ($350 — 1 hr, 5 portraits)</option>
-                <option value="extended"  selected={session === 'extended'}>Extended Session ($750 — 3 hrs, 20 portraits)</option>
+                <option value="essential" selected={session === 'essential'}>{pricing.essential.name} (${pricing.essential.price})</option>
+                <option value="extended"  selected={session === 'extended'}>{pricing.extended.name} (${pricing.extended.price})</option>
                 <option value="business">Business / Brand Photography</option>
                 <option value="other">Something else</option>
               </select>
             </div>
-
             <div class="form-group">
               <label class="form-label" for="location">Location</label>
               <select class="form-select" id="location" name="location">
                 <option value="">Where are you?</option>
                 <option value="lafayette">Lafayette / West Lafayette, IN</option>
                 <option value="urbana">Urbana-Champaign, IL</option>
-                <option value="indianapolis">Indianapolis, IN (+$100)</option>
-                <option value="chicago">Chicago, IL (+$200)</option>
+                <option value="indianapolis">{pricing.travel.indianapolis.label}, IN (+${pricing.travel.indianapolis.fee})</option>
+                <option value="chicago">{pricing.travel.chicago.label}, IL (+${pricing.travel.chicago.fee})</option>
                 <option value="other">Other — let's discuss</option>
               </select>
             </div>
-
             <div class="form-group">
               <label class="form-label" for="message">Tell me about your project</label>
               <textarea
@@ -69,15 +74,13 @@ const session = Astro.url.searchParams.get('session') || '';
                 placeholder="What are you looking for? Any specific ideas, occasions, or things you'd like me to know?"
               ></textarea>
             </div>
-
             <div>
               <button type="submit" class="btn btn-primary btn-lg">Send message</button>
             </div>
           </form>
-
           <p class="muted" style="font-size: var(--text-xs); margin-top: var(--space-4);">
-            Note: This form opens your email client. If you prefer, email directly at
-            <a href="mailto:zach@zachbeauvais.com" style="color: var(--color-accent);">zach@zachbeauvais.com</a>
+            This form opens your email client. You can also email directly:
+            <a href={`mailto:${site.email}`} style="color: var(--color-accent);">{site.email}</a>
           </p>
         </div>
 
@@ -85,30 +88,27 @@ const session = Astro.url.searchParams.get('session') || '';
           <div>
             <h5 style="margin-bottom: var(--space-4);">Direct contact</h5>
             <div class="stack-sm">
-              <a href="mailto:zach@zachbeauvais.com" class="contact-link">
+              <a href={`mailto:${site.email}`} class="contact-link">
                 <span class="contact-link-icon">✉</span>
-                <span>zach@zachbeauvais.com</span>
+                <span>{site.email}</span>
               </a>
-              <a href="https://instagram.com/zach_of_the" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" class="contact-link">
                 <span class="contact-link-icon">◎</span>
-                <span>@zach_of_the</span>
+                <span>@{site.instagram}</span>
               </a>
             </div>
           </div>
-
           <div class="divider"></div>
-
           <div>
             <h5 style="margin-bottom: var(--space-4);">Based in</h5>
-            <p class="muted" style="font-size: var(--text-sm);">Lafayette, Indiana</p>
+            <p class="muted" style="font-size: var(--text-sm);">{site.location}</p>
             <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
               Available within 30 miles of Lafayette and Urbana-Champaign at standard rates.
-              Indianapolis sessions add $100 · Chicago sessions add $200.
+              {pricing.travel.indianapolis.label} +${pricing.travel.indianapolis.fee} ·
+              {pricing.travel.chicago.label} +${pricing.travel.chicago.fee}
             </p>
           </div>
-
           <div class="divider"></div>
-
           <div>
             <h5 style="margin-bottom: var(--space-4);">Good to know</h5>
             <ul class="checklist">
@@ -119,10 +119,16 @@ const session = Astro.url.searchParams.get('session') || '';
             </ul>
           </div>
         </aside>
+
       </div>
     </div>
   </section>
 
+
+  {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
+      4 portrait thumbnails at the bottom. Change filenames to swap images.
+      To hide: wrap the section in {/* ... *\/}
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section-sm bg-strong">
     <div class="container">
       <div class="contact-gallery">
@@ -133,87 +139,21 @@ const session = Astro.url.searchParams.get('session') || '';
       </div>
     </div>
   </section>
+
 </BaseLayout>
 
 <style>
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: var(--space-10);
-    align-items: start;
-  }
-
+  .contact-layout { display: grid; grid-template-columns: 1fr 320px; gap: var(--space-10); align-items: start; }
   .contact-form { width: 100%; }
-
-  .contact-sidebar {
-    position: sticky;
-    top: 6rem;
-    background: var(--color-surface-soft);
-    border-radius: var(--radius-lg);
-    padding: var(--space-7);
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
-    color: var(--color-fg);
-    padding: var(--space-3);
-    border-radius: var(--radius);
-    text-decoration: none;
-    transition: background var(--transition);
-  }
-
+  .contact-sidebar { position: sticky; top: 6rem; background: var(--color-surface-soft); border-radius: var(--radius-lg); padding: var(--space-7); }
+  .contact-link { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-sans); font-size: var(--text-sm); color: var(--color-fg); padding: var(--space-3); border-radius: var(--radius); text-decoration: none; transition: background var(--transition); }
   .contact-link:hover { background: var(--color-surface-strong); }
-
-  .contact-link-icon {
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-surface-strong);
-    border-radius: var(--radius);
-    font-size: var(--text-base);
-    flex-shrink: 0;
-  }
-
-  .checklist {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-
-  .checklist li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-3);
-    font-size: var(--text-sm);
-    color: var(--color-muted);
-  }
-
-  .checklist li::before {
-    content: "–";
-    color: var(--color-accent);
-    flex-shrink: 0;
-    font-family: var(--font-sans);
-  }
-
-  .contact-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-3);
-  }
-
-  .contact-gallery img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-  }
+  .contact-link-icon { width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; background: var(--color-surface-strong); border-radius: var(--radius); font-size: var(--text-base); flex-shrink: 0; }
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+  .checklist li { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-sm); color: var(--color-muted); }
+  .checklist li::before { content: "–"; color: var(--color-accent); flex-shrink: 0; font-family: var(--font-sans); }
+  .contact-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+  .contact-gallery img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius-lg); }
 
   @media (max-width: 900px) {
     .contact-layout { grid-template-columns: 1fr; }
@@ -223,22 +163,22 @@ const session = Astro.url.searchParams.get('session') || '';
   }
 </style>
 
-<script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
+<script define:vars={{ email: site.email }}>
+  const form = document.getElementById('contact-form');
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
-    const name = data.get('name') as string;
-    const email = data.get('email') as string;
-    const sessionType = data.get('session') as string;
-    const location = data.get('location') as string;
-    const message = data.get('message') as string;
+    const name        = data.get('name');
+    const userEmail   = data.get('email');
+    const sessionType = data.get('session');
+    const location    = data.get('location');
+    const message     = data.get('message');
 
     const subject = encodeURIComponent(`Portrait session enquiry${sessionType ? ` — ${sessionType}` : ''}`);
-    const body = encodeURIComponent(
-      `Hi Zach,\n\n${message || "I'd like to discuss a portrait session."}\n\nSession type: ${sessionType || '–'}\nLocation: ${location || '–'}\n\n– ${name}\n${email}`
+    const body    = encodeURIComponent(
+      `Hi Zach,\n\n${message || "I'd like to discuss a portrait session."}\n\nSession: ${sessionType || '–'}\nLocation: ${location || '–'}\n\n– ${name}\n${userEmail}`
     );
 
-    window.location.href = `mailto:zach@zachbeauvais.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   });
 </script>
