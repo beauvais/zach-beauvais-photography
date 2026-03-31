@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { asset, route } from '../lib/paths';
 ---
 
 <BaseLayout
@@ -19,13 +20,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         worth remembering. Rooted in storytelling, shaped by art.
       </p>
       <div class="btn-row">
-        <a href="/sessions/" class="btn btn-primary btn-lg">View sessions</a>
-        <a href="/portfolio/" class="btn btn-outline btn-lg">See the work</a>
+        <a href={route('sessions/')} class="btn btn-primary btn-lg">View sessions</a>
+        <a href={route('portfolio/')} class="btn btn-outline btn-lg">See the work</a>
       </div>
     </div>
     <div class="hero-image">
       <img
-        src="/portrait-01.jpg"
+        src={asset('portrait-01.jpg')}
         alt="Collaborative portrait — a study in light and character"
         loading="eager"
         fetchpriority="high"
@@ -93,19 +94,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="home-gallery">
         <div class="home-gallery-main">
-          <img src="/portrait-02.jpg" alt="Portrait session" loading="lazy" />
+          <img src={asset('portrait-02.jpg')} alt="Portrait session" loading="lazy" />
         </div>
         <div class="home-gallery-grid">
-          <img src="/portrait-3.jpg" alt="Portrait session" loading="lazy" />
-          <img src="/portrait-4.jpg" alt="Portrait session" loading="lazy" />
-          <img src="/portrait-5.jpg" alt="Portrait session" loading="lazy" />
-          <img src="/portrait-6.jpg" alt="Portrait session" loading="lazy" />
+          <img src={asset('portrait-3.jpg')}  alt="Portrait session" loading="lazy" />
+          <img src={asset('portrait-4.jpg')}  alt="Portrait session" loading="lazy" />
+          <img src={asset('portrait-5.jpg')}  alt="Portrait session" loading="lazy" />
+          <img src={asset('portrait-6.jpg')}  alt="Portrait session" loading="lazy" />
         </div>
       </div>
 
       <div class="btn-row" style="margin-top: var(--space-6);">
-        <a href="/portfolio/portraits/" class="btn btn-outline">All portraits</a>
-        <a href="/portfolio/landscape/" class="btn btn-ghost">Landscape &amp; art</a>
+        <a href={route('portfolio/portraits/')} class="btn btn-outline">All portraits</a>
+        <a href={route('portfolio/landscape/')} class="btn btn-ghost">Landscape &amp; art</a>
       </div>
     </div>
   </section>
@@ -136,7 +137,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <li>All editing included</li>
           </ul>
           <div class="pricing-footer">
-            <a href="/contact/" class="btn btn-outline">Book this session</a>
+            <a href={route('contact/')} class="btn btn-outline">Book this session</a>
           </div>
         </div>
 
@@ -154,14 +155,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <li>All editing included</li>
           </ul>
           <div class="pricing-footer">
-            <a href="/contact/" class="btn btn-primary">Book this session</a>
+            <a href={route('contact/')} class="btn btn-primary">Book this session</a>
           </div>
         </div>
       </div>
 
       <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-6);">
         Available in Indianapolis (+$100 per session) and Chicago (+$200 per session).
-        <a href="/sessions/" style="color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px;">Full details →</a>
+        <a href={route('sessions/')} style="color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px;">Full details →</a>
       </p>
     </div>
   </section>
@@ -171,7 +172,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="split">
         <div class="split-image">
-          <img src="/couple.jpg" alt="Collaborative portrait work" loading="lazy" />
+          <img src={asset('couple.jpg')} alt="Collaborative portrait work" loading="lazy" />
         </div>
         <div class="stack">
           <span class="eyebrow">About Zach</span>
@@ -185,7 +186,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p>
             Every portrait session is a collaboration. I work with you, not just at you.
           </p>
-          <a href="/about/" class="btn btn-outline">More about me</a>
+          <a href={route('about/')} class="btn btn-outline">More about me</a>
         </div>
       </div>
     </div>
@@ -203,12 +204,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
       <div class="landscape-preview">
-        <img src="/abstract-angles.jpg" alt="Abstract architectural study" loading="lazy" />
-        <img src="/abstract_snow.jpg" alt="Landscape in snow" loading="lazy" />
-        <img src="/art1.jpg" alt="Abstract study" loading="lazy" />
+        <img src={asset('abstract-angles.jpg')} alt="Abstract architectural study" loading="lazy" />
+        <img src={asset('abstract_snow.jpg')}   alt="Landscape in snow"            loading="lazy" />
+        <img src={asset('art1.jpg')}            alt="Abstract study"               loading="lazy" />
       </div>
       <div style="margin-top: var(--space-6);">
-        <a href="/portfolio/landscape/" class="btn btn-outline">Explore landscape &amp; art</a>
+        <a href={route('portfolio/landscape/')} class="btn btn-outline">Explore landscape &amp; art</a>
       </div>
     </div>
   </section>
@@ -223,15 +224,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         a great portrait — reach out and let's talk about what you have in mind.
       </p>
       <div class="btn-row" style="justify-content: center;">
-        <a href="/contact/" class="btn btn-accent btn-lg">Get in touch</a>
-        <a href="/sessions/" class="btn btn-ghost btn-lg" style="color: rgba(253,252,251,0.7);">See pricing</a>
+        <a href={route('contact/')} class="btn btn-accent btn-lg">Get in touch</a>
+        <a href={route('sessions/')} class="btn btn-ghost btn-lg" style="color: rgba(253,252,251,0.7);">See pricing</a>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* Home gallery layout */
   .home-gallery {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
@@ -264,7 +264,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-radius: var(--radius);
   }
 
-  /* Landscape preview */
   .landscape-preview {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -280,20 +279,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @media (max-width: 768px) {
-    .home-gallery {
-      grid-template-columns: 1fr;
-    }
-
-    .home-gallery-main {
-      aspect-ratio: 16 / 9;
-    }
-
-    .landscape-preview {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .landscape-preview img:last-child {
-      display: none;
-    }
+    .home-gallery { grid-template-columns: 1fr; }
+    .home-gallery-main { aspect-ratio: 16 / 9; }
+    .landscape-preview { grid-template-columns: repeat(2, 1fr); }
+    .landscape-preview img:last-child { display: none; }
   }
 </style>

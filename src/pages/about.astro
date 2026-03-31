@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { asset, route } from '../lib/paths';
 ---
 
 <BaseLayout
   title="About"
   description="Zach Beauvais is a collaborative portrait photographer based in Lafayette, Indiana, with a background in storytelling and nature photography."
 >
-  <!-- ─── Page Header ───────────────────────────────────────────────── -->
   <section class="page-header">
     <div class="container">
       <span class="eyebrow">About</span>
@@ -17,12 +17,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── Bio ──────────────────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
       <div class="about-split">
         <div class="about-image">
-          <img src="/portrait-7.jpg" alt="Zach Beauvais — photographer" loading="lazy" />
+          <img src={asset('portrait-7.jpg')} alt="Zach Beauvais — photographer" loading="lazy" />
         </div>
 
         <div class="about-bio stack">
@@ -56,7 +55,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── Pull Quote ────────────────────────────────────────────────── -->
   <section class="section-sm bg-soft">
     <div class="container-narrow">
       <blockquote class="pull-quote">
@@ -65,7 +63,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── Background ───────────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
       <div class="grid-2" style="align-items: start; gap: var(--space-10);">
@@ -103,13 +100,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── Abstract sample ──────────────────────────────────────────── -->
   <section class="section bg-strong">
     <div class="container">
       <div class="abstract-trio">
-        <img src="/abstract_close.jpg" alt="Abstract photography — texture study" loading="lazy" />
-        <img src="/flower.jpg" alt="Nature photography" loading="lazy" />
-        <img src="/abstract_portrait.jpg" alt="Abstract study" loading="lazy" />
+        <img src={asset('abstract_close.jpg')}    alt="Abstract photography — texture study" loading="lazy" />
+        <img src={asset('flower.jpg')}            alt="Nature photography"                   loading="lazy" />
+        <img src={asset('abstract_portrait.jpg')} alt="Abstract study"                       loading="lazy" />
       </div>
       <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-4);">
         A selection of landscape and abstract work — the visual sensibility that underpins the portrait sessions.
@@ -117,7 +113,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── Location ─────────────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
       <div class="section-header">
@@ -154,7 +149,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── CTA ──────────────────────────────────────────────────────── -->
   <section class="cta-band">
     <div class="container-narrow">
       <span class="eyebrow">Work together</span>
@@ -163,8 +157,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         I'd love to hear what you have in mind. Get in touch and let's start the conversation.
       </p>
       <div class="btn-row" style="justify-content: center;">
-        <a href="/contact/" class="btn btn-accent btn-lg">Get in touch</a>
-        <a href="/sessions/" class="btn btn-ghost btn-lg" style="color: rgba(253,252,251,0.7);">See sessions &amp; pricing</a>
+        <a href={route('contact/')} class="btn btn-accent btn-lg">Get in touch</a>
+        <a href={route('sessions/')} class="btn btn-ghost btn-lg" style="color: rgba(253,252,251,0.7);">See sessions &amp; pricing</a>
       </div>
     </div>
   </section>
@@ -192,9 +186,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     object-fit: cover;
   }
 
-  .about-bio {
-    padding-top: var(--space-3);
-  }
+  .about-bio { padding-top: var(--space-3); }
 
   .abstract-trio {
     display: grid;
@@ -210,21 +202,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @media (max-width: 768px) {
-    .about-split {
-      grid-template-columns: 1fr;
-    }
-
-    .about-image {
-      position: static;
-      aspect-ratio: 16 / 9;
-    }
-
-    .abstract-trio {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .abstract-trio img:last-child {
-      display: none;
-    }
+    .about-split { grid-template-columns: 1fr; }
+    .about-image { position: static; aspect-ratio: 16 / 9; }
+    .abstract-trio { grid-template-columns: 1fr 1fr; }
+    .abstract-trio img:last-child { display: none; }
   }
 </style>

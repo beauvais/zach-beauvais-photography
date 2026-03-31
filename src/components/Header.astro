@@ -1,23 +1,24 @@
 ---
-const base = import.meta.env.BASE_URL;
+import { route } from '../lib/paths';
+
 const { pathname } = Astro.url;
 
 function isActive(href: string) {
-  if (href === '/') return pathname === '/';
+  if (href === route('/')) return pathname === route('/') || pathname === route('/').replace(/\/$/, '');
   return pathname.startsWith(href);
 }
 
 const nav = [
-  { href: '/portfolio/', label: 'Portfolio' },
-  { href: '/sessions/', label: 'Sessions' },
-  { href: '/about/', label: 'About' },
-  { href: '/contact/', label: 'Contact' },
+  { href: route('portfolio/'),  label: 'Portfolio' },
+  { href: route('sessions/'),   label: 'Sessions' },
+  { href: route('about/'),      label: 'About' },
+  { href: route('contact/'),    label: 'Contact' },
 ];
 ---
 
 <header class="site-header">
   <div class="header-inner container">
-    <a href="/" class="logo" aria-label="Zach Beauvais Photography — home">
+    <a href={route('/')} class="logo" aria-label="Zach Beauvais Photography — home">
       <span class="logo-monogram">ZB</span>
       <span class="logo-text">
         <span class="logo-name">Zach Beauvais</span>
@@ -37,7 +38,7 @@ const nav = [
       ))}
     </nav>
 
-    <a href="/contact/" class="btn btn-primary btn-sm header-cta">Book a session</a>
+    <a href={route('contact/')} class="btn btn-primary btn-sm header-cta">Book a session</a>
 
     <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
@@ -46,12 +47,11 @@ const nav = [
     </button>
   </div>
 
-  <!-- Mobile nav -->
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
     {nav.map(({ href, label }) => (
       <a href={href} class="mobile-nav-link">{label}</a>
     ))}
-    <a href="/contact/" class="btn btn-primary" style="margin-top: 0.5rem">Book a session</a>
+    <a href={route('contact/')} class="btn btn-primary" style="margin-top: 0.5rem">Book a session</a>
   </div>
 </header>
 
@@ -73,7 +73,6 @@ const nav = [
     height: 4rem;
   }
 
-  /* Logo */
   .logo {
     display: flex;
     align-items: center;
@@ -120,7 +119,6 @@ const nav = [
     text-transform: uppercase;
   }
 
-  /* Nav */
   .nav {
     display: flex;
     align-items: center;
@@ -145,13 +143,11 @@ const nav = [
     background: var(--color-surface-soft);
   }
 
-  /* CTA */
   .header-cta {
     flex-shrink: 0;
     margin-left: var(--space-2);
   }
 
-  /* Mobile toggle */
   .mobile-toggle {
     display: none;
     flex-direction: column;
@@ -172,7 +168,6 @@ const nav = [
     transition: all var(--transition);
   }
 
-  /* Mobile nav */
   .mobile-nav {
     display: none;
     flex-direction: column;

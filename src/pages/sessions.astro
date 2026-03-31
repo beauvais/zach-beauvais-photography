@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { route } from '../lib/paths';
 ---
 
 <BaseLayout
   title="Sessions &amp; Pricing"
   description="Portrait sessions from $350. One-hour essential session or three-hour extended session, with professional editing included. Lafayette, Indianapolis, Chicago."
 >
-  <!-- ─── Page Header ───────────────────────────────────────────────── -->
   <section class="page-header">
     <div class="container">
       <span class="eyebrow">Sessions &amp; Pricing</span>
@@ -17,11 +17,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── Sessions ─────────────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
       <div class="grid-2">
-        <!-- Essential -->
         <div class="pricing-card">
           <div>
             <h6>Essential Session</h6>
@@ -33,7 +31,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               personal brands, or portrait gifts.
             </p>
           </div>
-
           <ul class="pricing-features">
             <li>One hour at a single location</li>
             <li>5 professionally edited portraits</li>
@@ -41,13 +38,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <li>All editing included — no additional fees</li>
             <li>Within 30 miles of Lafayette, IN or Urbana-Champaign, IL</li>
           </ul>
-
           <div class="pricing-footer">
-            <a href="/contact/?session=essential" class="btn btn-outline">Book the essential session</a>
+            <a href={route('contact/?session=essential')} class="btn btn-outline">Book the essential session</a>
           </div>
         </div>
 
-        <!-- Extended -->
         <div class="pricing-card featured">
           <div>
             <h6>Extended Session</h6>
@@ -59,7 +54,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               work — ideal for couples, families, creatives, and businesses.
             </p>
           </div>
-
           <ul class="pricing-features">
             <li>Three hours at a single location</li>
             <li>20 professionally edited portraits</li>
@@ -67,16 +61,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <li>All editing included — no additional fees</li>
             <li>Within 30 miles of Lafayette, IN or Urbana-Champaign, IL</li>
           </ul>
-
           <div class="pricing-footer">
-            <a href="/contact/?session=extended" class="btn btn-primary">Book the extended session</a>
+            <a href={route('contact/?session=extended')} class="btn btn-primary">Book the extended session</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── Travel ───────────────────────────────────────────────────── -->
   <section class="section-md bg-soft">
     <div class="container">
       <div class="section-header">
@@ -99,7 +91,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </p>
           </div>
         </div>
-
         <div class="card">
           <div class="card-body">
             <h5>Indianapolis</h5>
@@ -109,7 +100,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </p>
           </div>
         </div>
-
         <div class="card">
           <div class="card-body">
             <h5>Chicago</h5>
@@ -127,7 +117,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── What's Included ──────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
       <div class="section-header">
@@ -144,7 +133,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               What do you want these portraits to do for you? That conversation shapes everything.
             </p>
           </div>
-
           <div class="included-item">
             <h5>Professional editing</h5>
             <p class="muted" style="font-size: var(--text-sm);">
@@ -153,7 +141,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               and be left to figure out the rest.
             </p>
           </div>
-
           <div class="included-item">
             <h5>High-resolution digital delivery</h5>
             <p class="muted" style="font-size: var(--text-sm);">
@@ -172,7 +159,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               live there rather than rushing between spots.
             </p>
           </div>
-
           <div class="included-item">
             <h5>For people &amp; brands</h5>
             <p class="muted" style="font-size: var(--text-sm);">
@@ -181,7 +167,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               that represents you honestly, this is the format.
             </p>
           </div>
-
           <div class="included-item">
             <h5>Usage rights</h5>
             <p class="muted" style="font-size: var(--text-sm);">
@@ -194,7 +179,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── FAQ ──────────────────────────────────────────────────────── -->
   <section class="section bg-soft">
     <div class="container container-narrow">
       <div class="section-header">
@@ -211,7 +195,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             end of the session you'll have forgotten the camera is there.
           </p>
         </details>
-
         <details class="faq-item">
           <summary>How do I choose a location?</summary>
           <p>
@@ -220,7 +203,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             that suits the mood you're going for. I'll make suggestions if you'd like them.
           </p>
         </details>
-
         <details class="faq-item">
           <summary>How long does editing take?</summary>
           <p>
@@ -228,7 +210,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             online gallery when your images are ready.
           </p>
         </details>
-
         <details class="faq-item">
           <summary>Can I book for a special event or celebration?</summary>
           <p>
@@ -237,7 +218,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             you reach out and we'll plan accordingly.
           </p>
         </details>
-
         <details class="faq-item">
           <summary>What if the weather doesn't cooperate for an outdoor session?</summary>
           <p>
@@ -245,7 +225,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             session right than push through conditions that don't serve the work.
           </p>
         </details>
-
         <details class="faq-item">
           <summary>Can I book for my small business or brand?</summary>
           <p>
@@ -258,13 +237,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ─── CTA ──────────────────────────────────────────────────────── -->
   <section class="cta-band">
     <div class="container-narrow">
       <span class="eyebrow">Book a session</span>
       <h2>Ready to get started?</h2>
       <p>Send a message and let's work out the details together.</p>
-      <a href="/contact/" class="btn btn-accent btn-lg">Get in touch</a>
+      <a href={route('contact/')} class="btn btn-accent btn-lg">Get in touch</a>
     </div>
   </section>
 </BaseLayout>
@@ -278,20 +256,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-block: var(--space-3);
   }
 
-  .included-item h5 {
-    margin-bottom: var(--space-2);
-  }
+  .included-item h5 { margin-bottom: var(--space-2); }
 
-  /* FAQ */
   .faq-list {
     display: flex;
     flex-direction: column;
     border-top: 1px solid var(--color-border);
   }
 
-  .faq-item {
-    border-bottom: 1px solid var(--color-border);
-  }
+  .faq-item { border-bottom: 1px solid var(--color-border); }
 
   .faq-item summary {
     font-family: var(--font-sans);
@@ -307,9 +280,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: var(--space-4);
   }
 
-  .faq-item summary::-webkit-details-marker {
-    display: none;
-  }
+  .faq-item summary::-webkit-details-marker { display: none; }
 
   .faq-item summary::after {
     content: "+";
@@ -321,9 +292,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     transition: transform var(--transition);
   }
 
-  .faq-item[open] summary::after {
-    transform: rotate(45deg);
-  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
 
   .faq-item p {
     padding-bottom: var(--space-5);

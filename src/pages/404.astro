@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { route } from '../lib/paths';
 ---
 
 <BaseLayout title="Page not found" noindex={true}>
@@ -12,9 +13,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           This page doesn't seem to exist. Let's get you back on track.
         </p>
         <div class="btn-row" style="margin-top: var(--space-7);">
-          <a href="/" class="btn btn-primary">Go home</a>
-          <a href="/portfolio/" class="btn btn-outline">View portfolio</a>
-          <a href="/contact/" class="btn btn-ghost">Get in touch</a>
+          <a href={route('/')}          class="btn btn-primary">Go home</a>
+          <a href={route('portfolio/')} class="btn btn-outline">View portfolio</a>
+          <a href={route('contact/')}   class="btn btn-ghost">Get in touch</a>
         </div>
       </div>
     </div>

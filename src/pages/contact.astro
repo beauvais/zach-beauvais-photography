@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { asset, route } from '../lib/paths';
 
 const session = Astro.url.searchParams.get('session') || '';
 ---
@@ -8,7 +9,6 @@ const session = Astro.url.searchParams.get('session') || '';
   title="Contact"
   description="Book a portrait session with Zach Beauvais. Get in touch to discuss your project, ask questions, or reserve your date."
 >
-  <!-- ─── Page Header ───────────────────────────────────────────────── -->
   <section class="page-header">
     <div class="container">
       <span class="eyebrow">Contact</span>
@@ -19,43 +19,21 @@ const session = Astro.url.searchParams.get('session') || '';
     </div>
   </section>
 
-  <!-- ─── Contact Content ──────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
       <div class="contact-layout">
-
-        <!-- Form -->
         <div>
           <h3 style="margin-bottom: var(--space-6);">Send a message</h3>
 
-          <form
-            class="contact-form stack"
-            action="mailto:zach@zachbeauvais.com"
-            method="dialog"
-            id="contact-form"
-          >
+          <form class="contact-form stack" id="contact-form">
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label" for="name">Name</label>
-                <input
-                  class="form-input"
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                />
+                <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
               </div>
               <div class="form-group">
                 <label class="form-label" for="email">Email</label>
-                <input
-                  class="form-input"
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  required
-                />
+                <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
               </div>
             </div>
 
@@ -64,7 +42,7 @@ const session = Astro.url.searchParams.get('session') || '';
               <select class="form-select" id="session-type" name="session">
                 <option value="">What are you thinking?</option>
                 <option value="essential" selected={session === 'essential'}>Essential Session ($350 — 1 hr, 5 portraits)</option>
-                <option value="extended" selected={session === 'extended'}>Extended Session ($750 — 3 hrs, 20 portraits)</option>
+                <option value="extended"  selected={session === 'extended'}>Extended Session ($750 — 3 hrs, 20 portraits)</option>
                 <option value="business">Business / Brand Photography</option>
                 <option value="other">Something else</option>
               </select>
@@ -103,7 +81,6 @@ const session = Astro.url.searchParams.get('session') || '';
           </p>
         </div>
 
-        <!-- Sidebar -->
         <aside class="contact-sidebar stack-lg">
           <div>
             <h5 style="margin-bottom: var(--space-4);">Direct contact</h5>
@@ -112,12 +89,7 @@ const session = Astro.url.searchParams.get('session') || '';
                 <span class="contact-link-icon">✉</span>
                 <span>zach@zachbeauvais.com</span>
               </a>
-              <a
-                href="https://instagram.com/zach_of_the"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-link"
-              >
+              <a href="https://instagram.com/zach_of_the" target="_blank" rel="noopener noreferrer" class="contact-link">
                 <span class="contact-link-icon">◎</span>
                 <span>@zach_of_the</span>
               </a>
@@ -128,9 +100,7 @@ const session = Astro.url.searchParams.get('session') || '';
 
           <div>
             <h5 style="margin-bottom: var(--space-4);">Based in</h5>
-            <p class="muted" style="font-size: var(--text-sm);">
-              Lafayette, Indiana
-            </p>
+            <p class="muted" style="font-size: var(--text-sm);">Lafayette, Indiana</p>
             <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
               Available within 30 miles of Lafayette and Urbana-Champaign at standard rates.
               Indianapolis sessions add $100 · Chicago sessions add $200.
@@ -153,14 +123,13 @@ const session = Astro.url.searchParams.get('session') || '';
     </div>
   </section>
 
-  <!-- ─── Portrait teaser ───────────────────────────────────────────── -->
   <section class="section-sm bg-strong">
     <div class="container">
       <div class="contact-gallery">
-        <img src="/portrait-8.jpg" alt="Portrait session" loading="lazy" />
-        <img src="/portrait-9.jpg" alt="Portrait session" loading="lazy" />
-        <img src="/baby.jpg" alt="Portrait session" loading="lazy" />
-        <img src="/portrait-5.jpg" alt="Portrait session" loading="lazy" />
+        <img src={asset('portrait-8.jpg')} alt="Portrait session" loading="lazy" />
+        <img src={asset('portrait-9.jpg')} alt="Portrait session" loading="lazy" />
+        <img src={asset('baby.jpg')}       alt="Portrait session" loading="lazy" />
+        <img src={asset('portrait-5.jpg')} alt="Portrait session" loading="lazy" />
       </div>
     </div>
   </section>
@@ -174,9 +143,7 @@ const session = Astro.url.searchParams.get('session') || '';
     align-items: start;
   }
 
-  .contact-form {
-    width: 100%;
-  }
+  .contact-form { width: 100%; }
 
   .contact-sidebar {
     position: sticky;
@@ -199,9 +166,7 @@ const session = Astro.url.searchParams.get('session') || '';
     transition: background var(--transition);
   }
 
-  .contact-link:hover {
-    background: var(--color-surface-strong);
-  }
+  .contact-link:hover { background: var(--color-surface-strong); }
 
   .contact-link-icon {
     width: 2rem;
@@ -251,21 +216,10 @@ const session = Astro.url.searchParams.get('session') || '';
   }
 
   @media (max-width: 900px) {
-    .contact-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-sidebar {
-      position: static;
-    }
-
-    .contact-gallery {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-gallery img:nth-child(n+3) {
-      display: none;
-    }
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-sidebar { position: static; }
+    .contact-gallery { grid-template-columns: repeat(2, 1fr); }
+    .contact-gallery img:nth-child(n+3) { display: none; }
   }
 </style>
 
@@ -282,7 +236,7 @@ const session = Astro.url.searchParams.get('session') || '';
 
     const subject = encodeURIComponent(`Portrait session enquiry${sessionType ? ` — ${sessionType}` : ''}`);
     const body = encodeURIComponent(
-      `Hi Zach,\n\n${message || 'I\'d like to discuss a portrait session.'}\n\nSession type: ${sessionType || '–'}\nLocation: ${location || '–'}\n\n– ${name}\n${email}`
+      `Hi Zach,\n\n${message || "I'd like to discuss a portrait session."}\n\nSession type: ${sessionType || '–'}\nLocation: ${location || '–'}\n\n– ${name}\n${email}`
     );
 
     window.location.href = `mailto:zach@zachbeauvais.com?subject=${subject}&body=${body}`;

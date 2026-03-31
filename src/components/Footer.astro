@@ -1,11 +1,12 @@
 ---
+import { route } from '../lib/paths';
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="footer-inner container">
     <div class="footer-brand">
-      <a href="/" class="footer-logo" aria-label="Zach Beauvais Photography">
+      <a href={route('/')} class="footer-logo" aria-label="Zach Beauvais Photography">
         <span class="footer-monogram">ZB</span>
       </a>
       <p class="footer-tagline">
@@ -19,18 +20,18 @@ const year = new Date().getFullYear();
       <div class="footer-col">
         <h6>Work</h6>
         <nav>
-          <a href="/portfolio/">Portfolio</a>
-          <a href="/portfolio/portraits/">Portraits</a>
-          <a href="/portfolio/landscape/">Landscape &amp; Art</a>
+          <a href={route('portfolio/')}>Portfolio</a>
+          <a href={route('portfolio/portraits/')}>Portraits</a>
+          <a href={route('portfolio/landscape/')}>Landscape &amp; Art</a>
         </nav>
       </div>
 
       <div class="footer-col">
         <h6>Info</h6>
         <nav>
-          <a href="/sessions/">Sessions &amp; Pricing</a>
-          <a href="/about/">About</a>
-          <a href="/contact/">Contact</a>
+          <a href={route('sessions/')}>Sessions &amp; Pricing</a>
+          <a href={route('about/')}>About</a>
+          <a href={route('contact/')}>Contact</a>
         </nav>
       </div>
 
@@ -116,9 +117,7 @@ const year = new Date().getFullYear();
     gap: var(--space-6);
   }
 
-  .footer-col h6 {
-    margin-bottom: var(--space-4);
-  }
+  .footer-col h6 { margin-bottom: var(--space-4); }
 
   .footer-col nav {
     display: flex;
@@ -134,9 +133,7 @@ const year = new Date().getFullYear();
     transition: color var(--transition);
   }
 
-  .footer-col nav a:hover {
-    color: var(--color-fg);
-  }
+  .footer-col nav a:hover { color: var(--color-fg); }
 
   .footer-coverage {
     font-family: var(--font-sans);
@@ -147,29 +144,15 @@ const year = new Date().getFullYear();
     max-width: none;
   }
 
-  .footer-bottom {
-    padding-top: var(--space-5);
-  }
-
-  .footer-bottom p {
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    max-width: none;
-  }
+  .footer-bottom { padding-top: var(--space-5); }
+  .footer-bottom p { font-family: var(--font-sans); font-size: var(--text-xs); max-width: none; }
 
   @media (max-width: 768px) {
-    .footer-inner {
-      grid-template-columns: 1fr;
-    }
-
-    .footer-links {
-      grid-template-columns: 1fr 1fr;
-    }
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-links { grid-template-columns: 1fr 1fr; }
   }
 
   @media (max-width: 480px) {
-    .footer-links {
-      grid-template-columns: 1fr;
-    }
+    .footer-links { grid-template-columns: 1fr; }
   }
 </style>

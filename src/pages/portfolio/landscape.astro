@@ -1,14 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { asset, route } from '../../lib/paths';
 
 const images = [
-  { src: '/art1.jpg',              alt: 'Abstract study — form and tone' },
-  { src: '/art2.jpg',              alt: 'Abstract — colour and structure' },
-  { src: '/abstract-angles.jpg',   alt: 'Architectural abstraction — angles and light' },
-  { src: '/abstract_close.jpg',    alt: 'Texture study — close abstraction' },
-  { src: '/abstract_portrait.jpg', alt: 'Abstract portrait — environment and figure' },
-  { src: '/abstract_snow.jpg',     alt: 'Landscape — winter light' },
-  { src: '/flower.jpg',            alt: 'Botanical — nature study' },
+  { src: 'art1.jpg',              alt: 'Abstract study — form and tone' },
+  { src: 'art2.jpg',              alt: 'Abstract — colour and structure' },
+  { src: 'abstract-angles.jpg',   alt: 'Architectural abstraction — angles and light' },
+  { src: 'abstract_close.jpg',    alt: 'Texture study — close abstraction' },
+  { src: 'abstract_portrait.jpg', alt: 'Abstract portrait — environment and figure' },
+  { src: 'abstract_snow.jpg',     alt: 'Landscape — winter light' },
+  { src: 'flower.jpg',            alt: 'Botanical — nature study' },
 ];
 ---
 
@@ -17,11 +18,10 @@ const images = [
   description="Landscape and abstract photography by Zach Beauvais — the observational eye that informs the portrait work. Lafayette, Indiana."
   ogImage="/art1.jpg"
 >
-  <!-- ─── Page Header ───────────────────────────────────────────────── -->
   <section class="page-header">
     <div class="container">
       <nav class="breadcrumb">
-        <a href="/portfolio/">Portfolio</a>
+        <a href={route('portfolio/')}>Portfolio</a>
         <span class="breadcrumb-sep">/</span>
         <span>Landscape &amp; Art</span>
       </nav>
@@ -30,31 +30,28 @@ const images = [
         The observational eye that informs the portrait work — texture, light, and the
         abstract world.
       </p>
-
       <div class="portfolio-nav" style="margin-top: var(--space-6);">
-        <a href="/portfolio/" class="btn btn-outline btn-sm">All work</a>
-        <a href="/portfolio/portraits/" class="btn btn-outline btn-sm">Portraits</a>
-        <a href="/portfolio/landscape/" class="btn btn-primary btn-sm">Landscape &amp; Art</a>
+        <a href={route('portfolio/')}           class="btn btn-outline btn-sm">All work</a>
+        <a href={route('portfolio/portraits/')} class="btn btn-outline btn-sm">Portraits</a>
+        <a href={route('portfolio/landscape/')} class="btn btn-primary btn-sm">Landscape &amp; Art</a>
       </div>
     </div>
   </section>
 
-  <!-- ─── Hero images ──────────────────────────────────────────────── -->
   <section class="section-sm">
     <div class="container">
       <div class="landscape-hero">
         <div class="landscape-hero-wide">
-          <img src="/art1.jpg" alt="Abstract study — form and tone" loading="lazy" />
+          <img src={asset('art1.jpg')} alt="Abstract study — form and tone" loading="lazy" />
         </div>
         <div class="landscape-hero-pair">
-          <img src="/abstract-angles.jpg" alt="Architectural abstraction" loading="lazy" />
-          <img src="/abstract_snow.jpg" alt="Landscape in winter light" loading="lazy" />
+          <img src={asset('abstract-angles.jpg')} alt="Architectural abstraction" loading="lazy" />
+          <img src={asset('abstract_snow.jpg')}   alt="Landscape in winter light" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── Text ─────────────────────────────────────────────────────── -->
   <section class="section-sm bg-soft">
     <div class="container-narrow">
       <h2 style="margin-bottom: var(--space-4);">Photography as attention</h2>
@@ -72,7 +69,6 @@ const images = [
     </div>
   </section>
 
-  <!-- ─── Gallery ──────────────────────────────────────────────────── -->
   <section class="section-md">
     <div class="gallery-container">
       <div class="gallery-grid" id="gallery">
@@ -80,11 +76,11 @@ const images = [
           <button
             class="gallery-item"
             data-index={i}
-            data-src={img.src}
+            data-src={asset(img.src)}
             data-alt={img.alt}
             aria-label={`View larger: ${img.alt}`}
           >
-            <img src={img.src} alt={img.alt} loading="lazy" />
+            <img src={asset(img.src)} alt={img.alt} loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="gallery-item-label">{img.alt}</span>
             </div>
@@ -94,7 +90,6 @@ const images = [
     </div>
   </section>
 
-  <!-- ─── Lightbox ─────────────────────────────────────────────────── -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
     <button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
     <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous">‹</button>
@@ -105,7 +100,6 @@ const images = [
     <div class="lightbox-counter" id="lb-counter"></div>
   </div>
 
-  <!-- ─── Portrait CTA ─────────────────────────────────────────────── -->
   <section class="section bg-strong">
     <div class="container">
       <div class="split">
@@ -118,12 +112,12 @@ const images = [
             and the authentic moment.
           </p>
           <div class="btn-row" style="margin-top: var(--space-6);">
-            <a href="/portfolio/portraits/" class="btn btn-primary">Portrait gallery</a>
-            <a href="/sessions/" class="btn btn-outline">Sessions from $350</a>
+            <a href={route('portfolio/portraits/')} class="btn btn-primary">Portrait gallery</a>
+            <a href={route('sessions/')}            class="btn btn-outline">Sessions from $350</a>
           </div>
         </div>
         <div class="split-image">
-          <img src="/portrait-02.jpg" alt="Portrait session" loading="lazy" />
+          <img src={asset('portrait-02.jpg')} alt="Portrait session" loading="lazy" />
         </div>
       </div>
     </div>
@@ -134,53 +128,17 @@ const images = [
   .gallery-container { padding-inline: 2px; }
   .portfolio-nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 
-  .landscape-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3);
-    align-items: stretch;
-  }
-
-  .landscape-hero-wide {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    aspect-ratio: 3 / 4;
-  }
-
-  .landscape-hero-wide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .landscape-hero-pair {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-
-  .landscape-hero-pair img {
-    width: 100%;
-    flex: 1;
-    min-height: 0;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-  }
+  .landscape-hero { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-items: stretch; }
+  .landscape-hero-wide { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 4; }
+  .landscape-hero-wide img { width: 100%; height: 100%; object-fit: cover; }
+  .landscape-hero-pair { display: flex; flex-direction: column; gap: var(--space-3); }
+  .landscape-hero-pair img { width: 100%; flex: 1; min-height: 0; object-fit: cover; border-radius: var(--radius-lg); }
 
   @media (max-width: 768px) {
-    .landscape-hero {
-      grid-template-columns: 1fr;
-    }
-    .landscape-hero-wide {
-      aspect-ratio: 16/9;
-    }
-    .landscape-hero-pair {
-      flex-direction: row;
-    }
-    .landscape-hero-pair img {
-      flex: 1;
-      aspect-ratio: 1;
-    }
+    .landscape-hero { grid-template-columns: 1fr; }
+    .landscape-hero-wide { aspect-ratio: 16/9; }
+    .landscape-hero-pair { flex-direction: row; }
+    .landscape-hero-pair img { flex: 1; aspect-ratio: 1; }
   }
 </style>
 
