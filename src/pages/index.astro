@@ -2,40 +2,49 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
 import { asset, route } from '../lib/paths';
-import { portraitImages, landscapeImages, pricing } from '../content/data';
+import { portraitImages, pricing } from '../content/data';
 
-// Images shown in the homepage portfolio preview (first 4 portraits after the hero)
-const previewPortraits = portraitImages.slice(1, 5);
-// Images shown in the landscape teaser (first 3 landscape images)
-const landscapePreview = landscapeImages.slice(0, 3);
+// Hero image
+const heroImage = portraitImages[0];
+
+// Photo strip above approach — 5 portraits, portrait_dancing moved to approach section
+const stripImages = [
+  portraitImages[10], // portrait-11
+  portraitImages[11], // portrait-12
+  portraitImages[15], // portrait-16 — centre slot
+  portraitImages[13], // portrait-14
+  portraitImages[14], // portrait-15
+];
+
+// Gallery: first 9 portraits after the hero
+const galleryImages = portraitImages.slice(1, 10);
 ---
 
 <BaseLayout title="Home">
 
-  {/* ══ HERO ══════════════════════════════════════════════════════════
-      Edit: headline, subheading, hero image, button labels and links.
-      Hero image is the first portrait in portraitImages (data.ts).
-  ══════════════════════════════════════════════════════════════════ */}
+  {/* ══ HERO ══════════════════════════════════════════════════════════ */}
   <section class="hero">
     <div class="hero-content">
-      <span class="eyebrow">Lafayette, Indiana | Urbana-Champaign, Illinois</span>
+      <span class="eyebrow">Lafayette, IN · Urbana-Champaign, IL</span>
       <h1 class="hero-title">
-        Portraits to<br />
-        <em>find your story</em>
+        Portrait photography<br />
+        <em>made with you, not for you.</em>
       </h1>
       <p class="hero-lead">
-        Collaborative, creative portrait photography for people, brands, and moments
-        worth retelling. Rooted in storytelling, shaped by art.
+        I work with you to make something genuinely yours. My portrait photography
+        is shaped by nature, street, and abstract photography — it's more about creating
+        than recording. Personality over presentation.
       </p>
+      <p class="hero-location">Lafayette, IN · Urbana-Champaign, IL · Sessions from $350.</p>
       <div class="btn-row">
-        <a href={route('sessions/')} class="btn btn-primary btn-lg">Sessions</a>
-        <a href={route('portfolio/')} class="btn btn-outline btn-lg">Work</a>
+        <a href={route('sessions/')} class="btn btn-primary btn-lg">See how it works</a>
+        <a href={route('portfolio/')} class="btn btn-outline btn-lg">See some work</a>
       </div>
     </div>
     <div class="hero-image">
       <img
-        src={asset(portraitImages[0].src)}
-        alt={portraitImages[0].alt}
+        src={asset(heroImage.src)}
+        alt={heroImage.alt}
         loading="eager"
         fetchpriority="high"
       />
@@ -43,96 +52,93 @@ const landscapePreview = landscapeImages.slice(0, 3);
   </section>
 
 
-  {/* ══ APPROACH ══════════════════════════════════════════════════════
-      Edit: section heading, intro text, and the four feature items.
-      To hide this section, wrap it in a comment: {/* <section>...</section> *\/}
+  {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
+      5 portraits in an asymmetric grid. portrait_dancing is the centre slot.
+      Swap indices above (stripImages) to change which photos appear.
   ══════════════════════════════════════════════════════════════════ */}
+  <section class="photo-strip-section">
+    <div class="photo-strip">
+      {stripImages.map((img, i) => (
+        <div class={`strip-item${i === 2 ? ' strip-featured' : ''}`}>
+          <img
+            src={asset(img.src)}
+            alt={img.alt}
+            loading="lazy"
+            class="lightbox-trigger"
+            data-src={asset(img.src)}
+            data-alt={img.alt}
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  {/* ══ APPROACH ══════════════════════════════════════════════════════ */}
   <section class="section bg-soft">
     <div class="container">
-      <div class="section-header" style="max-width: 50rem;">
-        <span class="eyebrow">The approach</span>
-        <h2>Photography as collaboration</h2>
-        <p class="lead" style="margin-top: 1rem;">
-          Every portrait session begins with a conversation. I bring a storyteller's eye and
-          an artist's sensibility — you bring yourself. Together we make something that's
-          genuinely yours.
-        </p>
-      </div>
-      <div class="grid-4" style="margin-top: var(--space-8);">
-        <div>
-          <span class="feature-number eyebrow" style="margin-bottom: var(--space-3);">01</span>
-          <h5>Tell me about you</h5>
-          <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
-            Before any camera comes out, we discuss what you want to accomplish. We'll talk goals, inspiration, and direction; but mostly, we'll talk about you.
+      <div class="approach-split">
+        <div class="stack">
+          <span class="eyebrow">How I work</span>
+          <h2>Collaboration over direction</h2>
+          <p>
+            Traditional portrait sessions are directed. You're told where to stand,
+            how to angle your chin, when to smile. And?
           </p>
+          <p class="approach-punch">The results look like portrait sessions.</p>
+          <p>
+            I come from nature, street, and abstract photography — work built through
+            patience and attention rather than control. In a session, we're co-creating;
+            I'm not directing. We talk before the camera comes out. We find a
+            location that means something. We're making art shaped by your personality,
+            not shaping your image to match a portrait ideal.
+          </p>
+          <a href={route('how-i-work/')} class="btn btn-outline" style="margin-top: var(--space-4);">More about my approach</a>
         </div>
-        <div>
-          <span class="feature-number eyebrow" style="margin-bottom: var(--space-3);">02</span>
-          <h5>Location matters</h5>
-          <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
-            We choose a location that reflects your personality — a studio, your home,
-            a favourite spot outdoors. Setting is part of the story.
-          </p>
-        </div>
-        <div>
-          <span class="feature-number eyebrow" style="margin-bottom: var(--space-3);">03</span>
-          <h5>Natural, unhurried</h5>
-          <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
-            Sessions are relaxed and flexible. I work to put you at ease so the images
-            feel authentic, not staged.
-          </p>
-        </div>
-        <div>
-          <span class="feature-number eyebrow" style="margin-bottom: var(--space-3);">04</span>
-          <h5>Professional editing</h5>
-          <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
-            Every delivered image is professionally edited. The final photos are ready
-            to use — no further work required.
-          </p>
+        <div class="approach-image">
+          <img src={asset(portraitImages[19].src)} alt={portraitImages[19].alt} loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
 
-  {/* ══ PORTFOLIO PREVIEW ═════════════════════════════════════════════
-      Shows 1 large portrait + 4 thumbnail grid.
-      Images come from portraitImages in data.ts (indices 1–4).
+  {/* ══ PORTRAIT GALLERY ══════════════════════════════════════════════
+      No heading — let the images speak. Click any to open lightbox.
+      Change galleryImages slice above to show different portraits.
   ══════════════════════════════════════════════════════════════════ */}
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Selected work</span>
-        <h2>Recent portraits</h2>
-      </div>
       <div class="home-gallery">
-        <div class="home-gallery-main">
-          <img src={asset(previewPortraits[0].src)} alt={previewPortraits[0].alt} loading="lazy" />
-        </div>
-        <div class="home-gallery-grid">
-          {previewPortraits.slice(1).map(img => (
-            <img src={asset(img.src)} alt={img.alt} loading="lazy" />
-          ))}
-        </div>
+        {galleryImages.map(img => (
+          <div class="gallery-item">
+            <img
+              src={asset(img.src)}
+              alt={img.alt}
+              loading="lazy"
+              class="lightbox-trigger"
+              data-src={asset(img.src)}
+              data-alt={img.alt}
+            />
+          </div>
+        ))}
       </div>
       <div class="btn-row" style="margin-top: var(--space-6);">
-        <a href={route('portfolio/portraits/')} class="btn btn-outline">All portraits</a>
-        <a href={route('portfolio/landscape/')} class="btn btn-ghost">Landscape &amp; art</a>
+        <a href={route('portfolio/portraits/')} class="btn btn-outline">All portrait work</a>
+        <a href={route('portfolio/landscape/')} class="btn btn-ghost">Landscape &amp; abstract work</a>
       </div>
     </div>
   </section>
 
 
-  {/* ══ PRICING ═══════════════════════════════════════════════════════
-      Prices come from pricing in data.ts — edit there, not here.
-  ══════════════════════════════════════════════════════════════════ */}
+  {/* ══ PRICING ═══════════════════════════════════════════════════════ */}
   <section class="section bg-soft">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Sessions &amp; pricing</span>
-        <h2>Simple, transparent pricing</h2>
+        <h2>Two options. No surprises.</h2>
         <p class="lead" style="margin-top: 1rem;">
-          Two session formats, both all-inclusive — editing, delivery, no hidden fees.
+          Editing is included. Delivery is included. The price you see is what you pay.
         </p>
       </div>
       <div class="grid-2" style="margin-top: var(--space-7);">
@@ -173,95 +179,201 @@ const landscapePreview = landscapeImages.slice(0, 3);
   </section>
 
 
-  {/* ══ ABOUT SNIPPET ════════════════════════════════════════════════
-      Image on left, bio text on right. Edit text inline below.
-      Image: couple.jpg from portfolio/
-  ══════════════════════════════════════════════════════════════════ */}
-  <section class="section">
-    <div class="container">
-      <div class="split">
-        <div class="split-image">
-          <img src={asset('couple.jpg')} alt="Collaborative portrait work" loading="lazy" />
-        </div>
-        <div class="stack">
-          <span class="eyebrow">About Zach</span>
-          <h2>A storyteller with a camera</h2>
-          <p>
-            My background is in storytelling and nature photography — I came to portraits with
-            a documentary eye and an artist's instinct for atmosphere. I'm interested in what
-            makes you <em>you</em>: the way light catches your expression, the story that lives
-            in a glance.
-          </p>
-          <p>
-            Every portrait session is a collaboration. I work with you, not just at you.
-          </p>
-          <a href={route('about/')} class="btn btn-outline">More about me</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  {/* ══ LANDSCAPE TEASER ══════════════════════════════════════════════
-      3-image preview of landscape/abstract work.
-      Images come from landscapeImages in data.ts (first 3).
-  ══════════════════════════════════════════════════════════════════ */}
-  <section class="section bg-strong">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Beyond portraits</span>
-        <h2>Landscape &amp; abstract work</h2>
-        <p class="lead" style="margin-top: 1rem;">
-          The same eye I bring to portraiture — attention to light, texture, and mood —
-          applied to the natural and abstract world.
-        </p>
-      </div>
-      <div class="landscape-preview">
-        {landscapePreview.map(img => (
-          <img src={asset(img.src)} alt={img.alt} loading="lazy" />
-        ))}
-      </div>
-      <div style="margin-top: var(--space-6);">
-        <a href={route('portfolio/landscape/')} class="btn btn-outline">Explore landscape &amp; art</a>
-      </div>
-    </div>
-  </section>
-
-
-  {/* ══ CTA ═══════════════════════════════════════════════════════════
-      Edit text via props below. Href values use route() for base-path safety.
-  ══════════════════════════════════════════════════════════════════ */}
+  {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
   <CTABand
-    eyebrow="Ready when you are"
-    heading="Let's make something together"
-    body="Whether it's for a special event, your personal brand, or just because you deserve a great portrait — reach out and let's talk about what you have in mind."
+    eyebrow="Get in touch"
+    heading="Let's start a conversation"
+    body="Tell me what you're thinking — the ideas you have, what you want to explore, what you want to make. Then we can talk."
     primaryHref={route('contact/')}
     primaryLabel="Get in touch"
     secondaryHref={route('sessions/')}
-    secondaryLabel="See pricing"
+    secondaryLabel="See sessions & pricing"
   />
 
 </BaseLayout>
 
-<style>
-  .home-gallery {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: var(--space-3);
-    align-items: start;
+
+{/* ══ LIGHTBOX ══════════════════════════════════════════════════════
+    Vanilla JS — no dependencies. Triggered by .lightbox-trigger imgs.
+══════════════════════════════════════════════════════════════════ */}
+<div id="lightbox" aria-modal="true" role="dialog" aria-label="Image lightbox">
+  <button id="lightbox-close" aria-label="Close">&times;</button>
+  <button id="lightbox-prev" aria-label="Previous">&#8592;</button>
+  <button id="lightbox-next" aria-label="Next">&#8594;</button>
+  <div id="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox')!;
+  const lbImg    = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lbClose  = document.getElementById('lightbox-close')!;
+  const lbPrev   = document.getElementById('lightbox-prev')!;
+  const lbNext   = document.getElementById('lightbox-next')!;
+
+  const triggers = Array.from(document.querySelectorAll<HTMLImageElement>('.lightbox-trigger'));
+  let current = 0;
+
+  function open(index: number) {
+    current = index;
+    const img = triggers[current];
+    lbImg.src = img.dataset.src || img.src;
+    lbImg.alt = img.dataset.alt || img.alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
-  .home-gallery-main { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 4; }
-  .home-gallery-main img { width: 100%; height: 100%; object-fit: cover; }
-  .home-gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
-  .home-gallery-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
 
-  .landscape-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); margin-top: var(--space-7); }
-  .landscape-preview img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius-lg); }
+  function close() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
+  function prev() { open((current - 1 + triggers.length) % triggers.length); }
+  function next() { open((current + 1) % triggers.length); }
+
+  triggers.forEach((img, i) => img.addEventListener('click', () => open(i)));
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', prev);
+  lbNext.addEventListener('click', next);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+</script>
+
+
+<style>
+  /* ── Hero ────────────────────────────────────────────────────────── */
+  .hero-location {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  /* ── Photo strip ─────────────────────────────────────────────────── */
+  .photo-strip-section { overflow: hidden; }
+  .photo-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
+    gap: var(--space-2);
+  }
+  .strip-item {
+    overflow: hidden;
+    height: 440px;
+  }
+  .strip-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+  .strip-item img:hover { transform: scale(1.03); }
+
+  /* ── Approach split ──────────────────────────────────────────────── */
+  .approach-split {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+  .approach-image { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 5; }
+  .approach-image img { width: 100%; height: 100%; object-fit: cover; }
+  .approach-punch {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  /* ── Gallery ─────────────────────────────────────────────────────── */
+  .home-gallery {
+    columns: 3;
+    column-gap: var(--space-3);
+  }
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: var(--space-3);
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item img:hover { transform: scale(1.02); }
+
+  /* ── Lightbox ────────────────────────────────────────────────────── */
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  #lightbox.open { display: flex; }
+  #lightbox-img-wrap {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--radius);
+  }
+  #lightbox-close {
+    position: fixed;
+    top: var(--space-4);
+    right: var(--space-5);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.8;
+  }
+  #lightbox-close:hover { opacity: 1; }
+  #lightbox-prev,
+  #lightbox-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: var(--space-4);
+    opacity: 0.7;
+  }
+  #lightbox-prev:hover, #lightbox-next:hover { opacity: 1; }
+  #lightbox-prev { left: var(--space-4); }
+  #lightbox-next { right: var(--space-4); }
+
+  /* ── Responsive ──────────────────────────────────────────────────── */
   @media (max-width: 768px) {
-    .home-gallery { grid-template-columns: 1fr; }
-    .home-gallery-main { aspect-ratio: 16 / 9; }
-    .landscape-preview { grid-template-columns: repeat(2, 1fr); }
-    .landscape-preview img:last-child { display: none; }
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .strip-item { height: 240px; }
+    .strip-item:last-child { display: none; }
+
+    .approach-split { grid-template-columns: 1fr; }
+    .approach-image { aspect-ratio: 16 / 9; }
+
+    .home-gallery { columns: 2; }
   }
 </style>

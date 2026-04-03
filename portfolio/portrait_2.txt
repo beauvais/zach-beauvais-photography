@@ -1,0 +1,3 @@
+Warning: some images were exported with outdated AI settings. (1)
+    ZDB_3349.NEF
+

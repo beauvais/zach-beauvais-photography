@@ -18,17 +18,29 @@
 // The order here is the order they appear in the gallery.
 
 export const portraitImages = [
-  { src: 'portrait-01.jpg', alt: 'Collaborative portrait — character and light' },
-  { src: 'portrait-02.jpg', alt: 'Portrait — natural light study' },
-  { src: 'portrait-3.jpg',  alt: 'Portrait session' },
-  { src: 'portrait-4.jpg',  alt: 'Portrait — mood and atmosphere' },
-  { src: 'portrait-5.jpg',  alt: 'Portrait session' },
-  { src: 'portrait-6.jpg',  alt: 'Portrait — expression and gesture' },
-  { src: 'portrait-7.jpg',  alt: 'Portrait session' },
-  { src: 'portrait-8.jpg',  alt: 'Portrait — light and form' },
-  { src: 'portrait-9.jpg',  alt: 'Portrait session' },
-  { src: 'baby.jpg',        alt: 'Family portrait' },
-  { src: 'couple.jpg',      alt: 'Couple portrait' },
+  { src: 'portrait-01.jpg',      alt: 'Collaborative portrait — character and light' },
+  { src: 'portrait-02.jpg',      alt: 'Portrait — natural light study' },
+  { src: 'portrait-3.jpg',       alt: 'Portrait — mood and atmosphere' },
+  { src: 'portrait-4.jpg',       alt: 'Portrait — expression' },
+  { src: 'portrait-5.jpg',       alt: 'Portrait session' },
+  { src: 'portrait-6.jpg',       alt: 'Portrait — expression and gesture' },
+  { src: 'portrait-7.jpg',       alt: 'Portrait — light and form' },
+  { src: 'portrait-8.jpg',       alt: 'Portrait session' },
+  { src: 'portrait-9.jpg',       alt: 'Portrait — atmosphere' },
+  { src: 'portrait-10.jpg',      alt: 'Portrait session' },
+  { src: 'portrait-11.jpg',      alt: 'Portrait — natural light' },
+  { src: 'portrait-12.jpg',      alt: 'Portrait session' },
+  { src: 'portrait-13.jpg',      alt: 'Portrait — character' },
+  { src: 'portrait-14.jpg',      alt: 'Portrait session' },
+  { src: 'portrait-15.jpg',      alt: 'Portrait — expression' },
+  { src: 'portrait-16.jpg',      alt: 'Portrait session' },
+  { src: 'portrait-17.jpg',      alt: 'Portrait — light and mood' },
+  { src: 'portrait-18.jpg',      alt: 'Portrait session' },
+  { src: 'portrait-19.jpg',      alt: 'Portrait — natural light' },
+  { src: 'portrait_dancing.jpg', alt: 'Portrait — movement and joy' },
+  { src: 'IMG_4546.jpg',         alt: 'Portrait session' },
+  { src: 'baby.jpg',             alt: 'Family portrait' },
+  { src: 'couple.jpg',           alt: 'Couple portrait' },
 ];
 
 export const landscapeImages = [
@@ -99,5 +111,5 @@ export const site = {
   instagramUrl:   'https://instagram.com/zach_of_the',
   location:       'Lafayette, Indiana',
   locationDetail: 'Lafayette, IN and Urbana-Champaign, IL (within 30 miles)',
-  defaultDescription: 'Collaborative portrait photography rooted in storytelling and art. Based in Lafayette, Indiana. Sessions from $350.',
+  defaultDescription: 'Portrait photography in Lafayette, IN and Urbana-Champaign, IL. Collaborative sessions for personal brands and individuals — shaped by street and abstract photography. From $350.',
 };

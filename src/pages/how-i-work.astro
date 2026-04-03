@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { asset, route } from '../lib/paths';
+import { landscapeImages, portraitImages } from '../content/data';
+
+const landscapePreview = landscapeImages.slice(0, 3);
+---
+
+<BaseLayout
+  title="How I Work"
+  description="Portrait photography rooted in collaboration, not direction. Based in Lafayette, IN and Urbana-Champaign, IL. Learn about the approach, who it suits, and what sessions are for."
+>
+
+  {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">How I work</span>
+      <h1>The approach</h1>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        Portrait photography shaped by collaboration, patience, and a background
+        in nature and street photography. Here's what that means in practice.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ NOT EVERY PHOTOGRAPHER ═══════════════════════════════════════ */}
+  <section class="section bg-strong">
+    <div class="container">
+      <div class="prose-block">
+        <span class="eyebrow">Worth knowing</span>
+        <h2>Not every photographer is right for every person</h2>
+        <p>
+          There's a particularly Midwest kind of portrait photography:
+          golden hour, cornfields, soft focus, saying: "Cheese!" (Or
+          maybe sometimes: "CORN!") It can be beautiful and many
+          photographers excel at making these portraits.
+        </p>
+        <p class="prose-punch">I'm not one of those.</p>
+        <p>
+          I work with people to find something deeply personal and
+          intentional. I can make images for professional or personal brands,
+          or celebrate meaningful milestones. My favourite kind of portrait
+          is made when someone is exploring just for themself.
+        </p>
+        <p>We start with exploration, and work towards expression.</p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ FOR YOUR BRAND, FAMILY, OR YOURSELF ══════════════════════════
+      Split: image left (baby.jpg), text right.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split-image">
+          <img src={asset('baby.jpg')} alt="Family portrait session" loading="lazy" />
+        </div>
+        <div class="stack">
+          <span class="eyebrow">What sessions are for</span>
+          <h2>For your brand, your family, or just yourself</h2>
+          <p>
+            Practically, these sessions produce work you can use — professional profiles,
+            website and social media content, a modeling portfolio.
+          </p>
+          <p>
+            But I'm equally interested in what sits outside the practical: someone
+            exploring how they want to be seen; a couple or family making something
+            true about who they actually are. Queer families, blended families,
+            people who've never found a photographer who saw them right — these
+            are exactly the stories I want to tell.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ ABOUT SNIPPET ════════════════════════════════════════════════
+      Split: text left, image right — reversed from above.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="split about-reverse">
+        <div class="stack">
+          <span class="eyebrow">About Zach</span>
+          <h2>A different background</h2>
+          <p>
+            My first portraits were flowers, trees, and hills. They don't have
+            expectations — they're entirely themselves. I learned to work with
+            them, instead of trying to capture or impose.
+          </p>
+          <p>
+            I bring the same approach to people. We can still use studio kit,
+            strobes, and reflectors when the work calls for it. But what I'm
+            after is something that explores and expresses you — you, being
+            entirely yourself.
+          </p>
+          <a href={route('about/')} class="btn btn-outline">More about me</a>
+        </div>
+        <div class="split-image">
+          <img src={asset('abstract_portrait.jpg')} alt="Portrait — environment and figure" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ LANDSCAPE & ABSTRACT TEASER ══════════════════════════════════ */}
+  <section class="section bg-strong">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Beyond portraits</span>
+        <h2>Landscape &amp; abstract work</h2>
+        <p class="lead" style="margin-top: 1rem;">
+          The same eye I bring to portraits — attention to light, texture, and mood —
+          applied to the natural and abstract world.
+        </p>
+      </div>
+      <div class="landscape-preview">
+        {landscapePreview.map(img => (
+          <img src={asset(img.src)} alt={img.alt} loading="lazy" />
+        ))}
+      </div>
+      <div style="margin-top: var(--space-6);">
+        <a href={route('portfolio/landscape/')} class="btn btn-outline">See landscape &amp; abstract work</a>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
+  <CTABand
+    eyebrow="Get in touch"
+    heading="Let's start a conversation"
+    body="Tell me what you're thinking — the ideas you have, what you want to explore, what you want to make. Then we can talk."
+    primaryHref={route('contact/')}
+    primaryLabel="Get in touch"
+    secondaryHref={route('sessions/')}
+    secondaryLabel="See sessions & pricing"
+  />
+
+</BaseLayout>
+
+<style>
+  .prose-block {
+    max-width: 44rem;
+  }
+  .prose-block p { margin-top: var(--space-4); }
+  .prose-punch {
+    font-size: var(--text-xl);
+    font-weight: 600;
+  }
+
+  /* Reverse the split so text is left, image right */
+  .about-reverse {
+    direction: rtl;
+  }
+  .about-reverse > * {
+    direction: ltr;
+  }
+
+  .landscape-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    margin-top: var(--space-7);
+  }
+  .landscape-preview img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  @media (max-width: 768px) {
+    .about-reverse { direction: ltr; }
+    .landscape-preview { grid-template-columns: 1fr 1fr; }
+    .landscape-preview img:last-child { display: none; }
+  }
+</style>
