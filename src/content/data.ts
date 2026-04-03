@@ -8,9 +8,16 @@
 
 // ─── Portfolio Images ─────────────────────────────────────────────────────────
 //
-// To add a new portrait:
-//   1. Drop the file into the /portfolio/ folder
-//   2. Add a line here: { src: 'your-file.jpg', alt: 'Description' }
+// Images live in subdirectories under /portfolio/:
+//   portrait/   — portrait sessions
+//   nature/     — nature and botanical photography
+//   abstract/   — abstract and close studies
+//   street/     — street photography
+//   film/       — film photography (IMG_0990.JPG)
+//
+// To add an image:
+//   1. Drop the file into the correct subdirectory
+//   2. Add a line here: { src: 'subdir/filename.jpg', alt: 'Description' }
 //
 // 'alt' text is used by screen readers and shown if the image fails to load.
 // Keep it descriptive: "Portrait of Sarah in morning light" not "photo1".
@@ -18,39 +25,45 @@
 // The order here is the order they appear in the gallery.
 
 export const portraitImages = [
-  { src: 'portrait-01.jpg',      alt: 'Collaborative portrait — character and light' },
-  { src: 'portrait-02.jpg',      alt: 'Portrait — natural light study' },
-  { src: 'portrait-3.jpg',       alt: 'Portrait — mood and atmosphere' },
-  { src: 'portrait-4.jpg',       alt: 'Portrait — expression' },
-  { src: 'portrait-5.jpg',       alt: 'Portrait session' },
-  { src: 'portrait-6.jpg',       alt: 'Portrait — expression and gesture' },
-  { src: 'portrait-7.jpg',       alt: 'Portrait — light and form' },
-  { src: 'portrait-8.jpg',       alt: 'Portrait session' },
-  { src: 'portrait-9.jpg',       alt: 'Portrait — atmosphere' },
-  { src: 'portrait-10.jpg',      alt: 'Portrait session' },
-  { src: 'portrait-11.jpg',      alt: 'Portrait — natural light' },
-  { src: 'portrait-12.jpg',      alt: 'Portrait session' },
-  { src: 'portrait-13.jpg',      alt: 'Portrait — character' },
-  { src: 'portrait-14.jpg',      alt: 'Portrait session' },
-  { src: 'portrait-15.jpg',      alt: 'Portrait — expression' },
-  { src: 'portrait-16.jpg',      alt: 'Portrait session' },
-  { src: 'portrait-17.jpg',      alt: 'Portrait — light and mood' },
-  { src: 'portrait-18.jpg',      alt: 'Portrait session' },
-  { src: 'portrait-19.jpg',      alt: 'Portrait — natural light' },
-  { src: 'portrait_dancing.jpg', alt: 'Portrait — movement and joy' },
-  { src: 'IMG_4546.jpg',         alt: 'Portrait session' },
-  { src: 'baby.jpg',             alt: 'Family portrait' },
-  { src: 'couple.jpg',           alt: 'Couple portrait' },
+  { src: 'portrait/portrait-01.jpg',      alt: 'Collaborative portrait — character and light' },
+  { src: 'portrait/portrait-02.jpg',      alt: 'Portrait — natural light study' },
+  { src: 'portrait/portrait-3.jpg',       alt: 'Portrait — mood and atmosphere' },
+  { src: 'portrait/portrait-4.jpg',       alt: 'Portrait — expression' },
+  { src: 'portrait/portrait-5.jpg',       alt: 'Portrait session' },
+  { src: 'portrait/portrait-6.jpg',       alt: 'Portrait — expression and gesture' },
+  { src: 'portrait/portrait-7.jpg',       alt: 'Portrait — light and form' },
+  { src: 'portrait/portrait-8.jpg',       alt: 'Portrait session' },
+  { src: 'portrait/portrait-9.jpg',       alt: 'Portrait — atmosphere' },
+  { src: 'portrait/portrait-10.jpg',      alt: 'Portrait session' },
+  { src: 'portrait/portrait-11.jpg',      alt: 'Portrait — natural light' },
+  { src: 'portrait/portrait-12.jpg',      alt: 'Portrait session' },
+  { src: 'portrait/portrait-13.jpg',      alt: 'Portrait — character' },
+  { src: 'portrait/portrait-14.jpg',      alt: 'Portrait session' },
+  { src: 'portrait/portrait-15.jpg',      alt: 'Portrait — expression' },
+  { src: 'portrait/portrait-16.jpg',      alt: 'Portrait session' },
+  { src: 'portrait/portrait-17.jpg',      alt: 'Portrait — light and mood' },
+  { src: 'portrait/portrait-18.jpg',      alt: 'Portrait session' },
+  { src: 'portrait/portrait-19.jpg',      alt: 'Portrait — natural light' },
+  { src: 'portrait/portrait_dancing.jpg', alt: 'Portrait — movement and joy' },
+  { src: 'IMG_4546.jpg',                  alt: 'Portrait session' },
+  { src: 'portrait/baby.jpg',             alt: 'Family portrait' },
+  { src: 'portrait/couple.jpg',           alt: 'Couple portrait' },
 ];
 
 export const landscapeImages = [
-  { src: 'art1.jpg',              alt: 'Abstract study — form and tone' },
-  { src: 'art2.jpg',              alt: 'Abstract — colour and structure' },
-  { src: 'abstract-angles.jpg',   alt: 'Architectural abstraction — angles and light' },
-  { src: 'abstract_close.jpg',    alt: 'Texture study — close abstraction' },
-  { src: 'abstract_portrait.jpg', alt: 'Abstract portrait — environment and figure' },
-  { src: 'abstract_snow.jpg',     alt: 'Landscape — winter light' },
-  { src: 'flower.jpg',            alt: 'Botanical — nature study' },
+  { src: 'abstract/abstract-1.jpg',       alt: 'Abstract study — form and tone' },
+  { src: 'abstract/abstract-2.jpg',       alt: 'Abstract — colour and structure' },
+  { src: 'abstract/abstract-angles.jpg',  alt: 'Architectural abstraction — angles and light' },
+  { src: 'abstract/abstract_close.jpg',   alt: 'Texture study — close abstraction' },
+  { src: 'abstract/abstract_portrait.jpg',alt: 'Abstract study — environment and figure' },
+  { src: 'abstract/abstract_snow.jpg',    alt: 'Landscape — winter light' },
+  { src: 'nature/flower.jpg',             alt: 'Botanical — nature study' },
+  { src: 'nature/fawn-lillies-several.jpg', alt: 'Fawn lilies — nature study' },
+  { src: 'nature/hills.jpg',              alt: 'Hills — landscape' },
+  { src: 'nature/tree-light-vignette.jpg',alt: 'Tree in light — nature study' },
+  { src: 'street/street-light-pool.jpg',  alt: 'Street photography — light and shadow' },
+  { src: 'street/cafe-shot.jpg',          alt: 'Street photography — cafe scene' },
+  { src: 'film/IMG_0990.JPG',             alt: 'Film photograph — Minolta 35mm' },
 ];
 
 // The combined gallery (portraits first, then landscape).

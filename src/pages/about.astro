@@ -7,7 +7,7 @@ import { site, pricing } from '../content/data';
 
 <BaseLayout
   title="About"
-  description={`${site.name} is a collaborative portrait photographer based in ${site.location}, with a background in storytelling and nature photography.`}
+  description={`${site.name} is a portrait photographer based in Lafayette, IN and Urbana-Champaign, IL. A background in nature and abstract photography shapes an observational, collaborative approach to portrait work.`}
 >
 
   {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
@@ -16,7 +16,7 @@ import { site, pricing } from '../content/data';
       <span class="eyebrow">About</span>
       <h1>{site.name}</h1>
       <p class="lead" style="margin-top: var(--space-4);">
-        Photographer. Storyteller. Based in {site.location}.
+        Portrait photographer. Based in Lafayette, IN and Urbana-Champaign, IL.
       </p>
     </div>
   </section>
@@ -30,29 +30,27 @@ import { site, pricing } from '../content/data';
     <div class="container">
       <div class="about-split">
         <div class="about-image">
-          <img src={asset('portrait-7.jpg')} alt="Zach Beauvais — photographer" loading="lazy" />
+          <img src={asset('zach_beauvais-photographer.jpg')} alt="Zach Beauvais — photographer" loading="lazy" />
         </div>
         <div class="about-bio stack">
-          <h2>A collaborative approach to portrait photography</h2>
+          <h2>From the outdoors in</h2>
           <p>
-            I came to portrait photography through storytelling and the natural world. My early work
-            was in nature and abstract photography — learning to read light, to find the image that
-            already existed rather than imposing one. That sensibility shapes everything I do now.
+            I learned on my dad's Minolta — a film SLR he'd had since before I was born.
+            Mountains, desert, flowers, wildlife. Things that are entirely themselves
+            and don't perform for the camera. You learn to observe rather than direct.
           </p>
           <p>
-            When I photograph people, I'm interested in the same things: atmosphere, authenticity,
-            the way a moment can hold a whole personality. A portrait should feel like the person
-            in it, not like a photograph of them.
+            Street photography came next, which is really the same thing: finding what's
+            already there. At some point I realised I'd been making portraits all along —
+            just of hills and trees instead of people.
           </p>
           <p>
-            The word <em>collaborative</em> matters to me. I don't direct sessions — I
-            facilitate them. We figure out together what feels right, what setting resonates,
-            what story we're telling. My job is to be ready when it happens.
+            Working with people followed naturally. And I bring a background in marketing,
+            UX, and brand along with the camera — so I can think about what an image
+            needs to do, not just how it looks.
           </p>
           <p>
-            I work with individuals, couples, families, and small businesses. Whether you need
-            portraits for your professional brand, for a special occasion, or simply because
-            you've never had a photograph you truly love — I'd like to help with that.
+            I'm based in Lafayette, Indiana, and Urbana-Champaign, Illinois.
           </p>
         </div>
       </div>
@@ -73,46 +71,6 @@ import { site, pricing } from '../content/data';
   </section>
 
 
-  {/* ══ BACKGROUND & WHO I WORK WITH ══════════════════════════════════
-      Two-column text section. Edit headings and paragraphs below.
-  ══════════════════════════════════════════════════════════════════ */}
-  <section class="section">
-    <div class="container">
-      <div class="grid-2" style="align-items: start; gap: var(--space-10);">
-        <div class="stack">
-          <span class="eyebrow">Background</span>
-          <h3>From nature to narrative</h3>
-          <p>
-            My photography practice began outdoors — in forests, along coastlines, in the
-            abstract textures of weathered surfaces and winter light. Learning to see in those
-            environments taught me patience, attentiveness, and the discipline of waiting for
-            the image rather than forcing it.
-          </p>
-          <p>
-            That documentary, observational approach carries directly into portrait work.
-            I'm not looking to create a fantasy version of you. I'm looking for the real one —
-            the version that exists in the right light, with the right space, given a little time.
-          </p>
-        </div>
-        <div class="stack">
-          <span class="eyebrow">Who I work with</span>
-          <h3>Individuals &amp; small businesses</h3>
-          <p>
-            My sessions suit people who want portraits that are a little different: personal,
-            considered, genuinely collaborative. I work well with people who might feel
-            uncomfortable in front of a camera — part of my approach is making that feeling go away.
-          </p>
-          <p>
-            I also work with small businesses and brands that want visually beautiful imagery
-            to express their identity — the kind of photography that tells a story rather than
-            just filling a slot.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   {/* ══ ABSTRACT WORK SAMPLE ══════════════════════════════════════════
       3-image row from landscape/abstract work.
       To swap images: change the filenames below (files live in /portfolio/).
@@ -121,9 +79,9 @@ import { site, pricing } from '../content/data';
   <section class="section bg-strong">
     <div class="container">
       <div class="abstract-trio">
-        <img src={asset('abstract_close.jpg')}    alt="Abstract photography — texture study" loading="lazy" />
-        <img src={asset('flower.jpg')}            alt="Nature photography"                   loading="lazy" />
-        <img src={asset('abstract_portrait.jpg')} alt="Abstract study"                       loading="lazy" />
+        <img src={asset('abstract/abstract_close.jpg')}    alt="Abstract photography — texture study" loading="lazy" />
+        <img src={asset('abstract/abstract_snow.jpg')}      alt="Abstract winter light study"          loading="lazy" />
+        <img src={asset('abstract/abstract_portrait.jpg')} alt="Abstract study"                       loading="lazy" />
       </div>
       <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-4);">
         A selection of landscape and abstract work — the visual sensibility that underpins the portrait sessions.
@@ -174,8 +132,8 @@ import { site, pricing } from '../content/data';
   {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
   <CTABand
     eyebrow="Work together"
-    heading="Ready to make your portrait?"
-    body="I'd love to hear what you have in mind. Get in touch and let's start the conversation."
+    heading="Let's start a conversation"
+    body="Get in touch and we'll figure out what feels right."
     primaryHref={route('contact/')}
     primaryLabel="Get in touch"
     secondaryHref={route('sessions/')}

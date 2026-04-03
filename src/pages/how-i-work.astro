@@ -57,7 +57,7 @@ const landscapePreview = landscapeImages.slice(0, 3);
     <div class="container">
       <div class="split">
         <div class="split-image">
-          <img src={asset('baby.jpg')} alt="Family portrait session" loading="lazy" />
+          <img src={asset('portrait/baby.jpg')} alt="Family portrait session" loading="lazy" />
         </div>
         <div class="stack">
           <span class="eyebrow">What sessions are for</span>
@@ -73,36 +73,6 @@ const landscapePreview = landscapeImages.slice(0, 3);
             people who've never found a photographer who saw them right — these
             are exactly the stories I want to tell.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  {/* ══ ABOUT SNIPPET ════════════════════════════════════════════════
-      Split: text left, image right — reversed from above.
-  ══════════════════════════════════════════════════════════════════ */}
-  <section class="section bg-soft">
-    <div class="container">
-      <div class="split about-reverse">
-        <div class="stack">
-          <span class="eyebrow">About Zach</span>
-          <h2>A different background</h2>
-          <p>
-            My first portraits were flowers, trees, and hills. They don't have
-            expectations — they're entirely themselves. I learned to work with
-            them, instead of trying to capture or impose.
-          </p>
-          <p>
-            I bring the same approach to people. We can still use studio kit,
-            strobes, and reflectors when the work calls for it. But what I'm
-            after is something that explores and expresses you — you, being
-            entirely yourself.
-          </p>
-          <a href={route('about/')} class="btn btn-outline">More about me</a>
-        </div>
-        <div class="split-image">
-          <img src={asset('flower.jpg')} alt="Flower — striking portrait of a fawnlily" loading="lazy" />
         </div>
       </div>
     </div>
@@ -155,14 +125,6 @@ const landscapePreview = landscapeImages.slice(0, 3);
     font-weight: 600;
   }
 
-  /* Reverse the split so text is left, image right */
-  .about-reverse {
-    direction: rtl;
-  }
-  .about-reverse > * {
-    direction: ltr;
-  }
-
   .landscape-preview {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -177,7 +139,6 @@ const landscapePreview = landscapeImages.slice(0, 3);
   }
 
   @media (max-width: 768px) {
-    .about-reverse { direction: ltr; }
     .landscape-preview { grid-template-columns: 1fr 1fr; }
     .landscape-preview img:last-child { display: none; }
   }
