@@ -184,11 +184,20 @@ explore, what you want to make. Then we can talk.
 - `modeling portfolio` — use cases section
 - `family` / `families` — use cases section (queer families, blended families)
 
-**Suggested `defaultDescription` update in data.ts:**
+**Homepage meta description (hardcoded in index.astro):**
+```
+Portrait photography in Lafayette, IN and Urbana-Champaign, IL.
+Collaborative sessions shaped by nature, street, and abstract photography.
+Editing included. From $350.
+```
+
+**Site-wide fallback (from `site.defaultDescription` in data.ts):**
 ```
 Portrait photography in Lafayette, IN and Urbana-Champaign, IL.
 Collaborative sessions for personal brands and individuals —
 shaped by street and abstract photography. From $350.
 ```
+
+> **Note:** The homepage uses a slightly different description from the site default. The homepage version includes "Editing included" (a strong commercial signal) and leads with "nature" alongside street and abstract. Both are valid. The site default is only used as a fallback for pages that don't set their own description.
 
 **No headshots** — confirmed out of scope, not mentioned anywhere.

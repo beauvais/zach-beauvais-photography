@@ -47,7 +47,7 @@ Tell me what you have in mind and I'll get back to you within a day or two.
 ```
 What are you thinking? (default)
 Essential Session ($350)
-Extended Session ($750)
+Exploration Session ($750)
 Business / Brand Photography
 Something else
 ```

@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { parsePostId, coverImageUrl, sortByDate, formatDate, taxonomySlug, taxonomyLabel } from '../../../lib/blog';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  const sorted = sortByDate(allPosts);
+
+  return sorted.map((post, index) => {
+    const { year, slug } = parsePostId(post);
+    const prev = sorted[index + 1] ?? null; // older post
+    const next = sorted[index - 1] ?? null; // newer post
+
+    // "Read similar" — up to 3 posts sharing a category, excluding self
+    const myCategories = new Set(post.data.categories);
+    const similar = sorted
+      .filter(p => p.id !== post.id && p.data.categories.some(c => myCategories.has(c)))
+      .slice(0, 3);
+
+    return {
+      params: { year, slug },
+      props: { post, prev, next, similar },
+    };
+  });
+}
+
+const { post, prev, next, similar } = Astro.props;
+const { Content } = await render(post);
+const { year } = parsePostId(post);
+const imgSrc = coverImageUrl(post);
+
+// Resolve prev/next URLs ahead of time (avoids inline logic in template)
+const prevInfo = prev ? { ...parsePostId(prev), post: prev } : null;
+const nextInfo = next ? { ...parsePostId(next), post: next } : null;
+
+const ogImage = imgSrc ?? '/portrait/portrait-01.jpg';
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.excerpt ?? `${post.data.title} — written by Zach Beauvais in ${year}.`}
+  ogImage={ogImage}
+>
+  <article class="blog-post">
+
+    {/* ── Post header ─────────────────────────────────── */}
+    <header class="blog-post-header">
+      <div class="container-narrow">
+        <nav class="breadcrumb" aria-label="Site navigation">
+          <a href="/">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">→</span>
+          <a href="/blog">Writing</a>
+          <span class="breadcrumb-sep" aria-hidden="true">→</span>
+          <span>{year}</span>
+        </nav>
+
+        <div class="blog-post-meta">
+          <time datetime={post.data.date.toISOString().slice(0, 10)} class="blog-post-date">
+            {formatDate(post.data.date)}
+          </time>
+          <div class="blog-post-cats">
+            {post.data.categories.map(cat => (
+              <a href={`/blog/category/${taxonomySlug(cat)}`} class="blog-tag">
+                {taxonomyLabel(cat)}
+              </a>
+            ))}
+            {post.data.tags && post.data.tags.map(tag => (
+              <a href={`/blog/tag/${taxonomySlug(tag)}`} class="blog-tag blog-tag-secondary">
+                {taxonomyLabel(tag)}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <h1 class="blog-post-title">{post.data.title}</h1>
+      </div>
+
+      {imgSrc && (
+        <div class="blog-post-cover">
+          <div class="container">
+            <img
+              src={imgSrc}
+              alt={`Cover image for: ${post.data.title}`}
+              class="blog-post-cover-img"
+              loading="eager"
+            />
+          </div>
+        </div>
+      )}
+    </header>
+
+    {/* ── Post body ────────────────────────────────────── */}
+    <div class="container-narrow">
+      <div class="blog-post-body prose">
+        <Content />
+      </div>
+
+      {/* ── Taxonomy footer ─────────────────────────────── */}
+      <footer class="blog-post-footer">
+        <div class="blog-post-tags">
+          {post.data.categories.map(cat => (
+            <a href={`/blog/category/${taxonomySlug(cat)}`} class="blog-tag">
+              {taxonomyLabel(cat)}
+            </a>
+          ))}
+          {post.data.tags && post.data.tags.map(tag => (
+            <a href={`/blog/tag/${taxonomySlug(tag)}`} class="blog-tag blog-tag-secondary">
+              {taxonomyLabel(tag)}
+            </a>
+          ))}
+        </div>
+      </footer>
+    </div>
+
+    {/* ── Read next (chronological) ────────────────────── */}
+    {(prevInfo || nextInfo) && (
+      <nav class="blog-nav-band" aria-label="More posts">
+        <div class="container">
+          <h6 class="blog-nav-label">Read next</h6>
+          <div class="blog-nav-posts">
+            {prevInfo && (
+              <a href={`/blog/${prevInfo.year}/${prevInfo.slug}`} class="blog-nav-post blog-nav-post--prev">
+                <span class="blog-nav-direction">← Older</span>
+                <span class="blog-nav-title">{prevInfo.post.data.title}</span>
+                <span class="blog-nav-date">{formatDate(prevInfo.post.data.date)}</span>
+              </a>
+            )}
+            {nextInfo && (
+              <a href={`/blog/${nextInfo.year}/${nextInfo.slug}`} class="blog-nav-post blog-nav-post--next">
+                <span class="blog-nav-direction">Newer →</span>
+                <span class="blog-nav-title">{nextInfo.post.data.title}</span>
+                <span class="blog-nav-date">{formatDate(nextInfo.post.data.date)}</span>
+              </a>
+            )}
+          </div>
+        </div>
+      </nav>
+    )}
+
+    {/* ── Read similar ─────────────────────────────────── */}
+    {similar.length > 0 && (
+      <section class="blog-similar section-md bg-soft">
+        <div class="container">
+          <h6 class="blog-similar-label">Read similar</h6>
+          <div class="blog-similar-grid">
+            {similar.map(p => {
+              const { year: sy, slug: ss } = parsePostId(p);
+              const pImg = coverImageUrl(p);
+              return (
+                <a href={`/blog/${sy}/${ss}`} class="blog-similar-card">
+                  {pImg && (
+                    <div class="blog-similar-img-wrap">
+                      <img src={pImg} alt="" class="blog-similar-img" loading="lazy" />
+                    </div>
+                  )}
+                  <div class="blog-similar-body">
+                    <p class="blog-similar-date">{formatDate(p.data.date)}</p>
+                    <p class="blog-similar-title">{p.data.title}</p>
+                    {p.data.categories.length > 0 && (
+                      <div class="blog-similar-cats">
+                        {p.data.categories.map(c => (
+                          <span class="blog-tag blog-tag-sm">{taxonomyLabel(c)}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    )}
+
+  </article>
+</BaseLayout>
