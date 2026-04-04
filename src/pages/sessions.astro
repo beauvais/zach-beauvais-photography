@@ -17,7 +17,7 @@ import { pricing } from '../content/data';
   <section class="page-header">
     <div class="container">
       <span class="eyebrow">Sessions &amp; Pricing</span>
-      <h1>Simple, all-inclusive pricing</h1>
+      <h1>Two sessions. One price each.</h1>
       <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
         Two formats, both with professional editing included. No surprises.
       </p>
@@ -86,8 +86,8 @@ import { pricing } from '../content/data';
         <span class="eyebrow">Travel</span>
         <h2>Available beyond Lafayette</h2>
         <p class="lead" style="margin-top: 1rem;">
-          I'm happy to travel. Additional fees below are per session, added to whichever
-          session format you book.
+          I work out of Lafayette and Urbana-Champaign, but I travel. Fees below cover
+          the extra time and distance.
         </p>
       </div>
       <div class="grid-3" style="margin-top: var(--space-7);">
@@ -106,7 +106,7 @@ import { pricing } from '../content/data';
             <h5>{pricing.travel.indianapolis.label}</h5>
             <div class="travel-price">+${pricing.travel.indianapolis.fee}</div>
             <p class="muted" style="font-size: var(--text-sm);">
-              All session types available in {pricing.travel.indianapolis.label}. Travel fee added to session cost.
+              Either session, same approach.
             </p>
           </div>
         </div>
@@ -115,13 +115,13 @@ import { pricing } from '../content/data';
             <h5>{pricing.travel.chicago.label}</h5>
             <div class="travel-price">+${pricing.travel.chicago.fee}</div>
             <p class="muted" style="font-size: var(--text-sm);">
-              All session types available in {pricing.travel.chicago.label}. Travel fee added to session cost.
+              Either session, same approach.
             </p>
           </div>
         </div>
       </div>
       <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-5);">
-        Interested in a location not listed here? Get in touch — I'm open to other arrangements.
+        Somewhere not listed? Get in touch.
       </p>
     </div>
   </section>
@@ -136,7 +136,7 @@ import { pricing } from '../content/data';
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">What to expect</span>
-        <h2>Everything you need, nothing you don't</h2>
+        <h2>What you're actually getting</h2>
       </div>
       <div class="grid-2" style="margin-top: var(--space-7); align-items: start; gap: var(--space-10);">
         <div class="stack-lg">
@@ -150,16 +150,15 @@ import { pricing } from '../content/data';
           <div class="included-item">
             <h5>Professional editing</h5>
             <p class="muted" style="font-size: var(--text-sm);">
-              Every delivered image is colour-graded, retouched, and ready to use.
-              Editing is included in all session prices — you'll never receive a raw file
-              and be left to figure out the rest.
+              Every delivered image is colour-graded, retouched, and ready to use —
+              editing is included in the price.
             </p>
           </div>
           <div class="included-item">
-            <h5>High-resolution digital delivery</h5>
+            <h5>Digital delivery</h5>
             <p class="muted" style="font-size: var(--text-sm);">
-              Your final images are delivered as high-resolution JPEGs via a private
-              online gallery, available to download at any time.
+              Your final images are delivered via a private online gallery, available
+              to download at any time.
             </p>
           </div>
         </div>
@@ -175,16 +174,15 @@ import { pricing } from '../content/data';
           <div class="included-item">
             <h5>For people &amp; brands</h5>
             <p class="muted" style="font-size: var(--text-sm);">
-              My sessions work equally well for personal portraits and professional brand
-              imagery. If you're building a brand identity or just want photography
-              that represents you honestly, this is the format.
+              Personal portraits or brand work — the format doesn't change much. You still
+              need images that look like the real thing, not a stock-photo version of it.
             </p>
           </div>
           <div class="included-item">
             <h5>Usage rights</h5>
             <p class="muted" style="font-size: var(--text-sm);">
-              You receive full personal and commercial usage rights for all delivered images.
-              Use them for social media, print, your website, or anything else you need.
+              All delivered images are yours — personal use, commercial use, print, web,
+              whatever you need.
             </p>
           </div>
         </div>
@@ -231,9 +229,8 @@ import { pricing } from '../content/data';
         <details class="faq-item">
           <summary>Can I book for a special event or celebration?</summary>
           <p>
-            Yes — portrait sessions make wonderful gifts, and I'm happy to work around events
-            like engagements, birthdays, graduations, and other occasions. Mention this when
-            you reach out and we'll plan accordingly.
+            Yes. I'm happy to work around events — engagements, birthdays, graduations.
+            Mention it when you get in touch and we'll plan from there.
           </p>
         </details>
         <details class="faq-item">
@@ -246,9 +243,9 @@ import { pricing } from '../content/data';
         <details class="faq-item">
           <summary>Can I book for my small business or brand?</summary>
           <p>
-            Absolutely. I work with small businesses to create brand imagery that's visually
-            distinctive and tells a genuine story. Get in touch with a brief description of
-            what you're looking for and we'll discuss the right approach.
+            Yes. I work with small businesses on brand imagery — the kind that looks like you
+            made it, not like you bought it from a template site. Tell me what you're building
+            and we'll figure out the right approach.
           </p>
         </details>
       </div>
@@ -259,8 +256,8 @@ import { pricing } from '../content/data';
   {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
   <CTABand
     eyebrow="Book a session"
-    heading="Ready to get started?"
-    body="Send a message and let's work out the details together."
+    heading="Not sure which session?"
+    body="Get in touch and we'll figure out what fits."
     primaryHref={route('contact/')}
     primaryLabel="Get in touch"
   />
