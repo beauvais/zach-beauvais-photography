@@ -24,30 +24,55 @@
 //
 // The order here is the order they appear in the gallery.
 
+// ─── Quick image reference ────────────────────────────────────────────────────
+//
+// Use these labels when selecting images in page files (e.g. portraitImages[0]).
+// The label is the shorthand; the index is the array position.
+//
+//  [0]  woman-closeup        — B&W close portrait, woman with nose ring, direct gaze
+//  [1]  man-cap-glasses      — B&W, man with long hair, daisy cap, glasses, looking away
+//  [2]  woman-window-bw      — B&W, woman at tall industrial window, looking out
+//  [3]  woman-softlight      — Colour, young woman, nose ring, soft window light, direct gaze
+//  [4]  woman-leaning        — Colour, same woman, leaning by window, smiling
+//  [5]  man-floor            — Colour, man in athletic gear, seated relaxed on stone floor
+//  [6]  man-window-colour    — Colour, man in athletic jacket, industrial window behind
+//  [7]  man-laughing-bw      — B&W, man by window, head down, laughing to himself
+//  [8]  person-snow          — B&W, person bundled up lying in snow, looking up at camera
+//  [9]  woman-chair-studio   — B&W studio, woman seated on chair, grey background
+//  [10] two-people-studio    — B&W studio, two people, one seated, one adjusting jacket
+//  [11] woman-purple-hair    — Colour, woman with purple hair, seated against rough wall, plants behind
+//  [12] woman-window-bw-2    — B&W, woman at industrial window, looking out (similar to [2])
+//  [13] man-blue-jacket      — Colour, man in blue athletic jacket, industrial space, movement
+//  [14] woman-curly-window   — B&W, woman with curly hair, eyes closed, smiling, window light
+//  [15] two-women-floor      — B&W, two women seated on floor facing each other, laughing
+//  [16] woman-pillar         — Colour, woman leaning against concrete pillar, direct gaze
+//  [17] man-leaning-laughing — B&W, man leaning on wooden post, laughing
+//  [18] dancer-dark-main     — B&W, dancer mid-pose, arms wide, one leg raised, dark bg
+//  [19] child-ukulele        — B&W/sepia, child's small hands on a ukulele, close crop
+//  [20] couple-colour        — Colour, couple standing together (man with long hair, woman with purple hair)
+
 export const portraitImages = [
-  { src: 'portrait/portrait-01.jpg',      alt: 'Collaborative portrait — character and light' },
-  { src: 'portrait/portrait-02.jpg',      alt: 'Portrait — natural light study' },
-  { src: 'portrait/portrait-3.jpg',       alt: 'Portrait — mood and atmosphere' },
-  { src: 'portrait/portrait-4.jpg',       alt: 'Portrait — expression' },
-  { src: 'portrait/portrait-5.jpg',       alt: 'Portrait session' },
-  { src: 'portrait/portrait-6.jpg',       alt: 'Portrait — expression and gesture' },
-  { src: 'portrait/portrait-7.jpg',       alt: 'Portrait — light and form' },
-  { src: 'portrait/portrait-8.jpg',       alt: 'Portrait session' },
-  { src: 'portrait/portrait-9.jpg',       alt: 'Portrait — atmosphere' },
-  { src: 'portrait/portrait-10.jpg',      alt: 'Portrait session' },
-  { src: 'portrait/portrait-11.jpg',      alt: 'Portrait — natural light' },
-  { src: 'portrait/portrait-12.jpg',      alt: 'Portrait session' },
-  { src: 'portrait/portrait-13.jpg',      alt: 'Portrait — character' },
-  { src: 'portrait/portrait-14.jpg',      alt: 'Portrait session' },
-  { src: 'portrait/portrait-15.jpg',      alt: 'Portrait — expression' },
-  { src: 'portrait/portrait-16.jpg',      alt: 'Portrait session' },
-  { src: 'portrait/portrait-17.jpg',      alt: 'Portrait — light and mood' },
-  { src: 'portrait/portrait-18.jpg',      alt: 'Portrait session' },
-  { src: 'portrait/portrait-19.jpg',      alt: 'Portrait — natural light' },
-  { src: 'portrait/portrait_dancing.jpg', alt: 'Portrait — movement and joy' },
-  { src: 'IMG_4546.jpg',                  alt: 'Portrait session' },
-  { src: 'portrait/baby.jpg',             alt: 'Family portrait' },
-  { src: 'portrait/couple.jpg',           alt: 'Couple portrait' },
+  { src: 'portrait/portrait-01.jpg',      alt: 'Portrait — woman with nose ring, direct gaze, natural light' },        // [0]  woman-closeup
+  { src: 'portrait/portrait-02.jpg',      alt: 'Portrait — man with long hair and daisy cap, looking away' },          // [1]  man-cap-glasses
+  { src: 'portrait/portrait-3.jpg',       alt: 'Portrait — woman at tall industrial window, looking out' },            // [2]  woman-window-bw
+  { src: 'portrait/portrait-4.jpg',       alt: 'Portrait — young woman, soft window light, direct gaze' },             // [3]  woman-softlight
+  { src: 'portrait/portrait-5.jpg',       alt: 'Portrait — woman leaning by window, smiling' },                        // [4]  woman-leaning
+  { src: 'portrait/portrait-6.jpg',       alt: 'Portrait — man in athletic gear, seated relaxed on stone floor' },     // [5]  man-floor
+  { src: 'portrait/portrait-8.jpg',       alt: 'Portrait — man in athletic jacket, industrial window behind him' },    // [6]  man-window-colour
+  { src: 'portrait/portrait-9.jpg',       alt: 'Portrait — man by window, laughing, looking down' },                   // [7]  man-laughing-bw
+  { src: 'portrait/portrait-10.jpg',      alt: 'Portrait — person bundled in winter layers, lying in snow' },          // [8]  person-snow
+  { src: 'portrait/portrait-11.jpg',      alt: 'Portrait — woman seated on chair, studio, grey background' },          // [9]  woman-chair-studio
+  { src: 'portrait/portrait-12.jpg',      alt: 'Portrait — two people in studio, one seated, one standing' },          // [10] two-people-studio
+  { src: 'portrait/portrait-13.jpg',      alt: 'Portrait — woman with purple hair, seated against rough wall' },       // [11] woman-purple-hair
+  { src: 'portrait/portrait-14.jpg',      alt: 'Portrait — woman at industrial window, looking out' },                 // [12] woman-window-bw-2
+  { src: 'portrait/portrait-15.jpg',      alt: 'Portrait — man in blue jacket, industrial space' },                    // [13] man-blue-jacket
+  { src: 'portrait/portrait-16.jpg',      alt: 'Portrait — woman with curly hair, eyes closed, smiling at window' },  // [14] woman-curly-window
+  { src: 'portrait/portrait-17.jpg',      alt: 'Portrait — two women seated on floor, laughing together' },            // [15] two-women-floor
+  { src: 'portrait/portrait-18.jpg',      alt: 'Portrait — woman leaning against concrete pillar, direct gaze' },     // [16] woman-pillar
+  { src: 'portrait/portrait-19.jpg',      alt: 'Portrait — man leaning on wooden post, laughing' },                    // [17] man-leaning-laughing
+  { src: 'portrait/portrait_dancing.jpg', alt: 'Portrait — dancer with arms wide and one leg raised, dark stage' },   // [18] dancer-dark-main
+  { src: 'portrait/baby.jpg',             alt: 'Portrait — child\'s hands on a ukulele, close crop' },                 // [19] child-ukulele
+  { src: 'portrait/couple.jpg',           alt: 'Portrait — couple standing together, colour' },                        // [20] couple-colour
 ];
 
 export const landscapeImages = [

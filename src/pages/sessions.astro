@@ -17,9 +17,10 @@ import { pricing } from '../content/data';
   <section class="page-header">
     <div class="container">
       <span class="eyebrow">Sessions &amp; Pricing</span>
-      <h1>Two sessions. One price each.</h1>
+      <h1>Two sessions, or something else entirely.</h1>
       <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
-        Two formats, both with professional editing included. No surprises.
+        Two formats with editing included — good for most briefs. If yours is bigger
+        or different, there's a third option: get in touch and we'll scope it together.
       </p>
     </div>
   </section>
@@ -73,6 +74,33 @@ import { pricing } from '../content/data';
           </div>
         </div>
       </div>
+
+      {/* ── Bespoke option ─────────────────────────────────────────── */}
+      <div class="bespoke-card" style="margin-top: var(--space-7);">
+        <div class="bespoke-inner">
+          <div class="bespoke-text">
+            <h6>Something more</h6>
+            <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3); max-width: 60ch;">
+              Multiple locations, a larger selection of edited images, ongoing brand work,
+              extended collaboration — if your brief is bigger or different, get in touch
+              and we'll figure out the right scope together.
+            </p>
+            <div class="bespoke-tags" style="margin-top: var(--space-4);">
+              <span>Multiple locations</span>
+              <span>Extended editing</span>
+              <span>Ongoing brand work</span>
+              <span>Custom scope</span>
+            </div>
+          </div>
+          <div class="bespoke-action">
+            <p class="muted" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">Scoped to your brief</p>
+            <a href={route('contact/?session=bespoke')} class="btn btn-outline">
+              Tell me what you need
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -248,6 +276,15 @@ import { pricing } from '../content/data';
             and we'll figure out the right approach.
           </p>
         </details>
+        <details class="faq-item">
+          <summary>What if neither session is quite what I need?</summary>
+          <p>
+            Get in touch and describe what you're after. The two formats work well for most
+            things, but not everything — if you need multiple locations, a bigger edit, ongoing
+            work, or something I haven't listed, I'd rather figure out the right scope in
+            conversation than have you pick a box that doesn't fit.
+          </p>
+        </details>
       </div>
     </div>
   </section>
@@ -273,6 +310,38 @@ import { pricing } from '../content/data';
     margin-block: var(--space-3);
   }
   .included-item h5 { margin-bottom: var(--space-2); }
+
+  .bespoke-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg, var(--radius));
+    padding: var(--space-8);
+  }
+  .bespoke-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .bespoke-text { flex: 1 1 40ch; }
+  .bespoke-action {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bespoke-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .bespoke-tags span {
+    font-size: var(--text-xs, var(--text-sm));
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: var(--space-1) var(--space-3);
+  }
 
   .faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--color-border); }
   .faq-item { border-bottom: 1px solid var(--color-border); }

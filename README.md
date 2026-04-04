@@ -10,20 +10,94 @@ Portfolio site built with [Astro](https://astro.build). Deployed automatically t
 
 | I want to… | File to edit |
 |---|---|
+| Edit copy on any page | `copydeck/[page].md` — then ask Claude to apply it |
 | Add or remove a photo | `src/content/data.ts` |
 | Change a price | `src/content/data.ts` |
 | Update my email or Instagram | `src/content/data.ts` |
-| Edit homepage copy | `src/pages/index.astro` |
-| Edit the about page | `src/pages/about.astro` |
-| Edit the sessions page | `src/pages/sessions.astro` |
-| Edit the contact page | `src/pages/contact.astro` |
+| Build a page from its copydeck | Ask Claude: "build `[page].astro` from its copydeck" |
 | Add a page to the navigation | `src/components/Header.astro` |
 | Create a new page | Copy `src/templates/new-page.astro` → `src/pages/` |
 | Create a new portfolio gallery | Copy `src/templates/new-portfolio-page.astro` → `src/pages/portfolio/` |
 
 ---
 
+## Working with Claude
+
+This site is built to work with Claude (Cowork mode) for content editing and page building. The `CLAUDE.md` file in the repo root loads automatically at the start of every Claude session — it contains the business brief, voice reference, component patterns, and standing decisions, so you don't need to re-explain the project each time.
+
+### Recommended session workflow
+
+**For copy edits:**
+1. Edit the relevant file in `copydeck/` (plain markdown, no code)
+2. Open a Claude session and say: *"Apply the updated `[page].md` copydeck to `[page].astro`"*
+3. Claude reads both files, diffs them, and makes targeted edits — it doesn't rewrite the page
+
+**For building a new page:**
+1. Write the copydeck first in `copydeck/[page].md`
+2. Open a Claude session and say: *"Build `[page].astro` from `copydeck/[page].md`"*
+3. Claude scaffolds from the template, implements the copy, and wires up components
+
+**For adding or swapping photos:**
+- Say which slot you want to change and describe the image by its label (see photo index below)
+- e.g. *"Replace the approach section photo with the couple shot"*
+
+**For code and component work:**
+- One task per session — scope it specifically: *"Add a testimonial section to `about.astro`"*, not *"work on the site"*
+- Claude reads `CLAUDE.md` at session start, which covers voice, decisions, and patterns already made
+
+### What Claude doesn't need to be told each session
+
+- What the project is (it's in `CLAUDE.md`)
+- The voice and tone (short version is in `CLAUDE.md`; full version at `Photography Website/voice-and-tone.md` is only needed for substantial new copy)
+- Which decisions are final (standing decisions are in `CLAUDE.md`)
+
+---
+
+## Copydeck
+
+All page copy lives in `copydeck/` as plain markdown files. These are the authoritative source — if copy in a `.astro` file disagrees with the copydeck, the copydeck wins.
+
+| File | Page |
+|---|---|
+| `copydeck/index.md` | Homepage |
+| `copydeck/sessions.md` | Sessions & Pricing |
+| `copydeck/about.md` | About |
+| `copydeck/how-i-work.md` | How I Work |
+| `copydeck/contact.md` | Contact |
+| `copydeck/404.md` | 404 page |
+| `copydeck/portfolio/` | Portfolio pages |
+
+### How to edit copy
+
+Open the relevant `copydeck/` file in any text editor. The files are plain markdown — no build tools, no syntax to learn. Each section has a heading that matches the section name on the page, with the copy in a code block beneath it.
+
+Notes in `>` blockquotes are editorial guidance — things like *"this line is doing real work, don't cut it"* or *"the period is intentional."* These are standing decisions; don't change what they describe without a good reason.
+
+**After editing**, ask Claude to apply the changes to the `.astro` file. Never edit copy directly in `.astro` files — the copydeck won't stay in sync.
+
+### Copydeck note conventions
+
+- `> **Notes:**` — editorial guidance, binding decisions about why copy is the way it is
+- `> **Standing rule:**` — a decision that applies across the whole site (e.g. no "view" as a verb)
+- `*Content from data.ts*` — means this section's content is generated from `src/content/data.ts`, not hardcoded
+
+---
+
 ## Updating content
+
+### Photo index
+
+`src/content/data.ts` contains a comment block at the top of `portraitImages` that maps every array index to a short label and description. Use this when asking Claude to swap or add photos — refer to images by label rather than index number.
+
+Example: *"Use `woman-curly-window` [14] in the approach section instead of the dancer"*
+
+The index block looks like this:
+
+```
+//  [0]  woman-closeup       — B&W close portrait, woman with nose ring, direct gaze
+//  [14] woman-curly-window  — B&W, woman with curly hair, eyes closed, smiling at window
+//  [18] dancer-dark-main    — B&W, dancer mid-pose, arms wide, one leg raised, dark bg
+```
 
 ### Adding a new photo
 

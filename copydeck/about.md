@@ -1,0 +1,123 @@
+# About Page Copydeck — about.astro
+> **Status:** Working draft
+
+---
+
+## META
+
+**Page title:** `About`
+
+**Meta description:**
+```
+Zach Beauvais is a portrait photographer based in Lafayette, IN and Urbana-Champaign, IL. A background in nature and abstract photography shapes an observational, collaborative approach to portrait work.
+```
+
+---
+
+## PAGE HEADER
+
+**Eyebrow:** `About`
+**H1:** `Zach Beauvais`
+**Lead:**
+```
+Portrait photographer. Based in Lafayette, IN and Urbana-Champaign, IL.
+```
+
+---
+
+## SECTION: BIO
+
+**H2:** `From the outdoors in`
+
+```
+I learned on my dad's Minolta — a film SLR he'd had since before I was born.
+Mountains, desert, flowers, wildlife. Things that are entirely themselves
+and don't perform for the camera. You learn to observe rather than direct.
+
+Street photography came next, which is really the same thing: finding what's
+already there. At some point I realised I'd been making portraits all along —
+just of hills and trees instead of people.
+
+Working with people followed naturally. And I bring a background in marketing,
+UX, and brand along with the camera — so I can think about what an image
+needs to do, not just how it looks.
+
+I'm based in Lafayette, Indiana, and Urbana-Champaign, Illinois.
+```
+
+> **Notes:** The four-paragraph bio is doing real work — each paragraph earns its place. Resist the urge to collapse into a single block or add a fifth paragraph about "passion for photography." If it ever needs to grow, grow it from specificity, not generality.
+
+---
+
+## PULL QUOTE
+
+```
+"A portrait should feel like the person in it — not like a photograph of them."
+```
+
+> **Notes:** Strong and attributable to Zach. Keep it. Don't italicise it in the component — the type treatment handles emphasis.
+
+---
+
+## SECTION: ABSTRACT TRIO (image captions)
+
+These appear as alt text / muted caption beneath the three abstract images.
+
+**Caption:**
+```
+A selection of landscape and abstract work — the visual sensibility that underpins the portrait sessions.
+```
+
+> **Notes:** The caption does exactly enough. It makes the connection without over-explaining it. Leave it alone unless the images change dramatically.
+
+---
+
+## SECTION: LOCATION & AVAILABILITY
+
+**Eyebrow:** `Location & availability`
+**H2:** `Based in Lafayette, IN · Urbana-Champaign, IL`
+
+**Card 1 — Lafayette & Urbana-Champaign:**
+```
+Sessions within 30 miles at standard pricing.
+```
+
+**Card 2 — Indianapolis:**
+```
+All sessions available with an additional travel fee per session.
+```
+
+**Card 3 — Chicago:**
+```
+All sessions available with an additional travel fee per session.
+```
+
+> **Notes:** Prices are pulled from `data.ts` — don't hardcode them here. The card copy is minimal by design; the pricing detail lives on the sessions page.
+
+---
+
+## CTA BAND
+
+**Eyebrow:** `Work together`
+**Heading:** `Let's start a conversation`
+**Body:**
+```
+Get in touch and we'll figure out what feels right.
+```
+
+**Primary CTA:** `Get in touch`
+**Secondary CTA:** `See sessions & pricing`
+
+---
+
+## SEO NOTES
+
+**Terms appearing naturally in this draft:**
+
+- `portrait photographer` — lead
+- `Lafayette, IN` / `Urbana-Champaign, IL` — lead and location section
+- `nature photography` / `abstract photography` / `street photography` — bio
+- `marketing` / `brand` — bio (secondary signal, positions business-facing work)
+- `Indianapolis` / `Chicago` — location cards
+
+**Pull quote:** not indexed as a header — fine. It's there for conversion, not crawling.
