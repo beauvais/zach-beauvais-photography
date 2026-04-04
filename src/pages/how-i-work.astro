@@ -25,26 +25,40 @@ const landscapePreview = landscapeImages.slice(0, 3);
   </section>
 
 
-  {/* ══ NOT EVERY PHOTOGRAPHER ═══════════════════════════════════════ */}
+  {/* ══ NOT EVERY PHOTOGRAPHER ═══════════════════════════════════════
+      Split: text left, dancer portrait right.
+      The dancer's dark stage background bleeds into bg-strong intentionally.
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section bg-strong">
     <div class="container">
-      <div class="prose-block">
-        <span class="eyebrow">Worth knowing</span>
-        <h2>Not every photographer is right for every person</h2>
-        <p>
-          There's a particularly Midwest kind of portrait photography:
-          golden hour, cornfields, soft focus, saying: "Cheese!" (Or
-          maybe sometimes: "CORN!") It can be beautiful and many
-          photographers excel at making these portraits.
-        </p>
-        <p class="prose-punch">I'm not one of those.</p>
-        <p>
-          I work with people to find something deeply personal and
-          intentional. I can make images for professional or personal brands,
-          or celebrate meaningful milestones. My favourite kind of portrait
-          is made when someone is exploring just for themself.
-        </p>
-        <p>We start with exploration, and work towards expression.</p>
+      <div class="worth-knowing-split">
+        <div class="stack">
+          <span class="eyebrow">Worth knowing</span>
+          <h2>Not every photographer is right for every person</h2>
+          <p>
+            There's a particularly Midwest kind of portrait photography:
+            golden hour, cornfields, soft focus, saying: "Cheese!" (Or
+            maybe sometimes: "CORN!") It can be beautiful and many
+            photographers excel at making these portraits.
+          </p>
+          <p class="prose-punch">I'm not one of those.</p>
+          <p>
+            I work with people to find something deeply personal and
+            intentional. I can make images for professional or personal brands,
+            or celebrate meaningful milestones. My favourite kind of portrait
+            is made when someone is exploring just for themself.
+          </p>
+          <p>We start with exploration, and work towards expression.</p>
+        </div>
+        <div class="worth-knowing-image">
+          <img
+            src={asset(portraitImages[18].src)}
+            alt={portraitImages[18].alt}
+            width={portraitImages[18].width}
+            height={portraitImages[18].height}
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -57,7 +71,7 @@ const landscapePreview = landscapeImages.slice(0, 3);
     <div class="container">
       <div class="split">
         <div class="split-image">
-          <img src={asset('portrait/baby.jpg')} alt="Family portrait session" loading="lazy" />
+          <img src={asset('portrait/baby.jpg')} alt="Portrait — child's hands on a ukulele, close crop" width="2000" height="1334" loading="lazy" />
         </div>
         <div class="stack">
           <span class="eyebrow">What sessions are for</span>
@@ -92,7 +106,7 @@ const landscapePreview = landscapeImages.slice(0, 3);
       </div>
       <div class="landscape-preview">
         {landscapePreview.map(img => (
-          <img src={asset(img.src)} alt={img.alt} loading="lazy" />
+          <img src={asset(img.src)} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
         ))}
       </div>
       <div style="margin-top: var(--space-6);">
@@ -116,13 +130,27 @@ const landscapePreview = landscapeImages.slice(0, 3);
 </BaseLayout>
 
 <style>
-  .prose-block {
-    max-width: 44rem;
+  .worth-knowing-split {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: var(--space-10);
+    align-items: center;
   }
-  .prose-block p { margin-top: var(--space-4); }
+  .worth-knowing-split p { margin-top: var(--space-4); }
   .prose-punch {
     font-size: var(--text-xl);
     font-weight: 600;
+  }
+  .worth-knowing-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+  .worth-knowing-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .landscape-preview {
@@ -139,6 +167,13 @@ const landscapePreview = landscapeImages.slice(0, 3);
   }
 
   @media (max-width: 768px) {
+    .worth-knowing-split {
+      grid-template-columns: 1fr;
+    }
+    .worth-knowing-image {
+      aspect-ratio: 4 / 3;
+      order: -1;
+    }
     .landscape-preview { grid-template-columns: 1fr 1fr; }
     .landscape-preview img:last-child { display: none; }
   }

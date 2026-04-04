@@ -9,8 +9,10 @@
 
 **Meta description:**
 ```
-Collaborative portrait photography by Zach Beauvais — natural, authentic, and deeply personal. Lafayette, Indiana.
+Collaborative portrait photography by Zach Beauvais. Lafayette, Indiana and Urbana-Champaign, Illinois — personal, authentic, and shaped by a background in nature photography. Sessions from $350.
 ```
+
+> **Note:** Updated to cover both markets (was Lafayette-only). Includes price signal. Hits "portrait photography," both locations, and price in under 160 characters.
 
 ---
 

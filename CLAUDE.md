@@ -61,6 +61,7 @@ copydeck/         — authoritative copy for every page (see below)
 | `how-i-work.md` | Working draft — complete |
 | `contact.md` | Working draft — check before building |
 | `404.md` | Working draft |
+| `cv.md` | Working draft — verbatim from zachbeauvais.com/cv/; not in nav |
 | `copydeck/portfolio/` | Check on session |
 
 **Workflow:** Read the copydeck file → implement the page → never edit copy in `.astro` files directly (always update the copydeck first so it stays authoritative).

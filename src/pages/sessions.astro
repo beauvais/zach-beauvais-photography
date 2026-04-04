@@ -7,11 +7,75 @@ import { pricing } from '../content/data';
 
 // All prices and session details come from src/content/data.ts
 // Edit there — changes reflect here and on the homepage automatically.
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to have photography experience?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at all. Most people feel a little awkward in front of a camera — that's completely normal, and part of my job is helping you get past it. We'll take our time, and by the end of the session you'll have forgotten the camera is there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose a location?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We figure this out together in our pre-session conversation. It might be somewhere meaningful to you, somewhere that reflects your aesthetic, or simply a well-lit space that suits the mood you're going for. I'll make suggestions if you'd like them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does editing take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically 1–2 weeks after the session. You'll receive a link to a private online gallery when your images are ready."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I book for a special event or celebration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. I'm happy to work around events — engagements, birthdays, graduations. Mention it when you get in touch and we'll plan from there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the weather doesn't cooperate for an outdoor session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We'll reschedule at no additional cost. Weather happens — I'd rather get the session right than push through conditions that don't serve the work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I book for my small business or brand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. I work with small businesses on brand imagery — the kind that looks like you made it, not like you bought it from a template site. Tell me what you're building and we'll figure out the right approach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if neither session is quite what I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Get in touch and describe what you're after. The two formats work well for most things, but not everything — if you need multiple locations, a bigger edit, ongoing work, or something I haven't listed, I'd rather figure out the right scope in conversation than have you pick a box that doesn't fit."
+      }
+    }
+  ]
+});
 ---
 
 <BaseLayout
   title="Sessions &amp; Pricing"
-  description={`Portrait sessions from $${pricing.essential.price}. ${pricing.essential.name} or ${pricing.extended.name}, with professional editing included.`}
+  description={`Portrait sessions in Lafayette, IN from $${pricing.essential.price}. Collaborative, edited, and delivered — two formats or something bespoke. No surprises.`}
+  schema={faqSchema}
 >
 
   {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
@@ -132,7 +196,7 @@ import { pricing } from '../content/data';
             <h5>Lafayette &amp; Urbana-Champaign</h5>
             <div class="travel-price">No additional fee</div>
             <p class="muted" style="font-size: var(--text-sm);">
-              Sessions within 30 miles of Lafayette, Indiana or Urbana-Champaign, Illinois
+              Sessions within 30 miles of Lafayette and West Lafayette, Indiana or Urbana-Champaign, Illinois
               are included in the standard rate.
             </p>
           </div>

@@ -9,10 +9,10 @@
 
 **Meta description:**
 ```
-Portrait sessions from $350. Essential or Extended, with professional editing included.
+Portrait sessions in Lafayette, IN from $350. Collaborative, edited, and delivered — two formats or something bespoke. No surprises.
 ```
 
-> **Note:** Prices in the meta description come from `data.ts` dynamically. If you change pricing there, this description will update automatically.
+> **Note:** This description is generated dynamically but hardcoded for voice control. The previous version surfaced session names ("Essential Session or Exploration Session") which nobody searches for — the new version leads with location, price, and outcome.
 
 ---
 
@@ -37,7 +37,7 @@ or different, there's a third option: get in touch and we'll scope it together.
 **Session card CTAs:**
 
 - Essential card: `Book the essential session`
-- Extended card: `Book the extended session`
+- Extended card: `Book the exploration session`
 
 > **Notes:** Button copy uses the session name from `data.ts` automatically. The pattern "Book the [name]" is better than "Book now" — it's specific and doesn't feel generic. If the session names change in `data.ts`, the buttons update automatically.
 
@@ -108,7 +108,7 @@ the extra time and distance.
 
 **Card body — Lafayette:**
 ```
-Sessions within 30 miles of Lafayette, Indiana or Urbana-Champaign, Illinois
+Sessions within 30 miles of Lafayette and West Lafayette, Indiana or Urbana-Champaign, Illinois
 are included in the standard rate.
 ```
 
@@ -257,6 +257,8 @@ Get in touch and we'll figure out what fits.
 ---
 
 ## SEO NOTES
+
+**Structured data:** `FAQPage` JSON-LD is embedded in `sessions.astro`, generated from the FAQ Q&A pairs. If you add, remove, or edit a FAQ item, update the `faqSchema` object in the frontmatter to match.
 
 **Terms appearing naturally:**
 

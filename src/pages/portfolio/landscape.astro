@@ -10,7 +10,7 @@ import { landscapeImages, portraitImages } from '../../content/data';
 <BaseLayout
   title="Landscape &amp; Art"
   description="Landscape and abstract photography by Zach Beauvais — the observational eye that informs the portrait work. Lafayette, Indiana."
-  ogImage="/art1.jpg"
+  ogImage={`/${landscapeImages[0].src}`}
 >
 
   {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
@@ -43,11 +43,11 @@ import { landscapeImages, portraitImages } from '../../content/data';
     <div class="container">
       <div class="landscape-hero">
         <div class="landscape-hero-wide">
-          <img src={asset(landscapeImages[0].src)} alt={landscapeImages[0].alt} loading="lazy" />
+          <img src={asset(landscapeImages[0].src)} alt={landscapeImages[0].alt} width={landscapeImages[0].width} height={landscapeImages[0].height} loading="lazy" />
         </div>
         <div class="landscape-hero-pair">
-          <img src={asset(landscapeImages[2].src)} alt={landscapeImages[2].alt} loading="lazy" />
-          <img src={asset(landscapeImages[5].src)} alt={landscapeImages[5].alt} loading="lazy" />
+          <img src={asset(landscapeImages[2].src)} alt={landscapeImages[2].alt} width={landscapeImages[2].width} height={landscapeImages[2].height} loading="lazy" />
+          <img src={asset(landscapeImages[5].src)} alt={landscapeImages[5].alt} width={landscapeImages[5].width} height={landscapeImages[5].height} loading="lazy" />
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@ import { landscapeImages, portraitImages } from '../../content/data';
             data-alt={img.alt}
             aria-label={`View larger: ${img.alt}`}
           >
-            <img src={asset(img.src)} alt={img.alt} loading="lazy" />
+            <img src={asset(img.src)} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="gallery-item-label">{img.alt}</span>
             </div>
@@ -131,7 +131,7 @@ import { landscapeImages, portraitImages } from '../../content/data';
           </div>
         </div>
         <div class="split-image">
-          <img src={asset(portraitImages[1].src)} alt={portraitImages[1].alt} loading="lazy" />
+          <img src={asset(portraitImages[1].src)} alt={portraitImages[1].alt} width={portraitImages[1].width} height={portraitImages[1].height} loading="lazy" />
         </div>
       </div>
     </div>

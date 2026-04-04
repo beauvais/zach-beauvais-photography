@@ -8,7 +8,7 @@ const session = Astro.url.searchParams.get('session') || '';
 
 <BaseLayout
   title="Contact"
-  description={`Book a portrait session with ${site.name}. Get in touch to discuss your project, ask questions, or reserve your date.`}
+  description={`Book a portrait session with ${site.name} — Lafayette, IN and Urbana-Champaign, IL. Get in touch to discuss your brief, ask questions, or reserve a date.`}
 >
 
   {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
@@ -174,10 +174,10 @@ const session = Astro.url.searchParams.get('session') || '';
   <section class="section-sm bg-strong">
     <div class="container">
       <div class="contact-gallery">
-        <img src={asset('portrait/portrait-8.jpg')} alt="Portrait session" loading="lazy" />
-        <img src={asset('portrait/portrait-9.jpg')} alt="Portrait session" loading="lazy" />
-        <img src={asset('portrait/baby.jpg')}       alt="Portrait session" loading="lazy" />
-        <img src={asset('portrait/portrait-5.jpg')} alt="Portrait session" loading="lazy" />
+        <img src={asset('portrait/portrait-8.jpg')} alt="Portrait — man in athletic jacket, industrial window behind him" width="2000" height="1330" loading="lazy" />
+        <img src={asset('portrait/portrait-9.jpg')} alt="Portrait — man by window, laughing, looking down" width="2000" height="1330" loading="lazy" />
+        <img src={asset('portrait/baby.jpg')}       alt="Portrait — child's hands on a ukulele, close crop" width="2000" height="1334" loading="lazy" />
+        <img src={asset('portrait/portrait-5.jpg')} alt="Portrait — woman leaning by window, smiling" width="1330" height="2000" loading="lazy" />
       </div>
     </div>
   </section>

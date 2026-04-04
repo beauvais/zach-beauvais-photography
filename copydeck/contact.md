@@ -9,8 +9,10 @@
 
 **Meta description:**
 ```
-Book a portrait session with Zach Beauvais. Get in touch to discuss your project, ask questions, or reserve your date.
+Book a portrait session with Zach Beauvais — Lafayette, IN and Urbana-Champaign, IL. Get in touch to discuss your brief, ask questions, or reserve a date.
 ```
+
+> **Note:** Updated to include location — the original had none. Confirms geographic relevance for anyone seeing this page in search results.
 
 ---
 
@@ -119,13 +121,13 @@ Indianapolis +$100 · Chicago +$200
 No editable copy — portrait images only. Alt text for the four images:
 
 ```
-Portrait session
-Portrait session
-Portrait session
-Portrait session
+Portrait — man in athletic jacket, industrial window behind him
+Portrait — man by window, laughing, looking down
+Portrait — child's hands on a ukulele, close crop
+Portrait — woman leaning by window, smiling
 ```
 
-> **Note:** These alt texts are generic placeholders. Worth updating them to be more descriptive once there are specific images chosen (e.g., "Outdoor portrait session, Lafayette" or "Studio portrait — natural light").
+> **Note:** Alt texts now match the descriptive format from `data.ts`.
 
 ---
 

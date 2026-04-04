@@ -42,7 +42,7 @@ Working with people followed naturally. And I bring a background in marketing,
 UX, and brand along with the camera — so I can think about what an image
 needs to do, not just how it looks.
 
-I'm based in Lafayette, Indiana, and Urbana-Champaign, Illinois.
+I'm based in the Lafayette and West Lafayette area of Indiana, and Urbana-Champaign, Illinois.
 ```
 
 > **Notes:** The four-paragraph bio is doing real work — each paragraph earns its place. Resist the urge to collapse into a single block or add a fifth paragraph about "passion for photography." If it ever needs to grow, grow it from specificity, not generality.

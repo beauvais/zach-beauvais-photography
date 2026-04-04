@@ -169,6 +169,8 @@ explore, what you want to make. Then we can talk.
 
 ## SEO NOTES
 
+**Structured data:** `LocalBusiness` JSON-LD is embedded in `index.astro`. Covers Lafayette, West Lafayette, Urbana-Champaign, Indianapolis, and Chicago as served areas. Price range is $350–$750. If pricing or served areas change, update the `localBusinessSchema` object in the frontmatter.
+
 **Terms appearing naturally in this draft:**
 
 - `portrait photography` — hero headline and hero subhead

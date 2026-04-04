@@ -43,7 +43,7 @@ import { allImages } from '../../content/data';
             data-alt={img.alt}
             aria-label={`View larger: ${img.alt}`}
           >
-            <img src={asset(img.src)} alt={img.alt} loading="lazy" />
+            <img src={asset(img.src)} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="gallery-item-label">{img.alt}</span>
             </div>

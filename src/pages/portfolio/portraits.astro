@@ -9,7 +9,7 @@ import { portraitImages } from '../../content/data';
 
 <BaseLayout
   title="Portraits"
-  description="Collaborative portrait photography by Zach Beauvais — natural, authentic, and deeply personal. Lafayette, Indiana."
+  description="Collaborative portrait photography by Zach Beauvais. Lafayette, Indiana and Urbana-Champaign, Illinois — personal, authentic, and shaped by a background in nature photography. Sessions from $350."
 >
 
   {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
@@ -42,11 +42,11 @@ import { portraitImages } from '../../content/data';
     <div class="container">
       <div class="portrait-hero-grid">
         <div class="portrait-hero-main">
-          <img src={asset(portraitImages[0].src)} alt={portraitImages[0].alt} loading="lazy" />
+          <img src={asset(portraitImages[0].src)} alt={portraitImages[0].alt} width={portraitImages[0].width} height={portraitImages[0].height} loading="lazy" />
         </div>
         <div class="portrait-hero-aside">
-          <img src={asset(portraitImages[1].src)} alt={portraitImages[1].alt} loading="lazy" />
-          <img src={asset(portraitImages[2].src)} alt={portraitImages[2].alt} loading="lazy" />
+          <img src={asset(portraitImages[1].src)} alt={portraitImages[1].alt} width={portraitImages[1].width} height={portraitImages[1].height} loading="lazy" />
+          <img src={asset(portraitImages[2].src)} alt={portraitImages[2].alt} width={portraitImages[2].width} height={portraitImages[2].height} loading="lazy" />
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@ import { portraitImages } from '../../content/data';
             data-alt={img.alt}
             aria-label={`View larger: ${img.alt}`}
           >
-            <img src={asset(img.src)} alt={img.alt} loading="lazy" />
+            <img src={asset(img.src)} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="gallery-item-label">{img.alt}</span>
             </div>

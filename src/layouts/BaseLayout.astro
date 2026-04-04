@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { site } from '../content/data';
 import '../styles/global.css';
 
 interface Props {
@@ -8,19 +9,22 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  schema?: string;
 }
 
 const {
   title,
-  description = 'Collaborative portrait photography rooted in storytelling and art. Based in Lafayette, Indiana. Available in Indianapolis and Chicago.',
-  ogImage = '/portrait-01.jpg',
+  description = site.defaultDescription,
+  ogImage = '/portrait/portrait-01.jpg',
   noindex = false,
+  schema,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title === 'Home'
   ? 'Zach Beauvais — Portrait Photography, Lafayette Indiana'
   : `${title} — Zach Beauvais Photography`;
+const ogImageURL = new URL(ogImage, Astro.site);
 ---
 
 <!doctype html>
@@ -38,10 +42,19 @@ const fullTitle = title === 'Home'
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:image" content={ogImageURL} />
 
-    <!-- Favicon placeholder -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📷</text></svg>" />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Structured data (optional, passed per-page) -->
+    {schema && <script type="application/ld+json" set:html={schema} />}
   </head>
   <body>
     <Header />

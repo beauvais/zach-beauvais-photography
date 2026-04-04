@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // When deploying to GitHub Pages as a project site (e.g. username.github.io/repo-name),
 // GITHUB_REPOSITORY is "username/repo-name" and BASE_PATH should be "/repo-name".
@@ -12,4 +13,5 @@ export default defineConfig({
   base,
   publicDir: 'portfolio',
   trailingSlash: 'ignore',
+  integrations: [sitemap()],
 });

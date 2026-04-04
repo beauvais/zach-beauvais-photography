@@ -32,6 +32,7 @@ in nature and street photography. Here's what that means in practice.
 
 **Eyebrow:** `Worth knowing`
 **H2:** `Not every photographer is right for every person`
+**Image:** `portrait/portrait_dancing.jpg` — dancer, dark stage background. Split layout: text left, image right. Image bleeds into `bg-strong` section intentionally.
 
 ```
 There's a particularly Midwest kind of portrait photography:
@@ -50,6 +51,7 @@ We start with exploration, and work towards expression.
 ```
 
 > **Notes:** "I'm not one of those" is the best line on this page. The CORN! parenthetical earns it — it's specific, wry, honest about what it's poking at, and not mean. The paragraph break before the punch line is intentional. Resist any urge to soften this section.
+> The dancer image was chosen deliberately — non-traditional, striking, not a conventional portrait. It shows the range without explaining it.
 
 ---
 
