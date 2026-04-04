@@ -42,6 +42,23 @@ Secondary: See some work
 
 ---
 
+---
+
+## SECTION: PHOTO STRIP
+
+No editable copy — 5 portrait images in an asymmetric grid. Configured via `stripImages` in the page frontmatter:
+
+```
+Indices used: 9, 10, 14, 12, 13 from portraitImages (data.ts)
+Centre slot (index 2 in strip) uses strip-featured class — renders slightly wider.
+```
+
+> **Notes:** To change which images appear, update the `stripImages` array indices at the top of `index.astro`. No copy to maintain here — just image selection.
+
+---
+
+---
+
 ## SECTION: APPROACH
 **Eyebrow:** `How I work`
 **Heading:** `Collaboration over direction`
@@ -63,44 +80,19 @@ not shaping your image to match a portrait ideal.
 
 ---
 
-## SECTION: WHO THIS IS FOR
-**Eyebrow:** `Worth knowing`
-**Heading:** `Not every photographer is right for every person`
-
-```
-There's a particularly Midwest kind of portrait photography:
-golden hour, cornfields, soft focus, saying: "Cheese!" (Or
-maybe sometimes: "CORN!") It can be beautiful and many
-photographers excel at making these portraits.
-
-I'm not one of those.
-
-I work with people to find something deeply personal and
-intentional. I can make images for professional or personal brands
-or celebrate meaningful milestones. My favourite kind of portrait
-is made when someone is exploring just for themself.
-
-We start with exploration, and work towards expression.
-```
-
 ---
 
----
+## SECTION: PORTRAIT GALLERY
 
-## SECTION: USE CASES & INVITATION
-**Eyebrow:** `What sessions are for`
-**Heading:** `For your brand, your family, or just yourself`
+No editable copy — 9 portrait images in a 3-column masonry layout. Configured via `galleryImages` (slice 1–10 from `portraitImages`).
 
+Below the gallery, two navigation links:
 ```
-Practically, these sessions produce work you can use — professional profiles,
-website and social media content, a modeling portfolio.
-
-But I'm equally interested in what sits outside the practical: someone
-exploring how they want to be seen; a couple or family making something
-true about who they actually are. Queer families, blended families,
-people who've never found a photographer who saw them right — these
-are exactly the stories I want to tell.
+All portrait work →  (btn-outline → /portfolio/portraits/)
+Landscape & abstract work  (btn-ghost → /portfolio/landscape/)
 ```
+
+> **Notes:** No heading over this section — images lead. To swap which portraits appear, reorder `portraitImages` in `data.ts`.
 
 ---
 
@@ -125,22 +117,35 @@ Available in Indianapolis (+$100) and Chicago (+$200).
 
 ---
 
-## SECTION: ABOUT SNIPPET
-**Eyebrow:** `About Zach`
-**Heading:** `A different background`
+
+## SECTION: TESTIMONIALS
+**Eyebrow:** `From clients`
+**Heading:** `What people say.`
+
+> **Status:** Filler — replace with real client quotes when available.
+> Edit quotes directly in `src/components/sections/Testimonials.astro`.
+
+Current filler quotes (keep this style: specific, not gushing):
 
 ```
-My first portraits were flowers, trees, and hills. They don't have
-expectations — they're entirely themselves. I learned to work with
-them, instead of trying to capture or impose.
+"I've avoided cameras for about twenty years. I still don't entirely understand
+what happened in that session, but I'm glad it did."
+— K.M., Personal session
 
-I bring the same approach to people. We can still use studio kit,
-strobes, and reflectors when the work calls for it. But what I'm
-after is something that explores and expresses you — you, being
-entirely yourself.
+"I needed something for my website that didn't look like a LinkedIn headshot.
+We got that, and then some."
+— D.R., Brand session
+
+"We'd never had a family shoot that felt like us. Every other one felt like we
+were impersonating a family. This one didn't."
+— T. & J., Family session
+
+"I came in not knowing exactly what I wanted, which turned out to be exactly
+the right condition. Zach figured out something I hadn't."
+— A.W., Personal session
 ```
 
-**Link:** `More about me →`
+**Voice notes for real testimonials:** Ask clients for something specific — what surprised them, what they expected vs. got, what the image does that others haven't. Avoid quotes that could apply to any photographer.
 
 ---
 

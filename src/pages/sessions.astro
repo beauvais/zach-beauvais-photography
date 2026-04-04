@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
 import { route } from '../lib/paths';
 import { pricing } from '../content/data';
 
@@ -101,6 +102,13 @@ import { pricing } from '../content/data';
         </div>
       </div>
 
+      {/* ── Gift note ────────────────────────────────────────────────── */}
+      <p class="gift-note">
+        The Essential session makes a good gift — milestone birthdays, graduations,
+        partners, parents. If you're booking for someone else, mention it when you
+        get in touch and we'll arrange the details to suit.
+      </p>
+
     </div>
   </section>
 
@@ -165,6 +173,13 @@ import { pricing } from '../content/data';
       <div class="section-header">
         <span class="eyebrow">What to expect</span>
         <h2>What you're actually getting</h2>
+        <p class="lead" style="margin-top: var(--space-5); max-width: 64ch;">
+          Here's roughly how it goes: you email, we talk. We figure out a location
+          that makes sense — somewhere you know, somewhere you've been meaning to go,
+          or somewhere I suggest. I show up with one camera. We wander, I take maybe
+          200 frames. You won't get all of them. You'll get the ones that work. A
+          week or two later, they're in your inbox — edited, ready to use, no asterisks.
+        </p>
       </div>
       <div class="grid-2" style="margin-top: var(--space-7); align-items: start; gap: var(--space-10);">
         <div class="stack-lg">
@@ -290,6 +305,10 @@ import { pricing } from '../content/data';
   </section>
 
 
+  {/* ══ TESTIMONIALS ══════════════════════════════════════════════════ */}
+  <Testimonials variant="sessions" />
+
+
   {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
   <CTABand
     eyebrow="Book a session"
@@ -302,6 +321,15 @@ import { pricing } from '../content/data';
 </BaseLayout>
 
 <style>
+  .gift-note {
+    margin-top: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    border-left: 3px solid var(--color-accent);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    max-width: 64ch;
+  }
+
   .travel-price {
     font-family: var(--font-sans);
     font-size: var(--text-2xl);

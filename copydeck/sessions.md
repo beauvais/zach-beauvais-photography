@@ -70,6 +70,24 @@ Custom scope
 
 ---
 
+---
+
+## GIFT NOTE
+
+Appears below the bespoke card, left-bordered callout:
+
+```
+The Essential session makes a good gift — milestone birthdays, graduations,
+partners, parents. If you're booking for someone else, mention it when you
+get in touch and we'll arrange the details to suit.
+```
+
+> **Notes:** Short, warm, practical. The specificity (birthdays, graduations, partners, parents) earns its place — it jogs people who hadn't thought of it. If you ever add gift vouchers or a formal gift booking flow, this is the natural place to link from.
+
+---
+
+---
+
 ## SECTION: TRAVEL
 
 **Eyebrow:** `Travel`
@@ -214,6 +232,14 @@ conversation than have you pick a box that doesn't fit.
 >
 > **To add a question:** Copy a `<details class="faq-item">` block in the component.
 > **To remove a question:** Delete its `<details>` block.
+
+---
+
+## SECTION: TESTIMONIALS
+
+`<Testimonials variant="sessions" />` — same filler quotes as homepage. Edit in `src/components/sections/Testimonials.astro`.
+
+---
 
 ---
 

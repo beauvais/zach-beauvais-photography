@@ -79,8 +79,10 @@ A selection of landscape and abstract work — the visual sensibility that under
 
 **Card 1 — Lafayette & Urbana-Champaign:**
 ```
-Sessions within 30 miles at standard pricing.
+Sessions within 30 miles at standard pricing — $[essential price] ([hours] hr) or $[extended price] ([hours] hrs).
 ```
+
+> **Note:** Prices and hours are pulled from `data.ts` — the actual rendered text is e.g. "Sessions within 30 miles at standard pricing — $350 (1 hr) or $750 (3 hrs)."
 
 **Card 2 — Indianapolis:**
 ```
@@ -93,6 +95,16 @@ All sessions available with an additional travel fee per session.
 ```
 
 > **Notes:** Prices are pulled from `data.ts` — don't hardcode them here. The card copy is minimal by design; the pricing detail lives on the sessions page.
+
+---
+
+## SECTION: TESTIMONIALS
+
+`<Testimonials variant="about" />` — same filler quotes as homepage. Edit in `src/components/sections/Testimonials.astro`.
+
+> **Note:** The `variant="about"` prop is passed but the Testimonials component may not currently differentiate by variant — confirm behaviour if you want a different quote subset on the about page vs the homepage.
+
+---
 
 ---
 

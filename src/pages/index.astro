@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
 import { asset, route } from '../lib/paths';
 import { portraitImages, pricing } from '../content/data';
 
@@ -20,7 +21,10 @@ const stripImages = [
 const galleryImages = portraitImages.slice(1, 10);
 ---
 
-<BaseLayout title="Home">
+<BaseLayout
+  title="Home"
+  description="Portrait photography in Lafayette, IN and Urbana-Champaign, IL. Collaborative sessions shaped by nature, street, and abstract photography. Editing included. From $350."
+>
 
   {/* ══ HERO ══════════════════════════════════════════════════════════ */}
   <section class="hero">
@@ -41,14 +45,15 @@ const galleryImages = portraitImages.slice(1, 10);
         <a href={route('portfolio/')} class="btn btn-outline btn-lg">See some work</a>
       </div>
     </div>
-    <div class="hero-image">
+    <figure class="hero-image">
       <img
         src={asset(heroImage.src)}
         alt={heroImage.alt}
         loading="eager"
         fetchpriority="high"
       />
-    </div>
+      <figcaption>One of my portraits.</figcaption>
+    </figure>
   </section>
 
 
@@ -96,7 +101,7 @@ const galleryImages = portraitImages.slice(1, 10);
           <a href={route('how-i-work/')} class="btn btn-outline" style="margin-top: var(--space-4);">More about my approach</a>
         </div>
         <div class="approach-image">
-          <img src={asset(portraitImages[18].src)} alt={portraitImages[18].alt} loading="lazy" />
+          <img src={asset('Zach_beauvais_snow.jpg')} alt="Zach Beauvais — photographer" loading="lazy" />
         </div>
       </div>
     </div>
@@ -179,6 +184,13 @@ const galleryImages = portraitImages.slice(1, 10);
   </section>
 
 
+  {/* ══ TESTIMONIALS ══════════════════════════════════════════════════
+      Filler quotes — swap in real client testimonials when available.
+      Edit directly in src/components/sections/Testimonials.astro.
+  ══════════════════════════════════════════════════════════════════ */}
+  <Testimonials />
+
+
   {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
   <CTABand
     eyebrow="Get in touch"
@@ -248,6 +260,17 @@ const galleryImages = portraitImages.slice(1, 10);
 
 <style>
   /* ── Hero ────────────────────────────────────────────────────────── */
+  .hero-image {
+    margin: 0;
+  }
+  .hero-image figcaption {
+    font-size: var(--text-xs, 0.75rem);
+    color: var(--color-muted);
+    margin-top: var(--space-2);
+    text-align: right;
+    font-style: italic;
+    letter-spacing: 0.01em;
+  }
   .hero-location {
     font-size: var(--text-sm);
     color: var(--color-muted);

@@ -45,10 +45,12 @@ Tell me what you have in mind and I'll get back to you within a day or two.
 ```
 What are you thinking? (default)
 Essential Session ($350)
-Extended Session ($550)
+Extended Session ($750)
 Business / Brand Photography
 Something else
 ```
+
+> **Note:** Session prices in the dropdown are pulled from `pricing` in `data.ts` dynamically — the copydeck shows current values for reference only.
 
 **Location dropdown options:**
 ```
@@ -91,16 +93,24 @@ Available within 30 miles of Lafayette and Urbana-Champaign at standard rates.
 Indianapolis +$100 · Chicago +$200
 ```
 
+**Availability signal** (between "Based in" and "Good to know"):
+```
+● Currently booking May & June sessions
+```
+
+> **Update this manually each month.** Examples: "Currently booking May and June", "Booking from September onwards", "A few dates open this month." The green dot (`.availability-dot`) renders in the component — just update the text string in `contact.astro`.
+
+---
+
 **H5:** `Good to know`
 
 ```
 – I reply within 1–2 business days
-– Availability varies — book ahead when possible
 – I'm happy to answer questions before you commit
 – Rescheduling is always possible
 ```
 
-> **Notes:** "Good to know" is a smart conversion device — it removes objections without being salesy about it. "Happy to answer questions before you commit" does the most work. Keep it. The em-dash list style matches the site's typographic voice.
+> **Notes:** Three items only — the fourth ("Availability varies") was replaced by the dedicated availability signal widget above. "Happy to answer questions before you commit" does the most work. Keep it. The em-dash list style matches the site's typographic voice.
 
 ---
 

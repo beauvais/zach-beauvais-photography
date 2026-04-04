@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
 import { asset, route } from '../lib/paths';
 import { site, pricing } from '../content/data';
 ---
@@ -127,6 +128,10 @@ import { site, pricing } from '../content/data';
       </div>
     </div>
   </section>
+
+
+  {/* ══ TESTIMONIALS ══════════════════════════════════════════════════ */}
+  <Testimonials variant="about" />
 
 
   {/* ══ CTA ═══════════════════════════════════════════════════════════ */}

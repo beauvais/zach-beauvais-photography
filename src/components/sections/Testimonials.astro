@@ -1,0 +1,163 @@
+---
+// ─── Testimonials ───────────────────────────────────────────────────────────
+// Filler quotes — replace with real client testimonials when available.
+// Usage:
+//   <Testimonials />                    → homepage set (4 quotes, 2-col)
+//   <Testimonials variant="sessions" /> → sessions set (2 quotes, 2-col)
+//   <Testimonials variant="about" />    → about set (2 quotes, 2-col)
+//
+// To replace filler: edit the quote arrays below. Keep quotes specific.
+// Avoid: "amazing", "incredible", "passionate", generic praise.
+
+interface Props {
+  variant?: 'homepage' | 'sessions' | 'about';
+}
+const { variant = 'homepage' } = Astro.props;
+
+// ── All filler testimonials ────────────────────────────────────────────────
+const all = {
+  homepage: [
+    {
+      quote: "I've avoided cameras for about twenty years. I still don't entirely understand what happened in that session, but I'm glad it did.",
+      name: "K.M.",
+      context: "Personal session",
+    },
+    {
+      quote: "I needed something for my website that didn't look like a LinkedIn headshot. We got that, and then some.",
+      name: "D.R.",
+      context: "Brand session",
+    },
+    {
+      quote: "We'd never had a family shoot that felt like us. Every other one felt like we were impersonating a family. This one didn't.",
+      name: "T. & J.",
+      context: "Family session",
+    },
+    {
+      quote: "I came in not knowing exactly what I wanted, which turned out to be exactly the right condition. Zach figured out something I hadn't.",
+      name: "A.W.",
+      context: "Personal session",
+    },
+  ],
+  sessions: [
+    {
+      quote: "The pre-session conversation was half the work. By the time we actually started shooting I was already relaxed about it.",
+      name: "R.L.",
+      context: "Essential session",
+    },
+    {
+      quote: "The images were on my website within ten days. I've had more comments about them in three months than the previous photos got in three years.",
+      name: "M.B.",
+      context: "Extended session, brand work",
+    },
+  ],
+  about: [
+    {
+      quote: "I expected a photographer. What I got was someone who was actually curious about me, which I wasn't prepared for.",
+      name: "S.P.",
+      context: "Personal session",
+    },
+    {
+      quote: "We were in an empty parking structure in February. I was skeptical. The photos are the best I've ever looked in.",
+      name: "J.K.",
+      context: "Extended session",
+    },
+  ],
+};
+
+const testimonials = all[variant];
+---
+
+<section class="section testimonials-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: var(--space-8);">
+      <span class="eyebrow">From clients</span>
+      <h2>What people say.</h2>
+    </div>
+    <div class="testimonials-grid">
+      {testimonials.map(t => (
+        <blockquote class="testimonial-card">
+          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="quote-text">{t.quote}</p>
+          <footer class="quote-attribution">
+            <span class="quote-name">{t.name}</span>
+            <span class="quote-context">{t.context}</span>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    background: var(--color-surface-soft);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+
+  .testimonial-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-7) var(--space-6) var(--space-6);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .quote-mark {
+    position: absolute;
+    top: var(--space-4);
+    left: var(--space-5);
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--color-accent);
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .quote-text {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    line-height: 1.65;
+    color: var(--color-fg);
+    padding-top: var(--space-4);
+    flex: 1;
+  }
+
+  .quote-attribution {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-4);
+  }
+
+  .quote-name {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-fg);
+  }
+
+  .quote-context {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -110,10 +110,21 @@ const session = Astro.url.searchParams.get('session') || '';
           </div>
           <div class="divider"></div>
           <div>
+            {/* ── Availability — update this text manually each month ─────────
+                Examples: "Currently booking May and June"
+                          "Booking from September onwards"
+                          "A few dates open this month"
+            ────────────────────────────────────────────────────────────────── */}
+            <div class="availability-signal">
+              <span class="availability-dot" aria-hidden="true"></span>
+              <span>Currently booking May &amp; June sessions</span>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div>
             <h5 style="margin-bottom: var(--space-4);">Good to know</h5>
             <ul class="checklist">
               <li>I reply within 1–2 business days</li>
-              <li>Availability varies — book ahead when possible</li>
               <li>I'm happy to answer questions before you commit</li>
               <li>Rescheduling is always possible</li>
             </ul>
@@ -121,6 +132,37 @@ const session = Astro.url.searchParams.get('session') || '';
         </aside>
 
       </div>
+    </div>
+  </section>
+
+
+  {/* ══ QUICK FAQ ════════════════════════════════════════════════════
+      Two high-anxiety questions surfaced before someone commits to contact.
+      Full FAQ lives on the sessions page.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section-md bg-soft">
+    <div class="container container-narrow">
+      <h4 style="margin-bottom: var(--space-6);">Before you write</h4>
+      <div class="quick-faq">
+        <div class="quick-faq-item">
+          <h6>Do I need experience in front of a camera?</h6>
+          <p>
+            No. Most people feel awkward — that's normal, and part of the job is helping
+            you past it. We take our time. By the end of the session you'll have forgotten
+            the camera is there.
+          </p>
+        </div>
+        <div class="quick-faq-item">
+          <h6>What if the weather doesn't cooperate?</h6>
+          <p>
+            We reschedule at no cost. Weather happens — I'd rather get the session right
+            than push through conditions that don't serve the work.
+          </p>
+        </div>
+      </div>
+      <p style="margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-muted);">
+        More questions? <a href={route('sessions/')} style="color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px;">See the full FAQ on the sessions page.</a>
+      </p>
     </div>
   </section>
 
@@ -152,6 +194,12 @@ const session = Astro.url.searchParams.get('session') || '';
   .checklist { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
   .checklist li { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-sm); color: var(--color-muted); }
   .checklist li::before { content: "–"; color: var(--color-accent); flex-shrink: 0; font-family: var(--font-sans); }
+  .quick-faq { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); }
+  .quick-faq-item h6 { margin-bottom: var(--space-3); font-family: var(--font-sans); font-size: var(--text-sm); font-weight: 500; }
+  .quick-faq-item p { font-size: var(--text-sm); color: var(--color-muted); }
+  @media (max-width: 600px) { .quick-faq { grid-template-columns: 1fr; gap: var(--space-5); } }
+  .availability-signal { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-sans); font-size: var(--text-sm); color: var(--color-fg); font-weight: 500; }
+  .availability-dot { width: 8px; height: 8px; border-radius: 50%; background: #5a9a6e; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(90,154,110,0.2); }
   .contact-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
   .contact-gallery img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius-lg); }
 
