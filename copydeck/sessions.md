@@ -77,8 +77,8 @@ Custom scope
 Appears below the bespoke card, left-bordered callout:
 
 ```
-The Essential session makes a good gift — milestone birthdays, graduations,
-partners, parents. If you're booking for someone else, mention it when you
+The Essential session makes a good gift — milestone birthdays, dissertation
+defences, graduations, partners, parents. If you're booking for someone else, mention it when you
 get in touch and we'll arrange the details to suit.
 ```
 
@@ -211,6 +211,13 @@ Mention it when you get in touch and we'll plan from there.
 ```
 We'll reschedule at no additional cost. Weather happens — I'd rather get the
 session right than push through conditions that don't serve the work.
+```
+
+**Q: I'm a researcher, academic, or faculty member — is this right for me?**
+```
+Yes. I'm in university towns, and I know the brief: something for your faculty page
+or research profile that doesn't look like it was taken at a school photo day. We'll
+make something that actually looks like you work there on purpose.
 ```
 
 **Q: Can I book for my small business or brand?**

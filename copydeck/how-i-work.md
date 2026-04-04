@@ -61,8 +61,8 @@ We start with exploration, and work towards expression.
 **H2:** `For your brand, your family, or just yourself`
 
 ```
-Practically, these sessions produce work you can use — professional profiles,
-website and social media content, a modeling portfolio.
+Practically, these sessions produce work you can use — faculty pages,
+research profiles, professional and social media content, a modeling portfolio.
 
 But I'm equally interested in what sits outside the practical: someone
 exploring how they want to be seen; a couple or family making something
