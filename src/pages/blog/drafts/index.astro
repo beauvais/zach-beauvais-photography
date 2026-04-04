@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { sortByDate, parsePostId, coverImageUrl, formatDate, taxonomySlug, taxonomyLabel } from '../../../lib/blog';
+
+const allPosts = await getCollection('blog-drafts');
+const posts = sortByDate(allPosts);
+---
+
+<BaseLayout
+  title="Drafts"
+  description="Work in progress — unpublished drafts and rough notes."
+>
+  <div class="page-header">
+    <div class="container">
+      <span class="eyebrow">Archive</span>
+      <h1>Drafts.</h1>
+      <p class="lead">Unpublished work, rough notes, and half-formed thoughts.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container-narrow">
+      <div class="blog-post-list">
+        {posts.map(post => {
+          // Handle undated drafts (in undated directory)
+          const isUndated = post.id.startsWith('undated/');
+          const year = isUndated ? 'undated' : post.id.split('/')[0];
+          const filename = isUndated ? post.id.replace('undated/', '') : post.id.split('/')[1];
+          const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+
+          const imgSrc = coverImageUrl(post);
+          return (
+            <article class="blog-card">
+              {imgSrc && (
+                <a href={`/blog/drafts/${year}/${slug}`} class="blog-card-image-wrap" aria-hidden="true" tabindex="-1">
+                  <img src={imgSrc} alt="" class="blog-card-image" loading="lazy" />
+                </a>
+              )}
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <time datetime={post.data.date.toISOString().slice(0, 10)} class="blog-card-date">
+                    {formatDate(post.data.date)}
+                  </time>
+                </div>
+                <h3 class="blog-card-title">
+                  <a href={`/blog/drafts/${year}/${slug}`}>{post.data.title}</a>
+                </h3>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

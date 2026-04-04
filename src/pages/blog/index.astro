@@ -6,6 +6,16 @@ import { sortByDate, parsePostId, coverImageUrl, formatDate, taxonomySlug, taxon
 const allPosts = await getCollection('blog');
 const posts = sortByDate(allPosts);
 
+// Deterministic texture fallback — same post always gets the same texture
+function textureIndex(id: string): number {
+  let h = 0;
+  for (const c of id) h = (h * 31 + c.charCodeAt(0)) | 0;
+  return ((h % 7) + 7) % 7;
+}
+function textureFallback(id: string): string {
+  return `/blog/textures/texture-${textureIndex(id) + 1}.svg`;
+}
+
 // Collect all categories for sidebar
 const categoryCount: Record<string, number> = {};
 for (const post of allPosts) {
@@ -50,19 +60,17 @@ const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
               <div class="blog-post-list">
                 {byYear[year].map(post => {
                   const { year: y, slug } = parsePostId(post);
-                  const imgSrc = coverImageUrl(post);
+                  const imgSrc = coverImageUrl(post) ?? textureFallback(post.id);
                   return (
                     <article class="blog-card">
-                      {imgSrc && (
-                        <a href={`/blog/${y}/${slug}`} class="blog-card-image-wrap" aria-hidden="true" tabindex="-1">
-                          <img
-                            src={imgSrc}
-                            alt=""
-                            class="blog-card-image"
-                            loading="lazy"
-                          />
-                        </a>
-                      )}
+                      <a href={`/blog/${y}/${slug}`} class="blog-card-image-wrap" aria-hidden="true" tabindex="-1">
+                        <img
+                          src={imgSrc}
+                          alt=""
+                          class="blog-card-image"
+                          loading="lazy"
+                        />
+                      </a>
                       <div class="blog-card-body">
                         <div class="blog-card-meta">
                           <time datetime={post.data.date.toISOString().slice(0, 10)} class="blog-card-date">

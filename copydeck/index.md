@@ -40,10 +40,6 @@ Secondary: See some work
 
 ---
 
----
-
----
-
 ## SECTION: PHOTO STRIP
 
 No editable copy — 5 portrait images in an asymmetric grid. Configured via `stripImages` in the page frontmatter:
@@ -54,8 +50,6 @@ Centre slot (index 2 in strip) uses strip-featured class — renders slightly wi
 ```
 
 > **Notes:** To change which images appear, update the `stripImages` array indices at the top of `index.astro`. No copy to maintain here — just image selection.
-
----
 
 ---
 
@@ -78,10 +72,6 @@ not shaping your image to match a portrait ideal.
 
 ---
 
----
-
----
-
 ## SECTION: PORTRAIT GALLERY
 
 No editable copy — 9 portrait images in a 3-column masonry layout. Configured via `galleryImages` (slice 1–10 from `portraitImages`).
@@ -93,8 +83,6 @@ Landscape & abstract work  (btn-ghost → /portfolio/landscape/)
 ```
 
 > **Notes:** No heading over this section — images lead. To swap which portraits appear, reorder `portraitImages` in `data.ts`.
-
----
 
 ---
 
@@ -114,9 +102,6 @@ Available in Indianapolis (+$100) and Chicago (+$200).
 ```
 
 ---
-
----
-
 
 ## SECTION: TESTIMONIALS
 **Eyebrow:** `From clients`
@@ -149,8 +134,6 @@ the right condition. Zach figured out something I hadn't."
 
 ---
 
----
-
 ## SECTION: CTA BAND
 **Eyebrow:** `Get in touch`
 **Heading:** `Let's start a conversation`
@@ -165,8 +148,6 @@ explore, what you want to make. Then we can talk.
 
 ---
 
----
-
 ## SEO NOTES
 
 **Structured data:** `LocalBusiness` JSON-LD is embedded in `index.astro`. Covers Lafayette, West Lafayette, Urbana-Champaign, Indianapolis, and Chicago as served areas. Price range is $350–$750. If pricing or served areas change, update the `localBusinessSchema` object in the frontmatter.
@@ -177,12 +158,9 @@ explore, what you want to make. Then we can talk.
 - `Lafayette, IN` / `Urbana-Champaign, IL` — eyebrow and hero subhead
 - `Indianapolis` / `Chicago` — pricing travel note
 - `street photography` / `abstract photography` — hero subhead and approach section
-- `personal brand` / `professional brand` — who this is for section
 - `portrait sessions` — approach section (×2)
-- `professional profiles` — use cases section
-- `social media` — use cases section
-- `modeling portfolio` — use cases section
-- `family` / `families` — use cases section (queer families, blended families)
+
+> **Note:** Terms like `personal brand`, `professional profiles`, `social media`, `modeling portfolio`, `queer families`, and `blended families` previously appeared in sections that were removed from the homepage. They now live on `how-i-work.astro`. The homepage relies on the approach section and the meta description for keyword coverage.
 
 **Homepage meta description (hardcoded in index.astro):**
 ```

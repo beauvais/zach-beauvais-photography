@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="g2" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FDFCFB"/>
+      <stop offset="60%" stop-color="#F0ECE6"/>
+      <stop offset="100%" stop-color="#D4C9BB"/>
+    </radialGradient>
+  </defs>
+  <!-- Base -->
+  <rect width="400" height="400" fill="url(#g2)"/>
+  <!-- Concentric circles — bokeh/lens feel -->
+  <circle cx="200" cy="200" r="20" fill="none" stroke="#E89B6D" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="200" cy="200" r="45" fill="none" stroke="#E89B6D" stroke-width="1" opacity="0.4"/>
+  <circle cx="200" cy="200" r="75" fill="none" stroke="#2D2621" stroke-width="0.6" opacity="0.15"/>
+  <circle cx="200" cy="200" r="110" fill="none" stroke="#2D2621" stroke-width="0.6" opacity="0.12"/>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#6E6860" stroke-width="0.5" opacity="0.2"/>
+  <circle cx="200" cy="200" r="195" fill="none" stroke="#6E6860" stroke-width="0.5" opacity="0.15"/>
+  <circle cx="200" cy="200" r="245" fill="none" stroke="#E8E1D8" stroke-width="1" opacity="0.5"/>
+  <circle cx="200" cy="200" r="300" fill="none" stroke="#E8E1D8" stroke-width="0.8" opacity="0.4"/>
+  <!-- Off-center smaller circle cluster -->
+  <circle cx="80" cy="80" r="12" fill="none" stroke="#E89B6D" stroke-width="0.8" opacity="0.3"/>
+  <circle cx="80" cy="80" r="28" fill="none" stroke="#E89B6D" stroke-width="0.5" opacity="0.2"/>
+  <circle cx="320" cy="320" r="18" fill="none" stroke="#FF7726" stroke-width="0.8" opacity="0.25"/>
+  <circle cx="320" cy="320" r="40" fill="none" stroke="#FF7726" stroke-width="0.5" opacity="0.15"/>
+  <!-- Solid accent dot -->
+  <circle cx="200" cy="200" r="5" fill="#E89B6D" opacity="0.7"/>
+</svg>

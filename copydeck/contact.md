@@ -116,6 +116,31 @@ Indianapolis +$100 · Chicago +$200
 
 ---
 
+## QUICK FAQ
+
+**H4:** `Before you write`
+
+Two high-anxiety questions surfaced before someone commits to sending a message. Full FAQ is on the sessions page.
+
+**H6:** `Do I need experience in front of a camera?`
+```
+No. Most people feel awkward — that's normal, and part of the job is helping
+you past it. We take our time. By the end of the session you'll have forgotten
+the camera is there.
+```
+
+**H6:** `What if the weather doesn't cooperate?`
+```
+We reschedule at no cost. Weather happens — I'd rather get the session right
+than push through conditions that don't serve the work.
+```
+
+**Link below:** `More questions? See the full FAQ on the sessions page.` → `/sessions/`
+
+> **Notes:** This section is deliberately short — two questions only. Both address the most common pre-contact anxieties: awkwardness and logistics. The link to the full FAQ is the right call; the sessions page carries the weight. Don't add questions here; add them on sessions.astro if needed.
+
+---
+
 ## PHOTO STRIP (bottom)
 
 No editable copy — portrait images only. Alt text for the four images:

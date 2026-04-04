@@ -18,6 +18,8 @@ Portfolio site built with [Astro](https://astro.build). Deployed automatically t
 | Add a page to the navigation | `src/components/Header.astro` |
 | Create a new page | Copy `src/templates/new-page.astro` → `src/pages/` |
 | Create a new portfolio gallery | Copy `src/templates/new-portfolio-page.astro` → `src/pages/portfolio/` |
+| Write a new blog post | Create `src/content/blog/[year]/YYYY-MM-DD-slug.md` |
+| Write a blog draft | Create `src/content/blog-drafts/[year]/YYYY-MM-DD-slug.md` |
 
 ---
 
@@ -80,6 +82,57 @@ Notes in `>` blockquotes are editorial guidance — things like *"this line is d
 - `> **Notes:**` — editorial guidance, binding decisions about why copy is the way it is
 - `> **Standing rule:**` — a decision that applies across the whole site (e.g. no "view" as a verb)
 - `*Content from data.ts*` — means this section's content is generated from `src/content/data.ts`, not hardcoded
+
+---
+
+## Blog posts
+
+Blog posts live in `src/content/blog/` as plain markdown files, organised by year. The blog is available at `/blog/` with routes for categories and tags.
+
+### Adding a new post
+
+1. Create a `.md` file in `src/content/blog/[year]/`:
+
+   ```
+   src/content/blog/2026/2026-04-10-my-post-title.md
+   ```
+
+   The filename format is `YYYY-MM-DD-slug.md`. The slug becomes part of the URL: `/blog/2026/my-post-title/`.
+
+2. Add the required frontmatter at the top:
+
+   ```yaml
+   ---
+   title: "Post title"
+   date: 2026-04-10
+   categories:
+     - "photography"
+   tags:
+     - "portraits"
+   excerpt: "One or two sentences — shown in blog listings."   # optional
+   coverImage: "filename.jpg"                                  # optional, from /portfolio/ folder
+   ---
+   ```
+
+   `title` and `date` are required. Everything else is optional.
+
+3. Write the post body in markdown beneath the frontmatter.
+
+The post appears in the blog index and category/tag pages automatically on the next build — no other changes needed.
+
+### Writing a draft
+
+Put the file in `src/content/blog-drafts/[year]/` instead of `blog/`. Drafts appear at `/blog/drafts/` but are excluded from the main blog index and feeds. The `draft: true` frontmatter field defaults to `true` for everything in that folder.
+
+### Quick reference — blog
+
+| I want to… | What to do |
+|---|---|
+| Add a new post | Create `src/content/blog/[year]/YYYY-MM-DD-slug.md` |
+| Write something not ready to publish | Create `src/content/blog-drafts/[year]/YYYY-MM-DD-slug.md` |
+| Browse all drafts | Visit `/blog/drafts/` on the live (or local dev) site |
+| Filter by category | Visit `/blog/category/[category]/` |
+| Filter by tag | Visit `/blog/tag/[tag]/` |
 
 ---
 

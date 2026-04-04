@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { formatDate, taxonomySlug, taxonomyLabel } from '../../../../lib/blog';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog-drafts');
+
+  return allPosts.map((post) => {
+    // Handle both year-based and undated drafts
+    const isUndated = post.id.startsWith('undated/');
+    const year = isUndated ? 'undated' : post.id.split('/')[0];
+    const filename = isUndated ? post.id.replace('undated/', '') : post.id.split('/')[1];
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+
+    return {
+      params: { year, slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+// Extract year/slug for breadcrumb
+const isUndated = post.id.startsWith('undated/');
+const year = isUndated ? 'undated' : post.id.split('/')[0];
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.excerpt ?? `${post.data.title} — draft by Zach Beauvais.`}
+  noindex={true}
+>
+  <article class="blog-post">
+
+    {/* ── Post header ─────────────────────────────────── */}
+    <header class="blog-post-header">
+      <div class="container-narrow">
+        <nav class="breadcrumb" aria-label="Site navigation">
+          <a href="/">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">→</span>
+          <a href="/blog/drafts">Drafts</a>
+          <span class="breadcrumb-sep" aria-hidden="true">→</span>
+          <span>{year}</span>
+        </nav>
+
+        <div class="blog-post-meta">
+          <span class="blog-tag" style="background: var(--color-surface-strong); color: var(--color-muted);">Draft</span>
+          <time datetime={post.data.date.toISOString().slice(0, 10)} class="blog-post-date">
+            {formatDate(post.data.date)}
+          </time>
+        </div>
+
+        <h1 class="blog-post-title">{post.data.title}</h1>
+      </div>
+    </header>
+
+    {/* ── Post body ────────────────────────────────────── */}
+    <div class="container-narrow">
+      <div class="blog-post-body prose">
+        <Content />
+      </div>
+
+      <footer class="blog-post-footer">
+        <p class="muted" style="font-size: var(--text-sm);">
+          This is an unpublished draft. It may be incomplete, rough, or abandoned.
+        </p>
+      </footer>
+    </div>
+
+  </article>
+</BaseLayout>
