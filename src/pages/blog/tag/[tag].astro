@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { parsePostId, coverImageUrl, sortByDate, formatDate, taxonomySlug, taxonomyLabel } from '../../../lib/blog';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+
+  const tagSet = new Set<string>();
+  for (const post of allPosts) {
+    for (const tag of (post.data.tags ?? [])) {
+      tagSet.add(taxonomySlug(tag));
+    }
+  }
+
+  return Array.from(tagSet).map(tagSlug => {
+    const posts = sortByDate(
+      allPosts.filter(p => (p.data.tags ?? []).some(t => taxonomySlug(t) === tagSlug))
+    );
+    return {
+      params: { tag: tagSlug },
+      props: { posts, tagSlug },
+    };
+  });
+}
+
+const { posts, tagSlug } = Astro.props;
+const label = taxonomyLabel(tagSlug);
+
+// All tags for sidebar
+const allPosts = await getCollection('blog');
+const tagCount: Record<string, number> = {};
+for (const post of allPosts) {
+  for (const tag of (post.data.tags ?? [])) {
+    const s = taxonomySlug(tag);
+    tagCount[s] = (tagCount[s] ?? 0) + 1;
+  }
+}
+const allTags = Object.entries(tagCount).sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout
+  title={`${label} — Writing`}
+  description={`Posts tagged "${label}" by Zach Beauvais.`}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Site navigation">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">→</span>
+        <a href="/blog">Writing</a>
+        <span class="breadcrumb-sep" aria-hidden="true">→</span>
+        <span>Tag</span>
+      </nav>
+      <span class="eyebrow">Tag</span>
+      <h1>{label}.</h1>
+      <p class="lead">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="blog-layout">
+        <main class="blog-main">
+          <div class="blog-post-list">
+            {posts.map(post => {
+              const { year, slug } = parsePostId(post);
+              const imgSrc = coverImageUrl(post);
+              return (
+                <article class="blog-card">
+                  {imgSrc && (
+                    <a href={`/blog/${year}/${slug}`} class="blog-card-image-wrap" aria-hidden="true" tabindex="-1">
+                      <img src={imgSrc} alt="" class="blog-card-image" loading="lazy" />
+                    </a>
+                  )}
+                  <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                      <time datetime={post.data.date.toISOString().slice(0, 10)} class="blog-card-date">
+                        {formatDate(post.data.date)}
+                      </time>
+                      <span class="blog-card-cats">
+                        {post.data.categories.map((cat, i) => (
+                          <span>
+                            <a href={`/blog/category/${taxonomySlug(cat)}`} class="blog-tag">
+                              {taxonomyLabel(cat)}
+                            </a>
+                            {i < post.data.categories.length - 1 && ' '}
+                          </span>
+                        ))}
+                      </span>
+                    </div>
+                    <h3 class="blog-card-title">
+                      <a href={`/blog/${year}/${slug}`}>{post.data.title}</a>
+                    </h3>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </main>
+
+        <aside class="blog-sidebar">
+          <div class="blog-sidebar-block">
+            <h6>All tags</h6>
+            <div class="blog-tag-cloud">
+              {allTags.map(([s, count]) => (
+                <a
+                  href={`/blog/tag/${s}`}
+                  class={`blog-tag ${s === tagSlug ? 'is-active' : ''}`}
+                  title={`${count} ${count === 1 ? 'post' : 'posts'}`}
+                >
+                  {taxonomyLabel(s)}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div class="blog-sidebar-block">
+            <a href="/blog" class="btn btn-outline btn-sm">← All writing</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

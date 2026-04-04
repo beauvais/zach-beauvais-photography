@@ -77,6 +77,7 @@ copydeck/         — authoritative copy for every page (see below)
 - **Single-location sessions only.** Don't suggest multi-location as a standard option (bespoke only).
 - **Editing always included.** Always. Don't make it sound optional.
 - **Period after H1s is intentional** (e.g., "Two sessions, or something else entirely.") — it reads confident, not precious. Keep it.
+- **Copydeck must always reflect the page.** Any change to an `.astro` file — copy removed, sections deleted, wording changed — must be mirrored in the relevant `copydeck/` file before the session ends. No exceptions.
 
 ---
 

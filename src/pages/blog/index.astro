@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { sortByDate, parsePostId, coverImageUrl, formatDate, taxonomySlug, taxonomyLabel } from '../../lib/blog';
+
+const allPosts = await getCollection('blog');
+const posts = sortByDate(allPosts);
+
+// Collect all categories for sidebar
+const categoryCount: Record<string, number> = {};
+for (const post of allPosts) {
+  for (const cat of post.data.categories) {
+    categoryCount[cat] = (categoryCount[cat] ?? 0) + 1;
+  }
+}
+const categories = Object.entries(categoryCount)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 20);
+
+// Group posts by year for display
+const byYear: Record<string, typeof posts> = {};
+for (const post of posts) {
+  const { year } = parsePostId(post);
+  if (!byYear[year]) byYear[year] = [];
+  byYear[year].push(post);
+}
+const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout
+  title="Writing"
+  description="Writing by Zach Beauvais — photography, technology, language, life."
+>
+  <div class="page-header">
+    <div class="container">
+      <span class="eyebrow">Archive</span>
+      <h1>Writing.</h1>
+      <p class="lead">Things I've written over the years — about technology, language, place, and occasionally photography.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="blog-layout">
+
+        <main class="blog-main">
+          {years.map(year => (
+            <section class="blog-year-group" id={`year-${year}`}>
+              <h2 class="blog-year-heading">{year}</h2>
+              <div class="blog-post-list">
+                {byYear[year].map(post => {
+                  const { year: y, slug } = parsePostId(post);
+                  const imgSrc = coverImageUrl(post);
+                  return (
+                    <article class="blog-card">
+                      {imgSrc && (
+                        <a href={`/blog/${y}/${slug}`} class="blog-card-image-wrap" aria-hidden="true" tabindex="-1">
+                          <img
+                            src={imgSrc}
+                            alt=""
+                            class="blog-card-image"
+                            loading="lazy"
+                          />
+                        </a>
+                      )}
+                      <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                          <time datetime={post.data.date.toISOString().slice(0, 10)} class="blog-card-date">
+                            {formatDate(post.data.date)}
+                          </time>
+                          {post.data.categories.length > 0 && (
+                            <span class="blog-card-cats">
+                              {post.data.categories.map((cat, i) => (
+                                <span>
+                                  <a href={`/blog/category/${taxonomySlug(cat)}`} class="blog-tag">
+                                    {taxonomyLabel(cat)}
+                                  </a>
+                                  {i < post.data.categories.length - 1 && ' '}
+                                </span>
+                              ))}
+                            </span>
+                          )}
+                        </div>
+                        <h3 class="blog-card-title">
+                          <a href={`/blog/${y}/${slug}`}>{post.data.title}</a>
+                        </h3>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
+        </main>
+
+        <aside class="blog-sidebar">
+          <div class="blog-sidebar-block">
+            <h6>Categories</h6>
+            <ul class="blog-sidebar-list">
+              {categories.map(([cat, count]) => (
+                <li>
+                  <a href={`/blog/category/${taxonomySlug(cat)}`} class="blog-sidebar-link">
+                    {taxonomyLabel(cat)}
+                    <span class="blog-sidebar-count">{count}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="blog-sidebar-block">
+            <h6>Browse by year</h6>
+            <ul class="blog-sidebar-list">
+              {years.map(year => (
+                <li>
+                  <a href={`#year-${year}`} class="blog-sidebar-link">
+                    {year}
+                    <span class="blog-sidebar-count">{byYear[year].length}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>

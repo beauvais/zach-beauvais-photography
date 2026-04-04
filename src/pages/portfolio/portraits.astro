@@ -21,10 +21,6 @@ import { portraitImages } from '../../content/data';
         <span>Portraits</span>
       </nav>
       <h1>Portraits</h1>
-      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
-        Collaborative, creative portrait work. Each image shaped by a conversation,
-        a location, and a genuine moment.
-      </p>
       <div class="portfolio-nav" style="margin-top: var(--space-6);">
         <a href={route('portfolio/')}           class="btn btn-outline btn-sm">All work</a>
         <a href={route('portfolio/portraits/')} class="btn btn-primary btn-sm">Portraits</a>
@@ -34,51 +30,8 @@ import { portraitImages } from '../../content/data';
   </section>
 
 
-  {/* ══ HERO IMAGE GRID ══════════════════════════════════════════════
-      Shows first 3 portraits in a feature layout.
-      Edit portraitImages order in data.ts to change which appear here.
-  ══════════════════════════════════════════════════════════════════ */}
-  <section class="section-sm">
-    <div class="container">
-      <div class="portrait-hero-grid">
-        <div class="portrait-hero-main">
-          <img src={asset(portraitImages[0].src)} alt={portraitImages[0].alt} width={portraitImages[0].width} height={portraitImages[0].height} loading="lazy" />
-        </div>
-        <div class="portrait-hero-aside">
-          <img src={asset(portraitImages[1].src)} alt={portraitImages[1].alt} width={portraitImages[1].width} height={portraitImages[1].height} loading="lazy" />
-          <img src={asset(portraitImages[2].src)} alt={portraitImages[2].alt} width={portraitImages[2].width} height={portraitImages[2].height} loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
 
-
-  {/* ══ INTRO TEXT ════════════════════════════════════════════════════
-      Edit the heading and paragraphs below.
-  ══════════════════════════════════════════════════════════════════ */}
-  <section class="section-sm bg-soft">
-    <div class="container-narrow">
-      <h2 style="margin-bottom: var(--space-4);">How I approach portrait work</h2>
-      <p>
-        A portrait session with me starts with a conversation — about what you're looking for,
-        what setting feels right, what story we're telling. I don't direct sessions so much as
-        I facilitate them: creating the conditions for something authentic to emerge, then being
-        ready when it does.
-      </p>
-      <p>
-        My background in nature and abstract photography means I'm attentive to light and
-        atmosphere in a way that shapes how I work with people. I'm not looking to impose an
-        idea on you — I'm looking for the version of you that already exists.
-      </p>
-      <div class="btn-row" style="margin-top: var(--space-6);">
-        <a href={route('sessions/')} class="btn btn-outline">Sessions from ${350}</a>
-        <a href={route('contact/')}  class="btn btn-ghost">Get in touch</a>
-      </div>
-    </div>
-  </section>
-
-
-  {/* ══ GALLERY ═══════════════════════════════════════════════════════
+{/* ══ GALLERY ═══════════════════════════════════════════════════════
       All images from portraitImages (data.ts). Click to open lightbox.
       Add images in data.ts — no changes needed here.
   ══════════════════════════════════════════════════════════════════ */}
@@ -132,17 +85,6 @@ import { portraitImages } from '../../content/data';
 <style>
   .gallery-container { padding-inline: 2px; }
   .portfolio-nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-  .portrait-hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-3); align-items: start; }
-  .portrait-hero-main { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 4; }
-  .portrait-hero-main img { width: 100%; height: 100%; object-fit: cover; }
-  .portrait-hero-aside { display: grid; grid-template-rows: 1fr 1fr; gap: var(--space-3); }
-  .portrait-hero-aside img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-lg); }
-
-  @media (max-width: 768px) {
-    .portrait-hero-grid { grid-template-columns: 1fr; }
-    .portrait-hero-aside { grid-template-rows: auto; grid-template-columns: 1fr 1fr; }
-    .portrait-hero-aside img { aspect-ratio: 1; }
-  }
 </style>
 
 <script>
