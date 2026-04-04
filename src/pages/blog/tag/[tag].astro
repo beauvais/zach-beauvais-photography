@@ -27,6 +27,15 @@ export async function getStaticPaths() {
 const { posts, tagSlug } = Astro.props;
 const label = taxonomyLabel(tagSlug);
 
+function textureIndex(id: string): number {
+  let h = 0;
+  for (const c of id) h = (h * 31 + c.charCodeAt(0)) | 0;
+  return ((h % 7) + 7) % 7;
+}
+function textureFallback(id: string): string {
+  return `/blog/textures/texture-${textureIndex(id) + 1}.svg`;
+}
+
 // All tags for sidebar
 const allPosts = await getCollection('blog');
 const tagCount: Record<string, number> = {};
@@ -65,14 +74,12 @@ const allTags = Object.entries(tagCount).sort((a, b) => b[1] - a[1]);
           <div class="blog-post-list">
             {posts.map(post => {
               const { year, slug } = parsePostId(post);
-              const imgSrc = coverImageUrl(post);
+              const imgSrc = coverImageUrl(post) ?? textureFallback(post.id);
               return (
                 <article class="blog-card">
-                  {imgSrc && (
-                    <a href={`/blog/${year}/${slug}`} class="blog-card-image-wrap" aria-hidden="true" tabindex="-1">
-                      <img src={imgSrc} alt="" class="blog-card-image" loading="lazy" />
-                    </a>
-                  )}
+                  <a href={`/blog/${year}/${slug}`} class="blog-card-image-wrap" aria-hidden="true" tabindex="-1">
+                    <img src={imgSrc} alt="" class="blog-card-image" loading="lazy" />
+                  </a>
                   <div class="blog-card-body">
                     <div class="blog-card-meta">
                       <time datetime={post.data.date.toISOString().slice(0, 10)} class="blog-card-date">
