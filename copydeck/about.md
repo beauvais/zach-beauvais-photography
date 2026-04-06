@@ -30,13 +30,14 @@ Portrait photographer. Based in Lafayette, IN and Urbana-Champaign, IL.
 **H2:** `From the outdoors in`
 
 ```
-I learned on my dad's Minolta — a film SLR he'd had since before I was born.
-Mountains, desert, flowers, wildlife. Things that are entirely themselves
-and don't perform for the camera. You learn to observe rather than direct.
+I learned to shoot on my dad's Minolta — a 35mm film SLR he'd had since before I was born.
+I photographed mountains, desert, flowers, wildlife. Things that are entirely themselves
+and don't perform for the camera.
 
-Street photography came next, which is really the same thing: finding what's
-already there. At some point I realised I'd been making portraits all along —
-just of hills and trees instead of people.
+I kept taking photos, grateful that I'd learned on film but excited by the flexibility of
+digital. I made photos of nature, then explored street photography by finding 
+interesting frames and pools of light. At some point, I realised I'd been making
+portraits all along – portraits of flowers and hills, trees and occasionally sheep.
 
 Working with people followed naturally. And I bring a background in marketing,
 UX, and brand along with the camera — so I can think about what an image
@@ -52,7 +53,7 @@ I'm based in the Lafayette and West Lafayette area of Indiana, and Urbana-Champa
 ## PULL QUOTE
 
 ```
-"A portrait should feel like the person in it — not like a photograph of them."
+"My job isn't to be the chap with a camera, but to make art with and about you"
 ```
 
 > **Notes:** Strong and attributable to Zach. Keep it. Don't italicise it in the component — the type treatment handles emphasis.
@@ -65,7 +66,7 @@ These appear as alt text / muted caption beneath the three abstract images.
 
 **Caption:**
 ```
-A selection of landscape and abstract work — the visual sensibility that underpins the portrait sessions.
+A selection of landscape and abstract work that informs the portraits I make.
 ```
 
 > **Notes:** The caption does exactly enough. It makes the connection without over-explaining it. Leave it alone unless the images change dramatically.
