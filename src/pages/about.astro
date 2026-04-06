@@ -36,14 +36,15 @@ import { site, pricing } from '../content/data';
         <div class="about-bio stack">
           <h2>From the outdoors in</h2>
           <p>
-            I learned on my dad's Minolta — a film SLR he'd had since before I was born.
-            Mountains, desert, flowers, wildlife. Things that are entirely themselves
-            and don't perform for the camera. You learn to observe rather than direct.
+            I learned to shoot on my dad's Minolta — a 35mm film SLR he'd had since before I was born.
+            I photographed mountains, desert, flowers, wildlife. Things that are entirely themselves
+            and don't perform for the camera.
           </p>
           <p>
-            Street photography came next, which is really the same thing: finding what's
-            already there. At some point I realised I'd been making portraits all along —
-            just of hills and trees instead of people.
+            I kept taking photos, grateful that I'd learned on film but excited by the flexibility of
+            digital. I made photos of nature, then explored street photography by finding
+            interesting frames and pools of light. At some point, I realised I'd been making
+            portraits all along — portraits of flowers and hills, trees and occasionally sheep.
           </p>
           <p>
             Working with people followed naturally. And I bring a background in marketing,
@@ -66,7 +67,7 @@ import { site, pricing } from '../content/data';
   <section class="section-sm bg-soft">
     <div class="container-narrow">
       <blockquote class="pull-quote">
-        "A portrait should feel like the person in it — not like a photograph of them."
+        "My job isn't to be the chap with a camera, but to make art with and about you"
       </blockquote>
     </div>
   </section>
@@ -80,12 +81,12 @@ import { site, pricing } from '../content/data';
   <section class="section bg-strong">
     <div class="container">
       <div class="abstract-trio">
-        <img src={asset('abstract/abstract_close.jpg')}    alt="Abstract photography — texture study" width="1600" height="2000" loading="lazy" />
-        <img src={asset('abstract/abstract_snow.jpg')}      alt="Abstract winter light study"          width="2000" height="1600" loading="lazy" />
-        <img src={asset('abstract/abstract_portrait.jpg')} alt="Abstract study"                       width="1330" height="2000" loading="lazy" />
+        <div class="abstract-trio-item"><img src={asset('abstract/abstract_close.jpg')}    alt="Abstract photography — texture study" width="1600" height="2000" loading="lazy" /></div>
+        <div class="abstract-trio-item"><img src={asset('abstract/abstract_snow.jpg')}      alt="Abstract winter light study"          width="2000" height="1600" loading="lazy" /></div>
+        <div class="abstract-trio-item"><img src={asset('abstract/abstract_portrait.jpg')} alt="Abstract study"                       width="1330" height="2000" loading="lazy" /></div>
       </div>
       <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-4);">
-        A selection of landscape and abstract work — the visual sensibility that underpins the portrait sessions.
+        A selection of landscape and abstract work that informs the portraits I make.
       </p>
     </div>
   </section>
@@ -159,12 +160,13 @@ import { site, pricing } from '../content/data';
   .about-bio { padding-top: var(--space-3); }
 
   .abstract-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
-  .abstract-trio img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius-lg); }
+  .abstract-trio-item { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-lg); }
+  .abstract-trio-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   @media (max-width: 768px) {
     .about-split { grid-template-columns: 1fr; }
     .about-image { position: static; aspect-ratio: 16 / 9; }
     .abstract-trio { grid-template-columns: 1fr 1fr; }
-    .abstract-trio img:last-child { display: none; }
+    .abstract-trio-item:last-child { display: none; }
   }
 </style>

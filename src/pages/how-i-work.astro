@@ -106,7 +106,9 @@ const landscapePreview = landscapeImages.slice(0, 3);
       </div>
       <div class="landscape-preview">
         {landscapePreview.map(img => (
-          <img src={asset(img.src)} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
+          <div class="lp-item">
+            <img src={asset(img.src)} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
+          </div>
         ))}
       </div>
       <div style="margin-top: var(--space-6);">
@@ -159,11 +161,16 @@ const landscapePreview = landscapeImages.slice(0, 3);
     gap: var(--space-3);
     margin-top: var(--space-7);
   }
-  .landscape-preview img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
+  .lp-item {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
     border-radius: var(--radius-lg);
+  }
+  .lp-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   @media (max-width: 768px) {
