@@ -113,9 +113,8 @@ Available in Indianapolis (+$100) and Chicago (+$200).
 Current filler quotes (keep this style: specific, not gushing):
 
 ```
-"I've avoided cameras for about twenty years. I still don't entirely understand
-what happened in that session, but I'm glad it did."
-— K.M., Personal session
+"I had such a great time shooting with Zach he provided a comfortable environment and we were able to collaborate on the creative process of the photos! Super happy with how the pictures came out!"
+— Lydia, Personal session
 
 "I needed something for my website that didn't look like a LinkedIn headshot.
 We got that, and then some."
