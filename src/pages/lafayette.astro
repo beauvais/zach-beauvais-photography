@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
-import { route } from '../lib/paths';
-import { pricing } from '../content/data';
+import { asset, route } from '../lib/paths';
+import { pricing, portraitImages } from '../content/data';
 
 const schema = JSON.stringify({
   "@context": "https://schema.org",
@@ -41,22 +41,38 @@ const schema = JSON.stringify({
   </section>
 
 
-  {/* ══ THE APPROACH ══════════════════════════════════════════════════ */}
+  {/* ══ THE APPROACH ══════════════════════════════════════════════════
+      Split: text left, portrait right.
+      [16] woman-pillar — colour, concrete pillar — fits "industrial space" line.
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section bg-strong">
-    <div class="container container-narrow">
-      <p>
-        Indiana has a particular kind of portrait photographer. Golden hour, open fields,
-        soft focus — beautiful work, and a lot of people do it well. I'm not that photographer.
-      </p>
-      <p>
-        A session with me starts with a conversation about what you're actually after — what the
-        photos are for, what you want them to say, what kind of person you want to look like in
-        them. Then we find a location that fits, and we work from there.
-      </p>
-      <p>
-        The Midwest has good light and nature. It also has concrete, brick, and industrial space
-        that nobody thinks to shoot in. I like both.
-      </p>
+    <div class="container">
+      <div class="approach-split">
+        <div class="stack">
+          <p>
+            Indiana has a particular kind of portrait photographer. Golden hour, open fields,
+            soft focus — beautiful work, and a lot of people do it well. I'm not that photographer.
+          </p>
+          <p>
+            A session with me starts with a conversation about what you're actually after — what the
+            photos are for, what you want them to say, what kind of person you want to look like in
+            them. Then we find a location that fits, and we work from there.
+          </p>
+          <p>
+            The Midwest has good light and nature. It also has concrete, brick, and industrial space
+            that nobody thinks to shoot in. I like both.
+          </p>
+        </div>
+        <div class="approach-image">
+          <img
+            src={asset(portraitImages[16].src)}
+            alt={portraitImages[16].alt}
+            width={portraitImages[16].width}
+            height={portraitImages[16].height}
+            loading="eager"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -82,6 +98,47 @@ const schema = JSON.stringify({
           and individuals who want portraits made with some care. That's the same work, same
           approach, same result.
         </p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
+      Three portraits showing range: individual, couple, personal.
+      [5]  man-floor          — individual, relaxed
+      [20] couple-colour      — couple
+      [14] woman-curly-window — personal, expressive
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section-sm bg-strong">
+    <div class="container">
+      <div class="photo-strip">
+        <div class="strip-item">
+          <img
+            src={asset(portraitImages[5].src)}
+            alt={portraitImages[5].alt}
+            width={portraitImages[5].width}
+            height={portraitImages[5].height}
+            loading="lazy"
+          />
+        </div>
+        <div class="strip-item">
+          <img
+            src={asset(portraitImages[20].src)}
+            alt={portraitImages[20].alt}
+            width={portraitImages[20].width}
+            height={portraitImages[20].height}
+            loading="lazy"
+          />
+        </div>
+        <div class="strip-item">
+          <img
+            src={asset(portraitImages[14].src)}
+            alt={portraitImages[14].alt}
+            width={portraitImages[14].width}
+            height={portraitImages[14].height}
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -172,9 +229,32 @@ const schema = JSON.stringify({
 </BaseLayout>
 
 <style>
-  .container-narrow p { margin-top: var(--space-5); }
-  .container-narrow p:first-child { margin-top: 0; }
+  /* Approach split */
+  .approach-split {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+  .approach-split .stack p { margin-top: var(--space-5); }
+  .approach-split .stack p:first-child { margin-top: 0; }
+  .approach-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    position: relative;
+  }
+  .approach-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
 
+  /* Who this is for */
   .who-grid {
     margin-top: var(--space-6);
     display: grid;
@@ -183,6 +263,30 @@ const schema = JSON.stringify({
     align-items: start;
   }
 
+  /* Photo strip */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    width: 100%;
+  }
+  .strip-item {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    position: relative;
+  }
+  .strip-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* Bespoke note */
   .bespoke-note {
     margin-top: var(--space-6);
     padding: var(--space-5) var(--space-6);
@@ -193,6 +297,15 @@ const schema = JSON.stringify({
   }
 
   @media (max-width: 768px) {
+    .approach-split {
+      grid-template-columns: 1fr;
+    }
+    .approach-image {
+      aspect-ratio: 4 / 3;
+      order: -1;
+    }
     .who-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .photo-strip .strip-item:last-child { display: none; }
   }
 </style>

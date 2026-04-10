@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orange accent — colour test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg:             #FDFCFB;
+      --color-fg:             #1C1410;
+      --color-primary:        #2D2621;
+      --color-muted:          #6E6860;
+      --color-border:         #E8E1D8;
+      --color-surface-soft:   #F7F4EF;
+      --color-surface-strong: #F0ECE6;
+
+      /* ── Accent comparison ─────────────────── */
+      --accent-current:  #E89B6D;   /* current — pastel */
+      --accent-proposed: #C85F1A;   /* middle ground */
+      --accent-strong:   #FF7726;   /* accent-strong token */
+
+      --font-sans: "Gill Sans", "Gill Sans MT", "Century Gothic", Calibri, sans-serif;
+      --font-serif: Lora, Georgia, "Times New Roman", serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-fg);
+      background-color: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ──────────────────────────────── */
+    .page { max-width: 860px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+
+    .swatch-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .swatch {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+    .swatch-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      flex-shrink: 0;
+    }
+
+    /* ── Divider ─────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 3rem 0;
+    }
+    .label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* ── Hero section ────────────────────────── */
+    .hero-content { max-width: 640px; }
+
+    .eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow.current  { color: var(--accent-current);  }
+    .eyebrow.proposed { color: var(--accent-proposed); }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      color: var(--color-primary);
+    }
+    h1 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+    }
+    h1 em.current  { color: var(--accent-current);  }
+    h1 em.proposed { color: var(--accent-proposed); }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--color-fg);
+      max-width: 52ch;
+      margin-bottom: 0.75rem;
+    }
+    .location {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* ── Buttons ─────────────────────────────── */
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0; }
+    .btn {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.75rem;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .btn-primary.current  { background: var(--accent-current);  color: #fff; }
+    .btn-primary.proposed { background: var(--accent-proposed); color: #fff; }
+    .btn-outline {
+      border: 1px solid var(--color-border);
+      color: var(--color-fg);
+    }
+
+    /* ── Card ────────────────────────────────── */
+    .card {
+      background: var(--color-surface-soft);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 1.75rem;
+      max-width: 480px;
+    }
+    .card-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .card-label.current  { color: var(--accent-current);  }
+    .card-label.proposed { color: var(--accent-proposed); }
+    .card h3 {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+      color: var(--color-primary);
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: var(--color-muted);
+    }
+
+    /* ── Link-style text ─────────────────────── */
+    .text-link {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+    }
+    .text-link.current  { color: var(--accent-current);  }
+    .text-link.proposed { color: var(--accent-proposed); }
+    .text-link.strong   { color: var(--accent-strong);   }
+
+    .eyebrow.strong   { color: var(--accent-strong); }
+    h1 em.strong      { color: var(--accent-strong); }
+    .btn-primary.strong { background: var(--accent-strong); color: #fff; }
+    .card-label.strong  { color: var(--accent-strong); }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Swatch reference -->
+    <div class="swatch-bar">
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#E89B6D;"></div>
+        <div><strong>#E89B6D</strong><br>current accent</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#C85F1A;"></div>
+        <div><strong>#C85F1A</strong><br>proposed</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#FF7726;"></div>
+        <div><strong>#FF7726</strong><br>accent-strong (for ref)</div>
+      </div>
+    </div>
+
+    <!-- ── CURRENT ── -->
+    <p class="label">Current — #E89B6D</p>
+
+    <div class="hero-content" style="margin-bottom:2rem;">
+      <span class="eyebrow current">Lafayette, IN · Urbana-Champaign, IL</span>
+      <h1>
+        Portrait photography<br>
+        <em class="current">made with you, not for you.</em>
+      </h1>
+      <p class="lead">I work with you to make something genuinely yours — shaped by nature, street, and abstract photography. Personality over presentation.</p>
+      <p class="location">Lafayette, IN · Urbana-Champaign, IL · Sessions from $350.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary current">See how it works</a>
+        <a class="btn btn-outline">See some work</a>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+      <div class="card">
+        <p class="card-label current">Portraits</p>
+        <h3>Personal sessions</h3>
+        <p>A two-hour session, all images edited and delivered. No upselling, no package confusion.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.25rem;"><a class="text-link current">View the full portfolio →</a></p>
+
+    <hr class="divider">
+
+    <!-- ── PROPOSED ── -->
+    <p class="label">Proposed — #C85F1A</p>
+
+    <div class="hero-content" style="margin-bottom:2rem;">
+      <span class="eyebrow proposed">Lafayette, IN · Urbana-Champaign, IL</span>
+      <h1>
+        Portrait photography<br>
+        <em class="proposed">made with you, not for you.</em>
+      </h1>
+      <p class="lead">I work with you to make something genuinely yours — shaped by nature, street, and abstract photography. Personality over presentation.</p>
+      <p class="location">Lafayette, IN · Urbana-Champaign, IL · Sessions from $350.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary proposed">See how it works</a>
+        <a class="btn btn-outline">See some work</a>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+      <div class="card">
+        <p class="card-label proposed">Portraits</p>
+        <h3>Personal sessions</h3>
+        <p>A two-hour session, all images edited and delivered. No upselling, no package confusion.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.25rem;"><a class="text-link proposed">View the full portfolio →</a></p>
+
+    <hr class="divider">
+
+    <!-- ── FF7726 ── -->
+    <p class="label">accent-strong token — #FF7726</p>
+
+    <div class="hero-content" style="margin-bottom:2rem;">
+      <span class="eyebrow strong">Lafayette, IN · Urbana-Champaign, IL</span>
+      <h1>
+        Portrait photography<br>
+        <em class="strong">made with you, not for you.</em>
+      </h1>
+      <p class="lead">I work with you to make something genuinely yours — shaped by nature, street, and abstract photography. Personality over presentation.</p>
+      <p class="location">Lafayette, IN · Urbana-Champaign, IL · Sessions from $350.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary strong">See how it works</a>
+        <a class="btn btn-outline">See some work</a>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+      <div class="card">
+        <p class="card-label strong">Portraits</p>
+        <h3>Personal sessions</h3>
+        <p>A two-hour session, all images edited and delivered. No upselling, no package confusion.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.25rem;"><a class="text-link strong">View the full portfolio →</a></p>
+
+  </div>
+</body>
+</html>
