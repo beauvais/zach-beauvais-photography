@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { route } from '../lib/paths';
+import { pricing } from '../content/data';
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Zach Beauvais Photography",
+  "description": "Portrait photography in Urbana-Champaign, Illinois. Collaborative sessions for UIUC faculty and students, families, and small businesses.",
+  "url": "https://zachbeauvais.com/urbana-champaign/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Urbana-Champaign",
+    "addressRegion": "IL",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Urbana", "Champaign", "Urbana-Champaign", "Eastern Illinois"],
+  "priceRange": "$350–$750"
+});
+---
+
+<BaseLayout
+  title="Portrait Photographer in Urbana-Champaign, Illinois"
+  description="Portrait photography in Urbana-Champaign — from $350. Collaborative sessions for UIUC faculty, students, families, and small businesses. Not the cornfield-at-dusk kind."
+  schema={schema}
+>
+
+  {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Portrait photographer</span>
+      <h1>Urbana-Champaign, Illinois.</h1>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        Portrait photography for the Urbana-Champaign area — UIUC faculty and students,
+        families, small businesses, and anyone who wants something more considered than
+        the usual Illinois photography fare.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ THE APPROACH ══════════════════════════════════════════════════ */}
+  <section class="section bg-strong">
+    <div class="container container-narrow">
+      <p>
+        I'm based across both Urbana-Champaign and Lafayette, Indiana, so I know what
+        "portrait photographer in the Midwest" can mean: open fields, golden light,
+        soft focus. It's a perfectly good genre. It's just not what I do.
+      </p>
+      <p>
+        What I do starts before the camera comes out. A portrait should have a reason —
+        not a brief necessarily, but a sense of what it's for and who it's of. We work
+        that out together, then find the location and light that fits it.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ WHO THIS IS FOR ═══════════════════════════════════════════════ */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Good for</span>
+      <h2>UIUC faculty, Illini, and the rest of Urbana-Champaign</h2>
+      <div class="who-grid">
+        <p>
+          University towns produce a particular kind of portrait need: researchers who need
+          something for their academic profile, students with a portfolio to build or a
+          milestone to mark, faculty who've put off getting a proper portrait for years.
+        </p>
+        <p>
+          I know that brief. You need something that looks like you actually wanted to be
+          photographed — not like you got cornered between a poster and a whiteboard. We can
+          make that.
+        </p>
+        <p>
+          Outside the university: Urbana and Champaign have families, small businesses, and
+          individuals who want portraits made with some care. Same work, same approach.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ SESSIONS ══════════════════════════════════════════════════════ */}
+  <section class="section bg-soft">
+    <div class="container">
+      <span class="eyebrow">Sessions &amp; Pricing</span>
+      <h2>Two sessions. Editing always included.</h2>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        Sessions in Urbana-Champaign and within 30 miles are at standard rates.
+        No travel fee.
+      </p>
+
+      <div class="grid-2" style="margin-top: var(--space-7);">
+
+        <div class="pricing-card">
+          <div>
+            <h6>{pricing.essential.name}</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-4);">
+              <span>$</span>{pricing.essential.price}
+            </div>
+            <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
+              One hour, one location, five properly edited portraits. Right for professional
+              profiles, personal brand work, milestones, or gifts.
+            </p>
+          </div>
+          <ul class="pricing-features">
+            <li>One hour at a single location</li>
+            <li>5 professionally edited portraits</li>
+            <li>High-resolution digital delivery</li>
+            <li>All editing included</li>
+          </ul>
+          <div class="pricing-footer">
+            <a href={route('contact/?session=essential')} class="btn btn-outline">
+              Book the {pricing.essential.name.toLowerCase()}
+            </a>
+          </div>
+        </div>
+
+        <div class="pricing-card featured">
+          <div>
+            <h6>{pricing.extended.name}</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-4);">
+              <span>$</span>{pricing.extended.price}
+            </div>
+            <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
+              Three hours, one location, twenty edited portraits. More time means the session
+              can find what it needs to — right for couples, families, or anything that
+              needs to be worked out rather than executed.
+            </p>
+          </div>
+          <ul class="pricing-features">
+            <li>Three hours at a single location</li>
+            <li>20 professionally edited portraits</li>
+            <li>High-resolution digital delivery</li>
+            <li>All editing included</li>
+          </ul>
+          <div class="pricing-footer">
+            <a href={route('contact/?session=extended')} class="btn btn-primary">
+              Book the {pricing.extended.name.toLowerCase()}
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="bespoke-note">
+        Need something bigger — multiple locations, ongoing brand work, a larger selection?
+        <a href={route('contact/?session=bespoke')}>Get in touch</a> and we'll figure out the right scope.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
+  <CTABand
+    eyebrow="Based in Urbana-Champaign"
+    heading="Get in touch"
+    body="Tell me what you're after — what the portraits are for, what you want them to do, what you're unsure about. We'll figure out the rest."
+    primaryHref={route('contact/')}
+    primaryLabel="Get in touch"
+    secondaryHref={route('sessions/')}
+    secondaryLabel="See sessions & pricing"
+  />
+
+</BaseLayout>
+
+<style>
+  .container-narrow p { margin-top: var(--space-5); }
+  .container-narrow p:first-child { margin-top: 0; }
+
+  .who-grid {
+    margin-top: var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .bespoke-note {
+    margin-top: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    border-left: 3px solid var(--color-accent);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    max-width: 64ch;
+  }
+
+  @media (max-width: 768px) {
+    .who-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  }
+</style>
