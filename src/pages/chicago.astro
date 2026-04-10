@@ -2,28 +2,31 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
 import { asset, route } from '../lib/paths';
-import { pricing, portraitImages } from '../content/data';
+import { pricing, portraitImages, landscapeImages } from '../content/data';
+
+const essentialPrice = pricing.essential.price + pricing.travel.chicago.fee;
+const explorationPrice = pricing.extended.price + pricing.travel.chicago.fee;
 
 const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Zach Beauvais Photography",
-  "description": "Portrait photography in Lafayette and West Lafayette, Indiana. Collaborative sessions for individuals, families, and small businesses.",
-  "url": "https://zachbeauvais.com/lafayette/",
+  "description": "Portrait photography in Chicago, Illinois. Collaborative sessions for individuals, families, and small businesses. Travel from Lafayette included in price.",
+  "url": "https://zachbeauvais.com/chicago/",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Lafayette",
-    "addressRegion": "IN",
+    "addressLocality": "Chicago",
+    "addressRegion": "IL",
     "addressCountry": "US"
   },
-  "areaServed": ["Lafayette", "West Lafayette", "Central Indiana", "Northern Indiana"],
-  "priceRange": "$350–$750"
+  "areaServed": ["Chicago", "Chicagoland", "Illinois"],
+  "priceRange": `$${essentialPrice}–$${explorationPrice}`
 });
 ---
 
 <BaseLayout
-  title="Portrait Photographer in Lafayette & West Lafayette, Indiana"
-  description="Portrait photography in Lafayette and West Lafayette, Central Indiana — from $350. Collaborative sessions for Purdue students, faculty, families, and anyone not interested in cornfield-at-sunset photos."
+  title="Portrait Photographer in Chicago, Illinois"
+  description={`Portrait photography in Chicago — $${essentialPrice} and up, travel included. Collaborative sessions for individuals, families, and small businesses. Based in the Midwest, working in Chicago.`}
   schema={schema}
 >
 
@@ -31,11 +34,10 @@ const schema = JSON.stringify({
   <section class="page-header">
     <div class="container">
       <span class="eyebrow">Portrait photographer</span>
-      <h1>Lafayette &amp; West Lafayette, Indiana.</h1>
+      <h1>Chicago, Illinois.</h1>
       <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
-        Collaborative portrait photography for people in Lafayette, West Lafayette, and the wider
-        Purdue community — from personal brand work to family portraits to sessions that are just
-        for you.
+        Portrait sessions in Chicago, with travel from Lafayette included in the price.
+        Chicago has no shortage of photographers. Here's what makes this one different.
       </p>
     </div>
   </section>
@@ -43,32 +45,29 @@ const schema = JSON.stringify({
 
   {/* ══ THE APPROACH ══════════════════════════════════════════════════
       Split: text left, portrait right.
-      [16] woman-pillar — colour, concrete pillar — fits "industrial space" line.
+      [18] dancer-dark-main — dramatic, dark bg — fits Chicago's scale and energy.
   ══════════════════════════════════════════════════════════════════ */}
   <section class="section bg-strong">
     <div class="container">
       <div class="approach-split">
         <div class="stack">
           <p>
-            Indiana has a particular kind of portrait photographer. Golden hour, open fields,
-            soft focus — beautiful work, and a lot of people do it well. I'm not that photographer.
+            I'm based in Lafayette, Indiana — about three hours south. I don't live in Chicago,
+            I visit it deliberately, with a specific brief and a camera. That distance isn't a
+            disadvantage. It means I don't have a default route or a favourite easy location.
+            Every Chicago session starts from scratch.
           </p>
           <p>
-            A session with me starts with a conversation about what you're actually after — what the
-            photos are for, what you want them to say, what kind of person you want to look like in
-            them. Then we find a location that fits, and we work from there.
-          </p>
-          <p>
-            The Midwest has good light and nature. It also has concrete, brick, and industrial space
-            that nobody thinks to photograph in. I like both.
+            What doesn't change: we talk before we start. We figure out what the portrait is for
+            and who it's of. We find the location that fits that. Then we work.
           </p>
         </div>
         <div class="approach-image">
           <img
-            src={asset(portraitImages[16].src)}
-            alt={portraitImages[16].alt}
-            width={portraitImages[16].width}
-            height={portraitImages[16].height}
+            src={asset(portraitImages[18].src)}
+            alt={portraitImages[18].alt}
+            width={portraitImages[18].width}
+            height={portraitImages[18].height}
             loading="eager"
           />
         </div>
@@ -81,22 +80,20 @@ const schema = JSON.stringify({
   <section class="section">
     <div class="container">
       <span class="eyebrow">Good for</span>
-      <h2>Boilermakers, Hoosiers, and everyone else</h2>
+      <h2>Chicago individuals, families, and small businesses</h2>
       <div class="who-grid">
         <p>
-          I work with people building a brand or professional presence — social media, LinkedIn,
-          personal sites — families or couples who want portraits that feel like them rather than
-          like a template, and people who just want to see what a proper portrait session produces
-          when there's no agenda.
+          Chicago has more photographers per square mile than anywhere else I work. If you've
+          found your way here, you're probably looking for something specific — a particular
+          approach, a particular kind of portrait, something you haven't found closer to home.
         </p>
         <p>
-          If you're at Purdue — student, faculty, researcher, or staff — I've made a lot of
-          portraits for people who need something better than a faculty page headshot.
+          I work with individuals building a personal or professional brand, families who want
+          portraits that feel true rather than tidy, and small businesses that need imagery
+          with some character to it.
         </p>
         <p>
-          Outside the university: Lafayette and West Lafayette have families, small businesses,
-          and individuals who want portraits made with some care. That's the same work, same
-          approach, same result.
+          The same work I do everywhere, in a city that gives it more room.
         </p>
       </div>
     </div>
@@ -104,38 +101,37 @@ const schema = JSON.stringify({
 
 
   {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
-      Three portraits showing range: individual, couple, personal.
-      [5]  man-floor          — individual, relaxed
-      [20] couple-colour      — couple
-      [14] woman-curly-window — personal, expressive
+      [0]  woman-closeup     — B&W, direct gaze, strong
+      [10] two-people-studio — studio, together
+      landscapeImages[0]     — abstract-1, form and tone (signals the eye behind the portraits)
   ══════════════════════════════════════════════════════════════════ */}
   <section class="section-sm bg-strong">
     <div class="container">
       <div class="photo-strip">
         <div class="strip-item">
           <img
-            src={asset(portraitImages[5].src)}
-            alt={portraitImages[5].alt}
-            width={portraitImages[5].width}
-            height={portraitImages[5].height}
+            src={asset(portraitImages[0].src)}
+            alt={portraitImages[0].alt}
+            width={portraitImages[0].width}
+            height={portraitImages[0].height}
             loading="lazy"
           />
         </div>
         <div class="strip-item">
           <img
-            src={asset(portraitImages[20].src)}
-            alt={portraitImages[20].alt}
-            width={portraitImages[20].width}
-            height={portraitImages[20].height}
+            src={asset(portraitImages[10].src)}
+            alt={portraitImages[10].alt}
+            width={portraitImages[10].width}
+            height={portraitImages[10].height}
             loading="lazy"
           />
         </div>
         <div class="strip-item">
           <img
-            src={asset(portraitImages[14].src)}
-            alt={portraitImages[14].alt}
-            width={portraitImages[14].width}
-            height={portraitImages[14].height}
+            src={asset(landscapeImages[0].src)}
+            alt={landscapeImages[0].alt}
+            width={landscapeImages[0].width}
+            height={landscapeImages[0].height}
             loading="lazy"
           />
         </div>
@@ -148,10 +144,9 @@ const schema = JSON.stringify({
   <section class="section bg-soft">
     <div class="container">
       <span class="eyebrow">Sessions &amp; Pricing</span>
-      <h2>Two sessions. Editing always included.</h2>
+      <h2>Two sessions. Travel included.</h2>
       <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
-        Standard rates apply for Lafayette, West Lafayette, and anywhere within 30 miles.
-        No travel fee.
+        Prices below include the Chicago travel fee. No surprises at booking.
       </p>
 
       <div class="grid-2" style="margin-top: var(--space-7);">
@@ -160,7 +155,7 @@ const schema = JSON.stringify({
           <div>
             <h6>{pricing.essential.name}</h6>
             <div class="pricing-amount" style="margin-top: var(--space-4);">
-              <span>$</span>{pricing.essential.price}
+              <span>$</span>{essentialPrice}
             </div>
             <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
               One hour, one location, five edited portraits. Good for professional images, personal
@@ -172,9 +167,10 @@ const schema = JSON.stringify({
             <li>5 professionally edited portraits</li>
             <li>High-resolution digital delivery</li>
             <li>All editing included</li>
+            <li>Chicago travel included</li>
           </ul>
           <div class="pricing-footer">
-            <a href={route('contact/?session=essential')} class="btn btn-outline">
+            <a href={route('contact/?session=essential&location=chicago')} class="btn btn-outline">
               Book the {pricing.essential.name.toLowerCase()}
             </a>
           </div>
@@ -184,7 +180,7 @@ const schema = JSON.stringify({
           <div>
             <h6>{pricing.extended.name}</h6>
             <div class="pricing-amount" style="margin-top: var(--space-4);">
-              <span>$</span>{pricing.extended.price}
+              <span>$</span>{explorationPrice}
             </div>
             <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
               Three hours, one location, twenty edited portraits. More time means the session
@@ -197,9 +193,10 @@ const schema = JSON.stringify({
             <li>20 professionally edited portraits</li>
             <li>High-resolution digital delivery</li>
             <li>All editing included</li>
+            <li>Chicago travel included</li>
           </ul>
           <div class="pricing-footer">
-            <a href={route('contact/?session=extended')} class="btn btn-primary">
+            <a href={route('contact/?session=extended&location=chicago')} class="btn btn-primary">
               Book the {pricing.extended.name.toLowerCase()}
             </a>
           </div>
@@ -208,8 +205,8 @@ const schema = JSON.stringify({
       </div>
 
       <p class="bespoke-note">
-        Need something bigger or different — multiple locations, ongoing brand work, a larger
-        selection? <a href={route('contact/?session=bespoke')}>Get in touch</a> and we'll scope it together.
+        Need something bigger — multiple locations, ongoing brand work, a larger selection?
+        <a href={route('contact/?session=bespoke')}>Get in touch</a> and we'll figure out the right scope.
       </p>
     </div>
   </section>
@@ -217,9 +214,9 @@ const schema = JSON.stringify({
 
   {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
   <CTABand
-    eyebrow="Based in Lafayette"
+    eyebrow="Available in Chicago"
     heading="Get in touch"
-    body="Let's talk about what you're thinking — what the photos are for, what you want them to do, what you're unsure about. We'll figure out the rest from there."
+    body="Tell me what you're after — what the portraits are for, what you want them to do, what you're unsure about. We'll figure out the rest."
     primaryHref={route('contact/')}
     primaryLabel="Get in touch"
     secondaryHref={route('sessions/')}
@@ -229,7 +226,6 @@ const schema = JSON.stringify({
 </BaseLayout>
 
 <style>
-  /* Approach split */
   .approach-split {
     display: grid;
     grid-template-columns: 1fr 0.75fr;
@@ -254,7 +250,6 @@ const schema = JSON.stringify({
     display: block;
   }
 
-  /* Who this is for */
   .who-grid {
     margin-top: var(--space-6);
     display: grid;
@@ -263,7 +258,6 @@ const schema = JSON.stringify({
     align-items: start;
   }
 
-  /* Photo strip */
   .photo-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -286,7 +280,6 @@ const schema = JSON.stringify({
     display: block;
   }
 
-  /* Bespoke note */
   .bespoke-note {
     margin-top: var(--space-6);
     padding: var(--space-5) var(--space-6);
@@ -297,13 +290,8 @@ const schema = JSON.stringify({
   }
 
   @media (max-width: 768px) {
-    .approach-split {
-      grid-template-columns: 1fr;
-    }
-    .approach-image {
-      aspect-ratio: 4 / 3;
-      order: -1;
-    }
+    .approach-split { grid-template-columns: 1fr; }
+    .approach-image { aspect-ratio: 4 / 3; order: -1; }
     .who-grid { grid-template-columns: 1fr; gap: var(--space-5); }
     .photo-strip { grid-template-columns: 1fr 1fr; }
     .photo-strip .strip-item:last-child { display: none; }

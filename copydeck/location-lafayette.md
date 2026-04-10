@@ -48,7 +48,7 @@ what kind of person you want to look like in them. Then we find a location that 
 and we work from there.
 
 The Midwest has good light and nature. It also has concrete, brick, and industrial space
-that nobody thinks to shoot in. I like both.
+that nobody thinks to photograph in. I like both.
 ```
 
 > **Notes:** The cornfield line fits here — it's not lifted verbatim from how-i-work.astro, it's a location-specific riff on the same idea. The third paragraph grounds it locally ("The Midwest has good light") and differentiates without being precious about it.
