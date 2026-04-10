@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
-import { route } from '../lib/paths';
-import { pricing } from '../content/data';
+import { asset, route } from '../lib/paths';
+import { pricing, portraitImages, landscapeImages } from '../content/data';
 
 const schema = JSON.stringify({
   "@context": "https://schema.org",
@@ -41,19 +41,35 @@ const schema = JSON.stringify({
   </section>
 
 
-  {/* ══ THE APPROACH ══════════════════════════════════════════════════ */}
+  {/* ══ THE APPROACH ══════════════════════════════════════════════════
+      Split: text left, portrait right.
+      [0] woman-closeup — B&W, direct gaze — strong for the professional/academic register.
+  ══════════════════════════════════════════════════════════════════ */}
   <section class="section bg-strong">
-    <div class="container container-narrow">
-      <p>
-        I'm based across both Urbana-Champaign and Lafayette, Indiana, so I know what
-        "portrait photographer in the Midwest" can mean: open fields, golden light,
-        soft focus. It's a perfectly good genre. It's just not what I do.
-      </p>
-      <p>
-        What I do starts before the camera comes out. A portrait should have a reason —
-        not a brief necessarily, but a sense of what it's for and who it's of. We work
-        that out together, then find the location and light that fits it.
-      </p>
+    <div class="container">
+      <div class="approach-split">
+        <div class="stack">
+          <p>
+            I'm based across both Urbana-Champaign and Lafayette, Indiana, so I know what
+            "portrait photographer in the Midwest" can mean: open fields, golden light,
+            soft focus. It's a perfectly good genre. It's just not what I do.
+          </p>
+          <p>
+            What I do starts before the camera comes out. A portrait should have a reason —
+            not a brief necessarily, but a sense of what it's for and who it's of. We work
+            that out together, then find the location and light that fits it.
+          </p>
+        </div>
+        <div class="approach-image">
+          <img
+            src={asset(portraitImages[0].src)}
+            alt={portraitImages[0].alt}
+            width={portraitImages[0].width}
+            height={portraitImages[0].height}
+            loading="eager"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -78,6 +94,47 @@ const schema = JSON.stringify({
           Outside the university: Urbana and Champaign have families, small businesses, and
           individuals who want portraits made with some care. Same work, same approach.
         </p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
+      Two portraits + one abstract showing range of work and eye.
+      [9]  woman-chair-studio  — studio, professional, academic register
+      [15] two-women-floor     — relaxed, personal, together
+      landscapeImages[2] abstract-angles — architectural abstraction
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section-sm bg-strong">
+    <div class="container">
+      <div class="photo-strip">
+        <div class="strip-item">
+          <img
+            src={asset(portraitImages[9].src)}
+            alt={portraitImages[9].alt}
+            width={portraitImages[9].width}
+            height={portraitImages[9].height}
+            loading="lazy"
+          />
+        </div>
+        <div class="strip-item">
+          <img
+            src={asset(portraitImages[15].src)}
+            alt={portraitImages[15].alt}
+            width={portraitImages[15].width}
+            height={portraitImages[15].height}
+            loading="lazy"
+          />
+        </div>
+        <div class="strip-item">
+          <img
+            src={asset(landscapeImages[2].src)}
+            alt={landscapeImages[2].alt}
+            width={landscapeImages[2].width}
+            height={landscapeImages[2].height}
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -168,9 +225,32 @@ const schema = JSON.stringify({
 </BaseLayout>
 
 <style>
-  .container-narrow p { margin-top: var(--space-5); }
-  .container-narrow p:first-child { margin-top: 0; }
+  /* Approach split */
+  .approach-split {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+  .approach-split .stack p { margin-top: var(--space-5); }
+  .approach-split .stack p:first-child { margin-top: 0; }
+  .approach-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    position: relative;
+  }
+  .approach-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
 
+  /* Who this is for */
   .who-grid {
     margin-top: var(--space-6);
     display: grid;
@@ -179,6 +259,30 @@ const schema = JSON.stringify({
     align-items: start;
   }
 
+  /* Photo strip */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    width: 100%;
+  }
+  .strip-item {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    position: relative;
+  }
+  .strip-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* Bespoke note */
   .bespoke-note {
     margin-top: var(--space-6);
     padding: var(--space-5) var(--space-6);
@@ -189,6 +293,15 @@ const schema = JSON.stringify({
   }
 
   @media (max-width: 768px) {
+    .approach-split {
+      grid-template-columns: 1fr;
+    }
+    .approach-image {
+      aspect-ratio: 4 / 3;
+      order: -1;
+    }
     .who-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .photo-strip .strip-item:last-child { display: none; }
   }
 </style>
