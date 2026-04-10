@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { route } from '../lib/paths';
+import { pricing } from '../content/data';
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Zach Beauvais Photography",
+  "description": "Portrait photography in Lafayette and West Lafayette, Indiana. Collaborative sessions for individuals, families, and small businesses.",
+  "url": "https://zachbeauvais.com/lafayette/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lafayette",
+    "addressRegion": "IN",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Lafayette", "West Lafayette", "Central Indiana", "Northern Indiana"],
+  "priceRange": "$350–$750"
+});
+---
+
+<BaseLayout
+  title="Portrait Photographer in Lafayette & West Lafayette, Indiana"
+  description="Portrait photography in Lafayette and West Lafayette, Central Indiana — from $350. Collaborative sessions for Purdue students, faculty, families, and anyone not interested in cornfield-at-sunset photos."
+  schema={schema}
+>
+
+  {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Portrait photographer</span>
+      <h1>Lafayette &amp; West Lafayette, Indiana.</h1>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        Collaborative portrait photography for people in Lafayette, West Lafayette, and the wider
+        Purdue community — from personal brand work to family portraits to sessions that are just
+        for you.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ THE APPROACH ══════════════════════════════════════════════════ */}
+  <section class="section bg-strong">
+    <div class="container container-narrow">
+      <p>
+        Indiana has a particular kind of portrait photographer. Golden hour, open fields,
+        soft focus — beautiful work, and a lot of people do it well. I'm not that photographer.
+      </p>
+      <p>
+        A session with me starts with a conversation about what you're actually after — what the
+        photos are for, what you want them to say, what kind of person you want to look like in
+        them. Then we find a location that fits, and we work from there.
+      </p>
+      <p>
+        The Midwest has good light and nature. It also has concrete, brick, and industrial space
+        that nobody thinks to shoot in. I like both.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ WHO THIS IS FOR ═══════════════════════════════════════════════ */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Good for</span>
+      <h2>Boilermakers, Hoosiers, and everyone else</h2>
+      <div class="who-grid">
+        <p>
+          I work with people building a brand or professional presence — social media, LinkedIn,
+          personal sites — families or couples who want portraits that feel like them rather than
+          like a template, and people who just want to see what a proper portrait session produces
+          when there's no agenda.
+        </p>
+        <p>
+          If you're at Purdue — student, faculty, researcher, or staff — I've made a lot of
+          portraits for people who need something better than a faculty page headshot.
+        </p>
+        <p>
+          Outside the university: Lafayette and West Lafayette have families, small businesses,
+          and individuals who want portraits made with some care. That's the same work, same
+          approach, same result.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ SESSIONS ══════════════════════════════════════════════════════ */}
+  <section class="section bg-soft">
+    <div class="container">
+      <span class="eyebrow">Sessions &amp; Pricing</span>
+      <h2>Two sessions. Editing always included.</h2>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        Standard rates apply for Lafayette, West Lafayette, and anywhere within 30 miles.
+        No travel fee.
+      </p>
+
+      <div class="grid-2" style="margin-top: var(--space-7);">
+
+        <div class="pricing-card">
+          <div>
+            <h6>{pricing.essential.name}</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-4);">
+              <span>$</span>{pricing.essential.price}
+            </div>
+            <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
+              One hour, one location, five edited portraits. Good for professional images, personal
+              brand work, milestones, or a gift.
+            </p>
+          </div>
+          <ul class="pricing-features">
+            <li>One hour at a single location</li>
+            <li>5 professionally edited portraits</li>
+            <li>High-resolution digital delivery</li>
+            <li>All editing included</li>
+          </ul>
+          <div class="pricing-footer">
+            <a href={route('contact/?session=essential')} class="btn btn-outline">
+              Book the {pricing.essential.name.toLowerCase()}
+            </a>
+          </div>
+        </div>
+
+        <div class="pricing-card featured">
+          <div>
+            <h6>{pricing.extended.name}</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-4);">
+              <span>$</span>{pricing.extended.price}
+            </div>
+            <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
+              Three hours, one location, twenty edited portraits. More time means the session
+              can find what it needs to — good for couples, families, or anything that
+              needs to be worked out rather than executed.
+            </p>
+          </div>
+          <ul class="pricing-features">
+            <li>Three hours at a single location</li>
+            <li>20 professionally edited portraits</li>
+            <li>High-resolution digital delivery</li>
+            <li>All editing included</li>
+          </ul>
+          <div class="pricing-footer">
+            <a href={route('contact/?session=extended')} class="btn btn-primary">
+              Book the {pricing.extended.name.toLowerCase()}
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="bespoke-note">
+        Need something bigger or different — multiple locations, ongoing brand work, a larger
+        selection? <a href={route('contact/?session=bespoke')}>Get in touch</a> and we'll scope it together.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
+  <CTABand
+    eyebrow="Based in Lafayette"
+    heading="Get in touch"
+    body="Let's talk about what you're thinking — what the photos are for, what you want them to do, what you're unsure about. We'll figure out the rest from there."
+    primaryHref={route('contact/')}
+    primaryLabel="Get in touch"
+    secondaryHref={route('sessions/')}
+    secondaryLabel="See sessions & pricing"
+  />
+
+</BaseLayout>
+
+<style>
+  .container-narrow p { margin-top: var(--space-5); }
+  .container-narrow p:first-child { margin-top: 0; }
+
+  .who-grid {
+    margin-top: var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .bespoke-note {
+    margin-top: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    border-left: 3px solid var(--color-accent);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    max-width: 64ch;
+  }
+
+  @media (max-width: 768px) {
+    .who-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  }
+</style>
