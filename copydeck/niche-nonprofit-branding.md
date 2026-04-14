@@ -1,5 +1,5 @@
 # Landing Page — Non-Profit Branding Photography
-> **Status:** Draft v4 — voice/tone pass + SEO corrections. For review before building.
+> **Status:** Built — `src/pages/non-profit-branding.astro`. Copydeck is authoritative; keep in sync with any page edits.
 
 ---
 
