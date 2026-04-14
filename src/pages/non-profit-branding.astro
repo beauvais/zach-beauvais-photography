@@ -1,0 +1,339 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { asset, route } from '../lib/paths';
+import { portraitImages, landscapeImages } from '../content/data';
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Zach Beauvais Photography",
+  "description": "Non-profit branding photography in Lafayette, IN and Urbana-Champaign, IL. Portraits, mission-in-action imagery, merch and logo photography, brand guidelines, and voice and tone for nonprofits and community organisations.",
+  "url": "https://zachbeauvais.com/non-profit-branding/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lafayette",
+    "addressRegion": "IN",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Lafayette", "Urbana-Champaign", "Indianapolis", "Chicago", "Indiana", "Illinois"],
+  "priceRange": "$500+"
+});
+---
+
+<BaseLayout
+  title="Non-Profit Branding Photography — Portraits, Mission, and Visual Identity"
+  description="Photography and brand content for non-profits — portraits, mission-in-action imagery, merch and logo shots, voice and tone. From $500. Lafayette, IN and Urbana-Champaign, IL."
+  schema={schema}
+>
+
+  {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Non-profit branding</span>
+      <h1>Your mission deserves images that match it.</h1>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        Non-profit brands have an interesting problem: the images they can use don't tell
+        the full story of their work, mission, and people. That gap is fixable — and it's
+        about strategic, intentional photography rather than documentation.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ WHAT I DO ═════════════════════════════════════════════════════
+      No eyebrow. Split: text left, portrait right.
+      [10] two-people-studio — two people, collaborative feel, works for community/org register.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section bg-strong">
+    <div class="container">
+      <div class="approach-split">
+        <div class="stack">
+          <p>
+            I'm a portrait photographer with a background in marketing and brand content
+            strategy — about twenty years of it. When I work with a non-profit, I'm
+            thinking about your mission and your audiences while planning and making photos.
+          </p>
+          <p>
+            A branding session might mean coming to your space or booking one to photograph
+            your merch, logo, printed materials — the physical stuff that represents your
+            organisation. It might include coming to your event with a specific brief:
+            portraits of the people who make the work happen, the environment your mission
+            lives in, the moments that will mean something to your community and make sense
+            to your donors at the same time. That's different from traditional event
+            photography — it's about furthering your goals, not recording what happens.
+          </p>
+          <p>
+            My photography background isn't commercial or corporate — it's in portrait work,
+            nature, and street photography. I've learned to notice things in uncontrolled
+            environments. That shapes what the images look like: specific, a bit unexpected,
+            and recognisably yours. Not interchangeable with other organisations.
+          </p>
+          <p>
+            I also work with words. Voice and tone, brand guidelines, web content — we can
+            build content strategy into the scope of your project so that you have images
+            and words crafted to work together.
+          </p>
+        </div>
+        <div class="approach-image">
+          <img
+            src={asset(portraitImages[10].src)}
+            alt={portraitImages[10].alt}
+            width={portraitImages[10].width}
+            height={portraitImages[10].height}
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ WHAT WE MIGHT MAKE ════════════════════════════════════════════ */}
+  <section class="section">
+    <div class="container container-narrow">
+      <span class="eyebrow">What a session covers</span>
+      <h2>Images that work across your whole organisation.</h2>
+      <div class="body-stack">
+        <p>
+          Good brand photography for a nonprofit pulls in several directions at once.
+          You need portraits that feel like real people — not a corporate headshot row.
+          You need images of your project in action, in its real context. And if you have
+          branded merch, a logo, printed materials, or physical objects that represent what
+          you do — those need to look right too.
+        </p>
+        <p>
+          We can cover all of that in our branding sessions. Portraits of your team,
+          founders, volunteers, and community members. Environmental and mission-in-action
+          photography at your events or in your spaces. The result is a set of images with
+          a consistent feel that actually expresses your organisation's character — your
+          values, your culture, the specific people doing the work. Something you can use
+          on your website, in grant applications, in a campaign, or in a donor email, and
+          that looks like it could only be yours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
+      [15] two-women-floor     — warm, community, laughing together
+      [11] woman-purple-hair   — distinctive, personality, not corporate
+      [18] dancer-dark-main    — mission/activity, movement, purpose
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section-sm bg-strong">
+    <div class="container">
+      <div class="photo-strip">
+        <div class="strip-item">
+          <img
+            src={asset(portraitImages[15].src)}
+            alt={portraitImages[15].alt}
+            width={portraitImages[15].width}
+            height={portraitImages[15].height}
+            loading="lazy"
+          />
+        </div>
+        <div class="strip-item">
+          <img
+            src={asset(portraitImages[11].src)}
+            alt={portraitImages[11].alt}
+            width={portraitImages[11].width}
+            height={portraitImages[11].height}
+            loading="lazy"
+          />
+        </div>
+        <div class="strip-item">
+          <img
+            src={asset(portraitImages[18].src)}
+            alt={portraitImages[18].alt}
+            width={portraitImages[18].width}
+            height={portraitImages[18].height}
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ WHO THIS IS FOR ═══════════════════════════════════════════════ */}
+  <section class="section bg-soft">
+    <div class="container container-narrow">
+      <span class="eyebrow">Right for</span>
+      <h2>Organisations whose work is bigger than their current images suggest.</h2>
+      <div class="body-stack">
+        <p>
+          Small and mid-size non-profits, community organisations, advocacy groups,
+          educational programmes, foundations, cultural institutions. If you're doing work
+          that matters to a specific community — and you're trying to find ways to talk
+          about it to people outside that community, whether that's donors, funders, new
+          volunteers, or the wider public — this is the kind of work I do.
+        </p>
+        <p>
+          I've spent a long time in the world of communications and brand strategy. I know
+          the particular bind non-profits are in: you need to speak authentically to your
+          community and convincingly to people who write cheques, often in the same sentence.
+          Getting that right takes care about what you're making and why — not just good
+          images, but the right ones.
+        </p>
+        <p>
+          I'm particularly interested in working with LGBTQIA+ organisations, BIPOC-led
+          groups, and those supporting refugees and people in need. The work often matters
+          enormously and the visual presence doesn't reflect it. 
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ THE BRANDING SESSION ══════════════════════════════════════════ */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Sessions &amp; Pricing</span>
+      <h2>The branding session.</h2>
+      <div class="session-layout">
+        <div class="session-body">
+          <p>
+            The branding session starts at $500. Before I pick up a camera, we'll spend
+            proper time talking — I want to understand your mission, your audiences, and
+            what you're actually trying to say. That conversation shapes everything that
+            comes after.
+          </p>
+          <p>
+            From there, we work out what the session needs to cover: studio time for merch
+            and brand materials, on-location work at your event or in your space, portraits
+            of specific people, or some combination. Travel is included within 30 miles of
+            Lafayette, Indiana or Urbana-Champaign, Illinois — Indianapolis adds $100,
+            Chicago adds $200.
+          </p>
+          <p>
+            If you need brand and communications work alongside the photography — a style
+            guide, voice and tone, web copy, donor communications — that's scoped
+            separately. Get in touch and we'll talk through what makes sense.
+          </p>
+        </div>
+
+        <div class="pricing-card featured session-card">
+          <div>
+            <h6>Non-Profit Branding Session</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-4);">
+              <span>From $</span>500
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li>Extended brand and mission consultation</li>
+            <li>Studio or on-location (or a mix of both)</li>
+            <li>Portraits, environmental, and merch/branding photography</li>
+            <li>High-resolution digital delivery</li>
+            <li>Editing always included</li>
+            <li>Indianapolis: +$100 &nbsp;|&nbsp; Chicago: +$200</li>
+          </ul>
+          <div class="pricing-footer">
+            <a href={route('contact/?session=nonprofit-branding')} class="btn btn-primary">
+              Book a branding session
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
+  <CTABand
+    eyebrow="Get in touch"
+    heading="Tell me about your organisation."
+    body="What you do, who you're trying to reach, what your current images look like and what you wish they looked like instead. We'll figure out the rest from there."
+    primaryHref={route('contact/')}
+    primaryLabel="Get in touch"
+    secondaryHref={route('sessions/')}
+    secondaryLabel="See sessions & pricing"
+  />
+
+</BaseLayout>
+
+<style>
+  /* Approach split */
+  .approach-split {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: var(--space-10);
+    align-items: start;
+  }
+  .approach-split .stack p { margin-top: var(--space-5); }
+  .approach-split .stack p:first-child { margin-top: 0; }
+  .approach-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    position: relative;
+    position: sticky;
+    top: var(--space-8);
+  }
+  .approach-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* Narrow content sections */
+  .container-narrow { max-width: 72ch; }
+  .body-stack p { margin-top: var(--space-5); }
+  .body-stack p:first-child { margin-top: var(--space-6); }
+
+  /* Photo strip */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    width: 100%;
+  }
+  .strip-item {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    position: relative;
+  }
+  .strip-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* Branding session layout */
+  .session-layout {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: var(--space-10);
+    align-items: start;
+    margin-top: var(--space-6);
+  }
+  .session-body p { margin-top: var(--space-5); }
+  .session-body p:first-child { margin-top: 0; }
+  .session-card { position: sticky; top: var(--space-8); }
+
+  @media (max-width: 768px) {
+    .approach-split {
+      grid-template-columns: 1fr;
+    }
+    .approach-image {
+      aspect-ratio: 4 / 3;
+      order: -1;
+      position: static;
+    }
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .photo-strip .strip-item:last-child { display: none; }
+    .session-layout {
+      grid-template-columns: 1fr;
+    }
+    .session-card { position: static; }
+  }
+</style>

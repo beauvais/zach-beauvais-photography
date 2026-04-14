@@ -40,7 +40,11 @@ golden hour, cornfields, soft focus, saying: "Cheese!" (Or
 maybe sometimes: "CORN!") It can be beautiful and many
 photographers excel at making these portraits.
 
-I'm not one of those.
+I'm not one of those. My photography background is in portrait
+work, nature, and street photography — alongside about twenty
+years in marketing and brand content strategy. I've learned to
+capture what makes something its own: its story, context, culture
+and purpose.
 
 I work with people to find something deeply personal and
 intentional. I can make images for professional or personal brands,
@@ -50,7 +54,7 @@ is made when someone is exploring just for themself.
 We start with exploration, and work towards expression.
 ```
 
-> **Notes:** "I'm not one of those" is the best line on this page. The CORN! parenthetical earns it — it's specific, wry, honest about what it's poking at, and not mean. The paragraph break before the punch line is intentional. Resist any urge to soften this section.
+> **Notes:** "I'm not one of those" is the best line on this page. The CORN! parenthetical earns it — it's specific, wry, honest about what it's poking at, and not mean. The paragraph break *before* the punch line is intentional — the continuation after it is fine. The strategy background and "capture what makes something its own" lines come from the nonprofit branding page, generalised. Resist any urge to soften this section.
 > The dancer image was chosen deliberately — non-traditional, striking, not a conventional portrait. It shows the range without explaining it.
 
 ---
@@ -69,9 +73,11 @@ exploring how they want to be seen; a couple or family making something
 true about who they actually are. Queer families, blended families,
 people who've never found a photographer who saw them right — these
 are exactly the stories I want to tell.
+
+The result is something specific, a bit unexpected, and expressively yours.
 ```
 
-> **Notes:** "the stories I want to tell" is important — it signals genuine interest, not just tolerance. The list of use-cases (professional profiles, social media, modeling portfolio) comes first, which reassures more cautious visitors before the more personal pitch. That order is deliberate.
+> **Notes:** "the stories I want to tell" is important — it signals genuine interest, not just tolerance. The list of use-cases (professional profiles, social media, modeling portfolio) comes first, which reassures more cautious visitors before the more personal pitch. That order is deliberate. The closing line ("specific, a bit unexpected, and expressively yours") comes from the nonprofit branding page — it brings the section back to what you *get*, after the motivation paragraph.
 
 ---
 
