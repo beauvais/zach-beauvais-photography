@@ -31,12 +31,12 @@ Portrait photographer. Based in Lafayette, IN and Urbana-Champaign, IL.
 
 ```
 I learned to shoot on my dad's Minolta — a 35mm film SLR he'd had since before I was born.
-I photographed mountains, desert, flowers, wildlife. Things that are entirely themselves
+I photographed Colorado mountains, desert, flowers, wildlife. Things that are entirely themselves
 and don't perform for the camera.
 
 I kept taking photos, grateful that I'd learned on film but excited by the flexibility of
-digital. I made photos of nature, then explored street photography by finding 
-interesting frames and pools of light. At some point, I realised I'd been making
+digital. I made photos of nature, and relished street photography by finding 
+interesting, people, frames, and pools of light. At some point, I realised I'd been making
 portraits all along – portraits of flowers and hills, trees and occasionally sheep.
 
 Working with people followed naturally. And I bring a background in marketing,
