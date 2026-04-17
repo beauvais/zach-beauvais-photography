@@ -31,7 +31,7 @@ const landscapePreview = landscapeImages.slice(0, 3);
   ══════════════════════════════════════════════════════════════════ */}
   <section class="section bg-strong">
     <div class="container">
-      <div class="worth-knowing-split">
+      <div class="portrait-split">
         <div class="stack">
           <span class="eyebrow">I'm not from round here...</span>
           <h2>Not every photographer will tell your story.</h2>
@@ -56,13 +56,14 @@ const landscapePreview = landscapeImages.slice(0, 3);
           </p>
           <p>We start with exploration, and work towards expression.</p>
         </div>
-        <div class="worth-knowing-image">
+        <div class="split-image worth-knowing-image">
           <img
             src={asset(portraitImages[18].src)}
             alt={portraitImages[18].alt}
             width={portraitImages[18].width}
             height={portraitImages[18].height}
             loading="lazy"
+            style="object-position: center top"
           />
         </div>
       </div>
@@ -172,29 +173,18 @@ const landscapePreview = landscapeImages.slice(0, 3);
 </BaseLayout>
 
 <style>
-  .worth-knowing-split {
-    display: grid;
-    grid-template-columns: 1fr 0.85fr;
-    gap: var(--space-10);
-    align-items: center;
-  }
-  .worth-knowing-split p { margin-top: var(--space-4); }
+  /* Typographic punch line — page-specific weight */
   .prose-punch {
     font-size: var(--text-xl);
     font-weight: 600;
   }
-  .worth-knowing-image {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    aspect-ratio: 3 / 4;
-  }
-  .worth-knowing-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
+
+  /* On mobile, float the dancer image above the text block */
+  @media (max-width: 960px) {
+    .worth-knowing-image { order: -1; aspect-ratio: 4 / 3; }
   }
 
+  /* Landscape preview strip — used only on this page */
   .landscape-preview {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -213,15 +203,8 @@ const landscapePreview = landscapeImages.slice(0, 3);
     display: block;
   }
 
-  @media (max-width: 768px) {
-    .worth-knowing-split {
-      grid-template-columns: 1fr;
-    }
-    .worth-knowing-image {
-      aspect-ratio: 4 / 3;
-      order: -1;
-    }
+  @media (max-width: 960px) {
     .landscape-preview { grid-template-columns: 1fr 1fr; }
-    .landscape-preview img:last-child { display: none; }
+    .landscape-preview .lp-item:last-child { display: none; }
   }
 </style>

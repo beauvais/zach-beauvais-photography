@@ -29,11 +29,11 @@ import { site, pricing } from '../content/data';
   ══════════════════════════════════════════════════════════════════ */}
   <section class="section">
     <div class="container">
-      <div class="about-split">
-        <div class="about-image">
+      <div class="portrait-split">
+        <div class="split-image about-image">
           <img src={asset('zach_beauvais-photographer.jpg')} alt="Zach Beauvais — photographer" width="3825" height="4781" loading="lazy" />
         </div>
-        <div class="about-bio stack">
+        <div class="stack">
           <h2>From the outdoors in</h2>
           <p>
             I learned to shoot on my dad's Minolta — a 35mm film SLR he'd had since before I was born.
@@ -149,22 +149,15 @@ import { site, pricing } from '../content/data';
 </BaseLayout>
 
 <style>
-  .about-split {
-    display: grid;
-    grid-template-columns: 0.85fr 1fr;
-    gap: var(--space-10);
-    align-items: start;
-  }
-  .about-image { position: sticky; top: 6rem; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 5; }
-  .about-image img { width: 100%; height: 100%; object-fit: cover; }
-  .about-bio { padding-top: var(--space-3); }
+  /* Sticky image — behaviour specific to this page's long bio layout */
+  .about-image { position: sticky; top: 6rem; }
 
+  /* Abstract trio — used only on this page */
   .abstract-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
   .abstract-trio-item { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-lg); }
   .abstract-trio-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  @media (max-width: 768px) {
-    .about-split { grid-template-columns: 1fr; }
+  @media (max-width: 960px) {
     .about-image { position: static; aspect-ratio: 16 / 9; }
     .abstract-trio { grid-template-columns: 1fr 1fr; }
     .abstract-trio-item:last-child { display: none; }
