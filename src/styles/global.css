@@ -596,6 +596,15 @@ p + p {
   align-items: center;
 }
 
+/* Portrait split: slightly wider gap, top-aligned for longer text columns.
+   Used on about.astro and how-i-work.astro. */
+.portrait-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+
 .split-image {
   position: relative;
   overflow: hidden;
@@ -849,7 +858,8 @@ p + p {
     grid-template-columns: 1fr;
   }
 
-  .split {
+  .split,
+  .portrait-split {
     grid-template-columns: 1fr;
   }
 
