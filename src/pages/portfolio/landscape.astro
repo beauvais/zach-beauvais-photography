@@ -121,8 +121,7 @@ import { landscapeImages, portraitImages } from '../../content/data';
 </BaseLayout>
 
 <style>
-  .gallery-container { padding-inline: 2px; }
-  .portfolio-nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  /* Landscape hero layout — unique to this page */
   .landscape-hero { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-items: stretch; }
   .landscape-hero-wide { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 4; }
   .landscape-hero-wide img { width: 100%; height: 100%; object-fit: cover; }
@@ -130,9 +129,9 @@ import { landscapeImages, portraitImages } from '../../content/data';
   .lh-pair-item { flex: 1; min-height: 0; overflow: hidden; border-radius: var(--radius-lg); }
   .lh-pair-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
     .landscape-hero { grid-template-columns: 1fr; }
-    .landscape-hero-wide { aspect-ratio: 16/9; }
+    .landscape-hero-wide { aspect-ratio: 16 / 9; }
     .landscape-hero-pair { flex-direction: row; }
     .lh-pair-item { aspect-ratio: 1; }
   }
