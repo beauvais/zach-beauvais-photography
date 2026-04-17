@@ -67,7 +67,7 @@ I come from nature, street, and abstract photography — work built through
 patience and attention rather than control. In a session, we're co-creating;
 I'm not directing. We talk before the camera comes out. We find a
 location that means something. We're making art shaped by your personality,
-not shaping your image to match a portrait ideal.
+and your story; we're not shaping your image to match a portrait ideal.
 ```
 
 ---

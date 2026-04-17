@@ -30,17 +30,19 @@ in nature and street photography. Here's what that means in practice.
 
 ## SECTION: NOT EVERY PHOTOGRAPHER
 
-**Eyebrow:** `Worth knowing`
-**H2:** `Not every photographer is right for every person`
+**Eyebrow:** `I'm not from round here...`
+**H2:** `Not every photographer will tell your story.`
 **Image:** `portrait/portrait_dancing.jpg` — dancer, dark stage background. Split layout: text left, image right. Image bleeds into `bg-strong` section intentionally.
 
 ```
 There's a particularly Midwest kind of portrait photography:
 golden hour, cornfields, soft focus, saying: "Cheese!" (Or
-maybe sometimes: "CORN!") It can be beautiful and many
+maybe sometimes: "TRACTOR!") It can be beautiful and many
 photographers excel at making these portraits.
 
-I'm not one of those. My photography background is in portrait
+I'm not one of those. 
+
+My photography background is in portrait
 work, nature, and street photography — alongside about twenty
 years in marketing and brand content strategy. I've learned to
 capture what makes something its own: its story, context, culture
@@ -61,8 +63,8 @@ We start with exploration, and work towards expression.
 
 ## SECTION: FOR YOUR BRAND, FAMILY, OR JUST YOURSELF
 
-**Eyebrow:** `What sessions are for`
-**H2:** `For your brand, your family, or just yourself`
+**Eyebrow:** `What portraits are for`
+**H2:** `We'll work for your brand, your family, or just yourself`.
 
 ```
 Practically, these sessions produce work you can use — faculty pages,
@@ -78,6 +80,21 @@ The result is something specific, a bit unexpected, and expressively yours.
 ```
 
 > **Notes:** "the stories I want to tell" is important — it signals genuine interest, not just tolerance. The list of use-cases (professional profiles, social media, modeling portfolio) comes first, which reassures more cautious visitors before the more personal pitch. That order is deliberate. The closing line ("specific, a bit unexpected, and expressively yours") comes from the nonprofit branding page — it brings the section back to what you *get*, after the motivation paragraph.
+
+---
+
+## OPEN TO EXPLORING
+
+**Euebrow:** Open to more
+**H2:** I'm exploring, too.
+
+If you've got  something on your mind  – even the very stub of an artistic idea – 
+let's talk. I'm open to experiment and work on translating imagination into imagery.
+
+Costume, location, style... we can collaborate on an artistic project and help get
+your concepts down onto paper (or up on a screen). I'm especially interested in
+working with fashion designers, makeup artists, and artists who want to bring 
+photography into the mix. 
 
 ---
 
