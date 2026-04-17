@@ -22,7 +22,7 @@ made with you, not for you.
 ## HERO SUBHEAD
 ```
 I work with you to make something genuinely yours. My portrait photography
-is shaped by nature, street, and abstract photography — it's more about creating
+is informed by nature, street, and abstract photography — it's more about creating
 than recording. Personality over presentation.
 
 Lafayette, IN · Urbana-Champaign, IL · Sessions from $350.
