@@ -85,16 +85,21 @@ The result is something specific, a bit unexpected, and expressively yours.
 
 ## OPEN TO EXPLORING
 
-**Euebrow:** Open to more
-**H2:** I'm exploring, too.
+**Eyebrow:** `Open to more`
+**H2:** `I'm exploring, too.`
+**Image:** `film/IMG_0990.JPG` — film photograph, Minolta 35mm. Split layout: image left, text right.
 
-If you've got  something on your mind  – even the very stub of an artistic idea – 
+```
+If you've got something on your mind — even the very stub of an artistic idea —
 let's talk. I'm open to experiment and work on translating imagination into imagery.
 
 Costume, location, style... we can collaborate on an artistic project and help get
 your concepts down onto paper (or up on a screen). I'm especially interested in
-working with fashion designers, makeup artists, and artists who want to bring 
-photography into the mix. 
+working with fashion designers, makeup artists, and artists who want to bring
+photography into the mix.
+```
+
+> **Notes:** The eyebrow "Open to more" signals openness without overpromising. The H2 mirrors the personal register of the rest of the page — it positions this as a genuine invitation rather than a service listing. The film image is deliberate: it references process and experimentation, distinct from the digital portrait work shown elsewhere.
 
 ---
 
