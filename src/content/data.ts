@@ -88,7 +88,7 @@ export const landscapeImages = [
   { src: 'nature/tree-light-vignette.jpg',alt: 'Tree in light — nature study',                     width: 2000, height: 1330 },
   { src: 'street/street-light-pool.jpg',  alt: 'Street photography — light and shadow',            width: 2000, height: 1600 },
   { src: 'street/cafe-shot.jpg',          alt: 'Street photography — cafe scene',                  width: 1500, height: 2000 },
-  { src: 'film/IMG_0990.JPG',             alt: 'Film photograph — Minolta 35mm',                   width: 1418, height: 2108 },
+  { src: 'film/IMG_0990.JPG',             alt: 'Film photograph — Abstract composite from Minolta 35mm',                   width: 1418, height: 2108 },
 ];
 
 // The combined gallery (portraits first, then landscape).
@@ -106,7 +106,7 @@ export const pricing = {
     price:       350,
     hours:       1,
     photos:      5,
-    description: 'A focused, one-hour session ideal for individuals, professional images, personal brands, or portrait gifts.',
+    description: 'Editing included. A focused, one-hour session ideal for individuals, professional images, personal brands, or portrait gifts.',
     features: [
       'One hour at a single location',
       '5 professionally edited portraits',
@@ -120,7 +120,7 @@ export const pricing = {
     price:       750,
     hours:       3,
     photos:      20,
-    description: 'Three hours gives us time to explore, relax, and find the images that really work — ideal for couples, families and creatives.',
+    description: 'Editing Included. Three hours gives us time to explore, relax, and find the images that really work — ideal for couples, families and creatives.',
     features: [
       'Three hours at a single location',
       '20 professionally edited portraits',

@@ -135,7 +135,7 @@ Somewhere not listed? Get in touch.
 
 **H5:** `A pre-session conversation`
 ```
-Before we shoot, we talk. What are you looking for? What setting feels right?
+Before we get out the camera, we talk. What are you looking for? What setting feels right?
 What do you want these portraits to do for you? That conversation shapes everything.
 ```
 
