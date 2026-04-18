@@ -110,23 +110,18 @@ Available in Indianapolis (+$100) and Chicago (+$200).
 > **Status:** Filler — replace with real client quotes when available.
 > Edit quotes directly in `src/components/sections/Testimonials.astro`.
 
-Current filler quotes (keep this style: specific, not gushing):
-
 ```
-"I had such a great time shooting with Zach he provided a comfortable environment and we were able to collaborate on the creative process of the photos! Super happy with how the pictures came out!"
+"I had such a great time shooting with Zach. He provided a comfortable environment and we were able to collaborate on the creative process of the photos. Super happy with how the pictures came out!"
 — Lydia, Personal session
 
-"I needed something for my website that didn't look like a LinkedIn headshot.
-We got that, and then some."
-— D.R., Brand session
+"Zach really helped me shine. It was comfortable, casual, and professional. He's the kind of photographer I'd want to work with over and over."
+— Alex, Non-profit branding session
 
-"We'd never had a family shoot that felt like us. Every other one felt like we
-were impersonating a family. This one didn't."
-— T. & J., Family session
+"Working with Zach was fun and easy. I generally hate photos of myself but i did actually really like a couple of the ones he took of me! And he did help make it a bit less scary by being so nice!!"
+— Kitty, Artistic exploration
 
-"I came in not knowing exactly what I wanted, which turned out to be exactly
-the right condition. Zach figured out something I hadn't."
-— A.W., Personal session
+"Had an awesome experience shooting with Zach and the photos came out amazing!"
+— Elle, Personal session
 ```
 
 **Voice notes for real testimonials:** Ask clients for something specific — what surprised them, what they expected vs. got, what the image does that others haven't. Avoid quotes that could apply to any photographer.
