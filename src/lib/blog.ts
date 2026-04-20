@@ -10,8 +10,8 @@ export function parsePostId(entry: CollectionEntry<'blog'>): { year: string; mon
   // Extract month from YYYY-MM-DD- prefix
   const monthMatch = filename.match(/^\d{4}-(\d{2})-\d{2}-/);
   const month = monthMatch ? monthMatch[1] : '01';
-  // Strip YYYY-MM-DD- prefix to get the URL slug
-  const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  // Strip YYYY-MM-DD- prefix and file extension to get the URL slug
+  const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.[^.]+$/, '');
   return { year, month, slug };
 }
 
