@@ -1,21 +1,24 @@
 import type { CollectionEntry } from 'astro:content';
 
-/** Parse year and URL slug from a blog collection entry's id.
+/** Parse year, month, and URL slug from a blog collection entry's id.
  *  Entry ids look like: "2020/2020-03-30-pandemic-notes-..."
  */
-export function parsePostId(entry: CollectionEntry<'blog'>): { year: string; slug: string } {
+export function parsePostId(entry: CollectionEntry<'blog'>): { year: string; month: string; slug: string } {
   const parts = entry.id.split('/');
   const year = parts[0];
   const filename = parts[1] ?? parts[0];
+  // Extract month from YYYY-MM-DD- prefix
+  const monthMatch = filename.match(/^\d{4}-(\d{2})-\d{2}-/);
+  const month = monthMatch ? monthMatch[1] : '01';
   // Strip YYYY-MM-DD- prefix to get the URL slug
   const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
-  return { year, slug };
+  return { year, month, slug };
 }
 
-/** Canonical URL for a blog post */
+/** Canonical URL for a blog post — matches WordPress URL structure */
 export function postUrl(entry: CollectionEntry<'blog'>): string {
-  const { year, slug } = parsePostId(entry);
-  return `/blog/${year}/${slug}`;
+  const { year, month, slug } = parsePostId(entry);
+  return `/${year}/${month}/${slug}/`;
 }
 
 /** URL for a blog post's cover image */

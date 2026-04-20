@@ -8,7 +8,7 @@ export async function getStaticPaths() {
   const sorted = sortByDate(allPosts);
 
   return sorted.map((post, index) => {
-    const { year, slug } = parsePostId(post);
+    const { year, month, slug } = parsePostId(post);
     const prev = sorted[index + 1] ?? null; // older post
     const next = sorted[index - 1] ?? null; // newer post
 
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
       .slice(0, 3);
 
     return {
-      params: { year, slug },
+      params: { year, month, slug },
       props: { post, prev, next, similar },
     };
   });
@@ -120,14 +120,14 @@ const ogImage = imgSrc ?? '/portrait/portrait-01.jpg';
           <h6 class="blog-nav-label">Read next</h6>
           <div class="blog-nav-posts">
             {prevInfo && (
-              <a href={`/blog/${prevInfo.year}/${prevInfo.slug}`} class="blog-nav-post blog-nav-post--prev">
+              <a href={`/${prevInfo.year}/${prevInfo.month}/${prevInfo.slug}/`} class="blog-nav-post blog-nav-post--prev">
                 <span class="blog-nav-direction">← Older</span>
                 <span class="blog-nav-title">{prevInfo.post.data.title}</span>
                 <span class="blog-nav-date">{formatDate(prevInfo.post.data.date)}</span>
               </a>
             )}
             {nextInfo && (
-              <a href={`/blog/${nextInfo.year}/${nextInfo.slug}`} class="blog-nav-post blog-nav-post--next">
+              <a href={`/${nextInfo.year}/${nextInfo.month}/${nextInfo.slug}/`} class="blog-nav-post blog-nav-post--next">
                 <span class="blog-nav-direction">Newer →</span>
                 <span class="blog-nav-title">{nextInfo.post.data.title}</span>
                 <span class="blog-nav-date">{formatDate(nextInfo.post.data.date)}</span>
@@ -145,10 +145,10 @@ const ogImage = imgSrc ?? '/portrait/portrait-01.jpg';
           <h6 class="blog-similar-label">Read similar</h6>
           <div class="blog-similar-grid">
             {similar.map(p => {
-              const { year: sy, slug: ss } = parsePostId(p);
+              const { year: sy, month: sm, slug: ss } = parsePostId(p);
               const pImg = coverImageUrl(p);
               return (
-                <a href={`/blog/${sy}/${ss}`} class="blog-similar-card">
+                <a href={`/${sy}/${sm}/${ss}/`} class="blog-similar-card">
                   {pImg && (
                     <div class="blog-similar-img-wrap">
                       <img src={pImg} alt="" class="blog-similar-img" loading="lazy" />

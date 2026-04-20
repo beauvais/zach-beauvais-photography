@@ -73,11 +73,11 @@ const allTags = Object.entries(tagCount).sort((a, b) => b[1] - a[1]);
         <main class="blog-main">
           <div class="blog-post-list">
             {posts.map(post => {
-              const { year, slug } = parsePostId(post);
+              const { year, month, slug } = parsePostId(post);
               const imgSrc = coverImageUrl(post) ?? textureFallback(post.id);
               return (
                 <article class="blog-card">
-                  <a href={`/blog/${year}/${slug}`} class="blog-card-image-wrap" aria-hidden="true" tabindex="-1">
+                  <a href={`/${year}/${month}/${slug}/`} class="blog-card-image-wrap" aria-hidden="true" tabindex="-1">
                     <img src={imgSrc} alt="" class="blog-card-image" loading="lazy" />
                   </a>
                   <div class="blog-card-body">
@@ -97,7 +97,7 @@ const allTags = Object.entries(tagCount).sort((a, b) => b[1] - a[1]);
                       </span>
                     </div>
                     <h3 class="blog-card-title">
-                      <a href={`/blog/${year}/${slug}`}>{post.data.title}</a>
+                      <a href={`/${year}/${month}/${slug}/`}>{post.data.title}</a>
                     </h3>
                   </div>
                 </article>
