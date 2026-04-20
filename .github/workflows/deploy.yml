@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Monthly rebuild on the 1st at 06:00 UTC (~01:00/02:00 local in Indiana).
+  # Keeps build-time features (e.g. the availability widget in contact.astro)
+  # rolling forward without requiring a code push.
+  schedule:
+    - cron: '0 6 1 * *'
 
 permissions:
   contents: read

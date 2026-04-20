@@ -97,10 +97,14 @@ Indianapolis +$100 · Chicago +$200
 
 **Availability signal** (between "Based in" and "Good to know"):
 ```
-● Currently booking May & June sessions
+● Currently booking [next month] & [month after] sessions
 ```
 
-> **Update this manually each month.** Examples: "Currently booking May and June", "Booking from September onwards", "A few dates open this month." The green dot (`.availability-dot`) renders in the component — just update the text string in `contact.astro`.
+> **Auto-computed at build time** from the deploy date. The template is `Currently booking [next month] & [month after] sessions` — e.g. on April 17, 2026, it renders as "Currently booking May & June sessions". This matches typical portrait booking lead times (4–8 weeks out).
+>
+> **To override manually** (holiday, waitlist, fully booked, "Booking from September onwards"): set `manualAvailability` at the top of `contact.astro` to a non-empty string. Remember to clear it again afterwards.
+>
+> **The string only updates when the site rebuilds.** If the site goes months without a deploy, the widget will go stale. To keep it rolling without manual pushes, set up a scheduled rebuild on the host (Cloudflare Pages / Netlify / Vercel all support monthly cron triggers).
 
 ---
 
