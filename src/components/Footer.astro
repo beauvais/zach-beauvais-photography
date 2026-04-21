@@ -69,7 +69,10 @@ const year = new Date().getFullYear();
 
   <div class="footer-bottom container">
     <p class="muted">&copy; {year} Zach Beauvais. All rights reserved.</p>
-    <a href={route('privacy/')} class="muted privacy-link">Privacy Policy</a>
+    <div class="footer-legal-links">
+      <a href={route('privacy/')} class="muted privacy-link">Privacy Policy</a>
+      <a href={route('cookies/')} class="muted privacy-link">Cookie Policy</a>
+    </div>
   </div>
 </footer>
 
@@ -192,6 +195,11 @@ const year = new Date().getFullYear();
     transition: color var(--transition);
   }
   .privacy-link:hover { color: var(--color-fg); }
+
+  .footer-legal-links {
+    display: flex;
+    gap: var(--space-5);
+  }
 
   @media (max-width: 900px) {
     .footer-links { grid-template-columns: 1fr 1fr; }
