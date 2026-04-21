@@ -170,7 +170,7 @@ const schema = JSON.stringify({
             <li>Chicago travel included</li>
           </ul>
           <div class="pricing-footer">
-            <a href={route('contact/?session=essential&location=chicago')} class="btn btn-outline">
+            <a href={route('contact/?session_type=essential&location=chicago')} class="btn btn-outline">
               Book the {pricing.essential.name.toLowerCase()}
             </a>
           </div>
@@ -196,7 +196,7 @@ const schema = JSON.stringify({
             <li>Chicago travel included</li>
           </ul>
           <div class="pricing-footer">
-            <a href={route('contact/?session=extended&location=chicago')} class="btn btn-primary">
+            <a href={route('contact/?session_type=exploration&location=chicago')} class="btn btn-primary">
               Book the {pricing.extended.name.toLowerCase()}
             </a>
           </div>
@@ -206,7 +206,7 @@ const schema = JSON.stringify({
 
       <p class="bespoke-note">
         Need something bigger — multiple locations, ongoing brand work, a larger selection?
-        <a href={route('contact/?session=bespoke')}>Get in touch</a> and we'll figure out the right scope.
+        <a href={route('contact/?session_type=bespoke')}>Get in touch</a> and we'll figure out the right scope.
       </p>
     </div>
   </section>
