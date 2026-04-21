@@ -121,7 +121,7 @@ const faqSchema = JSON.stringify({
             {pricing.essential.features.map(f => <li>{f}</li>)}
           </ul>
           <div class="pricing-footer">
-            <a href={route('contact/?session=essential')} class="btn btn-outline">
+            <a href={route('contact/?session_type=essential')} class="btn btn-outline">
               Book the {pricing.essential.name.toLowerCase()}
             </a>
           </div>
@@ -141,7 +141,7 @@ const faqSchema = JSON.stringify({
             {pricing.extended.features.map(f => <li>{f}</li>)}
           </ul>
           <div class="pricing-footer">
-            <a href={route('contact/?session=extended')} class="btn btn-primary">
+            <a href={route('contact/?session_type=exploration')} class="btn btn-primary">
               Book the {pricing.extended.name.toLowerCase()}
             </a>
           </div>
@@ -167,7 +167,7 @@ const faqSchema = JSON.stringify({
           </div>
           <div class="bespoke-action">
             <p class="muted" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">Scoped to your brief</p>
-            <a href={route('contact/?session=bespoke')} class="btn btn-outline">
+            <a href={route('contact/?session_type=bespoke')} class="btn btn-outline">
               Tell me what you need
             </a>
           </div>

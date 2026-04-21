@@ -195,7 +195,7 @@ const localBusinessSchema = JSON.stringify({
             {pricing.essential.features.map(f => <li>{f}</li>)}
           </ul>
           <div class="pricing-footer">
-            <a href={route('contact/')} class="btn btn-outline">Book this session</a>
+            <a href={route('contact/?session_type=essential')} class="btn btn-outline">Book this session</a>
           </div>
         </div>
         <div class="pricing-card featured">
@@ -209,7 +209,7 @@ const localBusinessSchema = JSON.stringify({
             {pricing.extended.features.map(f => <li>{f}</li>)}
           </ul>
           <div class="pricing-footer">
-            <a href={route('contact/')} class="btn btn-primary">Book this session</a>
+            <a href={route('contact/?session_type=exploration')} class="btn btn-primary">Book this session</a>
           </div>
         </div>
       </div>
