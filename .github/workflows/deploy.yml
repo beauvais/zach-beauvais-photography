@@ -4,26 +4,37 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  # Monthly rebuild on the 1st at 06:00 UTC (~01:00/02:00 local in Indiana).
-  # Keeps build-time features (e.g. the availability widget in contact.astro)
-  # rolling forward without requiring a code push.
-  schedule:
-    - cron: '0 6 1 * *'
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install, build, and upload site
-        uses: withastro/action@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          PUBLIC_GA_MEASUREMENT_ID: ${{ vars.PUBLIC_GA_MEASUREMENT_ID }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
 
   deploy:
     needs: build
