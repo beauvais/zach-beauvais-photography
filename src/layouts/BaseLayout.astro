@@ -4,6 +4,8 @@ import Footer from '../components/Footer.astro';
 import { site } from '../content/data';
 import '../styles/global.css';
 
+const GA_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+
 interface Props {
   title: string;
   description?: string;
@@ -55,6 +57,19 @@ const ogImageURL = new URL(ogImage, Astro.site);
 
     <!-- Structured data (optional, passed per-page) -->
     {schema && <script type="application/ld+json" set:html={schema} />}
+
+    <!-- Google Analytics -->
+    {GA_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+        <script is:inline define:vars={{ GA_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+        </script>
+      </>
+    )}
   </head>
   <body>
     <Header />
