@@ -4,11 +4,26 @@ import CTABand from '../components/sections/CTABand.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 import { asset, route } from '../lib/paths';
 import { site, pricing } from '../content/data';
+
+const personSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": site.name,
+  "jobTitle": "Portrait Photographer",
+  "worksFor": {
+    "@type": "LocalBusiness",
+    "name": site.title,
+    "url": Astro.site?.toString()
+  },
+  "url": new URL('/about', Astro.site).toString(),
+  "sameAs": [site.instagramUrl]
+});
 ---
 
 <BaseLayout
   title="About"
   description={`${site.name} is a portrait photographer based in Lafayette, IN and Urbana-Champaign, IL. A background in nature and abstract photography shapes an observational, collaborative approach to portrait work.`}
+  schema={personSchema}
 >
 
   {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
