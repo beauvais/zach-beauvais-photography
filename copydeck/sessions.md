@@ -19,14 +19,14 @@ Portrait sessions in Lafayette, IN from $350. Collaborative, edited, and deliver
 ## PAGE HEADER
 
 **Eyebrow:** `Sessions & Pricing`
-**H1:** `Two sessions, or something else entirely.`
+**H1:** `Sessions, pricing, and what you get.`
 **Lead:**
 ```
-Two formats with editing included — good for most briefs. If yours is bigger
-or different, there's a third option: get in touch and we'll scope it together.
+Two formats — editing and delivery both included. If neither fits what you
+need, there's a bespoke option: tell me what you're after and we'll work it out.
 ```
 
-> **Notes:** The H1 period after "entirely" is intentional — it's a full stop that reads confident, not precious. The lead sets up the bespoke option early so visitors with unusual briefs don't have to dig. Keep this structure.
+> **Notes:** H1 is intentionally plain — it tells the visitor exactly what the page delivers without trying to be clever. The lead surfaces bespoke early so visitors with unusual briefs don't have to dig. "tell me what you're after" mirrors the bespoke card CTA for consistency.
 
 ---
 
@@ -135,7 +135,7 @@ Somewhere not listed? Get in touch.
 
 **H5:** `A pre-session conversation`
 ```
-Before we get out the camera, we talk. What are you looking for? What setting feels right?
+Before we start, we talk. What are you looking for? What setting feels right?
 What do you want these portraits to do for you? That conversation shapes everything.
 ```
 
@@ -168,9 +168,12 @@ need images that look like the real thing, not a stock-photo version of it.
 
 **H5:** `Usage rights`
 ```
-All delivered images are yours — personal use, commercial use, print, web,
-whatever you need.
+Use the delivered images however you like — social media, print, branding,
+your website. I retain copyright, as any photographer would, so the one thing
+you can't do is sell them as your own work.
 ```
+
+> **Notes:** "All delivered images are yours" was wrong — it implied copyright transfer. This is a licence. The framing leads with what they *can* do (everything practical they'd want), then names the one restriction plainly. Don't soften "I retain copyright" — it's accurate and clients who understand how photography works will expect it.
 
 > **Notes:** "This isn't a limitation, it's a choice" is the strongest copy in this section. It preemptively defuses the objection before the visitor forms it. "Not a stock-photo version of it" is good for brands — it names what they're trying to avoid. Keep both.
 
@@ -253,10 +256,10 @@ conversation than have you pick a box that doesn't fit.
 ## CTA BAND
 
 **Eyebrow:** `Book a session`
-**Heading:** `Not sure which session?`
+**Heading:** `Let's work out what fits.`
 **Body:**
 ```
-Get in touch and we'll figure out what fits.
+Tell me what you're after — we'll go from there.
 ```
 
 **Primary CTA:** `Get in touch`

@@ -92,13 +92,22 @@ Landscape & abstract work  (btn-ghost → /portfolio/landscape/)
 
 ## SECTION: PRICING
 **Eyebrow:** `Sessions & pricing`
-**Heading:** `Two options. No surprises.`
+**Heading:** `Starting points. No surprises.`
 
 ```
-Editing is included. Delivery is included. The price you see is what you pay.
+Two formats work well for most briefs — editing and delivery always included.
+Something different in mind? There's a bespoke option too.
 ```
 
 **Session cards:** *(populated from data.ts)*
+
+**Bespoke card:**
+- H6: `Something more`
+- Subline: `Scoped to your brief` (italic, muted)
+- Body: `Multiple locations, extended editing, ongoing brand work — if your brief doesn't fit either format, get in touch and we'll figure out the right scope together.`
+- CTA: `Tell me what you need` → `/contact/?session_type=bespoke`
+
+> **Notes:** The bespoke card uses a dashed border and transparent background to distinguish it from the fixed-price cards. The two standard options are framed as starting points, not a fixed menu. Bespoke is for anything that doesn't fit — multi-location, larger edits, ongoing brand work. Don't describe it as a "third option" or give it a price — it's explicitly scoped on request.
 
 **Travel note:**
 ```
