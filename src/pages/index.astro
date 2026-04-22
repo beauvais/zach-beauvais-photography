@@ -8,17 +8,30 @@ import { portraitImages, pricing, site } from '../content/data';
 // Hero image
 const heroImage = portraitImages[0];
 
-// Photo strip above approach — 5 portraits, Dancer-arms-wide-dark-stage moved to approach section
+// Photo strip above approach — 6 portraits (3 columns × 2 rows)
+// Col1: [9],[12]  Col2: [10],[13]  Col3: [14],[1]
+// [1] man-daisy-cap is portrait/tall — balances col3 against two landscape images above
 const stripImages = [
-  portraitImages[9],  // woman-chair-studio
-  portraitImages[10], // two-people-studio
-  portraitImages[14], // woman-curly-window — centre slot
-  portraitImages[12], // woman-window-bw-2
-  portraitImages[13], // man-blue-jacket
+  portraitImages[9],  // woman-chair-studio       — portrait
+  portraitImages[4],  // woman-leaning-window-smiling — portrait
+  portraitImages[14], // woman-curly-window        — landscape
+  portraitImages[12], // woman-window-bw-2         — landscape
+  portraitImages[13], // man-blue-jacket           — landscape
+  portraitImages[1],  // man-daisy-cap-looking-away — portrait (tall, fills col3)
 ];
 
-// Gallery: first 9 portraits after the hero
-const galleryImages = portraitImages.slice(1, 10);
+// Gallery: 9 portraits — excludes hero [0] and all strip images [1,9,10,12,13,14]
+const galleryImages = [
+  portraitImages[2],  // woman-industrial-window-monochrome
+  portraitImages[3],  // woman-soft-window-light
+  portraitImages[10], // two-people-studio-monochrome
+  portraitImages[5],  // man-athletic-stone-floor
+  portraitImages[6],  // man-athletic-jacket-industrial
+  portraitImages[7],  // man-window-laughing-monochrome
+  portraitImages[8],  // person-winter-snow
+  portraitImages[11], // woman-purple-hair-rough-wall
+  portraitImages[15], // two-women-floor-laughing
+];
 
 const localBusinessSchema = JSON.stringify({
   "@context": "https://schema.org",
@@ -82,23 +95,31 @@ const localBusinessSchema = JSON.stringify({
 
 
   {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
-      5 portraits in an asymmetric grid. Dancer-arms-wide-dark-stage is the centre slot.
-      Swap indices above (stripImages) to change which photos appear.
+      Three explicit columns — images at natural aspect ratios, no gaps.
+      Col1: [0],[3]  Col2: [1],[4]  Col3: [2],[5]
+      Adjust stripImages array above to change photos.
   ══════════════════════════════════════════════════════════════════ */}
   <section class="photo-strip-section">
     <div class="photo-strip">
-      {stripImages.map((img, i) => (
-        <div class={`strip-item${i === 2 ? ' strip-featured' : ''}`}>
-          <img
-            src={asset(img.src)}
-            alt={img.alt}
-            width={img.width}
-            height={img.height}
-            loading="lazy"
-            class="lightbox-trigger"
-            data-src={asset(img.src)}
-            data-alt={img.alt}
-          />
+      {[[0,3],[1,4],[5,2]].map((indices) => (
+        <div class="strip-col">
+          {indices.map((i) => {
+            const img = stripImages[i];
+            return (
+              <div class="strip-item">
+                <img
+                  src={asset(img.src)}
+                  alt={img.alt}
+                  width={img.width}
+                  height={img.height}
+                  loading="lazy"
+                  class="lightbox-trigger"
+                  data-src={asset(img.src)}
+                  data-alt={img.alt}
+                />
+              </div>
+            );
+          })}
         </div>
       ))}
     </div>
@@ -189,12 +210,13 @@ const localBusinessSchema = JSON.stringify({
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Sessions &amp; pricing</span>
-        <h2>Two options. No surprises.</h2>
+        <h2>Starting points. No surprises.</h2>
         <p class="lead" style="margin-top: 1rem;">
-          Editing is included. Delivery is included. The price you see is what you pay.
+          Two formats work well for most briefs — editing and delivery always included.
+          Something different in mind? There's a bespoke option too.
         </p>
       </div>
-      <div class="grid-2" style="margin-top: var(--space-7);">
+      <div class="grid-3" style="margin-top: var(--space-7);">
         <div class="pricing-card">
           <div>
             <h6>{pricing.essential.name}</h6>
@@ -221,6 +243,20 @@ const localBusinessSchema = JSON.stringify({
           </ul>
           <div class="pricing-footer">
             <a href={route('contact/?session_type=exploration')} class="btn btn-primary">Book this session</a>
+          </div>
+        </div>
+        <div class="pricing-card bespoke-card">
+          <div>
+            <h6>Something more</h6>
+            <p class="bespoke-scope">Scoped to your brief</p>
+          </div>
+          <p class="bespoke-body">
+            Multiple locations, extended editing, ongoing brand work — if your brief
+            doesn't fit either format, get in touch and we'll figure out the right
+            scope together.
+          </p>
+          <div class="pricing-footer">
+            <a href={route('contact/?session_type=bespoke')} class="btn btn-outline">Tell me what you need</a>
           </div>
         </div>
       </div>
@@ -359,26 +395,25 @@ const localBusinessSchema = JSON.stringify({
   }
 
   /* ── Photo strip ─────────────────────────────────────────────────── */
-  .photo-strip-section { overflow: hidden; }
   .photo-strip {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
+    display: flex;
     gap: var(--space-2);
+    align-items: flex-start;
   }
-  .strip-item {
-    overflow: hidden;
-    height: 440px;
+  .strip-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
   }
   .strip-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    height: auto;
     display: block;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
   }
-  .strip-item img:hover { transform: scale(1.03); }
+  .strip-item img:hover { opacity: 0.88; }
 
   /* ── Approach split ──────────────────────────────────────────────── */
   .approach-split {
@@ -429,8 +464,9 @@ const localBusinessSchema = JSON.stringify({
     border-radius: var(--radius);
   }
   .gallery-slide img {
-    height: 100%;
+    height: 480px;
     width: auto;
+    max-width: none;  /* override global img { max-width: 100% } */
     display: block;
     cursor: pointer;
     transition: opacity 0.2s ease;
@@ -516,11 +552,30 @@ const localBusinessSchema = JSON.stringify({
   #lightbox-prev { left: var(--space-4); }
   #lightbox-next { right: var(--space-4); }
 
+  /* ── Bespoke pricing card ────────────────────────────────────────── */
+  .bespoke-card {
+    border-style: dashed;
+    background: transparent;
+  }
+  .bespoke-scope {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    font-style: italic;
+    margin-top: var(--space-2);
+    margin-bottom: 0;
+  }
+  .bespoke-body {
+    color: var(--color-muted);
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    margin: 0;
+  }
+
   /* ── Responsive ──────────────────────────────────────────────────── */
   @media (max-width: 768px) {
-    .photo-strip { grid-template-columns: 1fr 1fr; }
-    .strip-item { height: 240px; }
-    .strip-item:last-child { display: none; }
+    .photo-strip { gap: var(--space-1); }
+    .strip-col { gap: var(--space-1); }
+    .strip-col:last-child { display: none; }
 
     .approach-split { grid-template-columns: 1fr; }
     .approach-image-wrap { aspect-ratio: 16 / 9; }
