@@ -141,6 +141,24 @@ selection? Get in touch and we'll scope it together.
 
 ---
 
+## SECTION: FAQ
+
+**Eyebrow:** `Questions`
+**H2:** `A few things people ask`
+
+**Q1:** Where do Lafayette and West Lafayette sessions take place?
+**A1:** Wherever fits the portrait — the Wabash Heritage Trail, downtown Lafayette, industrial areas near the river, spots around the Purdue campus. We talk it through first, then I'll suggest locations based on what you're after.
+
+**Q2:** Is parking straightforward in Lafayette and West Lafayette?
+**A2:** Generally yes. Street parking in both downtown Lafayette and the West Lafayette/Purdue area is usually easy to manage. I'll suggest locations with that in mind.
+
+**Q3:** I'm at Purdue — can we do the session on campus?
+**A3:** Yes. Purdue has some good architecture and interesting light. I'd suggest working around peak busy periods, but we can sort that out when we're planning.
+
+> FAQ section renders as static question/answer pairs (`.faq-list` / `.faq-item` / `.faq-q` / `.faq-a`). Also drives `FAQPage` JSON-LD schema (combined with LocalBusiness in a JSON array on the `schema` prop).
+
+---
+
 ## SECTION: CTA
 
 **Eyebrow:** `Based in Lafayette`

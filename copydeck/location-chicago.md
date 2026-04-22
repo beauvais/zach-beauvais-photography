@@ -118,6 +118,24 @@ Get in touch and we'll figure out the right scope.
 
 ---
 
+## SECTION: FAQ
+
+**Eyebrow:** `Questions`
+**H2:** `A few things people ask`
+
+**Q1:** Is the travel fee already included in the Chicago prices?
+**A1:** Yes. The Chicago travel fee is already built into the prices shown on this page. No extra charges at booking.
+
+**Q2:** Where do Chicago sessions take place?
+**A2:** Anywhere in the city that fits the brief — Wicker Park, Logan Square, the lakefront, South Side neighbourhoods. Chicago has a lot of good locations. We work it out together based on what the portrait needs.
+
+**Q3:** How much lead time do I need to book a Chicago session?
+**A3:** A couple of weeks is usually enough, but Chicago sessions need a bit more planning than local ones since I'm travelling from Lafayette. Getting logistics sorted early means we can be more deliberate about the location.
+
+> FAQ section renders as static question/answer pairs (`.faq-list` / `.faq-item` / `.faq-q` / `.faq-a`). Also drives `FAQPage` JSON-LD schema (combined with LocalBusiness in a JSON array on the `schema` prop).
+
+---
+
 ## SECTION: CTA
 
 **Eyebrow:** `Available in Chicago`

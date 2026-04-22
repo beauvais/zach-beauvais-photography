@@ -113,6 +113,24 @@ Get in touch and we'll figure out the right scope.
 
 ---
 
+## SECTION: FAQ
+
+**Eyebrow:** `Questions`
+**H2:** `A few things people ask`
+
+**Q1:** Is the travel fee already included in the Indianapolis prices?
+**A1:** Yes. The prices shown on this page already include the Indianapolis travel fee. What you see is what you pay — no additions at booking.
+
+**Q2:** Where do Indianapolis sessions typically take place?
+**A2:** Fountain Square, Mass Ave, Broad Ripple, the Canal — Indy has a lot of good neighbourhoods to work in. We'd talk beforehand and find what fits the portrait, not just what's convenient.
+
+**Q3:** Is parking straightforward in Indianapolis?
+**A3:** Depends on the neighbourhood, but generally yes — street parking or a nearby lot usually works fine. I factor in ease of access when we're talking through location options.
+
+> FAQ section renders as static question/answer pairs (`.faq-list` / `.faq-item` / `.faq-q` / `.faq-a`). Also drives `FAQPage` JSON-LD schema (combined with LocalBusiness in a JSON array on the `schema` prop).
+
+---
+
 ## SECTION: CTA
 
 **Eyebrow:** `Available in Indianapolis`

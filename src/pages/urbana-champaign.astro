@@ -4,7 +4,22 @@ import CTABand from '../components/sections/CTABand.astro';
 import { asset, route } from '../lib/paths';
 import { pricing, portraitImages, landscapeImages } from '../content/data';
 
-const schema = JSON.stringify({
+const faqData = [
+  {
+    q: "Where do sessions in Urbana-Champaign typically take place?",
+    a: "It depends on what the portrait needs. The UIUC campus, downtown Champaign, and the surrounding area all have good spots. We figure it out together once I know what you're after."
+  },
+  {
+    q: "I'm UIUC faculty or staff — which session makes sense for a profile portrait?",
+    a: "The Essential session (one hour, five edited portraits) covers most academic profile needs. We'd talk beforehand about what the portrait is for and what register it needs to hit."
+  },
+  {
+    q: "Is parking manageable in Champaign-Urbana?",
+    a: "Street parking and city lots are generally easy in Champaign and Urbana. Campus parking is more restricted, so I'll suggest locations that account for that."
+  }
+];
+
+const localBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Zach Beauvais Photography",
@@ -18,7 +33,19 @@ const schema = JSON.stringify({
   },
   "areaServed": ["Urbana", "Champaign", "Urbana-Champaign", "Eastern Illinois"],
   "priceRange": "$350–$750"
-});
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(({ q, a }) => ({
+    "@type": "Question",
+    "name": q,
+    "acceptedAnswer": { "@type": "Answer", "text": a }
+  }))
+};
+
+const schema = JSON.stringify([localBusiness, faqSchema]);
 ---
 
 <BaseLayout
@@ -207,6 +234,29 @@ const schema = JSON.stringify({
         Need something bigger — multiple locations, ongoing brand work, a larger selection?
         <a href={route('contact/?session_type=bespoke')}>Get in touch</a> and we'll figure out the right scope.
       </p>
+    </div>
+  </section>
+
+
+  {/* ══ FAQ ═══════════════════════════════════════════════════════════ */}
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Questions</span>
+      <h2>A few things people ask</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">{faqData[0].q}</p>
+          <p class="faq-a">{faqData[0].a}</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">{faqData[1].q}</p>
+          <p class="faq-a">{faqData[1].a}</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">{faqData[2].q}</p>
+          <p class="faq-a">{faqData[2].a}</p>
+        </div>
+      </div>
     </div>
   </section>
 

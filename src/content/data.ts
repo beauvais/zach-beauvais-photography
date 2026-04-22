@@ -52,27 +52,27 @@
 //  [20] couple-colour        — Colour, couple standing together (man with long hair, woman with purple hair)
 
 export const portraitImages = [
-  { src: 'portrait/portrait-01.jpg',      alt: 'Portrait — woman with nose ring, direct gaze, natural light',         width: 2048, height: 2048 },  // [0]  woman-closeup
-  { src: 'portrait/portrait-02.jpg',      alt: 'Portrait — man with long hair and daisy cap, looking away',           width: 1703, height: 2560 },  // [1]  man-cap-glasses
-  { src: 'portrait/portrait-3.jpg',       alt: 'Portrait — woman at tall industrial window, looking out',             width: 2000, height: 1330 },  // [2]  woman-window-bw
-  { src: 'portrait/portrait-4.jpg',       alt: 'Portrait — young woman, soft window light, direct gaze',              width: 1330, height: 2000 },  // [3]  woman-softlight
-  { src: 'portrait/portrait-5.jpg',       alt: 'Portrait — woman leaning by window, smiling',                         width: 1330, height: 2000 },  // [4]  woman-leaning
-  { src: 'portrait/portrait-6.jpg',       alt: 'Portrait — man in athletic gear, seated relaxed on stone floor',      width: 2000, height: 1330 },  // [5]  man-floor
-  { src: 'portrait/portrait-8.jpg',       alt: 'Portrait — man in athletic jacket, industrial window behind him',     width: 2000, height: 1330 },  // [6]  man-window-colour
-  { src: 'portrait/portrait-9.jpg',       alt: 'Portrait — man by window, laughing, looking down',                    width: 2000, height: 1330 },  // [7]  man-laughing-bw
-  { src: 'portrait/portrait-10.jpg',      alt: 'Portrait — person bundled in winter layers, lying in snow',           width: 1500, height: 2000 },  // [8]  person-snow
-  { src: 'portrait/portrait-11.jpg',      alt: 'Portrait — woman seated on chair, studio, grey background',           width: 1330, height: 2000 },  // [9]  woman-chair-studio
-  { src: 'portrait/portrait-12.jpg',      alt: 'Portrait — two people in studio, one seated, one standing',           width: 1330, height: 2000 },  // [10] two-people-studio
-  { src: 'portrait/portrait-13.jpg',      alt: 'Portrait — woman with purple hair, seated against rough wall',        width: 2000, height: 1330 },  // [11] woman-purple-hair
-  { src: 'portrait/portrait-14.jpg',      alt: 'Portrait — woman at industrial window, looking out',                  width: 2000, height: 1330 },  // [12] woman-window-bw-2
-  { src: 'portrait/portrait-15.jpg',      alt: 'Portrait — man in blue jacket, industrial space',                     width: 2000, height: 1330 },  // [13] man-blue-jacket
-  { src: 'portrait/portrait-16.jpg',      alt: 'Portrait — woman with curly hair, eyes closed, smiling at window',   width: 2000, height: 1330 },  // [14] woman-curly-window
-  { src: 'portrait/portrait-17.jpg',      alt: 'Portrait — two women seated on floor, laughing together',             width: 2000, height: 1330 },  // [15] two-women-floor
-  { src: 'portrait/portrait-18.jpg',      alt: 'Portrait — woman leaning against concrete pillar, direct gaze',      width: 2000, height: 1330 },  // [16] woman-pillar
-  { src: 'portrait/portrait-19.jpg',      alt: 'Portrait — man leaning on wooden post, laughing',                     width: 1330, height: 2000 },  // [17] man-leaning-laughing
-  { src: 'portrait/portrait_dancing.jpg', alt: 'Portrait — dancer with arms wide and one leg raised, dark stage',    width: 1330, height: 2000 },  // [18] dancer-dark-main
-  { src: 'portrait/baby.jpg',             alt: 'Portrait — child\'s hands on a ukulele, close crop',                  width: 2000, height: 1334 },  // [19] child-ukulele
-  { src: 'portrait/couple.jpg',           alt: 'Portrait — couple standing together, colour',                         width: 1330, height: 2000 },  // [20] couple-colour
+  { src: 'portrait/Woman-monochrome-intense-kind.jpg',       alt: 'Portrait — woman with nose ring, direct gaze, natural light',         width: 2048, height: 2048 },  // [0]  woman-closeup
+  { src: 'portrait/Man-daisy-cap-looking-away.jpg',          alt: 'Portrait — man with long hair and daisy cap, looking away',           width: 1703, height: 2560 },  // [1]  man-cap-glasses
+  { src: 'portrait/Woman-industrial-window-monochrome.jpg',  alt: 'Portrait — woman at tall industrial window, looking out',             width: 2000, height: 1330 },  // [2]  woman-window-bw
+  { src: 'portrait/Woman-soft-window-light.jpg',             alt: 'Portrait — young woman, soft window light, direct gaze',              width: 1330, height: 2000 },  // [3]  woman-softlight
+  { src: 'portrait/Woman-leaning-window-smiling.jpg',        alt: 'Portrait — woman leaning by window, smiling',                         width: 1330, height: 2000 },  // [4]  woman-leaning
+  { src: 'portrait/Man-athletic-stone-floor.jpg',            alt: 'Portrait — man in athletic gear, seated relaxed on stone floor',      width: 2000, height: 1330 },  // [5]  man-floor
+  { src: 'portrait/Man-athletic-jacket-industrial.jpg',      alt: 'Portrait — man in athletic jacket, industrial window behind him',     width: 2000, height: 1330 },  // [6]  man-window-colour
+  { src: 'portrait/Man-window-laughing-monochrome.jpg',      alt: 'Portrait — man by window, laughing, looking down',                    width: 2000, height: 1330 },  // [7]  man-laughing-bw
+  { src: 'portrait/Person-winter-snow.jpg',                  alt: 'Portrait — person bundled in winter layers, lying in snow',           width: 1500, height: 2000 },  // [8]  person-snow
+  { src: 'portrait/Woman-studio-chair-grey.jpg',             alt: 'Portrait — woman seated on chair, studio, grey background',           width: 1330, height: 2000 },  // [9]  woman-chair-studio
+  { src: 'portrait/Two-people-studio-monochrome.jpg',        alt: 'Portrait — two people in studio, one seated, one standing',           width: 1330, height: 2000 },  // [10] two-people-studio
+  { src: 'portrait/Woman-purple-hair-rough-wall.jpg',        alt: 'Portrait — woman with purple hair, seated against rough wall',        width: 2000, height: 1330 },  // [11] woman-purple-hair
+  { src: 'portrait/Woman-industrial-window-monochrome-2.jpg',alt: 'Portrait — woman at industrial window, looking out',                  width: 2000, height: 1330 },  // [12] woman-window-bw-2
+  { src: 'portrait/Man-blue-jacket-industrial.jpg',          alt: 'Portrait — man in blue jacket, industrial space',                     width: 2000, height: 1330 },  // [13] man-blue-jacket
+  { src: 'portrait/Woman-curly-hair-eyes-closed.jpg',        alt: 'Portrait — woman with curly hair, eyes closed, smiling at window',   width: 2000, height: 1330 },  // [14] woman-curly-window
+  { src: 'portrait/Two-women-floor-laughing.jpg',            alt: 'Portrait — two women seated on floor, laughing together',             width: 2000, height: 1330 },  // [15] two-women-floor
+  { src: 'portrait/Woman-concrete-pillar-direct-gaze.jpg',   alt: 'Portrait — woman leaning against concrete pillar, direct gaze',      width: 2000, height: 1330 },  // [16] woman-pillar
+  { src: 'portrait/Man-leaning-post-laughing.jpg',           alt: 'Portrait — man leaning on wooden post, laughing',                     width: 1330, height: 2000 },  // [17] man-leaning-laughing
+  { src: 'portrait/Dancer-arms-wide-dark-stage.jpg',         alt: 'Portrait — dancer with arms wide and one leg raised, dark stage',    width: 1330, height: 2000 },  // [18] dancer-dark-main
+  { src: 'portrait/Child-hands-ukulele-close.jpg',           alt: 'Portrait — child\'s hands on a ukulele, close crop',                  width: 2000, height: 1334 },  // [19] child-ukulele
+  { src: 'portrait/Couple-standing-colour.jpg',              alt: 'Portrait — couple standing together, colour',                         width: 1330, height: 2000 },  // [20] couple-colour
 ];
 
 export const landscapeImages = [

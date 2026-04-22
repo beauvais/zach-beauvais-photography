@@ -3,7 +3,7 @@
 
 export const b = import.meta.env.BASE_URL;
 
-/** Resolve a portfolio image path, e.g. asset('portrait-01.jpg') */
+/** Resolve a portfolio image path, e.g. asset('portrait/Woman-monochrome-intense-kind.jpg') */
 // Ensure BASE_URL always ends with / regardless of Astro version behaviour
 const BASE = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL

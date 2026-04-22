@@ -8,7 +8,7 @@ import { portraitImages, pricing, site } from '../content/data';
 // Hero image
 const heroImage = portraitImages[0];
 
-// Photo strip above approach — 5 portraits, portrait_dancing moved to approach section
+// Photo strip above approach — 5 portraits, Dancer-arms-wide-dark-stage moved to approach section
 const stripImages = [
   portraitImages[9],  // woman-chair-studio
   portraitImages[10], // two-people-studio
@@ -27,7 +27,7 @@ const localBusinessSchema = JSON.stringify({
   "description": site.defaultDescription,
   "url": "https://zachbeauvais.com",
   "email": site.email,
-  "image": "https://zachbeauvais.com/portrait/portrait-01.jpg",
+  "image": "https://zachbeauvais.com/portrait/Woman-monochrome-intense-kind.jpg",
   "areaServed": [
     { "@type": "City", "name": "Lafayette", "containedInPlace": { "@type": "State", "name": "Indiana" } },
     { "@type": "City", "name": "West Lafayette", "containedInPlace": { "@type": "State", "name": "Indiana" } },
@@ -82,7 +82,7 @@ const localBusinessSchema = JSON.stringify({
 
 
   {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
-      5 portraits in an asymmetric grid. portrait_dancing is the centre slot.
+      5 portraits in an asymmetric grid. Dancer-arms-wide-dark-stage is the centre slot.
       Swap indices above (stripImages) to change which photos appear.
   ══════════════════════════════════════════════════════════════════ */}
   <section class="photo-strip-section">
@@ -124,6 +124,11 @@ const localBusinessSchema = JSON.stringify({
             location that means something. We're making art shaped by your personality,
             not shaping your image to match a portrait ideal.
           </p>
+          <p>
+            I also bring twenty years in marketing and brand content strategy — so when
+            a portrait needs to do a job, I think about what it needs to say, not just
+            whether it looks nice.
+          </p>
           <a href={route('how-i-work/')} class="btn btn-outline" style="margin-top: var(--space-4);">More about my approach</a>
         </div>
         <figure class="approach-image">
@@ -144,14 +149,17 @@ const localBusinessSchema = JSON.stringify({
 
 
   {/* ══ PORTRAIT GALLERY ══════════════════════════════════════════════
-      No heading — let the images speak. Click any to open lightbox.
+      Horizontal scroll carousel — images at natural aspect ratios.
+      Swipeable on touch. Prev/next arrows for pointer users.
+      Click any image to open lightbox.
       Change galleryImages slice above to show different portraits.
   ══════════════════════════════════════════════════════════════════ */}
-  <section class="section">
-    <div class="container">
-      <div class="home-gallery">
+  <section class="section gallery-section">
+    <div class="gallery-carousel-wrap">
+      <button class="gallery-arrow gallery-arrow-prev" aria-label="Previous photo">&#8592;</button>
+      <div class="gallery-track" id="gallery-track">
         {galleryImages.map(img => (
-          <div class="gallery-item">
+          <div class="gallery-slide">
             <img
               src={asset(img.src)}
               alt={img.alt}
@@ -165,6 +173,9 @@ const localBusinessSchema = JSON.stringify({
           </div>
         ))}
       </div>
+      <button class="gallery-arrow gallery-arrow-next" aria-label="Next photo">&#8594;</button>
+    </div>
+    <div class="container">
       <div class="btn-row" style="margin-top: var(--space-6);">
         <a href={route('portfolio/portraits/')} class="btn btn-outline">All portrait work</a>
         <a href={route('portfolio/landscape/')} class="btn btn-ghost">Landscape &amp; abstract work</a>
@@ -285,6 +296,26 @@ const localBusinessSchema = JSON.stringify({
     if (e.key === 'ArrowLeft') prev();
     if (e.key === 'ArrowRight') next();
   });
+
+  // ── Gallery carousel arrows ────────────────────────────────────────
+  const track    = document.getElementById('gallery-track') as HTMLElement;
+  const btnPrev  = document.querySelector<HTMLButtonElement>('.gallery-arrow-prev')!;
+  const btnNext  = document.querySelector<HTMLButtonElement>('.gallery-arrow-next')!;
+
+  function scrollBy(dir: 1 | -1) {
+    // Scroll by ~80% of the visible track width so you always see a sliver of context
+    track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: 'smooth' });
+  }
+
+  function updateArrows() {
+    btnPrev.disabled = track.scrollLeft <= 4;
+    btnNext.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+  }
+
+  btnPrev.addEventListener('click', () => scrollBy(-1));
+  btnNext.addEventListener('click', () => scrollBy(1));
+  track.addEventListener('scroll', updateArrows, { passive: true });
+  updateArrows(); // set initial state
 </script>
 
 
@@ -372,24 +403,64 @@ const localBusinessSchema = JSON.stringify({
     font-style: italic;
   }
 
-  /* ── Gallery ─────────────────────────────────────────────────────── */
-  .home-gallery {
-    columns: 3;
-    column-gap: var(--space-3);
+  /* ── Gallery carousel ───────────────────────────────────────────── */
+  .gallery-section { padding-bottom: 0; }
+  .gallery-carousel-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
   }
-  .gallery-item {
-    break-inside: avoid;
-    margin-bottom: var(--space-3);
+  .gallery-track {
+    display: flex;
+    gap: var(--space-2);
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 var(--space-5);
+    /* leave room for arrows */
+  }
+  .gallery-track::-webkit-scrollbar { display: none; }
+  .gallery-slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    height: 480px;
     overflow: hidden;
     border-radius: var(--radius);
   }
-  .gallery-item img {
-    width: 100%;
+  .gallery-slide img {
+    height: 100%;
+    width: auto;
     display: block;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: opacity 0.2s ease;
   }
-  .gallery-item img:hover { transform: scale(1.02); }
+  .gallery-slide img:hover { opacity: 0.9; }
+  .gallery-arrow {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--color-surface, #fff);
+    border: 1px solid var(--color-border, #e0e0e0);
+    border-radius: 50%;
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    transition: background 0.15s, opacity 0.15s;
+    opacity: 0.85;
+  }
+  .gallery-arrow:hover { opacity: 1; background: var(--color-bg, #f9f9f9); }
+  .gallery-arrow-prev { left: var(--space-2); }
+  .gallery-arrow-next { right: var(--space-2); }
+  .gallery-arrow[disabled] { opacity: 0.25; pointer-events: none; }
 
   /* ── Lightbox ────────────────────────────────────────────────────── */
   #lightbox {
@@ -454,6 +525,7 @@ const localBusinessSchema = JSON.stringify({
     .approach-split { grid-template-columns: 1fr; }
     .approach-image-wrap { aspect-ratio: 16 / 9; }
 
-    .home-gallery { columns: 2; }
+    .gallery-slide { height: 320px; }
+    .gallery-arrow { display: none; }
   }
 </style>

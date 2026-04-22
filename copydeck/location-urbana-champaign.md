@@ -132,6 +132,24 @@ Get in touch and we'll figure out the right scope.
 
 ---
 
+## SECTION: FAQ
+
+**Eyebrow:** `Questions`
+**H2:** `A few things people ask`
+
+**Q1:** Where do sessions in Urbana-Champaign typically take place?
+**A1:** It depends on what the portrait needs. The UIUC campus, downtown Champaign, and the surrounding area all have good spots. We figure it out together once I know what you're after.
+
+**Q2:** I'm UIUC faculty or staff — which session makes sense for a profile portrait?
+**A2:** The Essential session (one hour, five edited portraits) covers most academic profile needs. We'd talk beforehand about what the portrait is for and what register it needs to hit.
+
+**Q3:** Is parking manageable in Champaign-Urbana?
+**A3:** Street parking and city lots are generally easy in Champaign and Urbana. Campus parking is more restricted, so I'll suggest locations that account for that.
+
+> FAQ section renders as static question/answer pairs (`.faq-list` / `.faq-item` / `.faq-q` / `.faq-a`). Also drives `FAQPage` JSON-LD schema (combined with LocalBusiness in a JSON array on the `schema` prop).
+
+---
+
 ## SECTION: CTA
 
 **Eyebrow:** `Based in Urbana-Champaign`
