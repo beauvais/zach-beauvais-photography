@@ -126,10 +126,19 @@ Somewhere not listed? Get in touch.
 
 ---
 
-## SECTION: WHAT'S INCLUDED
+## SECTION: WHAT’S INCLUDED
 
 **Eyebrow:** `What to expect`
-**H2:** `What you're actually getting`
+**H2:** `What you’re actually getting`
+
+**Lead paragraph (below H2):**
+```
+Here’s roughly how it goes: you email, we talk. We figure out a location
+that makes sense — somewhere you know, somewhere you’ve been meaning to go,
+or somewhere I suggest. I show up with one camera. We wander, I take maybe
+200 frames. You won’t get all of them. You’ll get the ones that work. A
+week or two later, they’re in your inbox — edited, ready to use, no asterisks.
+```
 
 **Left column:**
 
@@ -155,54 +164,64 @@ to download at any time.
 
 **H5:** `Single-location focus`
 ```
-Sessions are at one location — this isn't a limitation, it's a choice.
+Sessions are at one location — this isn’t a limitation, it’s a choice.
 Staying in one place lets us go deeper, settle in, and find the images that
 live there rather than rushing between spots.
 ```
 
 **H5:** `For people & brands`
 ```
-Personal portraits or brand work — the format doesn't change much. You still
+Personal portraits or brand work — the format doesn’t change much. You still
 need images that look like the real thing, not a stock-photo version of it.
 ```
 
 **H5:** `Usage rights`
 ```
-The Three-Tiered Licensing Structure
-
-1. Personal Use (Included)
-
-Included with every session.
-
-These are for you. Use them for your home, your personal social media, and gifts for family. This covers the life of the images as personal keepsakes and private memories.
-
-2. The Creative & Professional Add-on
-
-For authors, artists, musicians, and independent professionals.
-
-_For your work._
-
-If these portraits are meant to represent you in your professional life—on a book jacket, an album cover, a press kit, or a creative portfolio—this add-on extends the license to cover professional self-promotion. It’s for the makers and thinkers who need their image to live where their work does.
-
-Investment: +$[200]
-
-3. Commercial & Editorial Licensing
-
-For larger organizations or high-volume distribution.
-
-    "For the broader market."
-    For images intended for large-scale advertising, retail products, or national editorial use. Because the reach and impact of these images are wider, we’ll sit down and draft a custom license that reflects the scale of the project.
-    
-    Investment: [Custom Quote]
-
-A Note on Creative Collaboration
-
- I believe in the exchange of art. If you are a professional model looking to expand your portfolio, or a creative looking to collaborate on a specific vision that pushes both of our boundaries, please reach out. For true collaborative projects where we both share the creative risk and the reward, I often waive licensing fees or offer 'time-for-print' arrangements. If the project moves us both forward, let’s talk.
+Personal use is included with every session. For commercial or professional
+use — press kits, book covers, advertising — see the licensing section below.
 ```
 
-> **Notes:** "All delivered images are yours" was wrong — it implied copyright transfer. This is a licence. The framing leads with what they *can* do (everything practical they'd want), then names the one restriction plainly. Don't soften "I retain copyright" — it's accurate and clients who understand how photography works will expect it.
+> **Notes:** "This isn’t a limitation, it’s a choice" is the strongest copy in this section. It preemptively defuses the objection before the visitor forms it. "Not a stock-photo version of it" is good for brands — it names what they’re trying to avoid. Keep both.
 
-> **Notes:** "This isn't a limitation, it's a choice" is the strongest copy in this section. It preemptively defuses the objection before the visitor forms it. "Not a stock-photo version of it" is good for brands — it names what they're trying to avoid. Keep both.
+---
+
+## SECTION: LICENSING
+
+**Eyebrow:** `Licensing`
+**H2:** `Using your images.`
+
+**Lead:**
+```
+I retain copyright — standard for any photographer. Personal use is included
+with every session. If the images are going somewhere more public or
+commercial, here’s how that works.
+```
+
+**Card 1 — Included:**
+- Tier label: `Included`
+- H5: `Personal use`
+- Body: `Home, personal social media, prints, gifts. Anything for you personally — this covers it for the life of the images.`
+
+**Card 2 — +$200 (featured):**
+- Tier label: `+$200`
+- H5: `Creative & professional`
+- Body: `If the portraits are representing you professionally — a book cover, an album, a press kit, a portfolio — this extends the licence to cover professional self-promotion. For authors, musicians, artists, and independent creatives who need their image to live where their work does.`
+- Footnote: `Mention it when you book and it’ll be added to your invoice.`
+
+**Card 3 — Custom quote:**
+- Tier label: `Custom quote`
+- H5: `Commercial & editorial`
+- Body: `For large-scale advertising, retail products, or wide editorial distribution. Because the reach is wider, we’ll put together a licence that fits the actual scope.`
+- CTA: `Get in touch` → `/contact/?session_type=commercial`
+
+**Below the cards (left-bordered callout):**
+```
+If you’re a working model building a portfolio, or you have a creative project
+where we’d both be bringing something — get in touch. For genuine collaborations
+where the work goes both ways, I’m happy to talk time-for-print or waived licensing.
+```
+
+> **Notes:** I retain copyright — don’t soften this. The framing leads with what clients *can* do, then covers the exceptions. The collaboration note at the bottom is warm without overpromising.
 
 ---
 
