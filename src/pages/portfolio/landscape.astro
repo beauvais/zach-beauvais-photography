@@ -35,25 +35,6 @@ import { landscapeImages, portraitImages } from '../../content/data';
   </section>
 
 
-  {/* ══ HERO IMAGE GRID ═══════════════════════════════════════════════
-      First 3 landscape images in a feature layout.
-      Edit landscapeImages order in data.ts to change which appear here.
-  ══════════════════════════════════════════════════════════════════ */}
-  <section class="section-sm">
-    <div class="container">
-      <div class="landscape-hero">
-        <div class="landscape-hero-wide">
-          <img src={asset(landscapeImages[0].src)} alt={landscapeImages[0].alt} width={landscapeImages[0].width} height={landscapeImages[0].height} loading="lazy" />
-        </div>
-        <div class="landscape-hero-pair">
-          <div class="lh-pair-item"><img src={asset(landscapeImages[2].src)} alt={landscapeImages[2].alt} width={landscapeImages[2].width} height={landscapeImages[2].height} loading="lazy" /></div>
-          <div class="lh-pair-item"><img src={asset(landscapeImages[5].src)} alt={landscapeImages[5].alt} width={landscapeImages[5].width} height={landscapeImages[5].height} loading="lazy" /></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   {/* ══ GALLERY ═══════════════════════════════════════════════════════
       All images from landscapeImages (data.ts). Click to open lightbox.
   ══════════════════════════════════════════════════════════════════ */}
@@ -121,20 +102,6 @@ import { landscapeImages, portraitImages } from '../../content/data';
 </BaseLayout>
 
 <style>
-  /* Landscape hero layout — unique to this page */
-  .landscape-hero { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-items: stretch; }
-  .landscape-hero-wide { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 4; }
-  .landscape-hero-wide img { width: 100%; height: 100%; object-fit: cover; }
-  .landscape-hero-pair { display: flex; flex-direction: column; gap: var(--space-3); }
-  .lh-pair-item { flex: 1; min-height: 0; overflow: hidden; border-radius: var(--radius-lg); }
-  .lh-pair-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  @media (max-width: 960px) {
-    .landscape-hero { grid-template-columns: 1fr; }
-    .landscape-hero-wide { aspect-ratio: 16 / 9; }
-    .landscape-hero-pair { flex-direction: row; }
-    .lh-pair-item { aspect-ratio: 1; }
-  }
 </style>
 
 <script>
