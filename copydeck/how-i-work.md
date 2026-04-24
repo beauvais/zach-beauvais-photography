@@ -87,7 +87,7 @@ The result is something specific, a bit unexpected, and expressively yours.
 
 **Eyebrow:** `Open to more`
 **H2:** `I'm exploring, too.`
-**Image:** `film/IMG_0990.JPG` — film photograph, Minolta 35mm. Split layout: image left, text right.
+**Image:** `film/IMG_0990.webp` — film photograph, Minolta 35mm. Split layout: text left, image right.
 
 ```
 If you've got something on your mind — even the very stub of an artistic idea —

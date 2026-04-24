@@ -33,45 +33,13 @@ Tell me what you have in mind and I'll get back to you within a day or two.
 
 **H3:** `Send a message`
 
-**Field labels and placeholders:**
+**Implementation:** HubSpot embedded form — portal `245952972`, form ID `9f5b63ee-d630-48ff-9a62-ecbaa7726cd5`, region `na2`. Script loaded via `https://js-na2.hsforms.net/forms/embed/245952972.js`.
 
-| Field | Label | Placeholder |
-|---|---|---|
-| Name | `Name` | `Your name` |
-| Email | `Email` | `your@email.com` |
-| Session | `Session` | `What are you thinking?` |
-| Location | `Location` | `Where are you?` |
-| Message | `Tell me about your project` | `What are you looking for? Any specific ideas, occasions, or things you'd like me to know?` |
+Fields and labels are managed in HubSpot, not in the .astro file. To change field labels, placeholders, or dropdown options, edit the form in the HubSpot portal.
 
-**Session dropdown options:**
-```
-What are you thinking? (default)
-Essential Session ($350)
-Exploration Session ($750)
-Business / Brand Photography
-Something else
-```
+**Session pre-population:** Links from other pages can pass `?session_type=essential`, `?session_type=exploration`, `?session_type=bespoke`, or `?session_type=commercial` — HubSpot reads the query param and populates the hidden session_type field automatically.
 
-> **Note:** Session prices in the dropdown are pulled from `pricing` in `data.ts` dynamically — the copydeck shows current values for reference only.
-
-**Location dropdown options:**
-```
-Where are you? (default)
-Lafayette / West Lafayette, IN
-Urbana-Champaign, IL
-Indianapolis, IN (+$100)
-Chicago, IL (+$200)
-Other — let's discuss
-```
-
-**Submit button:** `Send message`
-
-**Below-form note:**
-```
-This form opens your email client. You can also email directly: [email address]
-```
-
-> **Notes:** The mailto approach is functional but low-friction — no backend, no data handling. The placeholder on the message field ("occasions") is useful; it signals what level of detail is welcome. Don't reduce it to just "Your message."
+> **Notes:** HubSpot handles submission, validation, and routing — no backend code needed. To update field copy or add/remove fields, use the HubSpot form editor. The form container in the .astro file is just a `<div class="hs-form-frame" ...>` — don't add HTML form elements around it.
 
 ---
 
