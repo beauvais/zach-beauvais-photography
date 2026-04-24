@@ -168,9 +168,36 @@ need images that look like the real thing, not a stock-photo version of it.
 
 **H5:** `Usage rights`
 ```
-Use the delivered images however you like — social media, print, branding,
-your website. I retain copyright, as any photographer would, so the one thing
-you can't do is sell them as your own work.
+The Three-Tiered Licensing Structure
+
+1. Personal Use (Included)
+
+Included with every session.
+
+These are for you. Use them for your home, your personal social media, and gifts for family. This covers the life of the images as personal keepsakes and private memories.
+
+2. The Creative & Professional Add-on
+
+For authors, artists, musicians, and independent professionals.
+
+_For your work._
+
+If these portraits are meant to represent you in your professional life—on a book jacket, an album cover, a press kit, or a creative portfolio—this add-on extends the license to cover professional self-promotion. It’s for the makers and thinkers who need their image to live where their work does.
+
+Investment: +$[200]
+
+3. Commercial & Editorial Licensing
+
+For larger organizations or high-volume distribution.
+
+    "For the broader market."
+    For images intended for large-scale advertising, retail products, or national editorial use. Because the reach and impact of these images are wider, we’ll sit down and draft a custom license that reflects the scale of the project.
+    
+    Investment: [Custom Quote]
+
+A Note on Creative Collaboration
+
+ I believe in the exchange of art. If you are a professional model looking to expand your portfolio, or a creative looking to collaborate on a specific vision that pushes both of our boundaries, please reach out. For true collaborative projects where we both share the creative risk and the reward, I often waive licensing fees or offer 'time-for-print' arrangements. If the project moves us both forward, let’s talk.
 ```
 
 > **Notes:** "All delivered images are yours" was wrong — it implied copyright transfer. This is a licence. The framing leads with what they *can* do (everything practical they'd want), then names the one restriction plainly. Don't soften "I retain copyright" — it's accurate and clients who understand how photography works will expect it.

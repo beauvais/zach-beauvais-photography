@@ -296,13 +296,73 @@ const faqSchema = JSON.stringify({
           <div class="included-item">
             <h5>Usage rights</h5>
             <p class="muted" style="font-size: var(--text-sm);">
-              Use the delivered images however you like — social media, print, branding,
-              your website. I retain copyright, as any photographer would, so the one thing
-              you can't do is sell them as your own work.
+              Personal use is included with every session. For commercial or professional
+              use — press kits, book covers, advertising — see the licensing section below.
             </p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  {/* ══ LICENSING ════════════════════════════════════════════════════
+      Three tiers: personal (included), creative/professional (+$200),
+      commercial/editorial (custom quote). Collaboration note below.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Licensing</span>
+        <h2>Using your images.</h2>
+        <p class="lead" style="margin-top: var(--space-5); max-width: 60ch;">
+          I retain copyright — standard for any photographer. Personal use is included
+          with every session. If the images are going somewhere more public or
+          commercial, here's how that works.
+        </p>
+      </div>
+      <div class="grid-3" style="margin-top: var(--space-7);">
+
+        <div class="licensing-card">
+          <div class="licensing-tier">Included</div>
+          <h5>Personal use</h5>
+          <p class="muted" style="font-size: var(--text-sm);">
+            Home, personal social media, prints, gifts. Anything for you personally —
+            this covers it for the life of the images.
+          </p>
+        </div>
+
+        <div class="licensing-card licensing-featured">
+          <div class="licensing-tier">+$200</div>
+          <h5>Creative &amp; professional</h5>
+          <p class="muted" style="font-size: var(--text-sm);">
+            If the portraits are representing you professionally — a book cover, an album,
+            a press kit, a portfolio — this extends the licence to cover professional
+            self-promotion. For authors, musicians, artists, and independent creatives
+            who need their image to live where their work does.
+          </p>
+          <p class="muted licensing-footnote">Mention it when you book and it'll be added to your invoice.</p>
+        </div>
+
+        <div class="licensing-card">
+          <div class="licensing-tier">Custom quote</div>
+          <h5>Commercial &amp; editorial</h5>
+          <p class="muted" style="font-size: var(--text-sm);">
+            For large-scale advertising, retail products, or wide editorial distribution.
+            Because the reach is wider, we'll put together a licence that fits the
+            actual scope.
+          </p>
+          <div class="licensing-cta">
+            <a href={route('contact/?session_type=commercial')} class="btn btn-outline">Get in touch</a>
+          </div>
+        </div>
+
+      </div>
+      <p class="gift-note" style="margin-top: var(--space-7);">
+        If you're a working model building a portfolio, or you have a creative project
+        where we'd both be bringing something — get in touch. For genuine collaborations
+        where the work goes both ways, I'm happy to talk time-for-print or waived licensing.
+      </p>
     </div>
   </section>
 
@@ -312,7 +372,7 @@ const faqSchema = JSON.stringify({
       To add a question: copy a <details class="faq-item"> block.
       To remove a question: delete its <details> block.
   ══════════════════════════════════════════════════════════════════ */}
-  <section class="section bg-soft">
+  <section class="section">
     <div class="container container-narrow">
       <div class="section-header">
         <span class="eyebrow">Questions</span>
@@ -451,6 +511,36 @@ const faqSchema = JSON.stringify({
     border-radius: 999px;
     padding: var(--space-1) var(--space-3);
   }
+
+  /* ── Licensing cards ─────────────────────────────────────────────── */
+  .licensing-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg, var(--radius));
+    padding: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .licensing-featured {
+    border-color: var(--color-accent);
+    background: var(--color-surface-soft);
+  }
+  .licensing-tier {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs, 0.75rem);
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+  .licensing-card h5 { margin: 0; }
+  .licensing-footnote {
+    font-size: var(--text-xs, 0.75rem) !important;
+    font-style: italic;
+    margin: 0;
+  }
+  .licensing-cta { margin-top: auto; }
 
   .faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--color-border); }
   .faq-item { border-bottom: 1px solid var(--color-border); }
