@@ -32,7 +32,7 @@ Lafayette, IN · Urbana-Champaign, IL · Sessions from $350.
 
 ## HERO CTAs
 ```
-Primary:  See how it works
+Primary:  See sessions
 Secondary: See some work
 ```
 
