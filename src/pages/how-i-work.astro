@@ -101,20 +101,11 @@ const landscapePreview = landscapeImages.slice(0, 3);
   </section>
 
   {/* ══ OPEN TO EXPLORING ═══════════════════════════════════════════
-      Split: film image left, text right.
+      Split: text left, image right.
   ══════════════════════════════════════════════════════════════════ */}
   <section class="section">
     <div class="container">
-      <div class="split">
-        <div class="split-image">
-          <img
-            src={asset('film/IMG_0990.JPG')}
-            alt="Film photograph — Minolta 35mm"
-            width="1418"
-            height="2108"
-            loading="lazy"
-          />
-        </div>
+      <div class="split split-wide-image">
         <div class="stack">
           <span class="eyebrow">Open to more</span>
           <h2>I'm exploring, too.</h2>
@@ -128,6 +119,15 @@ const landscapePreview = landscapeImages.slice(0, 3);
             working with fashion designers, makeup artists, and artists who want to bring
             photography into the mix.
           </p>
+        </div>
+        <div class="split-image">
+          <img
+            src={asset(portraitImages[26].src)}
+            alt={portraitImages[26].alt}
+            width={portraitImages[26].width}
+            height={portraitImages[26].height}
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -173,6 +173,14 @@ const landscapePreview = landscapeImages.slice(0, 3);
 </BaseLayout>
 
 <style>
+  /* ⅔ image / ⅓ text split — used for the landscape portrait in "I'm exploring too" */
+  .split-wide-image {
+    grid-template-columns: 1fr 2fr;
+  }
+  .split-wide-image .split-image {
+    aspect-ratio: 3 / 2;
+  }
+
   /* Typographic punch line — page-specific weight */
   .prose-punch {
     font-size: var(--text-xl);

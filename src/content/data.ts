@@ -49,7 +49,13 @@
 //  [17] man-leaning-laughing — B&W, man leaning on wooden post, laughing
 //  [18] dancer-dark-main     — B&W, dancer mid-pose, arms wide, one leg raised, dark bg
 //  [19] child-ukulele        — B&W/sepia, child's small hands on a ukulele, close crop
-//  [20] couple-colour        — Colour, couple standing together (man with long hair, woman with purple hair)
+//  [20] couple-colour            — Colour, couple standing together (man with long hair, woman with purple hair)
+//  [21] two-women-hug            — Colour, two women embracing, both smiling, warm light
+//  [22] woman-window-bw-smile    — B&W, woman at window, subtle smile, soft side light
+//  [23] woman-ballerina          — Colour, woman in balletic pose, graceful, natural light
+//  [24] woman-red-sweater        — Colour, woman smiling at window, red sweater, warm approachable
+//  [25] woman-directions         — Colour, woman at window gesturing as if giving directions
+//  [26] man-beard-monochrome     — B&W close portrait, man with beard, strong direct gaze
 
 export const portraitImages = [
   { src: 'portrait/Woman-monochrome-intense-kind.jpg',       alt: 'Portrait — woman with nose ring, direct gaze, natural light',         width: 2048, height: 2048 },  // [0]  woman-closeup
@@ -73,6 +79,12 @@ export const portraitImages = [
   { src: 'portrait/Dancer-arms-wide-dark-stage.jpg',         alt: 'Portrait — dancer with arms wide and one leg raised, dark stage',    width: 1330, height: 2000 },  // [18] dancer-dark-main
   { src: 'portrait/Child-hands-ukulele-close.jpg',           alt: 'Portrait — child\'s hands on a ukulele, close crop',                  width: 2000, height: 1334 },  // [19] child-ukulele
   { src: 'portrait/Couple-standing-colour.jpg',              alt: 'Portrait — couple standing together, colour',                         width: 1330, height: 2000 },  // [20] couple-colour
+  { src: 'portrait/two-women-smiling-hug.jpg',              alt: 'Portrait — two women embracing and smiling, warm light',               width: 1330, height: 2000 },  // [21] two-women-hug
+  { src: 'portrait/woman-monochrome-window-subtle-smile.jpg',alt: 'Portrait — woman at window, subtle smile, soft monochrome light',     width: 2000, height: 1330 },  // [22] woman-window-bw-smile
+  { src: 'portrait/woman-posing-ballerina-dancing.jpg',      alt: 'Portrait — woman in a balletic pose, expressive, natural light',      width: 1330, height: 2000 },  // [23] woman-ballerina
+  { src: 'portrait/woman-smiling-window-red-sweater.jpg',    alt: 'Portrait — woman smiling by a window, red sweater, warm natural light',width: 2000, height: 1330 },  // [24] woman-red-sweater
+  { src: 'portrait/woman-window-giving-directions.jpg',      alt: 'Portrait — woman at window, animated, as if explaining something',    width: 1330, height: 2000 },  // [25] woman-directions
+  { src: 'portrait/man-monochrome-eyes-beard-1.jpg',         alt: 'Portrait — man with beard, close monochrome, direct gaze',             width: 2000, height: 1331 },  // [26] man-beard-monochrome
 ];
 
 export const landscapeImages = [
