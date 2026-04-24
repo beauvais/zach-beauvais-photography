@@ -17,7 +17,7 @@
 //
 // To add an image:
 //   1. Drop the file into the correct subdirectory
-//   2. Add a line here: { src: 'subdir/filename.jpg', alt: 'Description', width: N, height: N }
+//   2. Add a line here: { src: 'subdir/filename.webp', alt: 'Description', width: N, height: N }
 //
 // 'alt' text is used by screen readers and shown if the image fails to load.
 // Keep it descriptive: "Portrait of Sarah in morning light" not "photo1".
@@ -58,59 +58,59 @@
 //  [26] man-beard-monochrome     — B&W close portrait, man with beard, strong direct gaze
 
 export const portraitImages = [
-  { src: 'portrait/Woman-monochrome-intense-kind.jpg',       alt: 'Portrait — woman with nose ring, direct gaze, natural light',         width: 2048, height: 2048 },  // [0]  woman-closeup
-  { src: 'portrait/Man-daisy-cap-looking-away.jpg',          alt: 'Portrait — man with long hair and daisy cap, looking away',           width: 1703, height: 2560 },  // [1]  man-cap-glasses
-  { src: 'portrait/Woman-industrial-window-monochrome.jpg',  alt: 'Portrait — woman at tall industrial window, looking out',             width: 2000, height: 1330 },  // [2]  woman-window-bw
-  { src: 'portrait/Woman-soft-window-light.jpg',             alt: 'Portrait — young woman, soft window light, direct gaze',              width: 1330, height: 2000 },  // [3]  woman-softlight
-  { src: 'portrait/Woman-leaning-window-smiling.jpg',        alt: 'Portrait — woman leaning by window, smiling',                         width: 1330, height: 2000 },  // [4]  woman-leaning
-  { src: 'portrait/Man-athletic-stone-floor.jpg',            alt: 'Portrait — man in athletic gear, seated relaxed on stone floor',      width: 2000, height: 1330 },  // [5]  man-floor
-  { src: 'portrait/Man-athletic-jacket-industrial.jpg',      alt: 'Portrait — man in athletic jacket, industrial window behind him',     width: 2000, height: 1330 },  // [6]  man-window-colour
-  { src: 'portrait/Man-window-laughing-monochrome.jpg',      alt: 'Portrait — man by window, laughing, looking down',                    width: 2000, height: 1330 },  // [7]  man-laughing-bw
-  { src: 'portrait/Person-winter-snow.jpg',                  alt: 'Portrait — person bundled in winter layers, lying in snow',           width: 1500, height: 2000 },  // [8]  person-snow
-  { src: 'portrait/Woman-studio-chair-grey.jpg',             alt: 'Portrait — woman seated on chair, studio, grey background',           width: 1330, height: 2000 },  // [9]  woman-chair-studio
-  { src: 'portrait/Two-people-studio-monochrome.jpg',        alt: 'Portrait — two people in studio, one seated, one standing',           width: 1330, height: 2000 },  // [10] two-people-studio
-  { src: 'portrait/Woman-purple-hair-rough-wall.jpg',        alt: 'Portrait — woman with purple hair, seated against rough wall',        width: 2000, height: 1330 },  // [11] woman-purple-hair
-  { src: 'portrait/Woman-industrial-window-monochrome-2.jpg',alt: 'Portrait — woman at industrial window, looking out',                  width: 2000, height: 1330 },  // [12] woman-window-bw-2
-  { src: 'portrait/Man-blue-jacket-industrial.jpg',          alt: 'Portrait — man in blue jacket, industrial space',                     width: 2000, height: 1330 },  // [13] man-blue-jacket
-  { src: 'portrait/Woman-curly-hair-eyes-closed.jpg',        alt: 'Portrait — woman with curly hair, eyes closed, smiling at window',   width: 2000, height: 1330 },  // [14] woman-curly-window
-  { src: 'portrait/Two-women-floor-laughing.jpg',            alt: 'Portrait — two women seated on floor, laughing together',             width: 2000, height: 1330 },  // [15] two-women-floor
-  { src: 'portrait/Woman-concrete-pillar-direct-gaze.jpg',   alt: 'Portrait — woman leaning against concrete pillar, direct gaze',      width: 2000, height: 1330 },  // [16] woman-pillar
-  { src: 'portrait/Man-leaning-post-laughing.jpg',           alt: 'Portrait — man leaning on wooden post, laughing',                     width: 1330, height: 2000 },  // [17] man-leaning-laughing
-  { src: 'portrait/Dancer-arms-wide-dark-stage.jpg',         alt: 'Portrait — dancer with arms wide and one leg raised, dark stage',    width: 1330, height: 2000 },  // [18] dancer-dark-main
-  { src: 'portrait/Child-hands-ukulele-close.jpg',           alt: 'Portrait — child\'s hands on a ukulele, close crop',                  width: 2000, height: 1334 },  // [19] child-ukulele
-  { src: 'portrait/Couple-standing-colour.jpg',              alt: 'Portrait — couple standing together, colour',                         width: 1330, height: 2000 },  // [20] couple-colour
-  { src: 'portrait/two-women-smiling-hug.jpg',              alt: 'Portrait — two women embracing and smiling, warm light',               width: 1330, height: 2000 },  // [21] two-women-hug
-  { src: 'portrait/woman-monochrome-window-subtle-smile.jpg',alt: 'Portrait — woman at window, subtle smile, soft monochrome light',     width: 2000, height: 1330 },  // [22] woman-window-bw-smile
-  { src: 'portrait/woman-posing-ballerina-dancing.jpg',      alt: 'Portrait — woman in a balletic pose, expressive, natural light',      width: 1330, height: 2000 },  // [23] woman-ballerina
-  { src: 'portrait/woman-smiling-window-red-sweater.jpg',    alt: 'Portrait — woman smiling by a window, red sweater, warm natural light',width: 2000, height: 1330 },  // [24] woman-red-sweater
-  { src: 'portrait/woman-window-giving-directions.jpg',      alt: 'Portrait — woman at window, animated, as if explaining something',    width: 1330, height: 2000 },  // [25] woman-directions
-  { src: 'portrait/man-monochrome-eyes-beard-1.jpg',         alt: 'Portrait — man with beard, close monochrome, direct gaze',             width: 2000, height: 1331 },  // [26] man-beard-monochrome
+  { src: 'portrait/Woman-monochrome-intense-kind.webp',       alt: 'Portrait — woman with nose ring, direct gaze, natural light',         width: 2048, height: 2048 },  // [0]  woman-closeup
+  { src: 'portrait/Man-daisy-cap-looking-away.webp',          alt: 'Portrait — man with long hair and daisy cap, looking away',           width: 1703, height: 2560 },  // [1]  man-cap-glasses
+  { src: 'portrait/Woman-industrial-window-monochrome.webp',  alt: 'Portrait — woman at tall industrial window, looking out',             width: 2000, height: 1330 },  // [2]  woman-window-bw
+  { src: 'portrait/Woman-soft-window-light.webp',             alt: 'Portrait — young woman, soft window light, direct gaze',              width: 1330, height: 2000 },  // [3]  woman-softlight
+  { src: 'portrait/Woman-leaning-window-smiling.webp',        alt: 'Portrait — woman leaning by window, smiling',                         width: 1330, height: 2000 },  // [4]  woman-leaning
+  { src: 'portrait/Man-athletic-stone-floor.webp',            alt: 'Portrait — man in athletic gear, seated relaxed on stone floor',      width: 2000, height: 1330 },  // [5]  man-floor
+  { src: 'portrait/Man-athletic-jacket-industrial.webp',      alt: 'Portrait — man in athletic jacket, industrial window behind him',     width: 2000, height: 1330 },  // [6]  man-window-colour
+  { src: 'portrait/Man-window-laughing-monochrome.webp',      alt: 'Portrait — man by window, laughing, looking down',                    width: 2000, height: 1330 },  // [7]  man-laughing-bw
+  { src: 'portrait/Person-winter-snow.webp',                  alt: 'Portrait — person bundled in winter layers, lying in snow',           width: 1500, height: 2000 },  // [8]  person-snow
+  { src: 'portrait/Woman-studio-chair-grey.webp',             alt: 'Portrait — woman seated on chair, studio, grey background',           width: 1330, height: 2000 },  // [9]  woman-chair-studio
+  { src: 'portrait/Two-people-studio-monochrome.webp',        alt: 'Portrait — two people in studio, one seated, one standing',           width: 1330, height: 2000 },  // [10] two-people-studio
+  { src: 'portrait/Woman-purple-hair-rough-wall.webp',        alt: 'Portrait — woman with purple hair, seated against rough wall',        width: 2000, height: 1330 },  // [11] woman-purple-hair
+  { src: 'portrait/Woman-industrial-window-monochrome-2.webp',alt: 'Portrait — woman at industrial window, looking out',                  width: 2000, height: 1330 },  // [12] woman-window-bw-2
+  { src: 'portrait/Man-blue-jacket-industrial.webp',          alt: 'Portrait — man in blue jacket, industrial space',                     width: 2000, height: 1330 },  // [13] man-blue-jacket
+  { src: 'portrait/Woman-curly-hair-eyes-closed.webp',        alt: 'Portrait — woman with curly hair, eyes closed, smiling at window',   width: 2000, height: 1330 },  // [14] woman-curly-window
+  { src: 'portrait/Two-women-floor-laughing.webp',            alt: 'Portrait — two women seated on floor, laughing together',             width: 2000, height: 1330 },  // [15] two-women-floor
+  { src: 'portrait/Woman-concrete-pillar-direct-gaze.webp',   alt: 'Portrait — woman leaning against concrete pillar, direct gaze',      width: 2000, height: 1330 },  // [16] woman-pillar
+  { src: 'portrait/Man-leaning-post-laughing.webp',           alt: 'Portrait — man leaning on wooden post, laughing',                     width: 1330, height: 2000 },  // [17] man-leaning-laughing
+  { src: 'portrait/Dancer-arms-wide-dark-stage.webp',         alt: 'Portrait — dancer with arms wide and one leg raised, dark stage',    width: 1330, height: 2000 },  // [18] dancer-dark-main
+  { src: 'portrait/Child-hands-ukulele-close.webp',           alt: 'Portrait — child\'s hands on a ukulele, close crop',                  width: 2000, height: 1334 },  // [19] child-ukulele
+  { src: 'portrait/Couple-standing-colour.webp',              alt: 'Portrait — couple standing together, colour',                         width: 1330, height: 2000 },  // [20] couple-colour
+  { src: 'portrait/two-women-smiling-hug.webp',              alt: 'Portrait — two women embracing and smiling, warm light',               width: 1330, height: 2000 },  // [21] two-women-hug
+  { src: 'portrait/woman-monochrome-window-subtle-smile.webp',alt: 'Portrait — woman at window, subtle smile, soft monochrome light',     width: 2000, height: 1330 },  // [22] woman-window-bw-smile
+  { src: 'portrait/woman-posing-ballerina-dancing.webp',      alt: 'Portrait — woman in a balletic pose, expressive, natural light',      width: 1330, height: 2000 },  // [23] woman-ballerina
+  { src: 'portrait/woman-smiling-window-red-sweater.webp',    alt: 'Portrait — woman smiling by a window, red sweater, warm natural light',width: 2000, height: 1330 },  // [24] woman-red-sweater
+  { src: 'portrait/woman-window-giving-directions.webp',      alt: 'Portrait — woman at window, animated, as if explaining something',    width: 1330, height: 2000 },  // [25] woman-directions
+  { src: 'portrait/man-monochrome-eyes-beard-1.webp',         alt: 'Portrait — man with beard, close monochrome, direct gaze',             width: 2000, height: 1331 },  // [26] man-beard-monochrome
 ];
 
 export const landscapeImages = [
-  { src: 'abstract/abstract-1.jpg',       alt: 'Abstract study — form and tone',                   width: 2560, height: 2048 },
-  { src: 'abstract/abstract-2.jpg',       alt: 'Abstract — colour and structure',                  width: 2048, height: 1365 },
-  { src: 'abstract/abstract-angles.jpg',  alt: 'Architectural abstraction — angles and light',     width: 1600, height: 2000 },
-  { src: 'abstract/abstract_close.jpg',   alt: 'Texture study — close abstraction',                width: 1600, height: 2000 },
-  { src: 'abstract/abstract_portrait.jpg',alt: 'Abstract study — environment and figure',          width: 1330, height: 2000 },
-  { src: 'abstract/abstract_snow.jpg',    alt: 'Landscape — winter light',                         width: 2000, height: 1600 },
-  { src: 'nature/flower.jpg',             alt: 'Botanical — nature study',                         width: 2000, height: 1600 },
-  { src: 'nature/fawn-lillies-several.jpg', alt: 'Fawn lilies — nature study',                     width: 2000, height: 1600 },
-  { src: 'nature/hills.jpg',              alt: 'Hills — landscape',                                width: 2000, height: 1338 },
-  { src: 'nature/tree-light-vignette.jpg',              alt: 'Tree in light — nature study',                                          width: 2000, height: 1330 },
-  { src: 'nature/beaver-swimming-golden-water.jpg',     alt: 'Beaver swimming in golden water, carrying vegetation',                   width: 2000, height: 1330 },
-  { src: 'nature/white-barn-snow-field-winter-sunset.jpg', alt: 'White barn in snow-covered field, golden mist at winter sunset',     width: 2000, height:  875 },
-  { src: 'nature/red-tailed-hawk-flight-wings-spread.jpg', alt: 'Red-tailed hawk in flight, wings fully spread against grey sky',    width: 2000, height: 1331 },
-  { src: 'nature/red-tailed-hawk-landing-bare-branch.jpg', alt: 'Red-tailed hawk landing on bare winter branch, wings open',         width: 2000, height: 1330 },
-  { src: 'nature/northern-cardinal-winter-branches-sunset.jpg', alt: 'Male northern cardinal perched in bare branches at sunset',    width: 2000, height: 1334 },
-  { src: 'nature/bird-silhouette-feeder-golden-mist.jpg', alt: 'Small bird silhouetted at feeder against warm golden mist',          width: 2000, height: 1334 },
-  { src: 'nature/red-squirrel-forest-floor-autumn-leaves.jpg', alt: 'Red squirrel on forest floor among autumn leaves',              width: 2000, height: 1334 },
-  { src: 'nature/waterfall-moss-wildflowers-long-exposure.jpg', alt: 'Waterfall over mossy rocks with yellow wildflowers, long exposure', width: 1600, height: 2000 },
-  { src: 'nature/water-iron-rock-abstract-long-exposure.jpg', alt: 'Abstract — water flowing over iron-stained rock, long exposure', width: 1600, height: 2000 },
-  { src: 'nature/waterfall-cascade-dark-rocks-silky.jpg', alt: 'Waterfall cascade over dark rocks, silky long exposure',             width: 1600, height: 2000 },
-  { src: 'street/street-light-pool.jpg',  alt: 'Street photography — light and shadow',            width: 2000, height: 1600 },
-  { src: 'street/cafe-shot.jpg',          alt: 'Street photography — cafe scene',                  width: 1500, height: 2000 },
-  { src: 'film/IMG_0990.JPG',             alt: 'Film photograph — Abstract composite from Minolta 35mm',                   width: 1418, height: 2108 },
+  { src: 'abstract/abstract-1.webp',       alt: 'Abstract study — form and tone',                   width: 2560, height: 2048 },
+  { src: 'abstract/abstract-2.webp',       alt: 'Abstract — colour and structure',                  width: 2048, height: 1365 },
+  { src: 'abstract/abstract-angles.webp',  alt: 'Architectural abstraction — angles and light',     width: 1600, height: 2000 },
+  { src: 'abstract/abstract_close.webp',   alt: 'Texture study — close abstraction',                width: 1600, height: 2000 },
+  { src: 'abstract/abstract_portrait.webp',alt: 'Abstract study — environment and figure',          width: 1330, height: 2000 },
+  { src: 'abstract/abstract_snow.webp',    alt: 'Landscape — winter light',                         width: 2000, height: 1600 },
+  { src: 'nature/flower.webp',             alt: 'Botanical — nature study',                         width: 2000, height: 1600 },
+  { src: 'nature/fawn-lillies-several.webp', alt: 'Fawn lilies — nature study',                     width: 2000, height: 1600 },
+  { src: 'nature/hills.webp',              alt: 'Hills — landscape',                                width: 2000, height: 1338 },
+  { src: 'nature/tree-light-vignette.webp',              alt: 'Tree in light — nature study',                                          width: 2000, height: 1330 },
+  { src: 'nature/beaver-swimming-golden-water.webp',     alt: 'Beaver swimming in golden water, carrying vegetation',                   width: 2000, height: 1330 },
+  { src: 'nature/white-barn-snow-field-winter-sunset.webp', alt: 'White barn in snow-covered field, golden mist at winter sunset',     width: 2000, height:  875 },
+  { src: 'nature/red-tailed-hawk-flight-wings-spread.webp', alt: 'Red-tailed hawk in flight, wings fully spread against grey sky',    width: 2000, height: 1331 },
+  { src: 'nature/red-tailed-hawk-landing-bare-branch.webp', alt: 'Red-tailed hawk landing on bare winter branch, wings open',         width: 2000, height: 1330 },
+  { src: 'nature/northern-cardinal-winter-branches-sunset.webp', alt: 'Male northern cardinal perched in bare branches at sunset',    width: 2000, height: 1334 },
+  { src: 'nature/bird-silhouette-feeder-golden-mist.webp', alt: 'Small bird silhouetted at feeder against warm golden mist',          width: 2000, height: 1334 },
+  { src: 'nature/red-squirrel-forest-floor-autumn-leaves.webp', alt: 'Red squirrel on forest floor among autumn leaves',              width: 2000, height: 1334 },
+  { src: 'nature/waterfall-moss-wildflowers-long-exposure.webp', alt: 'Waterfall over mossy rocks with yellow wildflowers, long exposure', width: 1600, height: 2000 },
+  { src: 'nature/water-iron-rock-abstract-long-exposure.webp', alt: 'Abstract — water flowing over iron-stained rock, long exposure', width: 1600, height: 2000 },
+  { src: 'nature/waterfall-cascade-dark-rocks-silky.webp', alt: 'Waterfall cascade over dark rocks, silky long exposure',             width: 1600, height: 2000 },
+  { src: 'street/street-light-pool.webp',  alt: 'Street photography — light and shadow',            width: 2000, height: 1600 },
+  { src: 'street/cafe-shot.webp',          alt: 'Street photography — cafe scene',                  width: 1500, height: 2000 },
+  { src: 'film/IMG_0990.webp',             alt: 'Film photograph — Abstract composite from Minolta 35mm',                   width: 1418, height: 2108 },
 ];
 
 // The combined gallery (portraits first, then landscape).
