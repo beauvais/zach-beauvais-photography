@@ -1,5 +1,5 @@
 # Landing Page — Academic Portraits
-> **Status:** Copydeck draft — page not yet built.
+> **Status:** Built — `src/pages/academic-portraits.astro`. Copydeck is authoritative; keep in sync with any page edits.
 
 ---
 
