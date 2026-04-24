@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import { asset, route } from '../lib/paths';
+import { portraitImages, pricing } from '../content/data';
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Zach Beauvais Photography",
+  "description": "Academic portrait photography in Lafayette, IN and Urbana-Champaign, IL. Faculty profiles, research bios, author photos, conference speakers. Sessions from $350. Editing included.",
+  "url": "https://zachbeauvais.com/academic-portraits/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lafayette",
+    "addressRegion": "IN",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Lafayette", "West Lafayette", "Urbana-Champaign", "Indianapolis", "Chicago", "Indiana", "Illinois"],
+  "priceRange": "$350–$750"
+});
+---
+
+<BaseLayout
+  title="Academic Portrait Photography — Faculty, Researchers, and Graduate Students"
+  description="Portrait photography for academics in Lafayette, IN and Urbana-Champaign, IL. Faculty profiles, research bios, author photos, conference speakers. Sessions from $350. Editing included."
+  schema={schema}
+>
+
+  {/* ══ PAGE HEADER ══════════════════════════════════════════════════ */}
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Academic portraits</span>
+      <h1>A portrait as considered as your work.</h1>
+      <p class="lead" style="margin-top: var(--space-4); max-width: 52ch;">
+        I work out of Lafayette and Urbana-Champaign — Purdue and U&nbsp;of&nbsp;I. Your
+        faculty page, your research profile, your conference bio — the portrait on
+        all of those probably looks like you were ambushed with a camera in a
+        corridor. We can do better than that.
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ HERO IMAGE — man-cap-glasses [1] ════════════════════════════
+      B&W, man with long hair and daisy cap, looking away. Portrait.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section-sm">
+    <div class="container">
+      <div class="solo-image solo-portrait">
+        <img
+          src={asset(portraitImages[1].src)}
+          alt={portraitImages[1].alt}
+          width={portraitImages[1].width}
+          height={portraitImages[1].height}
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ THE PROBLEM ═══════════════════════════════════════════════════
+      No eyebrow. No heading. Prose runs directly from header.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section bg-strong">
+    <div class="container container-narrow">
+      <div class="body-stack">
+        <p>
+          Was your profile photo taken at a conference, grabbed by a colleague with a
+          phone, or produced by the department's annual photo day with a borrowed
+          backdrop and a photographer who had twelve minutes per person? It doesn't
+          look like you — it looks like someone who was briefly photographed.
+        </p>
+        <p>
+          That matters more than it used to. Your image appears on your faculty page,
+          your Google Scholar profile, your publisher's website, your speaker bio, your
+          ResearchGate. It's often the first thing a prospective student, collaborator,
+          or journalist sees.
+        </p>
+        <p>
+          I spent eight years at Cornell and a good stretch before that at an agency
+          whose clients were almost entirely Cambridge University departments. I know
+          the culture, the environments, and what these images need to do — on a
+          faculty page, a book jacket, a conference slide, a research profile.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ SOLO IMAGE — woman-chair-studio [9] ══════════════════════════
+      B&W studio, woman seated on chair, grey background. Portrait.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section-sm">
+    <div class="container">
+      <div class="solo-image solo-portrait">
+        <img
+          src={asset(portraitImages[9].src)}
+          alt={portraitImages[9].alt}
+          width={portraitImages[9].width}
+          height={portraitImages[9].height}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ WHAT THE SESSION LOOKS LIKE ══════════════════════════════════ */}
+  <section class="section">
+    <div class="container container-narrow">
+      <span class="eyebrow">How it works</span>
+      <h2>A conversation before the camera comes out.</h2>
+      <div class="body-stack">
+        <p>
+          We start by talking. What's this image for — a faculty page, a book jacket,
+          a grant submission, a conference keynote? What do you want it to say? What
+          would you like it to not look like?
+        </p>
+        <p>
+          Location is part of the image. Some people want their office — books, natural
+          light, a sense of the actual environment where the thinking happens. Some want
+          somewhere more neutral. Some want outside. We figure it out together, and I'll
+          make suggestions if you'd like them.
+        </p>
+        <p>
+          The session itself is unhurried. I don't direct you into poses. We talk, we
+          move around, and I photograph as things happen. The portraits that come out of
+          that approach tend to look more like you than anything produced by stand here,
+          chin up, good, hold that.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ SOLO IMAGE — man-leaning [17] ════════════════════════════════
+      B&W, man leaning on wooden post, laughing. Portrait orientation.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section-sm bg-strong">
+    <div class="container">
+      <div class="solo-image solo-portrait">
+        <img
+          src={asset(portraitImages[17].src)}
+          alt={portraitImages[17].alt}
+          width={portraitImages[17].width}
+          height={portraitImages[17].height}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ WHO THIS IS FOR ═══════════════════════════════════════════════ */}
+  <section class="section bg-soft">
+    <div class="container container-narrow">
+      <span class="eyebrow">Right for</span>
+      <h2>Anyone in the university world who needs a better image.</h2>
+      <div class="body-stack">
+        <p>
+          Faculty at any stage — assistant, associate, full, emeritus. Postdocs and
+          researchers preparing for a job search or a grant cycle. Graduate students
+          finishing a dissertation or heading to the market for the first time. Visiting
+          scholars. Researchers without academic affiliation who need a credible
+          professional portrait for their work.
+        </p>
+        <p>
+          Also: academics writing books. Author photos for university presses are often
+          an afterthought — a crop from a conference photo, or a three-year-old image
+          that no longer looks quite right. If you're at the point where someone is
+          asking for an author photo, it's worth doing it properly.
+        </p>
+        <p>
+          And keynote speakers and conference presenters — the bio photo that gets
+          projected onto a screen in front of three hundred people deserves better than
+          what's currently on your institutional page.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ SOLO IMAGE — woman-pillar [16] ═══════════════════════════════
+      Colour, woman against concrete pillar, direct gaze. Landscape.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section-sm">
+    <div class="container">
+      <div class="solo-image">
+        <img
+          src={asset(portraitImages[16].src)}
+          alt={portraitImages[16].alt}
+          width={portraitImages[16].width}
+          height={portraitImages[16].height}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ PRICING ═══════════════════════════════════════════════════════ */}
+  <section class="section bg-strong">
+    <div class="container">
+      <span class="eyebrow">Sessions &amp; Pricing</span>
+      <h2>Standard sessions. Nothing academic-specific about the price.</h2>
+      <p class="pricing-intro">
+        The same two sessions work here as for any portrait work. Editing and
+        delivery always included. Travel within 30 miles of Lafayette, Indiana or
+        Urbana-Champaign, Illinois is included — Indianapolis adds $100, Chicago adds $200.
+      </p>
+      <div class="pricing-cards">
+        <div class="pricing-card featured">
+          <div>
+            <h6>{pricing.essential.name}</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-4);">
+              <span>$</span>{pricing.essential.price}
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li>1 hour, 1 location</li>
+            <li>5 edited portraits</li>
+            <li>Private online gallery delivery</li>
+            <li>Editing included</li>
+          </ul>
+          <div class="pricing-footer">
+            <a href={route('contact/?session_type=essential')} class="btn btn-primary">
+              Book the essential session
+            </a>
+          </div>
+        </div>
+        <div class="pricing-card">
+          <div>
+            <h6>{pricing.extended.name}</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-4);">
+              <span>$</span>{pricing.extended.price}
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li>3 hours, 1 location</li>
+            <li>20 edited portraits</li>
+            <li>Private online gallery delivery</li>
+            <li>Editing included</li>
+          </ul>
+          <div class="pricing-footer">
+            <a href={route('contact/?session_type=extended')} class="btn btn-primary">
+              Book the exploration session
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ SOLO IMAGE — woman-window [2] ════════════════════════════════
+      B&W, woman at tall industrial window, looking out. Landscape.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section-sm">
+    <div class="container">
+      <div class="solo-image">
+        <img
+          src={asset(portraitImages[2].src)}
+          alt={portraitImages[2].alt}
+          width={portraitImages[2].width}
+          height={portraitImages[2].height}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
+  <CTABand
+    eyebrow="Get in touch"
+    heading="Tell me what the image needs to do."
+    body="Where it'll live, what it's for, what you're hoping it looks like. We'll take it from there."
+    primaryHref={route('contact/')}
+    primaryLabel="Get in touch"
+    secondaryHref={route('sessions/')}
+    secondaryLabel="See sessions & pricing"
+  />
+
+</BaseLayout>
+
+<style>
+  /* ── Solo image moments ───────────────────────────────────────────── */
+  .solo-image {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .solo-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  /* Portrait-oriented images: narrower */
+  .solo-portrait {
+    max-width: 480px;
+  }
+
+  /* ── Prose sections ───────────────────────────────────────────────── */
+  .body-stack p { margin-top: var(--space-5); }
+  .body-stack p:first-child { margin-top: var(--space-6); }
+
+  /* ── Pricing ──────────────────────────────────────────────────────── */
+  .pricing-intro {
+    max-width: 60ch;
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-8);
+  }
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    align-items: start;
+    max-width: 820px;
+  }
+
+  @media (max-width: 720px) {
+    .pricing-cards { grid-template-columns: 1fr; }
+    .solo-portrait { max-width: 340px; }
+  }
+</style>
