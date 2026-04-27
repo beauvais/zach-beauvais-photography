@@ -95,31 +95,23 @@ const localBusinessSchema = JSON.stringify({
 
 
   {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
-      Three explicit columns — images at natural aspect ratios, no gaps.
-      Col1: [0],[3]  Col2: [1],[4]  Col3: [2],[5]
+      3-column grid — 6 images, 2 rows. Order: [0,1,2] top, [3,4,5] bottom.
       Adjust stripImages array above to change photos.
   ══════════════════════════════════════════════════════════════════ */}
   <section class="photo-strip-section">
     <div class="photo-strip">
-      {[[0,3],[1,4],[5,2]].map((indices) => (
-        <div class="strip-col">
-          {indices.map((i) => {
-            const img = stripImages[i];
-            return (
-              <div class="strip-item">
-                <img
-                  src={asset(img.src)}
-                  alt={img.alt}
-                  width={img.width}
-                  height={img.height}
-                  loading="lazy"
-                  class="lightbox-trigger"
-                  data-src={asset(img.src)}
-                  data-alt={img.alt}
-                />
-              </div>
-            );
-          })}
+      {stripImages.map((img) => (
+        <div class="strip-item">
+          <img
+            src={asset(img.src)}
+            alt={img.alt}
+            width={img.width}
+            height={img.height}
+            loading="lazy"
+            class="lightbox-trigger"
+            data-src={asset(img.src)}
+            data-alt={img.alt}
+          />
         </div>
       ))}
     </div>
@@ -127,7 +119,7 @@ const localBusinessSchema = JSON.stringify({
 
 
   {/* ══ APPROACH ══════════════════════════════════════════════════════ */}
-  <section class="section bg-soft">
+  <section class="section bg-soft" style="padding-top: var(--space-6);">
     <div class="container">
       <div class="approach-split">
         <div class="stack">
@@ -206,7 +198,7 @@ const localBusinessSchema = JSON.stringify({
 
 
   {/* ══ PRICING ═══════════════════════════════════════════════════════ */}
-  <section class="section bg-soft">
+  <section class="section bg-soft" style="padding-top: var(--space-7);">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Sessions &amp; pricing</span>
@@ -393,27 +385,6 @@ const localBusinessSchema = JSON.stringify({
     margin-top: var(--space-2);
     margin-bottom: var(--space-4);
   }
-
-  /* ── Photo strip ─────────────────────────────────────────────────── */
-  .photo-strip {
-    display: flex;
-    gap: var(--space-2);
-    align-items: flex-start;
-  }
-  .strip-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-  .strip-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-  }
-  .strip-item img:hover { opacity: 0.88; }
 
   /* ── Approach split ──────────────────────────────────────────────── */
   .approach-split {
