@@ -25,16 +25,16 @@
 
 :root {
   /* Colour */
-  --color-bg:             #FDFCFB;
+  --color-bg:             #FFFFFF;
   --color-fg:             #1C1410;
   --color-primary:        #2D2621;
   --color-accent:         #FF7726;
   --color-accent-strong:  #FF7726;
-  --color-muted:          #6E6860;
-  --color-border:         #E8E1D8;
+  --color-muted:          #6B6B6B;
+  --color-border:         #E0E0E0;
   --color-surface:        #FFFFFF;
-  --color-surface-soft:   #F7F4EF;
-  --color-surface-strong: #F0ECE6;
+  --color-surface-soft:   #F2F2F2;
+  --color-surface-strong: #E8E8E8;
 
   /* Typography */
   --font-sans: "Gill Sans", "Gill Sans MT", "Century Gothic", Calibri, sans-serif;
@@ -181,7 +181,7 @@ p + p {
 }
 
 .section {
-  padding-block: var(--space-10);
+  padding-block: var(--space-8);
 }
 
 .section-md {
@@ -697,7 +697,10 @@ p + p {
   object-fit: cover;
   object-position: center top;
   display: block;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
+.strip-item img:hover { opacity: 0.88; }
 
 .bespoke-note {
   margin-top: var(--space-6);
@@ -882,7 +885,7 @@ p + p {
 }
 
 .cta-band p {
-  color: rgba(253, 252, 251, 0.7);
+  color: rgba(253, 252, 251, 0.88);
   margin-inline: auto;
   margin-bottom: var(--space-7);
 }

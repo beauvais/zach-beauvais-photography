@@ -44,8 +44,7 @@ const {
       {secondaryHref && secondaryLabel && (
         <a
           href={secondaryHref}
-          class="btn btn-ghost btn-lg"
-          style="color: rgba(253,252,251,0.7);"
+          class="btn btn-ghost btn-lg cta-ghost"
         >
           {secondaryLabel}
         </a>
@@ -53,3 +52,13 @@ const {
     </div>
   </div>
 </section>
+
+<style>
+  .cta-ghost {
+    color: rgba(253, 252, 251, 0.75);
+  }
+  .cta-ghost:hover {
+    color: rgba(253, 252, 251, 1);
+    background: rgba(255, 255, 255, 0.1);
+  }
+</style>
