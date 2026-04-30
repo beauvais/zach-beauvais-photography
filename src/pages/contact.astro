@@ -3,26 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { asset, route } from '../lib/paths';
 import { site, pricing } from '../content/data';
 
-// ─── Availability widget ─────────────────────────────────────────────────────
-// Computed at build time from the deploy date. Shows "next month & month after",
-// which matches typical portrait booking lead times (4–8 weeks out).
-//
-// To override manually (e.g. "Away until September", "Fully booked — waitlist only"),
-// set `manualAvailability` to a non-empty string. Leave empty to auto-compute.
-// If you override, remember to clear the string again after, or rebuild to reset.
-//
-// The site needs to rebuild for the automatic value to roll forward — set up a
-// scheduled rebuild (e.g. Cloudflare Pages / Netlify monthly cron) if you want
-// this to stay current without manual pushes.
-const manualAvailability = '';
-
-const now = new Date();
-const monthFormat = new Intl.DateTimeFormat('en-US', { month: 'long' });
-const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-const monthAfter = new Date(now.getFullYear(), now.getMonth() + 2, 1);
-const autoAvailability = `Currently booking ${monthFormat.format(nextMonth)} & ${monthFormat.format(monthAfter)} sessions`;
-
-const availabilityText = manualAvailability || autoAvailability;
 ---
 
 <BaseLayout
@@ -73,24 +53,12 @@ const availabilityText = manualAvailability || autoAvailability;
           <div class="divider"></div>
           <div>
             <h5 style="margin-bottom: var(--space-4);">Based in</h5>
-            <p class="muted" style="font-size: var(--text-sm);">{site.location}</p>
+            <p class="muted" style="font-size: var(--text-sm);">Lafayette, Indiana &amp; Urbana-Champaign, Illinois</p>
             <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-3);">
               Available within 30 miles of Lafayette and Urbana-Champaign at standard rates.
               {pricing.travel.indianapolis.label} +${pricing.travel.indianapolis.fee} ·
               {pricing.travel.chicago.label} +${pricing.travel.chicago.fee}
             </p>
-          </div>
-          <div class="divider"></div>
-          <div>
-            {/* ── Availability — auto-computed from build date ─────────────────
-                Shows "next month & month after". To override manually (holiday,
-                waitlist, fully booked), set `manualAvailability` in the
-                frontmatter at the top of this file.
-            ────────────────────────────────────────────────────────────────── */}
-            <div class="availability-signal">
-              <span class="availability-dot" aria-hidden="true"></span>
-              <span>{availabilityText}</span>
-            </div>
           </div>
           <div class="divider"></div>
           <div>
