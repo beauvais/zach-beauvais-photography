@@ -8,17 +8,19 @@ import { portraitImages, pricing, site } from '../content/data';
 // Hero image
 const heroImage = portraitImages[0];
 
-// Photo strip — masonry columns, natural aspect ratios.
-// Interleaved portrait+landscape so each column gets one of each,
-// keeping column heights roughly equal (no stair-step at the bottom).
+// Photo strip above approach — 6 portraits (3 columns × 2 rows)
+// Col1: [9],[12]  Col2: [10],[13]  Col3: [14],[1]
+// [1] man-daisy-cap is portrait/tall — balances col3 against two landscape images above
+// Interleaved portrait+landscape so each CSS column gets one of each,
+// keeping column heights roughly equal and avoiding the stair-step.
 // Col 1: [0],[1]  Col 2: [2],[3]  Col 3: [4],[5]
 const stripImages = [
-  portraitImages[9],  // woman-chair-studio          — portrait  (col 1 top)
-  portraitImages[14], // woman-curly-window           — landscape (col 1 bottom)
+  portraitImages[9],  // woman-chair-studio         — portrait  (col 1 top)
+  portraitImages[14], // woman-curly-window          — landscape (col 1 bottom)
   portraitImages[4],  // woman-leaning-window-smiling — portrait  (col 2 top)
-  portraitImages[12], // woman-window-bw-2            — landscape (col 2 bottom)
-  portraitImages[1],  // man-daisy-cap-looking-away   — portrait  (col 3 top)
-  portraitImages[13], // man-blue-jacket              — landscape (col 3 bottom)
+  portraitImages[12], // woman-window-bw-2           — landscape (col 2 bottom)
+  portraitImages[1],  // man-daisy-cap-looking-away  — portrait  (col 3 top)
+  portraitImages[13], // man-blue-jacket             — landscape (col 3 bottom)
 ];
 
 // Gallery: 9 portraits — excludes hero [0] and all strip images [1,9,10,12,13,14]
@@ -55,8 +57,8 @@ const localBusinessSchema = JSON.stringify({
 ---
 
 <BaseLayout
-  title="Home"
-  description="Portrait photography in Lafayette, IN and Urbana-Champaign, IL. Collaborative sessions shaped by nature, street, and abstract photography. Editing included. From $350."
+  title="Gallery Sandbox (dev only)"
+  description="Gallery layout experiments — not for production."
   schema={localBusinessSchema}
 >
 
@@ -102,7 +104,6 @@ const localBusinessSchema = JSON.stringify({
 
   {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
       Masonry columns — natural aspect ratios, no cropping.
-      Interleaved portrait+landscape for even column heights.
       3 columns desktop, 2 mobile.
   ══════════════════════════════════════════════════════════════════ */}
   <section class="photo-strip-section">
@@ -169,13 +170,24 @@ const localBusinessSchema = JSON.stringify({
   <Testimonials />
 
 
-  {/* ══ PORTRAIT GALLERY ══════════════════════════════════════════════
-      Horizontal scroll carousel — images at natural aspect ratios.
-      Swipeable on touch. Prev/next arrows for pointer users.
-      Click any image to open lightbox.
-      Change galleryImages slice above to show different portraits.
+  {/* ══════════════════════════════════════════════════════════════════
+      GALLERY SANDBOX — swap which variant is active by uncommenting it.
+      Each variant is self-contained. Only ONE should be uncommented at
+      a time. The CSS for all variants lives at the bottom of this file.
+
+      VARIANTS:
+        A  — Current: horizontal scroll carousel (status quo)
+        B  — Masonry-style CSS grid, natural aspect ratios
+        C  — Fixed-height rows, object-fit cover, uniform cells
+        D  — Two-row staggered strip (portrait / landscape alternating)
   ══════════════════════════════════════════════════════════════════ */}
-  <section class="section gallery-section">
+
+
+  {/* ── VARIANT A — Horizontal scroll carousel (current production) ──
+      Uncomment to test. Comment out Variant B below first.
+
+  <section class="section gallery-section sandbox-variant" id="variant-a">
+    <p class="sandbox-label">Variant A — Horizontal scroll carousel</p>
     <div class="gallery-carousel-wrap">
       <button class="gallery-arrow gallery-arrow-prev" aria-label="Previous photo">&#8592;</button>
       <div class="gallery-track" id="gallery-track">
@@ -203,6 +215,98 @@ const localBusinessSchema = JSON.stringify({
       </div>
     </div>
   </section>
+  */}
+
+
+  {/* ── VARIANT B — CSS columns masonry, natural aspect ratios ────── */}
+  <section class="section gallery-section sandbox-variant" id="variant-b">
+    <p class="sandbox-label">Variant B — CSS columns masonry</p>
+    <div class="container">
+      <div class="masonry-grid">
+        {galleryImages.map(img => (
+          <div class="masonry-item">
+            <img
+              src={asset(img.src)}
+              alt={img.alt}
+              width={img.width}
+              height={img.height}
+              loading="lazy"
+              class="lightbox-trigger"
+              data-src={asset(img.src)}
+              data-alt={img.alt}
+            />
+          </div>
+        ))}
+      </div>
+      <div class="btn-row" style="margin-top: var(--space-6);">
+        <a href={route('portfolio/portraits/')} class="btn btn-outline">All portrait work</a>
+        <a href={route('portfolio/landscape/')} class="btn btn-ghost">Landscape &amp; abstract work</a>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ── VARIANT C — Fixed-height grid, object-fit cover, uniform cells
+      Uncomment to test. Comment out Variant A above first.
+
+  <section class="section gallery-section sandbox-variant" id="variant-c">
+    <p class="sandbox-label">Variant C — Fixed-height uniform grid</p>
+    <div class="container">
+      <div class="uniform-grid">
+        {galleryImages.map(img => (
+          <div class="uniform-cell">
+            <img
+              src={asset(img.src)}
+              alt={img.alt}
+              width={img.width}
+              height={img.height}
+              loading="lazy"
+              class="lightbox-trigger"
+              data-src={asset(img.src)}
+              data-alt={img.alt}
+            />
+          </div>
+        ))}
+      </div>
+      <div class="btn-row" style="margin-top: var(--space-6);">
+        <a href={route('portfolio/portraits/')} class="btn btn-outline">All portrait work</a>
+        <a href={route('portfolio/landscape/')} class="btn btn-ghost">Landscape &amp; abstract work</a>
+      </div>
+    </div>
+  </section>
+  */}
+
+
+  {/* ── VARIANT D — Two-row staggered strip (portrait / landscape)
+      Alternates tall portrait and wide landscape cells per column.
+      Uncomment to test. Comment out Variant A above first.
+
+  <section class="section gallery-section sandbox-variant" id="variant-d">
+    <p class="sandbox-label">Variant D — Two-row staggered strip</p>
+    <div class="stagger-strip">
+      {galleryImages.map((img, i) => (
+        <div class={`stagger-cell ${i % 2 === 0 ? 'stagger-portrait' : 'stagger-landscape'}`}>
+          <img
+            src={asset(img.src)}
+            alt={img.alt}
+            width={img.width}
+            height={img.height}
+            loading="lazy"
+            class="lightbox-trigger"
+            data-src={asset(img.src)}
+            data-alt={img.alt}
+          />
+        </div>
+      ))}
+    </div>
+    <div class="container">
+      <div class="btn-row" style="margin-top: var(--space-6);">
+        <a href={route('portfolio/portraits/')} class="btn btn-outline">All portrait work</a>
+        <a href={route('portfolio/landscape/')} class="btn btn-ghost">Landscape &amp; abstract work</a>
+      </div>
+    </div>
+  </section>
+  */}
 
 
   {/* ══ PRICING ═══════════════════════════════════════════════════════ */}
@@ -311,13 +415,18 @@ const localBusinessSchema = JSON.stringify({
     lbImg.alt = img.dataset.alt || img.alt;
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    // Update URL hash so this image is directly linkable
     const id = img.dataset.id;
-    if (id && pushHistory) history.replaceState(null, '', `#${id}`);
+    if (id && pushHistory) {
+      history.replaceState(null, '', `#${id}`);
+    }
   }
 
   function close() {
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
+    // Clear the hash without adding a history entry
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
 
@@ -336,8 +445,8 @@ const localBusinessSchema = JSON.stringify({
     if (e.key === 'ArrowRight') next();
   });
 
-  // Open directly to a linked image on page load
-  const hash = window.location.hash.slice(1);
+  // ── Open directly to a linked image on page load ───────────────────
+  const hash = window.location.hash.slice(1); // strip the #
   if (hash) {
     const index = triggers.findIndex(img => img.dataset.id === hash);
     if (index !== -1) open(index, false);
@@ -367,8 +476,30 @@ const localBusinessSchema = JSON.stringify({
 
 <style>
   /* ── Hero / strip join ───────────────────────────────────────────── */
+  /* Zero out any bottom gap on the hero, then set the strip top margin
+     to match the masonry gap — so hero → strip looks like one gallery. */
   .hero { margin-bottom: 0; }
   .photo-strip-section { margin-top: var(--space-3); }
+
+  /* ── Photo strip masonry ─────────────────────────────────────────── */
+  .strip-masonry {
+    column-count: 3;
+    column-gap: var(--space-3);
+    width: 100%;
+  }
+  .strip-masonry-item {
+    break-inside: avoid;
+    margin-bottom: var(--space-3);
+  }
+  .strip-masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  .strip-masonry-item img:hover { opacity: 0.88; }
+  @media (max-width: 768px) { .strip-masonry { column-count: 2; } }
 
   /* ── Hero ────────────────────────────────────────────────────────── */
   .hero-image {
@@ -440,7 +571,7 @@ const localBusinessSchema = JSON.stringify({
   }
   .gallery-track {
     display: flex;
-    gap: var(--space-3);
+    gap: var(--space-2);
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -454,7 +585,7 @@ const localBusinessSchema = JSON.stringify({
     scroll-snap-align: start;
     height: 480px;
     overflow: hidden;
-    border-radius: 0;
+    border-radius: var(--radius);
   }
   .gallery-slide img {
     height: 480px;
@@ -575,5 +706,120 @@ const localBusinessSchema = JSON.stringify({
 
     .gallery-slide { height: 320px; }
     .gallery-arrow { display: none; }
+  }
+
+  /* ══ SANDBOX TOKEN OVERRIDES ═════════════════════════════════════ */
+  :root {
+    --radius-sm: 0px;
+    --radius:    2px;
+    --radius-lg: 3px;
+  }
+
+  /* ══ SANDBOX UTILITIES ════════════════════════════════════════════ */
+  .sandbox-variant { position: relative; }
+  .sandbox-label {
+    position: absolute;
+    top: var(--space-3);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffee58;
+    color: #333;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    z-index: 10;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* ── Variant B — CSS columns masonry ─────────────────────────────── */
+  .masonry-grid {
+    column-count: 3;
+    column-gap: var(--space-3);
+  }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: var(--space-3);
+    /* no overflow: hidden, no height — let natural aspect ratio breathe */
+    border-radius: var(--radius);
+  }
+  .masonry-item img {
+    width: 100%;
+    height: auto;       /* natural aspect ratio, no cropping */
+    max-width: 100%;
+    display: block;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  .masonry-item img:hover { opacity: 0.9; }
+  @media (max-width: 768px) { .masonry-grid { column-count: 2; } }
+  @media (max-width: 480px) { .masonry-grid { column-count: 1; } }
+
+  /* ── Variant C — Uniform grid, object-fit cover ───────────────────── */
+  .uniform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+  }
+  .uniform-cell {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--color-surface);
+  }
+  .uniform-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  .uniform-cell img:hover { opacity: 0.9; }
+  @media (max-width: 768px) { .uniform-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .uniform-grid { grid-template-columns: 1fr; } }
+
+  /* ── Variant D — Two-row staggered strip ─────────────────────────── */
+  .stagger-strip {
+    display: flex;
+    gap: var(--space-2);
+    overflow-x: scroll;
+    scrollbar-width: none;
+    padding: 0 var(--space-5);
+    align-items: flex-start;
+  }
+  .stagger-strip::-webkit-scrollbar { display: none; }
+  .stagger-cell {
+    flex: 0 0 auto;
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+  .stagger-portrait {
+    width: 240px;
+    height: 360px;
+  }
+  .stagger-landscape {
+    width: 360px;
+    height: 240px;
+    align-self: flex-end;
+  }
+  .stagger-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  .stagger-cell img:hover { opacity: 0.9; }
+  @media (max-width: 768px) {
+    .stagger-portrait { width: 160px; height: 240px; }
+    .stagger-landscape { width: 240px; height: 160px; }
   }
 </style>
