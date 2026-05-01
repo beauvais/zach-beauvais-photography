@@ -136,31 +136,55 @@ const schema = JSON.stringify([localBusiness, faqSchema]);
     <div class="container">
       <div class="strip-masonry">
         <div class="strip-masonry-item">
-          <img
-            src={asset(portraitImages[0].src)}
-            alt={portraitImages[0].alt}
-            width={portraitImages[0].width}
-            height={portraitImages[0].height}
-            loading="lazy"
-          />
+          <a
+            href={asset(portraitImages[0].src)}
+            data-pswp-width={portraitImages[0].width}
+            data-pswp-height={portraitImages[0].height}
+            data-pswp-id={portraitImages[0].src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(portraitImages[0].src)}
+              alt={portraitImages[0].alt}
+              width={portraitImages[0].width}
+              height={portraitImages[0].height}
+              loading="lazy"
+            />
+          </a>
         </div>
         <div class="strip-masonry-item">
-          <img
-            src={asset(portraitImages[10].src)}
-            alt={portraitImages[10].alt}
-            width={portraitImages[10].width}
-            height={portraitImages[10].height}
-            loading="lazy"
-          />
+          <a
+            href={asset(portraitImages[10].src)}
+            data-pswp-width={portraitImages[10].width}
+            data-pswp-height={portraitImages[10].height}
+            data-pswp-id={portraitImages[10].src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(portraitImages[10].src)}
+              alt={portraitImages[10].alt}
+              width={portraitImages[10].width}
+              height={portraitImages[10].height}
+              loading="lazy"
+            />
+          </a>
         </div>
         <div class="strip-masonry-item">
-          <img
-            src={asset(landscapeImages[0].src)}
-            alt={landscapeImages[0].alt}
-            width={landscapeImages[0].width}
-            height={landscapeImages[0].height}
-            loading="lazy"
-          />
+          <a
+            href={asset(landscapeImages[0].src)}
+            data-pswp-width={landscapeImages[0].width}
+            data-pswp-height={landscapeImages[0].height}
+            data-pswp-id={landscapeImages[0].src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(landscapeImages[0].src)}
+              alt={landscapeImages[0].alt}
+              width={landscapeImages[0].width}
+              height={landscapeImages[0].height}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -274,4 +298,41 @@ const schema = JSON.stringify([localBusiness, faqSchema]);
   />
 
 </BaseLayout>
+
+<style>
+.pswp-thumb { display: block; }
+</style>
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: document.body,
+    children: 'a[data-pswp-width]',
+    pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.min.js'),
+    history: false,
+  });
+
+  lightbox.on('afterInit', () => {
+    const pswp = lightbox.pswp;
+    const setHash = () => {
+      const id = pswp.currSlide?.data.element?.dataset.pswpId;
+      if (id) history.replaceState(null, '', `#${id}`);
+    };
+    pswp.on('change', setHash);
+    setHash();
+    pswp.on('destroy', () => {
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+
+  lightbox.init();
+
+  const hash = location.hash.slice(1);
+  if (hash) {
+    const links = Array.from(document.querySelectorAll('a[data-pswp-width]'));
+    const index = links.findIndex(a => a.dataset.pswpId === hash);
+    if (index !== -1) lightbox.loadAndOpen(index);
+  }
+</script>
 

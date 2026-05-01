@@ -136,31 +136,55 @@ const schema = JSON.stringify([localBusiness, faqSchema]);
     <div class="container">
       <div class="strip-masonry">
         <div class="strip-masonry-item">
-          <img
-            src={asset(portraitImages[9].src)}
-            alt={portraitImages[9].alt}
-            width={portraitImages[9].width}
-            height={portraitImages[9].height}
-            loading="lazy"
-          />
+          <a
+            href={asset(portraitImages[9].src)}
+            data-pswp-width={portraitImages[9].width}
+            data-pswp-height={portraitImages[9].height}
+            data-pswp-id={portraitImages[9].src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(portraitImages[9].src)}
+              alt={portraitImages[9].alt}
+              width={portraitImages[9].width}
+              height={portraitImages[9].height}
+              loading="lazy"
+            />
+          </a>
         </div>
         <div class="strip-masonry-item">
-          <img
-            src={asset(portraitImages[15].src)}
-            alt={portraitImages[15].alt}
-            width={portraitImages[15].width}
-            height={portraitImages[15].height}
-            loading="lazy"
-          />
+          <a
+            href={asset(portraitImages[15].src)}
+            data-pswp-width={portraitImages[15].width}
+            data-pswp-height={portraitImages[15].height}
+            data-pswp-id={portraitImages[15].src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(portraitImages[15].src)}
+              alt={portraitImages[15].alt}
+              width={portraitImages[15].width}
+              height={portraitImages[15].height}
+              loading="lazy"
+            />
+          </a>
         </div>
         <div class="strip-masonry-item">
-          <img
-            src={asset(landscapeImages[2].src)}
-            alt={landscapeImages[2].alt}
-            width={landscapeImages[2].width}
-            height={landscapeImages[2].height}
-            loading="lazy"
-          />
+          <a
+            href={asset(landscapeImages[2].src)}
+            data-pswp-width={landscapeImages[2].width}
+            data-pswp-height={landscapeImages[2].height}
+            data-pswp-id={landscapeImages[2].src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(landscapeImages[2].src)}
+              alt={landscapeImages[2].alt}
+              width={landscapeImages[2].width}
+              height={landscapeImages[2].height}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -277,4 +301,38 @@ const schema = JSON.stringify([localBusiness, faqSchema]);
 <style>
   /* Square crop for the B&W close-up portrait used on this page */
   .approach-image { aspect-ratio: 1 / 1; }
+  .pswp-thumb { display: block; }
 </style>
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: document.body,
+    children: 'a[data-pswp-width]',
+    pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.min.js'),
+    history: false,
+  });
+
+  lightbox.on('afterInit', () => {
+    const pswp = lightbox.pswp;
+    const setHash = () => {
+      const id = pswp.currSlide?.data.element?.dataset.pswpId;
+      if (id) history.replaceState(null, '', `#${id}`);
+    };
+    pswp.on('change', setHash);
+    setHash();
+    pswp.on('destroy', () => {
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+
+  lightbox.init();
+
+  const hash = location.hash.slice(1);
+  if (hash) {
+    const links = Array.from(document.querySelectorAll('a[data-pswp-width]'));
+    const index = links.findIndex(a => a.dataset.pswpId === hash);
+    if (index !== -1) lightbox.loadAndOpen(index);
+  }
+</script>

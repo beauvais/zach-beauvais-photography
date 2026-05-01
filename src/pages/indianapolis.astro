@@ -135,31 +135,55 @@ const schema = JSON.stringify([localBusiness, faqSchema]);
     <div class="container">
       <div class="strip-masonry">
         <div class="strip-masonry-item">
-          <img
-            src={asset(portraitImages[11].src)}
-            alt={portraitImages[11].alt}
-            width={portraitImages[11].width}
-            height={portraitImages[11].height}
-            loading="lazy"
-          />
+          <a
+            href={asset(portraitImages[11].src)}
+            data-pswp-width={portraitImages[11].width}
+            data-pswp-height={portraitImages[11].height}
+            data-pswp-id={portraitImages[11].src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(portraitImages[11].src)}
+              alt={portraitImages[11].alt}
+              width={portraitImages[11].width}
+              height={portraitImages[11].height}
+              loading="lazy"
+            />
+          </a>
         </div>
         <div class="strip-masonry-item">
-          <img
-            src={asset(portraitImages[6].src)}
-            alt={portraitImages[6].alt}
-            width={portraitImages[6].width}
-            height={portraitImages[6].height}
-            loading="lazy"
-          />
+          <a
+            href={asset(portraitImages[6].src)}
+            data-pswp-width={portraitImages[6].width}
+            data-pswp-height={portraitImages[6].height}
+            data-pswp-id={portraitImages[6].src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(portraitImages[6].src)}
+              alt={portraitImages[6].alt}
+              width={portraitImages[6].width}
+              height={portraitImages[6].height}
+              loading="lazy"
+            />
+          </a>
         </div>
         <div class="strip-masonry-item">
-          <img
-            src={asset(portraitImages[3].src)}
-            alt={portraitImages[3].alt}
-            width={portraitImages[3].width}
-            height={portraitImages[3].height}
-            loading="lazy"
-          />
+          <a
+            href={asset(portraitImages[3].src)}
+            data-pswp-width={portraitImages[3].width}
+            data-pswp-height={portraitImages[3].height}
+            data-pswp-id={portraitImages[3].src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(portraitImages[3].src)}
+              alt={portraitImages[3].alt}
+              width={portraitImages[3].width}
+              height={portraitImages[3].height}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -273,4 +297,41 @@ const schema = JSON.stringify([localBusiness, faqSchema]);
   />
 
 </BaseLayout>
+
+<style>
+.pswp-thumb { display: block; }
+</style>
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: document.body,
+    children: 'a[data-pswp-width]',
+    pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.min.js'),
+    history: false,
+  });
+
+  lightbox.on('afterInit', () => {
+    const pswp = lightbox.pswp;
+    const setHash = () => {
+      const id = pswp.currSlide?.data.element?.dataset.pswpId;
+      if (id) history.replaceState(null, '', `#${id}`);
+    };
+    pswp.on('change', setHash);
+    setHash();
+    pswp.on('destroy', () => {
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+
+  lightbox.init();
+
+  const hash = location.hash.slice(1);
+  if (hash) {
+    const links = Array.from(document.querySelectorAll('a[data-pswp-width]'));
+    const index = links.findIndex(a => a.dataset.pswpId === hash);
+    if (index !== -1) lightbox.loadAndOpen(index);
+  }
+</script>
 
