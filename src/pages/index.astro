@@ -81,19 +81,23 @@ const localBusinessSchema = JSON.stringify({
     </div>
     <figure class="hero-image">
       <div class="hero-img-clip">
-        <img
-          src={asset(heroImage.src)}
-          alt={heroImage.alt}
-          width={heroImage.width}
-          height={heroImage.height}
-          loading="eager"
-          fetchpriority="high"
-          class="lightbox-trigger"
-          data-src={asset(heroImage.src)}
-          data-alt={heroImage.alt}
-          data-id={heroImage.src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
-          style="cursor: pointer;"
-        />
+        <a
+          href={asset(heroImage.src)}
+          data-pswp-width={heroImage.width}
+          data-pswp-height={heroImage.height}
+          data-pswp-id={heroImage.src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+          class="hero-pswp-link"
+          aria-label={heroImage.alt}
+        >
+          <img
+            src={asset(heroImage.src)}
+            alt={heroImage.alt}
+            width={heroImage.width}
+            height={heroImage.height}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </a>
       </div>
       <figcaption><a href="/portfolio/">See more portraits</a>.</figcaption>
     </figure>
@@ -109,17 +113,21 @@ const localBusinessSchema = JSON.stringify({
     <div class="strip-masonry">
       {stripImages.map((img) => (
         <div class="strip-masonry-item">
-          <img
-            src={asset(img.src)}
-            alt={img.alt}
-            width={img.width}
-            height={img.height}
-            loading="lazy"
-            class="lightbox-trigger"
-            data-src={asset(img.src)}
-            data-alt={img.alt}
-            data-id={img.src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
-          />
+          <a
+            href={asset(img.src)}
+            data-pswp-width={img.width}
+            data-pswp-height={img.height}
+            data-pswp-id={img.src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(img.src)}
+              alt={img.alt}
+              width={img.width}
+              height={img.height}
+              loading="lazy"
+            />
+          </a>
         </div>
       ))}
     </div>
@@ -181,16 +189,21 @@ const localBusinessSchema = JSON.stringify({
       <div class="gallery-track" id="gallery-track">
         {galleryImages.map(img => (
           <div class="gallery-slide">
-            <img
-              src={asset(img.src)}
-              alt={img.alt}
-              width={img.width}
-              height={img.height}
-              loading="lazy"
-              class="lightbox-trigger"
-              data-src={asset(img.src)}
-              data-alt={img.alt}
-            />
+            <a
+              href={asset(img.src)}
+              data-pswp-width={img.width}
+              data-pswp-height={img.height}
+              data-pswp-id={img.src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+              class="pswp-thumb"
+            >
+              <img
+                src={asset(img.src)}
+                alt={img.alt}
+                width={img.width}
+                height={img.height}
+                loading="lazy"
+              />
+            </a>
           </div>
         ))}
       </div>
@@ -282,74 +295,56 @@ const localBusinessSchema = JSON.stringify({
 </BaseLayout>
 
 
-{/* ══ LIGHTBOX ══════════════════════════════════════════════════════
-    Vanilla JS — no dependencies. Triggered by .lightbox-trigger imgs.
+{/* ══ PHOTOSWIPE + CAROUSEL ════════════════════════════════════════
+    PhotoSwipe handles the lightbox. All <a data-pswp-width> links on
+    the page are treated as one gallery — hero, strip, and carousel
+    are all navigable together.
+    Deep linking: custom hash management keeps clean URLs (#slug).
 ══════════════════════════════════════════════════════════════════ */}
-<div id="lightbox" aria-modal="true" role="dialog" aria-label="Image lightbox">
-  <button id="lightbox-close" aria-label="Close">&times;</button>
-  <button id="lightbox-prev" aria-label="Previous">&#8592;</button>
-  <button id="lightbox-next" aria-label="Next">&#8594;</button>
-  <div id="lightbox-img-wrap">
-    <img id="lightbox-img" src="" alt="" />
-  </div>
-</div>
+<script type="module">
+  import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
 
-<script>
-  const lightbox = document.getElementById('lightbox')!;
-  const lbImg    = document.getElementById('lightbox-img') as HTMLImageElement;
-  const lbClose  = document.getElementById('lightbox-close')!;
-  const lbPrev   = document.getElementById('lightbox-prev')!;
-  const lbNext   = document.getElementById('lightbox-next')!;
-
-  const triggers = Array.from(document.querySelectorAll<HTMLImageElement>('.lightbox-trigger'));
-  let current = 0;
-
-  function open(index: number, pushHistory = true) {
-    current = index;
-    const img = triggers[current];
-    lbImg.src = img.dataset.src || img.src;
-    lbImg.alt = img.dataset.alt || img.alt;
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    const id = img.dataset.id;
-    if (id && pushHistory) history.replaceState(null, '', `#${id}`);
-  }
-
-  function close() {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-    history.replaceState(null, '', window.location.pathname + window.location.search);
-  }
-
-  function prev() { open((current - 1 + triggers.length) % triggers.length); }
-  function next() { open((current + 1) % triggers.length); }
-
-  triggers.forEach((img, i) => img.addEventListener('click', () => open(i)));
-  lbClose.addEventListener('click', close);
-  lbPrev.addEventListener('click', prev);
-  lbNext.addEventListener('click', next);
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') close();
-    if (e.key === 'ArrowLeft') prev();
-    if (e.key === 'ArrowRight') next();
+  // ── PhotoSwipe ────────────────────────────────────────────────────
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: document.body,
+    children: 'a[data-pswp-width]',
+    pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.min.js'),
+    history: false, // we manage hash ourselves for clean URLs
   });
 
+  // Custom hash: update on open/change, clear on close
+  lightbox.on('afterInit', () => {
+    const pswp = lightbox.pswp;
+
+    const setHash = () => {
+      const id = pswp.currSlide?.data.element?.dataset.pswpId;
+      if (id) history.replaceState(null, '', `#${id}`);
+    };
+
+    pswp.on('change', setHash);
+    setHash();
+
+    pswp.on('destroy', () => {
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+
+  lightbox.init();
+
   // Open directly to a linked image on page load
-  const hash = window.location.hash.slice(1);
+  const hash = location.hash.slice(1);
   if (hash) {
-    const index = triggers.findIndex(img => img.dataset.id === hash);
-    if (index !== -1) open(index, false);
+    const links = Array.from(document.querySelectorAll('a[data-pswp-width]'));
+    const index = links.findIndex(a => a.dataset.pswpId === hash);
+    if (index !== -1) lightbox.loadAndOpen(index);
   }
 
   // ── Gallery carousel arrows ────────────────────────────────────────
-  const track    = document.getElementById('gallery-track') as HTMLElement;
-  const btnPrev  = document.querySelector<HTMLButtonElement>('.gallery-arrow-prev')!;
-  const btnNext  = document.querySelector<HTMLButtonElement>('.gallery-arrow-next')!;
+  const track   = document.getElementById('gallery-track');
+  const btnPrev = document.querySelector('.gallery-arrow-prev');
+  const btnNext = document.querySelector('.gallery-arrow-next');
 
-  function scrollBy(dir: 1 | -1) {
-    // Scroll by ~80% of the visible track width so you always see a sliver of context
+  function scrollBy(dir) {
     track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: 'smooth' });
   }
 
@@ -361,7 +356,7 @@ const localBusinessSchema = JSON.stringify({
   btnPrev.addEventListener('click', () => scrollBy(-1));
   btnNext.addEventListener('click', () => scrollBy(1));
   track.addEventListener('scroll', updateArrows, { passive: true });
-  updateArrows(); // set initial state
+  updateArrows();
 </script>
 
 
@@ -461,7 +456,6 @@ const localBusinessSchema = JSON.stringify({
     width: auto;
     max-width: none;  /* override global img { max-width: 100% } */
     display: block;
-    cursor: pointer;
     transition: opacity 0.2s ease;
   }
   .gallery-slide img:hover { opacity: 0.9; }
@@ -491,59 +485,14 @@ const localBusinessSchema = JSON.stringify({
   .gallery-arrow-next { right: var(--space-2); }
   .gallery-arrow[disabled] { opacity: 0.25; pointer-events: none; }
 
-  /* ── Lightbox ────────────────────────────────────────────────────── */
-  #lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.92);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
+  /* ── PhotoSwipe thumb links — display:block so they fill their container */
+  .pswp-thumb { display: block; }
+  .hero-pswp-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
   }
-  #lightbox.open { display: flex; }
-  #lightbox-img-wrap {
-    max-width: 90vw;
-    max-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #lightbox-img {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: var(--radius);
-  }
-  #lightbox-close {
-    position: fixed;
-    top: var(--space-4);
-    right: var(--space-5);
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2.5rem;
-    cursor: pointer;
-    line-height: 1;
-    opacity: 0.8;
-  }
-  #lightbox-close:hover { opacity: 1; }
-  #lightbox-prev,
-  #lightbox-next {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: var(--space-4);
-    opacity: 0.7;
-  }
-  #lightbox-prev:hover, #lightbox-next:hover { opacity: 1; }
-  #lightbox-prev { left: var(--space-4); }
-  #lightbox-next { right: var(--space-4); }
 
   /* ── Bespoke pricing card ────────────────────────────────────────── */
   .bespoke-card {
