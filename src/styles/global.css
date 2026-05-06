@@ -37,7 +37,7 @@
   --color-surface-strong: #E8E8E8;
 
   /* Typography */
-  --font-sans: "Gill Sans", "Gill Sans MT", "Century Gothic", Calibri, sans-serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
   --font-serif: Lora, Georgia, "Times New Roman", serif;
 
   /* Type scale */

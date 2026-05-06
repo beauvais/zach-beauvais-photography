@@ -1,0 +1,528 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/sections/CTABand.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import { asset, route } from '../lib/paths';
+import { portraitImages, pricing, site } from '../content/data';
+
+// Hero image
+const heroImage = portraitImages[0];
+
+// Photo strip — masonry columns, natural aspect ratios.
+// Interleaved portrait+landscape so each column gets one of each,
+// keeping column heights roughly equal (no stair-step at the bottom).
+// Col 1: [0],[1]  Col 2: [2],[3]  Col 3: [4],[5]
+const stripImages = [
+  portraitImages[9],  // woman-chair-studio          — portrait  (col 1 top)
+  portraitImages[14], // woman-curly-window           — landscape (col 1 bottom)
+  portraitImages[4],  // woman-leaning-window-smiling — portrait  (col 2 top)
+  portraitImages[12], // woman-window-bw-2            — landscape (col 2 bottom)
+  portraitImages[1],  // man-daisy-cap-looking-away   — portrait  (col 3 top)
+  portraitImages[13], // man-blue-jacket              — landscape (col 3 bottom)
+];
+
+// Gallery: 9 portraits — excludes hero [0] and all strip images [1,9,10,12,13,14]
+const galleryImages = [
+  portraitImages[2],  // woman-industrial-window-monochrome
+  portraitImages[3],  // woman-soft-window-light
+  portraitImages[10], // two-people-studio-monochrome
+  portraitImages[5],  // man-athletic-stone-floor
+  portraitImages[6],  // man-athletic-jacket-industrial
+  portraitImages[7],  // man-window-laughing-monochrome
+  portraitImages[8],  // person-winter-snow
+  portraitImages[11], // woman-purple-hair-rough-wall
+  portraitImages[15], // two-women-floor-laughing
+];
+
+const localBusinessSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Zach Beauvais Photography",
+  "description": site.defaultDescription,
+  "url": "https://zachbeauvais.com",
+  "email": site.email,
+  "image": "https://zachbeauvais.com/portrait/Woman-monochrome-intense-kind.jpg",
+  "areaServed": [
+    { "@type": "City", "name": "Lafayette", "containedInPlace": { "@type": "State", "name": "Indiana" } },
+    { "@type": "City", "name": "West Lafayette", "containedInPlace": { "@type": "State", "name": "Indiana" } },
+    { "@type": "City", "name": "Urbana-Champaign", "containedInPlace": { "@type": "State", "name": "Illinois" } },
+    { "@type": "City", "name": "Indianapolis", "containedInPlace": { "@type": "State", "name": "Indiana" } },
+    { "@type": "City", "name": "Chicago", "containedInPlace": { "@type": "State", "name": "Illinois" } }
+  ],
+  "priceRange": "$350–$750",
+  "sameAs": [site.instagramUrl]
+});
+---
+
+<BaseLayout
+  title="Home"
+  description="Portrait photography in Lafayette, IN and Urbana-Champaign, IL. Collaborative sessions shaped by nature, street, and abstract photography. Editing included. From $350."
+  schema={localBusinessSchema}
+>
+
+  {/* ══ HERO ══════════════════════════════════════════════════════════ */}
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">Lafayette, IN · Urbana-Champaign, IL</span>
+      <h1 class="hero-title">
+        Portrait photography<br />
+        <em>made with you, not for you.</em>
+      </h1>
+      <p class="hero-lead">
+        I work with you to make something genuinely yours. My portrait photography
+        is informed by nature, street, and abstract photography — it's more about creating
+        than recording. Personality over presentation.
+      </p>
+      <p class="hero-location">Lafayette, IN · Urbana-Champaign, IL · Sessions from $350.</p>
+      <div class="btn-row">
+        <a href={route('sessions/')} class="btn btn-primary btn-lg">See sessions</a>
+        <a href={route('portfolio/')} class="btn btn-outline btn-lg">See some work</a>
+      </div>
+    </div>
+    <figure class="hero-image">
+      <div class="hero-img-clip">
+        <a
+          href={asset(heroImage.src)}
+          data-pswp-width={heroImage.width}
+          data-pswp-height={heroImage.height}
+          data-pswp-id={heroImage.src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+          class="hero-pswp-link"
+          aria-label={heroImage.alt}
+        >
+          <img
+            src={asset(heroImage.src)}
+            alt={heroImage.alt}
+            width={heroImage.width}
+            height={heroImage.height}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </a>
+      </div>
+      <figcaption><a href="/portfolio/">See more portraits</a>.</figcaption>
+    </figure>
+  </section>
+
+
+  {/* ══ PHOTO STRIP ═══════════════════════════════════════════════════
+      Masonry columns — natural aspect ratios, no cropping.
+      Interleaved portrait+landscape for even column heights.
+      3 columns desktop, 2 mobile.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="photo-strip-section">
+    <div class="strip-masonry">
+      {stripImages.map((img) => (
+        <div class="strip-masonry-item">
+          <a
+            href={asset(img.src)}
+            data-pswp-width={img.width}
+            data-pswp-height={img.height}
+            data-pswp-id={img.src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+            class="pswp-thumb"
+          >
+            <img
+              src={asset(img.src)}
+              alt={img.alt}
+              width={img.width}
+              height={img.height}
+              loading="lazy"
+            />
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  {/* ══ APPROACH ══════════════════════════════════════════════════════ */}
+  <section class="section bg-soft" style="padding-top: var(--space-6);">
+    <div class="container">
+      <div class="approach-split">
+        <div class="stack">
+          <span class="eyebrow">How I work</span>
+          <h2>Collaboration over direction</h2>
+          <p>
+            Traditional portrait sessions are directed. You're told where to stand,
+            how to angle your chin, when to smile. And?
+          </p>
+          <p class="approach-punch">The results look like portrait sessions.</p>
+          <p>
+            I come from nature, street, and abstract photography — work built through
+            patience and attention rather than control. In a session, we're co-creating;
+            I'm not directing. We talk before the camera comes out. We find a
+            location that means something. We're making art shaped by your personality,
+            not shaping your image to match a portrait ideal.
+          </p>
+          <p>
+            I also bring twenty years in marketing and brand content strategy — so when
+            a portrait needs to do a job, I think about what it needs to say, not just
+            whether it looks nice.
+          </p>
+          <a href={route('how-i-work/')} class="btn btn-outline" style="margin-top: var(--space-4);">More about my approach</a>
+        </div>
+        <figure class="approach-image">
+          <div class="approach-image-wrap">
+            <img src={asset('Zach_beauvais_snow.webp')} alt="Zach Beauvais — photographer" width="3825" height="4781" loading="lazy" />
+          </div>
+          <figcaption>Zach Beauvais, photographer</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ TESTIMONIALS ══════════════════════════════════════════════════
+      Edit quotes in src/components/sections/Testimonials.astro.
+  ══════════════════════════════════════════════════════════════════ */}
+  <Testimonials />
+
+
+  {/* ══ PORTRAIT GALLERY ══════════════════════════════════════════════
+      Horizontal scroll carousel — images at natural aspect ratios.
+      Swipeable on touch. Prev/next arrows for pointer users.
+      Click any image to open lightbox.
+      Change galleryImages slice above to show different portraits.
+  ══════════════════════════════════════════════════════════════════ */}
+  <section class="section gallery-section">
+    <div class="gallery-carousel-wrap">
+      <button class="gallery-arrow gallery-arrow-prev" aria-label="Previous photo">&#8592;</button>
+      <div class="gallery-track" id="gallery-track">
+        {galleryImages.map(img => (
+          <div class="gallery-slide">
+            <a
+              href={asset(img.src)}
+              data-pswp-width={img.width}
+              data-pswp-height={img.height}
+              data-pswp-id={img.src.split('/').pop()?.replace(/\.[^.]+$/, '').toLowerCase()}
+              class="pswp-thumb"
+            >
+              <img
+                src={asset(img.src)}
+                alt={img.alt}
+                width={img.width}
+                height={img.height}
+                loading="lazy"
+              />
+            </a>
+          </div>
+        ))}
+      </div>
+      <button class="gallery-arrow gallery-arrow-next" aria-label="Next photo">&#8594;</button>
+    </div>
+    <div class="container">
+      <div class="btn-row" style="margin-top: var(--space-6);">
+        <a href={route('portfolio/portraits/')} class="btn btn-outline">All portrait work</a>
+        <a href={route('portfolio/landscape/')} class="btn btn-ghost">Landscape &amp; abstract work</a>
+      </div>
+    </div>
+  </section>
+
+
+  {/* ══ PRICING ═══════════════════════════════════════════════════════ */}
+  <section class="section bg-soft" style="padding-top: var(--space-7);">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Sessions &amp; pricing</span>
+        <h2>Starting points. No surprises.</h2>
+        <p class="lead" style="margin-top: 1rem;">
+          Two formats work well for most briefs — editing and delivery always included.
+          Something different in mind? There's a bespoke option too.
+        </p>
+      </div>
+      <div class="grid-3" style="margin-top: var(--space-7);">
+        <div class="pricing-card">
+          <div>
+            <h6>{pricing.essential.name}</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-3);">
+              <span>$</span>{pricing.essential.price}
+            </div>
+          </div>
+          <ul class="pricing-features">
+            {pricing.essential.features.map(f => <li>{f}</li>)}
+          </ul>
+          <div class="pricing-footer">
+            <a href={route('contact/?session_type=essential')} class="btn btn-outline">Book this session</a>
+          </div>
+        </div>
+        <div class="pricing-card featured">
+          <div>
+            <h6>{pricing.extended.name}</h6>
+            <div class="pricing-amount" style="margin-top: var(--space-3);">
+              <span>$</span>{pricing.extended.price}
+            </div>
+          </div>
+          <ul class="pricing-features">
+            {pricing.extended.features.map(f => <li>{f}</li>)}
+          </ul>
+          <div class="pricing-footer">
+            <a href={route('contact/?session_type=exploration')} class="btn btn-primary">Book this session</a>
+          </div>
+        </div>
+        <div class="pricing-card bespoke-card">
+          <div>
+            <h6>Something more</h6>
+            <p class="bespoke-scope">Scoped to your brief</p>
+          </div>
+          <p class="bespoke-body">
+            Multiple locations, extended editing, ongoing brand work — if your brief
+            doesn't fit either format, get in touch and we'll figure out the right
+            scope together.
+          </p>
+          <div class="pricing-footer">
+            <a href={route('contact/?session_type=bespoke')} class="btn btn-outline">Tell me what you need</a>
+          </div>
+        </div>
+      </div>
+      <p class="muted" style="font-size: var(--text-sm); margin-top: var(--space-6);">
+        Available in {pricing.travel.indianapolis.label} (+${pricing.travel.indianapolis.fee}) and {pricing.travel.chicago.label} (+${pricing.travel.chicago.fee}).
+        <a href={route('sessions/')} style="color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px;">Full details →</a>
+      </p>
+    </div>
+  </section>
+
+
+  {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
+  <CTABand
+    eyebrow="Get in touch"
+    heading="Let's start a conversation"
+    body="Tell me what you're thinking — the ideas you have, what you want to explore, what you want to make. Then we can talk."
+    primaryHref={route('contact/')}
+    primaryLabel="Get in touch"
+    secondaryHref={route('sessions/')}
+    secondaryLabel="See sessions & pricing"
+  />
+
+</BaseLayout>
+
+
+{/* ══ PHOTOSWIPE + CAROUSEL ════════════════════════════════════════
+    PhotoSwipe handles the lightbox. All <a data-pswp-width> links on
+    the page are treated as one gallery — hero, strip, and carousel
+    are all navigable together.
+    Deep linking: custom hash management keeps clean URLs (#slug).
+══════════════════════════════════════════════════════════════════ */}
+<script type="module">
+  import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  // ── PhotoSwipe ────────────────────────────────────────────────────
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: document.body,
+    children: 'a[data-pswp-width]',
+    pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.min.js'),
+    history: false, // we manage hash ourselves for clean URLs
+  });
+
+  // Custom hash: update on open/change, clear on close
+  lightbox.on('afterInit', () => {
+    const pswp = lightbox.pswp;
+
+    const setHash = () => {
+      const id = pswp.currSlide?.data.element?.dataset.pswpId;
+      if (id) history.replaceState(null, '', `#${id}`);
+    };
+
+    pswp.on('change', setHash);
+    setHash();
+
+    pswp.on('destroy', () => {
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+
+  lightbox.init();
+
+  // Open directly to a linked image on page load
+  const hash = location.hash.slice(1);
+  if (hash) {
+    const links = Array.from(document.querySelectorAll('a[data-pswp-width]'));
+    const index = links.findIndex(a => a.dataset.pswpId === hash);
+    if (index !== -1) lightbox.loadAndOpen(index);
+  }
+
+  // ── Gallery carousel arrows ────────────────────────────────────────
+  const track   = document.getElementById('gallery-track');
+  const btnPrev = document.querySelector('.gallery-arrow-prev');
+  const btnNext = document.querySelector('.gallery-arrow-next');
+
+  function scrollBy(dir) {
+    track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: 'smooth' });
+  }
+
+  function updateArrows() {
+    btnPrev.disabled = track.scrollLeft <= 4;
+    btnNext.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+  }
+
+  btnPrev.addEventListener('click', () => scrollBy(-1));
+  btnNext.addEventListener('click', () => scrollBy(1));
+  track.addEventListener('scroll', updateArrows, { passive: true });
+  updateArrows();
+</script>
+
+
+<style>
+  /* ── Hero / strip join ───────────────────────────────────────────── */
+  .hero { margin-bottom: 0; }
+  .photo-strip-section { margin-top: var(--space-3); }
+
+  /* ── Hero ────────────────────────────────────────────────────────── */
+  .hero-image {
+    margin: 0;
+    overflow: visible; /* clip lives on .hero-img-clip; figcaption can escape */
+  }
+  .hero-img-clip {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .hero-img-clip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .hero-image figcaption {
+    position: absolute;
+    bottom: var(--space-4);
+    left: var(--space-4);
+    z-index: 2;
+    background: rgba(10, 10, 10, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: var(--text-xs, 0.75rem);
+    font-style: italic;
+    letter-spacing: 0.02em;
+  }
+  .hero-location {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  /* ── Approach split ──────────────────────────────────────────────── */
+  .approach-split {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+  .approach-image { margin: 0; }
+  .approach-image-wrap { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 5; }
+  .approach-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .approach-image figcaption {
+    font-size: var(--text-xs, 0.75rem);
+    color: var(--color-muted);
+    margin-top: var(--space-2);
+    font-style: italic;
+    letter-spacing: 0.01em;
+  }
+  .approach-punch {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  /* ── Gallery carousel ───────────────────────────────────────────── */
+  .gallery-section { padding-bottom: 0; }
+  .gallery-carousel-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .gallery-track {
+    display: flex;
+    gap: var(--space-3);
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 var(--space-5);
+    /* leave room for arrows */
+  }
+  .gallery-track::-webkit-scrollbar { display: none; }
+  .gallery-slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 0;
+  }
+  .gallery-slide img {
+    height: 480px;
+    width: auto;
+    max-width: none;  /* override global img { max-width: 100% } */
+    display: block;
+    transition: opacity 0.2s ease;
+  }
+  .gallery-slide img:hover { opacity: 0.9; }
+  .gallery-arrow {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--color-surface, #fff);
+    border: 1px solid var(--color-border, #e0e0e0);
+    border-radius: 50%;
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    transition: background 0.15s, opacity 0.15s;
+    opacity: 0.85;
+  }
+  .gallery-arrow:hover { opacity: 1; background: var(--color-bg, #f9f9f9); }
+  .gallery-arrow-prev { left: var(--space-2); }
+  .gallery-arrow-next { right: var(--space-2); }
+  .gallery-arrow[disabled] { opacity: 0.25; pointer-events: none; }
+
+  /* ── PhotoSwipe thumb links — display:block so they fill their container */
+  .pswp-thumb { display: block; }
+  .hero-pswp-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+  }
+
+  /* ── Bespoke pricing card ────────────────────────────────────────── */
+  .bespoke-card {
+    border-style: dashed;
+    background: transparent;
+  }
+  .bespoke-scope {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    font-style: italic;
+    margin-top: var(--space-2);
+    margin-bottom: 0;
+  }
+  .bespoke-body {
+    color: var(--color-muted);
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .photo-strip { gap: var(--space-1); }
+    .strip-col { gap: var(--space-1); }
+    .strip-col:last-child { display: none; }
+
+    .approach-split { grid-template-columns: 1fr; }
+    .approach-image-wrap { aspect-ratio: 16 / 9; }
+
+    .gallery-slide { height: 320px; }
+    .gallery-arrow { display: none; }
+  }
+</style>
