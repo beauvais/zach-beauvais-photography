@@ -113,9 +113,28 @@ export const landscapeImages = [
   { src: 'film/IMG_0990.webp',             alt: 'Film photograph — Abstract composite from Minolta 35mm',                   width: 1418, height: 2108 },
 ];
 
+export const brandAndLocationImages = [
+  { src: 'brand_and_location/cafe-interior-monochrome-tin-ceiling.webp',        alt: 'Brand & location — café interior, tin ceiling, atmospheric monochrome',              width: 4284, height: 5712 },
+  { src: 'brand_and_location/glass-facade-golden-hour-silhouettes.webp',        alt: 'Brand & location — people silhouetted behind glass facade in golden hour light',    width: 2131, height: 1421 },
+  { src: 'brand_and_location/campus-winter-fog-lamppost-figure.webp',           alt: 'Brand & location — campus in winter fog, lamp post, figure walking in mist',        width: 2560, height: 1707 },
+  { src: 'brand_and_location/coffee-mug-more-self-love-cafe-bokeh.webp',        alt: 'Brand & location — coffee mug reading "More Self Love", warm café bokeh',          width: 1707, height: 2560 },
+  { src: 'brand_and_location/man-branded-jacket-laughing-industrial.webp',      alt: 'Brand & location — man in branded jacket, laughing, industrial window',             width: 2560, height: 1703 },
+  { src: 'brand_and_location/cafe-interior-silhouette-mood-vibe.webp',          alt: 'Brand & location — café interior, figure silhouetted at window in snowfall',        width: 3024, height: 4032 },
+  { src: 'brand_and_location/combine-harvester-field-storm-clouds.webp',        alt: 'Brand & location — combine harvester in field under dramatic storm clouds',         width: 2560, height: 1120 },
+  { src: 'brand_and_location/sourdough-starter-mason-jar-close.webp',           alt: 'Brand & location — sourdough starter in mason jar, close detail, linen textile',   width: 2560, height: 1707 },
+  { src: 'brand_and_location/campus-puddle-reflection-fog-winter.webp',         alt: 'Brand & location — figure reflected in wet surface, foggy winter campus',          width: 1776, height: 1269 },
+  { src: 'brand_and_location/bridge-person-location-vibe.webp',                 alt: 'Brand & location — person at entrance of steel truss bridge, bare winter trees',   width: 1464, height: 2200 },
+  { src: 'brand_and_location/man-branded-jacket-smiling-dark-background.webp',  alt: 'Brand & location — man in branded jacket, smiling, dark background',               width: 2560, height: 1703 },
+  { src: 'brand_and_location/stars-metal-grid-monochrome-abstract.webp',        alt: 'Brand & location — decorative stars on metal grid, high contrast monochrome',      width: 2560, height: 1707 },
+  { src: 'brand_and_location/glass-steel-building-abstract-reflection.webp',    alt: 'Brand & location — glass and steel building, layered reflections, blue tones',     width: 1618, height: 2426 },
+  { src: 'brand_and_location/stone-building-roofline-monochrome-architecture.webp', alt: 'Brand & location — stone building roofline, architectural detail, overcast sky', width: 2160, height: 1440 },
+  { src: 'brand_and_location/staircase-monochrome-light-doorway.webp',          alt: 'Brand & location — dark staircase looking toward bright doorway, dramatic light',  width: 1493, height: 1867 },
+  { src: 'brand_and_location/chain-link-fence-construction-equipment.webp',     alt: 'Brand & location — chain-link fence, yellow construction equipment behind',        width: 2560, height: 1707 },
+];
+
 // The combined gallery (portraits first, then landscape).
 // Reorder or remove entries here to change what appears on /portfolio/
-export const allImages = [...portraitImages, ...landscapeImages];
+export const allImages = [...portraitImages, ...landscapeImages, ...brandAndLocationImages];
 
 
 // ─── Pricing ──────────────────────────────────────────────────────────────────
