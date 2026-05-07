@@ -9,7 +9,7 @@
 
 **Meta description:**
 ```
-Portrait sessions in Lafayette, IN from $350. Collaborative, edited, and delivered — two formats or something bespoke. No surprises.
+Portrait sessions in Lafayette, IN from $350. Collaborative, edited, and delivered — two formats or something bespoke.
 ```
 
 > **Note:** This description is generated dynamically but hardcoded for voice control. The previous version surfaced session names ("Essential Session or Exploration Session") which nobody searches for — the new version leads with location, price, and outcome.
@@ -135,9 +135,10 @@ Somewhere not listed? Get in touch.
 ```
 Here’s roughly how it goes: you email, we talk. We figure out a location
 that makes sense — somewhere you know, somewhere you’ve been meaning to go,
-or somewhere I suggest. I show up with one camera. We wander, I take maybe
-200 frames. You won’t get all of them. You’ll get the ones that work. A
-week or two later, they’re in your inbox — edited, ready to use, no asterisks.
+or somewhere I suggest. We’ll meet up and start making portraits. Out of all
+the frames I take on the day, I’ll select a gallery of images, and you can
+choose the ones you’ll keep. A week or two later, they’re in your inbox —
+edited, ready to use, no asterisks.
 ```
 
 **Left column:**
@@ -150,8 +151,9 @@ What do you want these portraits to do for you? That conversation shapes everyth
 
 **H5:** `Professional editing`
 ```
-Every delivered image is colour-graded, retouched, and ready to use —
-editing is included in the price.
+Every delivered image is developed for the project: colour and texture
+balanced, with retouching where it serves the image, and ready to use
+in print or on the web — editing is included in the price.
 ```
 
 **H5:** `Digital delivery`
@@ -258,8 +260,11 @@ Mention it when you get in touch and we'll plan from there.
 
 **Q: What if the weather doesn't cooperate for an outdoor session?**
 ```
-We'll reschedule at no additional cost. Weather happens — I'd rather get the
-session right than push through conditions that don't serve the work.
+First, we talk. Bad weather often means finding somewhere else — a covered
+space, an interior, somewhere the conditions actually work in our favour.
+If the session only makes sense outside and the weather won't cooperate,
+we'll reschedule at no additional cost. But that's the last resort, not
+the first move.
 ```
 
 **Q: I'm a researcher, academic, or faculty member — is this right for me?**
@@ -274,6 +279,15 @@ make something that actually looks like you work there on purpose.
 Yes. I work with small businesses on brand imagery — the kind that looks like you
 made it, not like you bought it from a template site. Tell me what you're building
 and we'll figure out the right approach.
+```
+
+**Q: Are there any costs beyond the session price?**
+```
+Editing, delivery, and my time are all included. Locations can sometimes add
+cost: some spaces charge for studio time, and certain parks or public spots
+require a permit. We'll find the right location before we start, including
+options for studio work and outdoor spaces. There's usually an option that
+doesn't cost anything extra. If there is a cost, I'll be upfront before you book.
 ```
 
 **Q: What if neither session is quite what I need?**

@@ -49,7 +49,7 @@ const faqSchema = JSON.stringify({
       "name": "What if the weather doesn't cooperate for an outdoor session?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We'll reschedule at no additional cost. Weather happens — I'd rather get the session right than push through conditions that don't serve the work."
+        "text": "First, we talk. Bad weather often means finding somewhere else — a covered space, an interior, somewhere the conditions actually work in our favour. If the session only makes sense outside and the weather won't cooperate, we'll reschedule at no additional cost. But that's the last resort, not the first move."
       }
     },
     {
@@ -70,6 +70,14 @@ const faqSchema = JSON.stringify({
     },
     {
       "@type": "Question",
+      "name": "Are there any costs beyond the session price?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Editing, delivery, and my time are all included. Locations can sometimes add cost: some spaces charge for studio time, and certain parks or public spots require a permit. We'll find the right location before we start, including options for studio work and outdoor spaces. There's usually an option that doesn't cost anything extra. If there is a cost, I'll be upfront before you book."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "What if neither session is quite what I need?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -82,7 +90,7 @@ const faqSchema = JSON.stringify({
 
 <BaseLayout
   title="Sessions &amp; Pricing"
-  description={`Portrait sessions in Lafayette, IN from $${pricing.essential.price}. Collaborative, edited, and delivered — two formats or something bespoke. No surprises.`}
+  description={`Portrait sessions in Lafayette, IN from $${pricing.essential.price}. Collaborative, edited, and delivered — two formats or something bespoke.`}
   schema={faqSchema}
 >
 
@@ -248,9 +256,10 @@ const faqSchema = JSON.stringify({
         <p class="lead" style="margin-top: var(--space-5); max-width: 64ch;">
           Here's roughly how it goes: you email, we talk. We figure out a location
           that makes sense — somewhere you know, somewhere you've been meaning to go,
-          or somewhere I suggest. I show up with one camera. We wander, I take maybe
-          200 frames. You won't get all of them. You'll get the ones that work. A
-          week or two later, they're in your inbox — edited, ready to use, no asterisks.
+          or somewhere I suggest. We'll meet up and start making portraits. Out of all
+          the frames I take on the day, I'll select a gallery of images, and you can
+          choose the ones you'll keep. A week or two later, they're in your inbox —
+          edited, ready to use, no asterisks.
         </p>
       </div>
       <div class="grid-2" style="margin-top: var(--space-7); align-items: start; gap: var(--space-10);">
@@ -265,8 +274,9 @@ const faqSchema = JSON.stringify({
           <div class="included-item">
             <h5>Professional editing</h5>
             <p class="muted" style="font-size: var(--text-sm);">
-              Every delivered image is colour-graded, retouched, and ready to use —
-              editing is included in the price.
+              Every delivered image is developed for the project: colour and texture
+              balanced, with retouching where it serves the image, and ready to use
+              in print or on the web — editing is included in the price.
             </p>
           </div>
           <div class="included-item">
@@ -412,8 +422,11 @@ const faqSchema = JSON.stringify({
         <details class="faq-item">
           <summary>What if the weather doesn't cooperate for an outdoor session?</summary>
           <p>
-            We'll reschedule at no additional cost. Weather happens — I'd rather get the
-            session right than push through conditions that don't serve the work.
+            First, we talk. Bad weather often means finding somewhere else — a covered
+            space, an interior, somewhere the conditions actually work in our favour.
+            If the session only makes sense outside and the weather won't cooperate,
+            we'll reschedule at no additional cost. But that's the last resort, not
+            the first move.
           </p>
         </details>
         <details class="faq-item">
@@ -430,6 +443,16 @@ const faqSchema = JSON.stringify({
             Yes. I work with small businesses on brand imagery — the kind that looks like you
             made it, not like you bought it from a template site. Tell me what you're building
             and we'll figure out the right approach.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>Are there any costs beyond the session price?</summary>
+          <p>
+            Editing, delivery, and my time are all included. Locations can sometimes add
+            cost: some spaces charge for studio time, and certain parks or public spots
+            require a permit. We'll find the right location before we start, including
+            options for studio work and outdoor spaces. There's usually an option that
+            doesn't cost anything extra. If there is a cost, I'll be upfront before you book.
           </p>
         </details>
         <details class="faq-item">
