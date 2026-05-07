@@ -20,11 +20,7 @@ const nav = [
 <header class="site-header">
   <div class="header-inner container">
     <a href={route('/')} class="logo" aria-label="Zach Beauvais Photography — home">
-      <span class="logo-monogram">ZB</span>
-      <span class="logo-text">
-        <span class="logo-name">Zach Beauvais</span>
-        <span class="logo-sub">Photography</span>
-      </span>
+      <img src="/logo.svg" alt="Zach Beauvais Photography" class="logo-svg" width="220" height="33" />
     </a>
 
     <nav class="nav" aria-label="Main navigation">
@@ -77,47 +73,14 @@ const nav = [
   .logo {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
     text-decoration: none;
     flex-shrink: 0;
   }
 
-  .logo-monogram {
-    width: 2.25rem;
-    height: 2.25rem;
-    background: var(--color-primary);
-    color: var(--color-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-sm);
-    flex-shrink: 0;
-  }
-
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-  }
-
-  .logo-name {
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    color: var(--color-primary);
-    letter-spacing: 0.02em;
-  }
-
-  .logo-sub {
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    color: var(--color-muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .logo-svg {
+    height: 2rem;
+    width: auto;
+    display: block;
   }
 
   .nav {

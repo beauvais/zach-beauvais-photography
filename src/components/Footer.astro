@@ -7,7 +7,7 @@ const year = new Date().getFullYear();
   <div class="footer-inner container">
     <div class="footer-brand">
       <a href={route('/')} class="footer-logo" aria-label="Zach Beauvais Photography">
-        <span class="footer-monogram">ZB</span>
+        <img src="/mark.svg" alt="Zach Beauvais Photography" class="footer-logo-svg" width="48" height="37" />
       </a>
       <p class="footer-tagline">
         Collaborative portrait photography<br />
@@ -104,19 +104,10 @@ const year = new Date().getFullYear();
     text-decoration: none;
   }
 
-  .footer-monogram {
-    width: 3rem;
-    height: 3rem;
-    background: var(--color-primary);
-    color: var(--color-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-sm);
+  .footer-logo-svg {
+    height: 2.25rem;
+    width: auto;
+    display: block;
   }
 
   .footer-tagline {
