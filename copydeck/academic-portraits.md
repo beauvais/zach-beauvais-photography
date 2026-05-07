@@ -123,7 +123,7 @@ more time to settle in.
 Editing and delivery are always included.
 
 Travel is included within 30 miles of Lafayette, Indiana or
-Urbana-Champaign, Illinois. Indianapolis adds $100. Chicago adds $200.
+Urbana-Champaign, Illinois. Indianapolis adds $100. Chicago adds $250.
 ```
 
 > **Notes:** H2 is a small joke — earns goodwill without being forced. Standard travel pricing, mirrors the rest of the site. The professional-use licence is not mentioned here — faculty pages and research profiles don't require it, and it would land as an unexpected cost for an audience that won't pay it. If someone asks, it exists; it doesn't belong in the pitch.

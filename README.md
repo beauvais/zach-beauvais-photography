@@ -187,7 +187,7 @@ export const pricing = {
   },
   travel: {
     indianapolis: { label: 'Indianapolis', fee: 100 },  // ← and these
-    chicago:      { label: 'Chicago',      fee: 200 },
+    chicago:      { label: 'Chicago',      fee: 250 },
   },
 };
 ```

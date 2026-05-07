@@ -60,7 +60,7 @@ Lafayette, IN · Urbana-Champaign, IL
 
 ```
 Available within 30 miles of Lafayette and Urbana-Champaign at standard rates.
-Indianapolis +$100 · Chicago +$200
+Indianapolis +$100 · Chicago +$250
 ```
 
 **Availability signal** (between "Based in" and "Good to know"):

@@ -90,7 +90,7 @@ I'm particularly interested in working with LGBTQIA+ organisations, BIPOC-led gr
 ```
 The branding session starts at $500. Before I pick up a camera, we'll spend proper time talking — I want to understand your mission, your audiences, and what you're actually trying to say. That conversation shapes everything that comes after.
 
-From there, we work out what the session needs to cover: studio time for merch and brand materials, on-location work at your event or in your space, portraits of specific people, or some combination. Travel is included within 30 miles of Lafayette, Indiana or Urbana-Champaign, Illinois — Indianapolis adds $100, Chicago adds $200.
+From there, we work out what the session needs to cover: studio time for merch and brand materials, on-location work at your event or in your space, portraits of specific people, or some combination. Travel is included within 30 miles of Lafayette, Indiana or Urbana-Champaign, Illinois — Indianapolis adds $100, Chicago adds $250.
 
 If you need brand and communications work alongside the photography — a style guide, voice and tone, web copy, donor communications — that's scoped separately. Get in touch and we'll talk through what makes sense.
 ```
@@ -106,7 +106,7 @@ If you need brand and communications work alongside the photography — a style 
 - Studio or on-location (or a mix of both)
 - Portraits, environmental, and merch/branding photography
 - High-resolution delivery, editing always included
-- Indianapolis: +$100 | Chicago: +$200
+- Indianapolis: +$100 | Chicago: +$250
 
 **CTA:** `Book a branding session`
 

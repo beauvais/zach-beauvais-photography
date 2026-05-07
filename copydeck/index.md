@@ -111,7 +111,7 @@ Something different in mind? There's a bespoke option too.
 
 **Travel note:**
 ```
-Available in Indianapolis (+$100) and Chicago (+$200).
+Available in Indianapolis (+$100) and Chicago (+$250).
 ```
 
 ---

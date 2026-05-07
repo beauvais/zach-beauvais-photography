@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/sections/CTABand.astro';
 import { asset, route } from '../lib/paths';
-import { portraitImages, landscapeImages } from '../content/data';
+import { portraitImages, landscapeImages, pricing } from '../content/data';
 
 const schema = JSON.stringify({
   "@context": "https://schema.org",
@@ -227,7 +227,7 @@ const schema = JSON.stringify({
             and brand materials, on-location work at your event or in your space, portraits
             of specific people, or some combination. Travel is included within 30 miles of
             Lafayette, Indiana or Urbana-Champaign, Illinois — Indianapolis adds $100,
-            Chicago adds $200.
+            Chicago adds ${pricing.travel.chicago.fee}.
           </p>
           <p>
             If you need brand and communications work alongside the photography — a style
@@ -249,7 +249,7 @@ const schema = JSON.stringify({
             <li>Portraits, environmental, and merch/branding photography</li>
             <li>High-resolution digital delivery</li>
             <li>Editing always included</li>
-            <li>Indianapolis: +$100 &nbsp;|&nbsp; Chicago: +$200</li>
+            <li>Indianapolis: +${pricing.travel.indianapolis.fee} &nbsp;|&nbsp; Chicago: +${pricing.travel.chicago.fee}</li>
           </ul>
           <div class="pricing-footer">
             <a href={route('contact/?session_type=bespoke')} class="btn btn-primary">

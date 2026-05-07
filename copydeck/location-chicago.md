@@ -9,7 +9,7 @@
 
 **Meta description:**
 ```
-Portrait photography in Chicago — $550 and up, travel included. Collaborative sessions
+Portrait photography in Chicago — $600 and up, travel included. Collaborative sessions
 for individuals, families, and small businesses. Based in the Midwest, working in Chicago.
 ```
 
@@ -78,7 +78,7 @@ more room.
 Prices below include the Chicago travel fee. No surprises at booking.
 ```
 
-### Essential Session — $550
+### Essential Session — $600
 
 One hour, one location, five edited portraits. Good for professional images, personal
 brand work, milestones, or a gift.
@@ -93,7 +93,7 @@ brand work, milestones, or a gift.
 
 ---
 
-### Exploration Session — $950
+### Exploration Session — $1,000
 
 Three hours, one location, twenty edited portraits. More time means the session
 can find what it needs to — good for couples, families, or anything that
