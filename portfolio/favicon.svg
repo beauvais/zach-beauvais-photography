@@ -1,4 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
-  <text x="16" y="22" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="0.5" fill="#fdfcfb">ZB</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 195 150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-228.68102,-624)">
+        <g transform="matrix(1.015761,0,0,1.000961,108.93077,-120.994363)">
+            <g transform="matrix(0.089795,0,0,0.092865,117.892102,725.056142)">
+                <g transform="matrix(1,0,0,1,-635,-340.185752)">
+                    <g transform="matrix(1.343408,0,0,1.343408,561.233456,423.417408)">
+                        <g transform="matrix(1.328873,0,0,1.562305,-1752.357333,-246.307562)">
+                            <path d="M1360,985.49L1360,443.476L1527.864,216.627L2348.712,216.627L1360,985.49Z" style="fill:rgb(26,26,26);fill-rule:nonzero;"/>
+                        </g>
+                    </g>
+                    <g transform="matrix(1.343408,0,0,1.343408,561.233456,423.417408)">
+                        <g transform="matrix(1.328873,0,0,1.522132,-1657.821645,-86.615451)">
+                            <path d="M1511.548,906.586L2372.002,906.586L2471,705.467L2471,117.431L1511.548,906.586Z" style="fill:rgb(255,119,38);fill-rule:nonzero;"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>
