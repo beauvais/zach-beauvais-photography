@@ -6,3 +6,4 @@ CLAUDE
 .env
 .env.local
 src/content/blog-archive/
+.claude/
